@@ -69,14 +69,19 @@
 /*<------------------ Inputs -------------------->*/
 
 .desktopInput {
+    composes: shadow;
+    padding: 0px 20px;
     width: 608px; 
     height: 44px; 
     border-radius: 20px;
+    border: none;
+    outline: none;
+    
 }
 
 .mobileInput {
+    composes: desktopInput;
     width: 280px; 
-    height: 44px; 
     border-radius: 24px;
 }
 
@@ -85,10 +90,11 @@
 .defaultButtonWhite {
     composes: whiteBackground;
     composes: blueColor;
+    composes: shadow;
     width: 248px; 
     height: 38px;
     padding: 8px 28px 8px 28px;
     border-radius: 40px; 
     gap: 10px;
-    border: 2px solid rgba(84, 173, 255, 1)
+    border: 2px solid rgba(84, 173, 255, 1);
 }
