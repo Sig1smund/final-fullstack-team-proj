@@ -1,0 +1,94 @@
+/*<------------------- Colors ------------------->*/
+
+.yellowColor {
+    color: rgba(255, 193, 7, 1);
+}
+
+.yellowBackground{
+    background-color: rgba(255, 193, 7, 1);
+}
+
+.whiteColor {
+    color: rgba(253, 247, 242, 1);
+}
+
+.whiteBackground {
+    background-color: rgba(253, 247, 242, 1);
+}
+
+.blackColor {
+    color: rgba(17, 17, 17, 1);
+}
+
+.blueColor {
+    color: rgba(84, 173, 255, 1);
+}
+
+.blueBackground {
+    background-color: rgba(84, 173, 255, 1);
+}
+
+.hoverColor {
+    background: linear-gradient(290.46deg, #419EF1 0%, #9BD0FF 107.89%);
+}
+
+.lightBlueColor {
+    color: rgba(204, 228, 251, 1);
+}
+
+.lightBlueBackground {
+    background-color:rgba(204, 228, 251, 1);
+}
+
+.greenColor {
+    color: rgba(0, 195, 173, 1);
+}
+
+.greenBackground {
+    background-color: rgba(0, 195, 173, 1);
+}
+
+.redColor {
+    color: rgba(244, 63, 94, 1);
+}
+
+.redBackground {
+    background-color: rgba(244, 63, 94, 1);
+}
+
+/*<---------------- Shadow Effects -------------------->*/
+
+.shadowHover {
+    box-shadow: 7px 13px 14px 0px rgba(116, 177, 232, 0.24);
+}
+
+.shadow {
+    box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
+}
+
+/*<------------------ Inputs -------------------->*/
+
+.desktopInput {
+    width: 608px; 
+    height: 44px; 
+    border-radius: 20px;
+}
+
+.mobileInput {
+    width: 280px; 
+    height: 44px; 
+    border-radius: 24px;
+}
+
+/*----------------------- Buttons --------------------*/
+
+.defaultButtonWhite {
+    composes: whiteBackground;
+    composes: blueColor;
+    width: 248px; 
+    height: 38px;
+    padding: 8px 28px 8px 28px;
+    border-radius: 40px; 
+    gap: 10px;
+    border: 2px solid rgba(84, 173, 255, 1)
+}
