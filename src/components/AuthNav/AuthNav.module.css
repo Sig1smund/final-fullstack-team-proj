@@ -40,8 +40,28 @@
   letter-spacing: 0.64px;
 }
 
+.link__reg:hover{
+  border-radius: 40px;
+background: var(--gr-blue, linear-gradient(315deg, #FFC107 0%, #e9d393 100%));
+color: #FEF9F9;
+
+}
+
+.link__log:hover{
+  border-radius: 40px;
+background: var(--gr-blue, linear-gradient(315deg, #FFC107 0%, #e9d393 100%));
+color: #FEF9F9;
+
+}
+
+
+
 .auth__container {
   display: flex;
   /* margin-left: 270px; */
   gap: 20px;
+}
+
+.paw{
+  fill: currentColor;
 }

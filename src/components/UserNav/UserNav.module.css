@@ -1,0 +1,26 @@
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  color: #ffc107;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.64px;
+  text-decoration: none;
+}
+
+.icon__user {
+  fill: currentColor;
+}
+
+.thumb{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}

@@ -1,0 +1,30 @@
+.btn {
+  display: flex;
+  padding: 8px 20px;
+  justify-content: center;
+  align-items: center;
+
+  gap: 8px;
+
+  border-radius: 40px;
+  background: #54adff;
+  border-width: 0;
+  color: #fef9f9;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.64px;
+}
+
+.logout {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.btn:hover {
+  border-radius: 40px;
+  background: var(--gr-blue, linear-gradient(315deg, #419ef1 0%, #9bd0ff 100%));
+  cursor: pointer;
+}
