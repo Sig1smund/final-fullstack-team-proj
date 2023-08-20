@@ -1,7 +1,8 @@
 .nav{
     display: flex;
     justify-content: space-between;
-    margin-left: 253px;
+    margin-left: 159px;
+    gap:40px;
 }
 
 .find{
