@@ -1,0 +1,42 @@
+
+.link__log{
+    display: flex;
+width: 165px;
+padding: 8px 20px;
+justify-content: center;
+align-items: center;
+gap: 8px;
+text-decoration: none;
+
+font-family: Manrope;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 0.64px;
+
+border-radius: 40px;
+border: 2px solid var(--yellow, #FFC107);
+background: var(--yellow, #FFC107);
+color:  #FEF9F9;
+
+}
+
+.link__reg{
+display: inline-flex;
+padding: 8px 20px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 40px;
+border: 2px solid var(--yellow, #FFC107);
+
+
+color:  #FFC107;
+font-family: Manrope;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: 0.64px;
+}
