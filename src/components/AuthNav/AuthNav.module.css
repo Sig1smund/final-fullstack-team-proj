@@ -1,42 +1,47 @@
+.link__log {
+  display: flex;
+  width: 125px;
+  padding: 8px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
 
-.link__log{
-    display: flex;
-width: 165px;
-padding: 8px 20px;
-justify-content: center;
-align-items: center;
-gap: 8px;
-text-decoration: none;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.64px;
 
-font-family: Manrope;
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-letter-spacing: 0.64px;
-
-border-radius: 40px;
-border: 2px solid var(--yellow, #FFC107);
-background: var(--yellow, #FFC107);
-color:  #FEF9F9;
-
+  border-radius: 40px;
+  border: 2px solid var(--yellow, #ffc107);
+  background: var(--yellow, #ffc107);
+  color: #fef9f9;
 }
 
-.link__reg{
-display: inline-flex;
-padding: 8px 20px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-border-radius: 40px;
-border: 2px solid var(--yellow, #FFC107);
+.link__reg {
+  display: inline-flex;
+  padding: 8px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 
+  text-decoration: none;
+  border-radius: 40px;
+  border: 2px solid var(--yellow, #ffc107);
 
-color:  #FFC107;
-font-family: Manrope;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-letter-spacing: 0.64px;
+  color: #ffc107;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.64px;
+}
+
+.auth__container {
+  display: flex;
+  /* margin-left: 270px; */
+  gap: 20px;
 }
