@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/final-fullstack-team-proj/static/css/main.7acaea2f.css",
-    "main.js": "/final-fullstack-team-proj/static/js/main.d96e07b7.js",
+    "main.css": "/final-fullstack-team-proj/static/css/main.10e08794.css",
+    "main.js": "/final-fullstack-team-proj/static/js/main.0c4aeddf.js",
     "index.html": "/final-fullstack-team-proj/index.html",
-    "main.7acaea2f.css.map": "/final-fullstack-team-proj/static/css/main.7acaea2f.css.map",
-    "main.d96e07b7.js.map": "/final-fullstack-team-proj/static/js/main.d96e07b7.js.map"
+    "main.10e08794.css.map": "/final-fullstack-team-proj/static/css/main.10e08794.css.map",
+    "main.0c4aeddf.js.map": "/final-fullstack-team-proj/static/js/main.0c4aeddf.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.d96e07b7.js"
+    "static/css/main.10e08794.css",
+    "static/js/main.0c4aeddf.js"
   ]
 }
