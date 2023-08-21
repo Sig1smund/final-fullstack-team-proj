@@ -1,0 +1,232 @@
+/*<---------------- MEDIA RULES -------------------->*/
+
+/* 
+@media screen and (max-width: 767px) {}
+
+@media screen and (min-width: 768px) {}
+
+@media screen and (min-width: 1200px) {} 
+*/
+
+/*<---------------- Shadow Effects -------------------->*/
+
+.shadowHover {
+    box-shadow: 7px 13px 14px 0px rgba(116, 177, 232, 0.24);
+}
+
+.shadow {
+    box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
+}
+
+/*<------------------ INPUTS -------------------->*/
+/*<------------------ Desktop Inputs -------------------->*/
+
+.desktopInput {
+    composes: shadow;
+    padding: 0px 20px;
+    width: 608px; 
+    height: 44px; 
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    
+}
+
+/*<------------------ Mobile Inputs -------------------->*/
+
+.mobileInput {
+    composes: desktopInput;
+    width: 280px; 
+    border-radius: 24px;
+}
+/*<------------------ BUTTONS -------------------->*/
+/*----------------------- Desktop Buttons --------------------*/
+
+.desktopButtonWhite {
+    composes: shadow;
+    position: relative;
+    width: 248px; 
+    height: 38px;
+    padding: 8px 28px 8px 28px;
+    border-radius: 40px; 
+    gap: 10px;
+    border: 2px solid var(--blue-color);
+    color: var(--blue-color);
+    background-color: var(--white-color);
+}
+
+.desktopButtonBlue {
+    composes: desktopButtonWhite;
+    composes: shadow;
+    position: relative;
+    color: var(--white-color);
+    background-color: var(--blue-color);
+}
+
+.addPetButton {
+    composes: shadow;
+    position: relative;
+    width: 80px; 
+    height: 80px;
+    border-radius: 50%;
+    color: var(--white-color);
+    background-color: var(--blue-color);
+    border: 2px solid var(--blue-color);
+}
+
+.filterButton {
+    position: relative;
+    width: 129px; 
+    height: 40px; 
+    padding: 8px 20px 8px 20px; 
+    border-radius: 40px; 
+    border: 2px solid var(--blue-color);
+    color: var(--blue-color);
+    background-color: var(--white-color);
+}
+
+.additionalInfoButton {
+    position: relative;
+    width: 80px; 
+    height: 28px; 
+    padding: 2px 4px 2px 4px; 
+    border-radius: 16px;
+    background-color: var(--light-blue-color);
+    color: var(--black-color);
+    border: none;
+}
+
+.favoriteButton {
+    position: relative;
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--grey-color);}
+
+.lostAndFoundButton {
+    width: 107px; 
+    height: 35px; 
+    padding: 8px 16px 8px 16px;
+    border-radius: 40px;
+    border: none;
+    color: var(--blue-color);
+    background-color: var(--grey-color);
+}
+/*----------------------- Mobile Buttons --------------------*/
+
+.mobileBlueButton {
+    composes: shadow;
+    width: 165px; 
+    height: 40px; 
+    padding: 8px 20px 8px 20px; 
+    border-radius: 40px; 
+    gap: 8px;
+    border: 2px solid var(--blue-color);
+    color: var(--white-color);
+    background-color: var(--blue-color);
+}
+
+.mobileWhiteButton {
+    composes: mobileBlueButton;
+    background-color: var(--white-color);
+    color: var(--blue-color);
+}
+
+/*----------------------- CARDS --------------------*/
+/*----------------------- Desktop Cards --------------------*/
+
+.defaultDesktopPetCard {
+    composes: shadow;
+    position: relative;
+    width: 288px; 
+    height: 456px; 
+    border-radius: 0px 0px 40px 40px;
+    color: var(--black-color);
+    background-color: var(--milk-bckg-color);
+}
+
+.defaultDesktopNewsCard{
+    composes: shadow;
+    position: relative;
+    width: 395px; 
+    height: 534px; 
+    padding: 0px 0px 12px 0px; 
+    border-radius: 20px;
+    color: var(--black-color);
+    background-color: var(--milk-bckg-color);
+}
+
+/*----------------------- Tablet Cards --------------------*/
+
+.defaultTabletPetCard {
+    composes: shadow;
+    width: 336px;
+     height: 456px;
+      border-radius: 0px 0px 40px 40px;
+      background-color: var(--milk-bckg-color);
+      color: var(--black-color);
+}
+
+.defaultTabletNewsCard {
+    composes: shadow;
+    width: 336px; 
+    height: 556px; 
+    padding: 0px 0px 12px 0px; 
+    border-radius: 20px;
+    background-color: var(--milk-bckg-color);
+    color: var(--black-color);
+}
+
+/*----------------------- Mobile Cards --------------------*/
+
+.defaultMobilePetCard {
+    composes: shadow;
+    width: 280px; 
+    height: 456px;
+    border-radius: 0px 0px 40px 40px;
+    color: var(--black-color);
+}
+
+.defaultMobileNewsCard {
+    composes: shadow;
+    width: 280px; 
+    height: 578px; 
+    padding: 0px 0px 12px 0px; 
+    border-radius: 20px;
+    background-color: var(--milk-bckg-color);
+    color: var(--black-color);
+}
+
+
+/*----------------------- PAGINATION --------------------*/
+
+.paginationContainer{
+    composes: shadow;
+    width: 310px; 
+    height: 52px;
+    border: 1px solid var(--light-blue-color);
+    border-radius: 20px;
+}
+
+/*----------------------- LOGIN/REGISTER --------------------*/
+
+.desktopLogin {
+    width: 165px; 
+    height: 40px; 
+    padding: 8px 20px 8px 20px; 
+    border-radius: 40px;
+    border: 2px var(--yellow-color);
+    background-color: var(--yellow-color);
+    color: rgba(254, 249, 249, 1);
+}
+
+.desktopRegister {
+    width: 142px;
+    height: 38px;
+    padding: 8px 20px 8px 20px;
+    border-radius: 40px;
+    border: 2px var(--yellow-color);
+    color: var(--yellow-color);
+    background-color: var(--milk-bckg-color);
+}
