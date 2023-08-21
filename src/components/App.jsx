@@ -1,9 +1,9 @@
-import Header from "./Header/Header";
-
+import SharedLayout from "./SharedLayout/SharedLayout";
 export const App = () => {
   return (
     <div>
-      Hello programmers
+      <SharedLayout></SharedLayout>
+      {/* Hello programmers */}
     </div>
   );
 };
