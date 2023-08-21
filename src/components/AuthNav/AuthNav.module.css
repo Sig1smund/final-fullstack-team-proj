@@ -1,6 +1,7 @@
 .link__log {
   display: flex;
   width: 125px;
+   height: 22px;
   padding: 8px 20px;
   justify-content: center;
   align-items: center;
@@ -22,6 +23,8 @@
 
 .link__reg {
   display: inline-flex;
+  min-width: 102px;
+  height: 22px;
   padding: 8px 20px;
   justify-content: center;
   align-items: center;
@@ -57,9 +60,17 @@ color: #FEF9F9;
 
 
 .auth__container {
+   margin-left: 167px;
+ 
+  
   display: flex;
   /* margin-left: 270px; */
   gap: 20px;
+    @media screen and (min-width: 1280px) {
+       margin-left: 270px;
+  /* margin-left:167px;
+  margin-right: 24px; */
+  }
 }
 
 .paw{

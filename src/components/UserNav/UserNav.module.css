@@ -1,3 +1,15 @@
+.thumb{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-left: 329px;
+  
+    @media screen and (max-width: 1279px) {
+    margin-left: 399px;
+  }
+}
+
 .profile {
   display: flex;
   justify-content: center;
@@ -12,15 +24,10 @@
   line-height: normal;
   letter-spacing: 0.64px;
   text-decoration: none;
+
 }
 
 .icon__user {
   fill: currentColor;
 }
 
-.thumb{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-}

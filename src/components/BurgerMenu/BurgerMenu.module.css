@@ -1,46 +1,34 @@
-.header {
-  width: 100%;
-}
-
-.box {
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
- 
-}
-
-.logo_image {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .menu {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-size: 22px;
   line-height: 28px;
   gap: 30px;
+  @media (min-width: 767px) {
+    display: none;
+  }
 }
 
 .mobile_btn {
   display: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1279px) {
   .mobile_btn {
-    display: block;
-    position: absolute;
-    right: 10px;
-    top: 27px;
+    display: flex;
+
+    margin-left: 22px;
+
     cursor: pointer;
     z-index: 10;
+    color: var(--yellow-color);
   }
 
   .menu {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+justify-content: flex-start;
     position: fixed;
     left: -120%;
     right: 0;
@@ -48,16 +36,184 @@
     bottom: 0;
     width: 100%;
     height: 100vh;
-    background-color: #fef9f9;
+    background-color: #fdf7f2;
     z-index: 10;
     transition: left 0.5s;
+    
   }
 
   .active {
     left: 0;
   }
 
-  .menu a {
-    font-size: 28px;
+  .icon {
+    fill: var(--yellow-color);
+    color: var(--yellow-color);
   }
+}
+
+/* nav */
+
+.nav {
+  display: flex;
+
+  gap: 40px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 160px;
+}
+
+.find {
+  color: #111;
+  font-family: Manrope;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 1.92px;
+  text-decoration: none;
+}
+
+/* logo */
+
+.logo {
+    left: 32px;
+  position: absolute;
+  top: 32px;
+  display: flex;
+  height: 20px;
+  width: 116px;
+justify-content: flex-start;
+  @media screen and (min-width: 768px) {
+    height: 28px;
+    width: 162px;
+  }
+}
+
+
+/* Log out */
+.btn {
+  position: absolute;
+  top: 26px;
+  right:80px;
+  display: inline-flex;
+  padding: 8px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 40px;
+  background: #54adff;
+  border: none;
+  color: #fef9f9;
+
+
+
+
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.64px;
+   /* @media screen and (max-width: 1279px) {
+    display: none;
+  } */
+}
+
+.logout {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.btn:hover {
+  border-radius: 40px;
+  background: var(--gr-blue, linear-gradient(315deg, #419ef1 0%, #9bd0ff 100%));
+  cursor: pointer;
+}
+
+
+
+/* Auth */
+
+.link__log {
+  display: flex;
+  width: 125px;
+   height: 22px;
+  padding: 8px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.64px;
+
+  border-radius: 40px;
+  border: 2px solid var(--yellow, #ffc107);
+  background: var(--yellow, #ffc107);
+  color: #fef9f9;
+}
+
+.link__reg {
+  display: inline-flex;
+  min-width: 102px;
+  height: 22px;
+  padding: 8px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  text-decoration: none;
+  border-radius: 40px;
+  border: 2px solid var(--yellow, #ffc107);
+
+  color: #ffc107;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.64px;
+}
+
+.link__reg:hover{
+  border-radius: 40px;
+background: var(--gr-blue, linear-gradient(315deg, #FFC107 0%, #e9d393 100%));
+color: #FEF9F9;
+
+}
+
+.link__log:hover{
+  border-radius: 40px;
+background: var(--gr-blue, linear-gradient(315deg, #FFC107 0%, #e9d393 100%));
+color: #FEF9F9;
+
+}
+
+
+
+.auth__container {
+   /* margin-left: 167px; */
+ position: absolute;
+ top: 26px;
+  right:80px;
+  display: flex;
+  /* margin-left: 270px; */
+  gap: 20px;
+    @media screen and (min-width: 1280px) {
+       margin-left: 270px;
+  /* margin-left:167px;
+  margin-right: 24px; */
+  }
+}
+
+.paw{
+  fill: currentColor;
 }
