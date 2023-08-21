@@ -1,9 +1,10 @@
-import SharedLayout from "./SharedLayout/SharedLayout";
+import s from './app.module.css'
+
 export const App = () => {
   return (
-    <div>
-      <SharedLayout></SharedLayout>
-      {/* Hello programmers */}
+    <div className={s.container}>
+      <input type="text" className={s.input} />
+      <button type='button' className={s.button}>To your IT life</button>
     </div>
   );
 };
