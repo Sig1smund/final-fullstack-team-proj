@@ -1,0 +1,20 @@
+.petsList{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* display: flex;
+    flex-direction: column;
+    gap: 20px; */
+    
+}
+.imgNoPet{
+    border-radius: 50%;
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+}
+.noPetsWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

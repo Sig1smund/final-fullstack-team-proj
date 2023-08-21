@@ -1,0 +1,125 @@
+.userCard{
+    display: flex;
+    background:  var(--milk-bckg-color);
+    composes: shadow from '../../global.css';
+    width: 280px;
+    /* padding: 20px 8px 20px 8px; */
+    border-radius: 20px;
+    margin-bottom: 46px;
+    @media screen and (min-width: 768px) {
+        /* padding: 0; */
+        width: 704px;
+
+    }
+    @media screen and (min-width: 1200px) {
+        width: 395px;
+    } 
+}
+.form {
+    /* display: flex;
+    flex-direction: column; */
+    width:  100%;
+    padding: 20px 8px 24px 8px;
+    @media screen and (min-width: 768px) {
+        padding: 20px 76px 20px 20px;
+        
+    }
+    @media screen and (min-width: 1200px) {
+        padding: 20px 24px 19px 16px;
+        
+    } 
+    
+  }
+  .userInfoWrapper{
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        
+    }
+    @media screen and (min-width: 1200px) {
+        flex-direction: column;
+        gap: 63px;
+    } 
+  }
+  .avatarWrapper{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 59px;
+    position: relative;
+    @media screen and (min-width: 768px) {
+        margin-bottom: 0;
+        
+    }
+    
+}
+.avatar {
+    display: block;
+  width: 182px;
+  height: 182px;
+  border-radius: 40px;
+  object-fit: cover;
+  background-color: var(--blue-color);
+  
+}
+.userInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    @media screen and (min-width: 768px) {
+        width: 355px;
+        
+    }
+}
+.inputWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputTitle{
+    font-size: 14px;
+    margin: 0;
+    @media screen and (min-width: 768px) {
+       font-size: 18px;
+        
+    }
+    
+}
+.input{
+   
+  
+    width: 165px;
+    padding: 4px 12px 4px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--blue-color);
+    color: var(--black-color);
+    font-size: 12px;
+    @media screen and (min-width: 768px) {
+        width: 230px;
+         
+     }
+}
+.LogOutBtn{
+    margin-top: 25px;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(136, 136, 136, 1);
+    font-size: 16px;
+    &:hover{
+        cursor: grab;
+        color:  rgba(84, 173, 255, 1)
+    }
+    @media screen and (min-width: 768px) {
+        margin-top: 14px;
+        
+    }
+    
+}
+.iconLogOut{
+    fill: var(--blue-color);
+    width: 24px;
+    height: 24px;
+}

@@ -1,0 +1,43 @@
+.petsItemWrapper{
+    max-width: 280px;
+  margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 16px;
+  padding-bottom: 40px;
+  &:not(:last-child){
+    margin-bottom: 20px;
+}
+  @media screen and (min-width: 768px) {
+    max-width: 703px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    
+}
+}
+.petInfoWrapper{
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+.petsImg{
+  display: block;
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  object-fit: cover;
+ margin-bottom: 20px;
+ @media screen and (min-width: 768px) {
+  width: 128px;
+  height: 128px;
+  
+}
+}
+.petInfo{
+  margin: 0;
+  font-size: 14px;
+}
