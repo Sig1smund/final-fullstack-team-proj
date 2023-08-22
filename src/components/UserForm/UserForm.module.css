@@ -11,7 +11,7 @@
         width: 704px;
 
     }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1280px) {
         width: 395px;
     } 
 }
@@ -42,35 +42,7 @@
         gap: 63px;
     } 
   }
-  .avatarWrapper{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 59px;
-    position: relative;
-    @media screen and (min-width: 768px) {
-        margin-bottom: 0;
-        
-    }
-    
-}
-.avatar {
-    display: block;
-  width: 182px;
-  height: 182px;
-  border-radius: 40px;
-  object-fit: cover;
-  background-color: var(--blue-color);
   
-}
-.userInfo{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    @media screen and (min-width: 768px) {
-        width: 355px;
-        
-    }
-}
 .inputWrapper{
     display: flex;
     align-items: center;
@@ -100,6 +72,7 @@
      }
 }
 .LogOutBtn{
+    padding: 0;
     margin-top: 25px;
     border: none;
     background-color: transparent;
@@ -116,10 +89,105 @@
         margin-top: 14px;
         
     }
-    
+    &:hover{
+        transform: scale(1.03);
+    }
 }
 .iconLogOut{
     fill: var(--blue-color);
     width: 24px;
     height: 24px;
+}
+.userInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    @media screen and (min-width: 768px) {
+        width: 355px;
+       
+    }
+}
+.avatarWrapper{
+    display: flex;
+    justify-content: center;
+    /* margin-bottom: 59px; */
+    flex-direction: column;
+    align-items: center;
+}
+.avatar{
+    display: block;
+    width: 182px;
+    height: 182px;
+    border-radius: 40px;
+    background-color: #ebebeb;
+    object-fit: cover;
+}
+.photoWrapper{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.editPhotoContainer{
+    display: flex;
+
+    justify-content: center;
+  
+    margin-bottom: 25px;
+}
+.editBtnPhoto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    width: 120px;
+    height: 25px;
+  
+    border: none;
+    background-color: #fff;
+    padding: 0;
+  
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+}
+.iconWrapperCheck{
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+.iconWrapperCross{
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+.cameraIcon{
+    stroke: var(--blue-color);
+    width: 24px;
+    height: 24px;
+    fill: none;
+  }
+.btnEdit{
+    margin-top: 15px;
+    margin-bottom: 22px;
+    width: 94px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    border: none;
+    background-color: transparent;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+}
+.avatarWrapperRead{
+    
+    margin-bottom: 59px;
+    
+    display: flex;
+    justify-content: center;
+    /* margin-bottom: 59px; */
+    flex-direction: column;
+    align-items: center;
+
 }
