@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import css from './BurgerMenu.module.css';
 import logo from '../../images/logo.svg';
 import svg from '../../images/sprite.svg';
-// import AuthNav from 'components/AuthNav/AuthNav';
-// import Nav from 'components/Nav/Nav';
-import logout from '../../images/sprite.svg';
+
+// import logout from '../../images/sprite.svg';
 import { NavLink } from 'react-router-dom';
-// import pawprint from '../../images/sprite.svg';
+import pawprint from '../../images/sprite.svg';
+// import user_svg from '../../images/sprite.svg'; 
 
 const BurgerManu = () => {
   const [nav, setNav] = useState(false);
@@ -18,15 +18,24 @@ const BurgerManu = () => {
         </NavLink>
 
         {/* For UserNav    */}
-        <button className={css.btn} type="button">
+        {/* <button className={css.btn} type="button">
           Log out
           <svg className={css.logout} width="24" height="24">
             <use href={logout + '#logout'}></use>
           </svg>
         </button>
+
+        <div className={css.thumb_auth}>
+          <NavLink to="/user" className={css.profile}>
+            <svg className={css.icon__user} width="28" height="28">
+              <use href={user_svg + '#user-1'}></use>
+            </svg>
+            <span className={css.username}>Anna</span>
+          </NavLink>
+        </div> */}
         {/* For UserNav    */}
         {/* For AuthNav */}
-        {/* <div className={css.auth__container}>
+        <div className={css.auth__container}>
           <NavLink className={css.link__log} to="/login">
             Log In
             <svg className={css.paw} width={24} height={24}>
@@ -36,8 +45,9 @@ const BurgerManu = () => {
           <NavLink className={css.link__reg} to="/register">
             Registration
           </NavLink>
-        </div> */}
+        </div>
         {/* For AuthNav */}
+
         <nav className={css.nav}>
           <NavLink className={css.find} to="/news">
             News
@@ -61,7 +71,6 @@ const BurgerManu = () => {
           </svg>
         )}
       </div>
-      {/* </div> */}
     </>
   );
 };

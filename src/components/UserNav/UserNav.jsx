@@ -6,7 +6,7 @@ import user_svg from "../../images/sprite.svg"
 
 export default function UserNav() {
     return (
-      <div className={css.thumb}>
+      <div className={css.thumb_auth}>
         <Logout />
         <NavLink to="/user" className={css.profile}>
           <svg className={css.icon__user} width="28" height="28">

@@ -16,22 +16,21 @@
 
 @media (max-width: 1279px) {
   .mobile_btn {
-    display: flex;;
+    display: flex;
     margin-left: 22px;
 
     cursor: pointer;
     z-index: 10;
     color: var(--yellow-color);
-      @media screen and (max-width: 767px) {
-  
+    @media screen and (max-width: 767px) {
       margin-left: 8px;
-  } 
+    }
   }
 
   .menu {
     display: flex;
     flex-direction: column;
-justify-content: flex-start;
+    justify-content: flex-start;
     position: fixed;
     left: -120%;
     right: 0;
@@ -42,7 +41,6 @@ justify-content: flex-start;
     background-color: #fdf7f2;
     z-index: 10;
     transition: left 0.5s;
-    
   }
 
   .active {
@@ -66,6 +64,9 @@ justify-content: flex-start;
   justify-content: center;
   gap: 60px;
   margin-top: 160px;
+    @media screen and (max-width: 767px) {
+    margin-top: 210px;
+  }
 }
 
 .find {
@@ -77,30 +78,39 @@ justify-content: flex-start;
   line-height: normal;
   letter-spacing: 1.92px;
   text-decoration: none;
+  @media screen and (max-width: 767px) {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 1.28px;
+  }
 }
 
 /* logo */
 
 .logo {
-    left: 32px;
+  left: 32px;
   position: absolute;
   top: 32px;
   display: flex;
   height: 20px;
   width: 116px;
-justify-content: flex-start;
+  justify-content: flex-start;
   @media screen and (min-width: 768px) {
     height: 28px;
     width: 162px;
   }
+      @media screen and (max-width: 767px) {
+  left: 20px;
+  top: 22px;
+  } 
 }
-
 
 /* Log out */
 .btn {
   position: absolute;
   top: 26px;
-  right:80px;
+  right: 80px;
   display: inline-flex;
   padding: 8px 20px;
   justify-content: center;
@@ -111,20 +121,18 @@ justify-content: flex-start;
   border: none;
   color: #fef9f9;
 
-
-
-
   font-family: Manrope;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.64px;
-   /* @media screen and (max-width: 767px) {
-
-  top: 165px;
-  right:541px;
-  } */
+  @media screen and (max-width: 767px) {
+    bottom: 20px;
+    left: 20px;
+    top: auto;
+    right: auto;
+  }
 }
 
 .logout {
@@ -138,14 +146,12 @@ justify-content: flex-start;
   cursor: pointer;
 }
 
-
-
 /* Auth */
 
 .link__log {
   display: flex;
   width: 125px;
-   height: 22px;
+  height: 22px;
   padding: 8px 20px;
   justify-content: center;
   align-items: center;
@@ -187,37 +193,80 @@ justify-content: flex-start;
   letter-spacing: 0.64px;
 }
 
-.link__reg:hover{
+.link__reg:hover {
   border-radius: 40px;
-background: var(--gr-blue, linear-gradient(315deg, #FFC107 0%, #e9d393 100%));
-color: #FEF9F9;
-
+  background: var(--gr-blue, linear-gradient(315deg, #ffc107 0%, #e9d393 100%));
+  color: #fef9f9;
 }
 
-.link__log:hover{
+.link__log:hover {
   border-radius: 40px;
-background: var(--gr-blue, linear-gradient(315deg, #FFC107 0%, #e9d393 100%));
-color: #FEF9F9;
-
+  background: var(--gr-blue, linear-gradient(315deg, #ffc107 0%, #e9d393 100%));
+  color: #fef9f9;
 }
-
-
 
 .auth__container {
-   /* margin-left: 167px; */
- position: absolute;
- top: 26px;
-  right:80px;
+ 
+  position: absolute;
+  top: 26px;
+  right: 80px;
   display: flex;
-  /* margin-left: 270px; */
+
   gap: 20px;
-    @media screen and (min-width: 1280px) {
-       margin-left: 270px;
-  /* margin-left:167px;
-  margin-right: 24px; */
+  @media screen and (min-width: 1280px) {
+    margin-left: 270px;
   }
+     @media screen and (max-width: 767px) {
+  flex-direction: column;
+     position:absolute;
+   top: 82px;
+  right: auto;
+  } 
 }
 
-.paw{
+.paw {
+  fill: currentColor;
+}
+
+
+/* UserNav_mobile */
+.thumb_auth {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-left: auto;
+    @media screen and (max-width: 767px) {
+  gap: 0;
+  position: absolute;
+     display: flex;
+     margin-top: 82px;
+      margin-left: 0;
+  } 
+}
+
+.profile {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  padding: 8px 16px;
+
+  color: #ffc107;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.64px;
+  text-decoration: none;
+   @media screen and (max-width: 767px) {
+  
+     padding: 0 0;
+  } 
+}
+
+.icon__user {
   fill: currentColor;
 }
