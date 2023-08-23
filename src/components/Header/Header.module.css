@@ -1,4 +1,5 @@
 .header {
+/* composes:desktopContainer from "../../global.css"; */
   display:flex;
   position: fixed;
   align-items: center;
