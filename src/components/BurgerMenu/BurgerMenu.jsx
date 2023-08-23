@@ -4,9 +4,9 @@ import logo from '../../images/logo.svg';
 import svg from '../../images/sprite.svg';
 // import AuthNav from 'components/AuthNav/AuthNav';
 // import Nav from 'components/Nav/Nav';
-// import logout from '../../images/sprite.svg';
+import logout from '../../images/sprite.svg';
 import { NavLink } from 'react-router-dom';
-import pawprint from '../../images/sprite.svg';
+// import pawprint from '../../images/sprite.svg';
 
 const BurgerManu = () => {
   const [nav, setNav] = useState(false);
@@ -17,15 +17,16 @@ const BurgerManu = () => {
           <img className={css.logo} src={logo} alt="Logo" />
         </NavLink>
 
-     {/* For UserNav    */}
-        {/* <button className={css.btn} type="button">
+        {/* For UserNav    */}
+        <button className={css.btn} type="button">
           Log out
           <svg className={css.logout} width="24" height="24">
             <use href={logout + '#logout'}></use>
           </svg>
-        </button> */}
-{/* For AuthNav */}
-        <div className={css.auth__container}>
+        </button>
+        {/* For UserNav    */}
+        {/* For AuthNav */}
+        {/* <div className={css.auth__container}>
           <NavLink className={css.link__log} to="/login">
             Log In
             <svg className={css.paw} width={24} height={24}>
@@ -35,8 +36,8 @@ const BurgerManu = () => {
           <NavLink className={css.link__reg} to="/register">
             Registration
           </NavLink>
-        </div>
-
+        </div> */}
+        {/* For AuthNav */}
         <nav className={css.nav}>
           <NavLink className={css.find} to="/news">
             News
@@ -48,10 +49,6 @@ const BurgerManu = () => {
             Our friends
           </NavLink>
         </nav>
-
-        {/* <Logo /> */}
-
-        {/* <AuthNav /> */}
       </div>
       <div onClick={() => setNav(!nav)} className={css.mobile_btn}>
         {nav ? (

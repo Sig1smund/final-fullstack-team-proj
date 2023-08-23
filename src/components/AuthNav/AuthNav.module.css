@@ -60,16 +60,15 @@ color: #FEF9F9;
 
 
 .auth__container {
-   margin-left: 167px;
+   margin-left: auto;
  
   
   display: flex;
-  /* margin-left: 270px; */
+
   gap: 20px;
-    @media screen and (min-width: 1280px) {
-       margin-left: 270px;
-  /* margin-left:167px;
-  margin-right: 24px; */
+
+      @media screen and (max-width: 767px) {
+    display: none;
   }
 }
 

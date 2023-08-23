@@ -1,12 +1,10 @@
 .nav {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   margin-left: 159px;
   gap: 40px;
   text-align: center;
-    /* margin-left: auto; */
-  /* margin-right: auto; */
-  /* margin-right: 100px; */
+
   width: 328px;
   @media screen and (max-width: 1279px) {
     display: none;
