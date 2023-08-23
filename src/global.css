@@ -1,7 +1,7 @@
 /*<---------------- GENERAL CONTAINER -------------------->*/
 
 .desktopContainer {
-    width: 1280px;
+    min-width: 1280px;
     margin: 0 auto;
     padding: 16px 20px 16px 20px;
     background-color: var(--white-bckg-color);
@@ -15,7 +15,7 @@
 }
 
 .mobileContainer {
-    max-width: 766px;
+    max-width: 767px;
     margin: 0 auto;
     padding: 20px;
     background-color: var(--white-bckg-color);

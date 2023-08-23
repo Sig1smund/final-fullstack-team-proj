@@ -1,12 +1,26 @@
+.auth__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-left: auto;
+
+@media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+
 .link__log {
   display: flex;
-  width: 125px;
-   height: 22px;
+  /* width: 125px; */
+   height: 40px;
   padding: 8px 20px;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   gap: 8px;
   text-decoration: none;
+
 
   font-family: Manrope;
   font-size: 16px;
@@ -23,8 +37,8 @@
 
 .link__reg {
   display: inline-flex;
-  min-width: 102px;
-  height: 22px;
+  /* min-width: 102px; */
+  height: 40px;
   padding: 8px 20px;
   justify-content: center;
   align-items: center;
@@ -59,18 +73,7 @@ color: #FEF9F9;
 
 
 
-.auth__container {
-   margin-left: auto;
- 
-  
-  display: flex;
 
-  gap: 20px;
-
-      @media screen and (max-width: 767px) {
-    display: none;
-  }
-}
 
 .paw{
   fill: currentColor;
