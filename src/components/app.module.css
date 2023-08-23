@@ -1,3 +1,15 @@
 /* .button{
     composes: desktopButtonWhite from '../global.css'
 } */
+
+.input {
+    composes: desktopSearchInput from '../global.css';
+}
+
+.container{
+    composes: desktopContainer from '../global.css';
+}
+
+.button {
+    composes: desktopButtonWhite from '../global.css';
+}
