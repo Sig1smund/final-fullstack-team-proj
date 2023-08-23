@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef} from 'react';
 
 import css from './UserForm.module.css'
 import sprite from '../../images/sprite.svg'
@@ -8,15 +8,28 @@ import DeleteIcon from '../../images/x.svg'
 import Check from '../../images/check.svg'
 
 
-export default function UserForm({onSubmit, readonly}) {
-    const [avatar, setAvatar]=useState(false)
-const [name, setName]=useState("")
-const [email, setEmail]=useState("")
-const [birthday, setBirthday]=useState("")
-const [phone, setPhone]=useState("")
-const [city, setCity]=useState("")
-const [selectedFile, setSelectedFile] = useState(null);
-const [isEditingPhoto, setIsEditingPhoto] = useState(true);
+export default function UserForm({onSubmit, readonly, user, saveNewPhoto}) {
+    const [avatar, setAvatar]=useState()
+const [name, setName]=useState(user.name || "")
+const [email, setEmail]=useState(user.email||"")
+const [birthday, setBirthday]=useState(user.birthday||"")
+const [phone, setPhone]=useState(user.phone||"")
+const [city, setCity]=useState(user.city||"")
+// const [selectedFile, setSelectedFile] = useState(null);
+// const [isEditingPhoto, setIsEditingPhoto] = useState(true);
+
+useEffect(() => {
+  setAvatar(null);
+  setName(user.name);
+  setEmail(user.email);
+  setBirthday(user.birthDate);
+  setPhone(user.phone);
+  setCity(user.city);
+}, [user]);
+
+const inputPhotoRef = useRef();
+
+  const inputPhoneRef = useRef();
 
 const onChangeName = event => {
     setName(event.target.value);
@@ -33,9 +46,30 @@ const onChangeName = event => {
   const onChangeCity = event => {
     setCity(event.target.value);
   };
+  const onChangeFile = event => {
+    const file = event.target.files[0];
+    if (file.size > 1024 * 1024 * 3) {
+      alert("Wrong size")
+      return;
+    }
+    setAvatar(file);
+  };
+  const onLoadNewPhoto = () => {
+    inputPhotoRef.current.click();
+  };
+  const onConfirmNewAvatar = () => {
+    saveNewPhoto(avatar);
+  };
+  const onCancelNewAvatar = () => {
+    setAvatar(null);
+  };
  
+
   const handleSubmit =event=>{
     event.preventDefault();
+    if (phone.length < 13) {
+      inputPhoneRef.current.focus();
+    }
     const formData = {
         name,
         email,
@@ -67,6 +101,8 @@ const onChangeName = event => {
               type="file"
              
               value=""
+              ref={inputPhotoRef}
+              onChange={onChangeFile}
              
               style={{ display: 'none' }}
             />
@@ -75,7 +111,7 @@ const onChangeName = event => {
               <button
                 type="button"
                 className={css.btnConfirm}
-                
+                onClick={onConfirmNewAvatar}
               >
                 <img
                   src={Check}
@@ -87,7 +123,7 @@ const onChangeName = event => {
               <span>Confirm</span>
               <button
                 type="button"
-                
+                onClick={onCancelNewAvatar}
                 className={css.btnConfirm}
               >
                 <img
@@ -99,6 +135,7 @@ const onChangeName = event => {
             </div>):(<button
                   type="button"
                   className={css.btnEdit}
+                  onClick={onLoadNewPhoto}
                  
                 >
                    <svg width='24px' height='24px' className={css.iconCamera}>
@@ -178,8 +215,10 @@ const onChangeName = event => {
                 className={css.LogOutBtn}
                
               >
-                
-                
+                {/* <svg width='24px' height='24px' className={css.iconLogOut}>
+                <use xlinkHref='../../images/sprite.svg#logout'></use>
+                </svg>
+                 */}
                 <img src={LogOut} className={css.iconLogOut} alt="logout" />
                 Log Out
               </button>) : (<div className={css.saveBtnWrapper}><button className={css.saveBtn}>Save</button></div>)}

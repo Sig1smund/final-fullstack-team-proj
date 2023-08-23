@@ -40,4 +40,20 @@
 .petInfo{
   margin: 0;
   font-size: 14px;
+ 
+}
+.petInfoBtn{
+  margin: 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btnTrash{
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: transparent;
+  stroke: var(--blue-color);
+  fill: none;
 }

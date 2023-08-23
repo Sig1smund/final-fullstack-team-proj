@@ -64,3 +64,18 @@
     background: rgba(254, 249, 249, 1);
 
 }
+.petsListWrapper{
+    margin-top: 46px;
+    @media screen and (min-width: 768px) {
+        margin-top: 40px;
+        display: flex;
+        width: 100%;
+        /* align-items: flex-start; */
+        flex-direction: column;
+    }
+    @media screen and (min-width: 1280px) {
+        width: 821px;
+        align-items: flex-start;
+        margin-top: 0;
+    }
+  }
