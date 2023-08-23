@@ -33,16 +33,34 @@
     }
 }
 .iconEditButton{
+    width: 24px;
+    height: 24px;
     display: block;
     position: absolute;
     top: 60px;
     right: 14px;
     background: transparent;
     border: none;
+    padding: 0;
     &:hover {
         cursor: grab;
+    }
+    @media screen and (min-width: 1280px) {
+        top: 76px;
+        right: 18px;
     }
 }
 .iconEdit{
     fill: var(--blue-color);
+}
+/* .iconCancel{
+    fill: blue;
+} */
+.iconCross{
+    width: 24px;
+    height: 24px;
+}
+.bg{
+    background: rgba(254, 249, 249, 1);
+
 }

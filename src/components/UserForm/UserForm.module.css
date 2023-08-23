@@ -6,13 +6,16 @@
     /* padding: 20px 8px 20px 8px; */
     border-radius: 20px;
     margin-bottom: 46px;
+    height: 517px;
     @media screen and (min-width: 768px) {
         /* padding: 0; */
         width: 704px;
+        height: 268px;
 
     }
     @media screen and (min-width: 1280px) {
         width: 395px;
+        height: 520px;
     } 
 }
 .form {
@@ -37,9 +40,9 @@
         justify-content: space-between;
         
     }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1280px) {
         flex-direction: column;
-        gap: 63px;
+        /* gap: 63px; */
     } 
   }
   
@@ -83,7 +86,7 @@
     font-size: 16px;
     &:hover{
         cursor: grab;
-        color:  rgba(84, 173, 255, 1)
+        color: var(--blue-color);
     }
     @media screen and (min-width: 768px) {
         margin-top: 14px;
@@ -98,7 +101,7 @@
     width: 24px;
     height: 24px;
 }
-.userInfo{
+/* .userInfo{
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -106,20 +109,20 @@
         width: 355px;
        
     }
-}
+} */
 .avatarWrapper{
     display: flex;
     justify-content: center;
     /* margin-bottom: 59px; */
     flex-direction: column;
     align-items: center;
+   
 }
 .avatar{
     display: block;
     width: 182px;
     height: 182px;
     border-radius: 40px;
-    background-color: #ebebeb;
     object-fit: cover;
 }
 .photoWrapper{
@@ -134,22 +137,8 @@
   
     margin-bottom: 25px;
 }
-.editBtnPhoto{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    width: 120px;
-    height: 25px;
-  
-    border: none;
-    background-color: #fff;
-    padding: 0;
-  
-    cursor: pointer;
-    font-size: 12px;
-    letter-spacing: 0.04em;
-}
+
+
 .iconWrapperCheck{
     display: flex;
     align-items: center;
@@ -169,6 +158,8 @@
 .btnEdit{
     margin-top: 15px;
     margin-bottom: 22px;
+    margin-left: auto;
+    margin-right: auto;
     width: 94px;
     height: 24px;
     display: flex;
@@ -179,6 +170,10 @@
     align-items: center;
     gap: 8px;
     padding: 0;
+    @media screen and (min-width: 768px) {
+        margin: 0 auto 0;
+        
+    }
 }
 .avatarWrapperRead{
     
@@ -186,8 +181,132 @@
     
     display: flex;
     justify-content: center;
-    /* margin-bottom: 59px; */
+ 
     flex-direction: column;
     align-items: center;
 
 }
+.avatarReadonlyON{
+    margin: 0 auto 59px auto;
+    @media screen and (min-width: 768px) {
+        margin: 0;
+    }
+    
+  
+}
+
+
+.btnDual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 14px auto 21px;
+    gap: 8px;
+    font-size: 12px;
+    @media screen and (min-width: 768px) {
+        margin: 0 auto 0;
+        
+    }
+  }
+  .btnConfirm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.83;
+    border: 0;
+    background: transparent;
+   
+  }
+  .iconCheck {
+    
+    width: 24px;
+    height: 24px;
+    
+  }
+  .iconCross {
+    width: 24px;
+    height: 24px;
+    
+  }
+  .btnEdit {
+    margin-bottom: 21px;
+    @media screen and (min-width: 768px) {
+       
+        margin: 0;
+        
+    }
+  }
+  .iconCamera {
+
+    width: 24px;
+    height: 24px;
+    stroke: var(--blue-color);
+ 
+    fill: none;
+
+  }
+  .saveBtn{
+    display: block;
+    width: 248px;
+    height: 31px;
+    padding: 0;
+    /* padding:  auto 6px auto 6px; */
+    font-size: 14px;
+    border: none;
+    background-color: var(--blue-color);
+    border-radius: 40px;
+    color:  rgba(254, 249, 249, 1);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 21px;
+    @media screen and (min-width: 768px) {
+        width: 255px;
+        height: 32px;
+        font-size: 14px;
+        margin: 0;
+        margin-top: 10px;
+        
+    }
+    @media screen and (min-width: 1280px) {
+      height: 34px;
+    }
+    &:hover{
+        background: linear-gradient(290.46deg, #419EF1 0%, #9BD0FF 107.89%);
+cursor: grab;
+    }
+    
+  }
+  .avatarWrapper{
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        justify-content: flex-start;
+        height: 220px;
+       
+        
+    }
+    @media screen and (min-width: 1280px) {
+      
+        height: 245px;
+    } 
+  }
+  .saveBtnWrapper{
+    display: flex;
+    justify-content: flex-end;
+    
+   
+  }
+  .infoWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    @media screen and (min-width: 768px) {
+        width: 355px;
+       
+    }
+  }

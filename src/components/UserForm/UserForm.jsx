@@ -9,7 +9,7 @@ import Check from '../../images/check.svg'
 
 
 export default function UserForm({onSubmit, readonly}) {
-    const [avatar, setAvatar]=useState(true)
+    const [avatar, setAvatar]=useState(false)
 const [name, setName]=useState("")
 const [email, setEmail]=useState("")
 const [birthday, setBirthday]=useState("")
@@ -51,74 +51,67 @@ const onChangeName = event => {
         <div className={css.userCard}>
             <form className={css.form} onSubmit={handleSubmit}>
                 <div className={css.userInfoWrapper}>
-                  <div 
-                //   className={readonly ? avatarWrapper: avatarWrapperRead 
-                // }
+                  <div className={css.avatarWrapper}>
+                {avatar? (<img
+              src={avatar}
+              className={[
+                css.avatar,
+                readonly ? css.avatarReadonlyON : '',
+              ].join(' ')}
+              alt="profile"
+            />): (<img src={DefaultAvatar} className={[
+              css.avatar,
+              readonly ? css.avatarReadonlyON : '',
+            ].join(' ')} alt='avatar' />)}
+            <input
+              type="file"
+             
+              value=""
+             
+              style={{ display: 'none' }}
+            />
+            {!readonly && 
+            (avatar ? (<div className={css.btnDual}>
+              <button
+                type="button"
+                className={css.btnConfirm}
                 
-                  >
-                  <img className={css.avatar} src={DefaultAvatar} alt="User" />
-                  {!readonly && <button
+              >
+                <img
+                  src={Check}
+                  className={css.iconCheck}
+                  alt="check"
+                ></img>
+                
+              </button>
+              <span>Confirm</span>
+              <button
+                type="button"
+                
+                className={css.btnConfirm}
+              >
+                <img
+                  src={DeleteIcon}
+                  className={css.iconCross}
+                  alt="cross"
+                ></img>
+              </button>
+            </div>):(<button
                   type="button"
                   className={css.btnEdit}
                  
                 >
-                   <svg width='24px' height='24px' className={css.cameraIcon}>
+                   <svg width='24px' height='24px' className={css.iconCamera}>
                       <use href={sprite + "#camera"}></use>
                     </svg>
-                  Edit photo
-                </button>}
-                  </div>
-                  {/* <div className={css.avatarWrapper}>
-
-                  <div className={css.photoWrapper}>
-        {selectedFile ? (
-          <img className={css.avatar} src={URL.createObjectURL(selectedFile)} alt="User icon" />
-        ) : (
-          <img className={css.avatar} src={avatar || DefaultAvatar} alt="User" />
-        )}
-      </div>
-      <div className={css.editPhotoContainer}>
-        <button className={css.editBtnPhoto} >
-          <input
-          
-            type="file"
-            style={{ display: 'none' }}
-        
-          />
-          {isEditingPhoto ? (
-            <>
-              <div className={css.iconWrapperCheck}>
-              <img
-                      src={Check}
-                      className={css.iconCheck}
-                      alt="check"
-                    ></img>
-              </div>
-              <span>Confirm</span>
-              <div className={css.iconWrapperCross}>
-              <img
-                      src={DeleteIcon}
-                      className={css.iconCross}
-                      alt="cross"
-                    ></img>
-              </div>
-            </>
-          ) : (
-            <>
-              <svg width='24px' height='24px' className={css.cameraIcon}>
-                      <use href={sprite + "#camera"}></use>
-                    </svg>
-              <span>Edit photo</span>
-            </>
-          )}
-        </button>
-      </div>
-
-                  </div> */}
                 
+                  Edit photo
+                </button>))}
+                </div>
 
 
             <div className={css.userInfo}>
+              <div className={css.infoWrapper}>
                 <div className={css.inputWrapper}>
                 <p className={css.inputTitle}>Name:</p>
                 <input 
@@ -179,19 +172,22 @@ const onChangeName = event => {
                 readOnly={readonly}
                 />
                 </div>
-                
-            </div>
-            </div>
-            
-            {readonly ? (<button
+                </div>
+                {readonly ? (<button
                 type="button"
                 className={css.LogOutBtn}
                
               >
                 
+                
                 <img src={LogOut} className={css.iconLogOut} alt="logout" />
                 Log Out
               </button>) : (<div className={css.saveBtnWrapper}><button className={css.saveBtn}>Save</button></div>)}
+            </div>
+            
+            </div>
+            
+           
             
             </form>
 
