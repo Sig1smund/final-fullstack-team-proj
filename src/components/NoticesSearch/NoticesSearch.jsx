@@ -7,7 +7,6 @@ export default function NoticesSearch() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(name)
 
         setName('');
   }
@@ -28,7 +27,8 @@ export default function NoticesSearch() {
             <use href={sprite + "#search"}></use>
         </svg>
           </button>
-          {name !== '' && (<button type="button" className={styles.button} onClick={() => {setName('')}}>
+          {name !== '' && 
+          (<button type="button" className={styles.button} onClick={() => {setName('')}}>
         <svg className={styles.iconClose} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M19 5L5 19M5.00004 5L19 19" stroke="#FFC107" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
