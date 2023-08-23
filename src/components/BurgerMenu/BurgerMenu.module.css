@@ -40,7 +40,12 @@
     height: 100vh;
     background-color: #fdf7f2;
     z-index: 10;
-    transition: left 0.5s;
+    transition: left 1s;
+      @media screen and (max-width: 767px) {
+  background-color: #FEF9F9;
+  }
+    
+
   }
 
   .active {

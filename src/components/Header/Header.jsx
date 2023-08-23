@@ -4,15 +4,19 @@ import Nav from 'components/Nav/Nav';
 import Logo from 'components/Logo/Logo';
 import React from 'react';
 import AuthNav from 'components/AuthNav/AuthNav';
-// import UserNav from 'components/UserNav/UserNav';
-// import BurgerMenu from 'components/BurgerMenu/BurgerMenu';
+import { useAuth } from 'components/hooks';
+
+import UserNav from 'components/UserNav/UserNav';
+
 export default function Header() {
+  const { isLoggedIn } = useAuth();
+  
   return (
     <div className={css.header}>
       <Logo />
       <Nav />
-
-      <AuthNav />
+      {isLoggedIn ? <UserNav /> : <AuthNav />}
+      {/* <AuthNav /> */}
       {/* <UserNav /> */}
       <BurgerMenu />
     </div>

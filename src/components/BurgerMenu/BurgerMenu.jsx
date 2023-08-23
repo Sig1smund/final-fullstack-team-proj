@@ -2,20 +2,52 @@ import React, { useState } from 'react';
 import css from './BurgerMenu.module.css';
 import logo from '../../images/logo.svg';
 import svg from '../../images/sprite.svg';
-
-// import logout from '../../images/sprite.svg';
+import { useAuth } from 'components/hooks';
+import logout from '../../images/sprite.svg';
 import { NavLink } from 'react-router-dom';
 import pawprint from '../../images/sprite.svg';
-// import user_svg from '../../images/sprite.svg'; 
+import user_svg from '../../images/sprite.svg'; 
 
 const BurgerManu = () => {
   const [nav, setNav] = useState(false);
+   const { isLoggedIn } = useAuth();
   return (
     <>
       <div className={nav ? [css.menu, css.active].join(' ') : [css.menu]}>
         <NavLink to="/main">
           <img className={css.logo} src={logo} alt="Logo" />
         </NavLink>
+
+        {isLoggedIn ? (
+          <>
+            <button className={css.btn} type="button">
+              Log out
+              <svg className={css.logout} width="24" height="24">
+                <use href={logout + '#logout'}></use>
+              </svg>
+            </button>
+            <div className={css.thumb_auth}>
+              <NavLink to="/user" className={css.profile}>
+                <svg className={css.icon__user} width="28" height="28">
+                  <use href={user_svg + '#user-1'}></use>
+                </svg>
+                <span className={css.username}>Anna</span>
+              </NavLink>
+            </div>{' '}
+          </>
+        ) : (
+          <div className={css.auth__container}>
+            <NavLink className={css.link__log} to="/login">
+              Log In
+              <svg className={css.paw} width={24} height={24}>
+                <use href={pawprint + '#pawprint-1'}></use>
+              </svg>
+            </NavLink>
+            <NavLink className={css.link__reg} to="/register">
+              Registration
+            </NavLink>
+          </div>
+        )}
 
         {/* For UserNav    */}
         {/* <button className={css.btn} type="button">
@@ -35,7 +67,7 @@ const BurgerManu = () => {
         </div> */}
         {/* For UserNav    */}
         {/* For AuthNav */}
-        <div className={css.auth__container}>
+        {/* <div className={css.auth__container}>
           <NavLink className={css.link__log} to="/login">
             Log In
             <svg className={css.paw} width={24} height={24}>
@@ -45,7 +77,7 @@ const BurgerManu = () => {
           <NavLink className={css.link__reg} to="/register">
             Registration
           </NavLink>
-        </div>
+        </div> */}
         {/* For AuthNav */}
 
         <nav className={css.nav}>
