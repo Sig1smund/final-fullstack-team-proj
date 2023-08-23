@@ -10,6 +10,7 @@ import {
 
 const initialState = {
   user: { name: null, email: null },
+  userPets: null,
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -43,6 +44,7 @@ const authSlice = createSlice({
       .addCase(logIn.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
+        state.userPets = action.payload.pets;
         state.isLoggedIn = true;
         state.isLoading = false;
       })
@@ -70,7 +72,8 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(current.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user = action.payload.user;
+        state.userPets = action.payload.pets;
         state.isLoggedIn = true;
         state.isLoading = false;
         state.isRefreshing = false;
@@ -99,7 +102,8 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user = action.payload.user;
+        state.userPets = action.payload.pets;
         state.isLoggedIn = true;
         state.isLoading = false;
         state.isRefreshing = false;
