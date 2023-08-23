@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import  SharedLayout from '../components/SharedLayout';
 import { RestrictedRoute } from './RedirectedRoute';
-import { PrivateRoute } from './PrivateRoute';
+// import { PrivateRoute } from './PrivateRoute';
 
 const HomePage = lazy(()=> import('../pages/MainPage'));
 const RegisterPage = lazy(()=> import('../pages/RegisterPage'));
