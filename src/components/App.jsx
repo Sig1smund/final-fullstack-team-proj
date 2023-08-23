@@ -1,18 +1,18 @@
-import { useDispatch } from 'react-redux';
-import { useEffect, lazy} from 'react';
+// import { useDispatch } from 'react-redux';
+import { lazy} from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import s from './app.module.css';
+// import s from './app.module.css';
 
 import  SharedLayout from '../components/SharedLayout';
 
 const HomePage = lazy(()=> import('../pages/MainPage'));
-const RegisterPage = lazy(()=> import('../pages/RegisterPage'));
-const LoginPage = lazy(()=> import('../pages/LoginPage'));
-const UserPage = lazy(()=> import('../pages/UserPage'));
-const NewsPage = lazy(()=> import('../pages/NewsPage'));
-const NoticesPage = lazy(()=> import('../pages/NoticesPage'));
-const OurFriendPage = lazy(()=> import('../pages/OurFriendsPage'));
+// const RegisterPage = lazy(()=> import('../pages/RegisterPage'));
+// const LoginPage = lazy(()=> import('../pages/LoginPage'));
+// const UserPage = lazy(()=> import('../pages/UserPage'));
+// const NewsPage = lazy(()=> import('../pages/NewsPage'));
+// const NoticesPage = lazy(()=> import('../pages/NoticesPage'));
+// const OurFriendPage = lazy(()=> import('../pages/OurFriendsPage'));
 
 export const App = () => {
   return (
@@ -23,9 +23,5 @@ export const App = () => {
           
 
     </Routes>
-    // <div className={s.container}>
-    //   <input type="text" className={s.input} />
-    //   <button type='button' className={s.button}>To your IT life</button>
-    // </div>
   )
 }
