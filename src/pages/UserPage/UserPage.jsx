@@ -5,13 +5,14 @@ import UserForm from 'components/UserForm/UserForm'
 import PetsList from 'components/PetsList/PetsList'
 // import UserForm from 'components/UserForm/UserForm';
 import Cross from '../../images/cross-small.svg'
-import { useSelector } from 'react-redux';
-import {selectUser} from '../../redux/auth/selectors'
+// import { useSelector } from 'react-redux';
+// import {selectUser} from '../../redux/auth/selectors'
 
 
 export default function UserPage() {
 const [readOnly, setReadOnly]=useState(true)
-const user = useSelector(selectUser)
+// const user = useSelector(selectUser)
+
 // const user ={
 //     "name": "iii",
 //     "email": "iiii@mail.com"

@@ -12,6 +12,7 @@ export default function PetsItem({pet}) {
     <p className={css.petInfoBtn}>Name: {pet.name}
     <button
     type='submit'
+    onClick={setShowModal}
     className={css.btnTrash}
     >
         <svg  width="24" height="24"  >
