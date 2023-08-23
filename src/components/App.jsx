@@ -6,5 +6,5 @@ export const App = () => {
       <input type="text" className={s.input} />
       <button type='button' className={s.button}>To your IT life</button>
     </div>
-  );
-};
+  )
+}
