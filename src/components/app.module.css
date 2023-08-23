@@ -4,6 +4,7 @@
 
 .input {
     composes: desktopSearchInput from '../global.css';
+    
 }
 
 .container{
