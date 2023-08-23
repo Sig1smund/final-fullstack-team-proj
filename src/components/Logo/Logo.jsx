@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function Logo() {
   return (
-    <NavLink to="/main">
+    <NavLink to="/">
       <img className={css.logo} src={logo} alt="Logo" />
     </NavLink>
   );
