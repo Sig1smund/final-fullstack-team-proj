@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/final-fullstack-team-proj/static/css/main.8b2285f4.css",
-    "main.js": "/final-fullstack-team-proj/static/js/main.68fc6af5.js",
+    "main.js": "/final-fullstack-team-proj/static/js/main.48f9b71a.js",
     "static/css/986.5eb10ec6.chunk.css": "/final-fullstack-team-proj/static/css/986.5eb10ec6.chunk.css",
     "static/js/986.635e456b.chunk.js": "/final-fullstack-team-proj/static/js/986.635e456b.chunk.js",
-    "static/css/582.5bd05e58.chunk.css": "/final-fullstack-team-proj/static/css/582.5bd05e58.chunk.css",
+    "static/css/582.da90146d.chunk.css": "/final-fullstack-team-proj/static/css/582.da90146d.chunk.css",
     "static/js/582.59f8b276.chunk.js": "/final-fullstack-team-proj/static/js/582.59f8b276.chunk.js",
     "static/css/895.dc671f2a.chunk.css": "/final-fullstack-team-proj/static/css/895.dc671f2a.chunk.css",
     "static/js/895.581a0479.chunk.js": "/final-fullstack-team-proj/static/js/895.581a0479.chunk.js",
@@ -33,10 +33,10 @@
     "static/media/cross-small.svg": "/final-fullstack-team-proj/static/media/cross-small.f651fc886fa4d31a3c8de6c31d316c5d.svg",
     "static/media/check.svg": "/final-fullstack-team-proj/static/media/check.9871830bc0257fd7ceaaf4c5ddc7ce47.svg",
     "main.8b2285f4.css.map": "/final-fullstack-team-proj/static/css/main.8b2285f4.css.map",
-    "main.68fc6af5.js.map": "/final-fullstack-team-proj/static/js/main.68fc6af5.js.map",
+    "main.48f9b71a.js.map": "/final-fullstack-team-proj/static/js/main.48f9b71a.js.map",
     "986.5eb10ec6.chunk.css.map": "/final-fullstack-team-proj/static/css/986.5eb10ec6.chunk.css.map",
     "986.635e456b.chunk.js.map": "/final-fullstack-team-proj/static/js/986.635e456b.chunk.js.map",
-    "582.5bd05e58.chunk.css.map": "/final-fullstack-team-proj/static/css/582.5bd05e58.chunk.css.map",
+    "582.da90146d.chunk.css.map": "/final-fullstack-team-proj/static/css/582.da90146d.chunk.css.map",
     "582.59f8b276.chunk.js.map": "/final-fullstack-team-proj/static/js/582.59f8b276.chunk.js.map",
     "895.dc671f2a.chunk.css.map": "/final-fullstack-team-proj/static/css/895.dc671f2a.chunk.css.map",
     "895.581a0479.chunk.js.map": "/final-fullstack-team-proj/static/js/895.581a0479.chunk.js.map",
@@ -52,6 +52,6 @@
   },
   "entrypoints": [
     "static/css/main.8b2285f4.css",
-    "static/js/main.68fc6af5.js"
+    "static/js/main.48f9b71a.js"
   ]
 }
