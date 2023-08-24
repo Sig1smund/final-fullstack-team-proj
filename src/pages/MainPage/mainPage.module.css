@@ -1,11 +1,15 @@
 
 .container {
+  width:auto;
   position: relative;
   display: flex;
   flex-direction: column;
   height: 100vh;
   background-repeat: no-repeat; 
   background-size: cover; 
+  @media screen and (width: 768px) {
+    width: 768px;
+  }
 
 }
 
@@ -31,7 +35,7 @@
 }
 
   /* image positioning for mobile and tablet screens */
-  @media screen and (max-width: 1199px) {
+  @media screen and (min-width: 1280px) {
     .petsImg {
       position: absolute;
       top: 120px;

@@ -12,14 +12,14 @@ export default function Header() {
   const { isLoggedIn } = useAuth();
 
   return (
-    <div className={css.header}>
+    <header className={css.header}>
       <Logo />
       <Nav />
       {isLoggedIn ? <UserNav /> : <AuthNav />}
       {/* <AuthNav /> */}
       {/* <UserNav />*/}
       <BurgerMenu />
-    </div>
+    </header>
   );
 }
 

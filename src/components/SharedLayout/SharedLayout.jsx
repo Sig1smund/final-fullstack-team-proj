@@ -5,9 +5,7 @@ import Header from 'components/Header';
 export default function SharedLayout() {
   return (
     <>
-      <header>
-        <Header />
-      </header>
+      <Header />
       <main>
         <Suspense fallback={null}>
           <Outlet />
