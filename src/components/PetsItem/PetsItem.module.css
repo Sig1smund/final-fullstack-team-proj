@@ -1,0 +1,61 @@
+.petsItemWrapper{
+    max-width: 280px;
+  margin: 0 auto;
+  background: #ffffff;
+  composes: shadow from '../../global.css';
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 16px;
+  padding-bottom: 40px;
+  &:not(:last-child){
+    margin-bottom: 20px;
+}
+  @media screen and (min-width: 768px) {
+    max-width: 703px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    
+}
+}
+.petInfoWrapper{
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  width: 100%;
+}
+.petsImg{
+  display: block;
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  object-fit: cover;
+ margin-bottom: 20px;
+ @media screen and (min-width: 768px) {
+  width: 128px;
+  height: 128px;
+  
+}
+}
+.petInfo{
+  margin: 0;
+  font-size: 14px;
+ 
+}
+.petInfoBtn{
+  margin: 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.btnTrash{
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: transparent;
+  stroke: var(--blue-color);
+  fill: none;
+}
