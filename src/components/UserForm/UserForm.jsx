@@ -17,12 +17,11 @@ const [phone, setPhone]=useState(user.phone||"")
 const [city, setCity]=useState(user.city||"")
 
 
-
 // console.log(user)
 
 const inputPhotoRef = useRef();
 
-  const inputPhoneRef = useRef();
+  // const inputPhoneRef = useRef();
 
 const onChangeName = event => {
     setName(event.target.value);
@@ -60,9 +59,9 @@ const onChangeName = event => {
 
   const handleSubmit =event=>{
     event.preventDefault();
-    if (phone.length < 13) {
-      inputPhoneRef.current.focus();
-    }
+    // if (phone.length < 13) {
+    //   inputPhoneRef.current.focus();
+    // }
     const formData = {
         name,
         email,
@@ -186,10 +185,9 @@ const onChangeName = event => {
                 type="tel" 
                 value={phone}
                 name='phone'
-                required 
                 className={css.input}
                  placeholder="+380000000000" 
-                 pattern='/^\+\d{12}$/'
+                 pattern='/^\+\d{12}$/\'
                  onChange={onChangePhone}
                  readOnly={readonly}
                  />

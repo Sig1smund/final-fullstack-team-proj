@@ -63,14 +63,14 @@
 .input{
    
   
-    width: 165px;
+    width: 190px;
     padding: 4px 12px 4px 12px;
     border-radius: 20px;
     border: 1px solid var(--blue-color);
     color: var(--black-color);
     font-size: 12px;
     @media screen and (min-width: 768px) {
-        width: 230px;
+        width: 255px;
          
      }
 }

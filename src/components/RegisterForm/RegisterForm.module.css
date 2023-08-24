@@ -27,6 +27,7 @@
 .passwordIcon {
     width: 24px;
     height: 24px;
+    fill: var(--blue-color);
 }
 
 .formInput {
@@ -66,7 +67,9 @@
 }
 
 .authBtn {
-    width: 100%;
+    composes: desktopLoginButton from '../../global.css';
+    border:none;
+    /* width: 100%;
     align-items: center;
     background-color: var(--main-acc);
     color: #fff;
@@ -79,12 +82,13 @@
     letter-spacing: 0.04em;
     padding: 10.5px 0px;
     border-radius: 40px;
-    margin-bottom: 24px;
-    transition: var(--timing);
+    margin-bottom: 24px; */
+    transition: var(--transition);
 
     &:hover,
     &:focus {
-        background-color: #3097f8;
+    background: var(--hoover-color);
+       
     }
 
     @media screen and (min-width: 768px) {

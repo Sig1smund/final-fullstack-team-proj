@@ -1,5 +1,8 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+import { current } from 'redux/auth/operations';
+import useAuth from '../hooks';
 
 // import s from './app.module.css';
 
@@ -17,7 +20,14 @@ const OurFriendPage = lazy(() => import('../pages/OurFriendsPage'));
 const AddPetPage = lazy(() => import('../pages/AddPetPage'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(current());
+  }, [dispatch]);
+
   return (
+    !useAuth.isRefreshing && (
     <Routes>
 
       <Route path='/' element={<SharedLayout />}>
@@ -28,11 +38,10 @@ export const App = () => {
         <Route path="/login" element={
           <RestrictedRoute redirectTo='/user' component={<LoginPage />} />
         } />
-        {/* <Route path="/user" element={
+        <Route path="/user" element={
           <PrivateRoute redirectTo='/login' component={<UserPage />} />
-        } /> */}
-        {/* для перевірки поки робимо публічним */}
-        <Route path='/user' element={<UserPage />} />
+        } />
+        {/* <Route path='/user' element={<UserPage />} /> */}
         <Route path='/notices' element={<NoticesPage />} />
         <Route path='/news' element={<NewsPage />} />
         <Route path='/friends' element={<OurFriendPage />} />
@@ -43,6 +52,6 @@ export const App = () => {
       </Route>
 
 
-    </Routes>
+    </Routes>)
   )
 }

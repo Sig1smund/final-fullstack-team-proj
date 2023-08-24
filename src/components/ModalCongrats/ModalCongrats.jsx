@@ -1,8 +1,11 @@
 import css from './ModalApproveAction.module.css';
 import logout from '../../images/sprite.svg';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 
 export default function Congrats(close) {
+  const navigate = useNavigate();
+  const location = useLocation()
 
   const action = () => {
     close();
