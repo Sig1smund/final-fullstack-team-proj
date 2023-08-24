@@ -28,9 +28,11 @@ export const App = () => {
         <Route path="/login" element={
           <RestrictedRoute redirectTo='/user' component={<LoginPage />} />
         } />
-        <Route path="/user" element={
+        {/* <Route path="/user" element={
           <PrivateRoute redirectTo='/login' component={<UserPage />} />
-        } />
+        } /> */}
+        {/* для перевірки поки робимо публічним */}
+        <Route path='/user' element={<UserPage />} />
         <Route path='/notices' element={<NoticesPage />} />
         <Route path='/news' element={<NewsPage />} />
         <Route path='/friends' element={<OurFriendPage />} />
