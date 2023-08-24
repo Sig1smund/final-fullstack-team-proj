@@ -2,7 +2,7 @@
     max-width: 280px;
   margin: 0 auto;
   background: #ffffff;
-  box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
+  composes: shadow from '../../global.css';
   border-radius: 20px;
   padding-left: 20px;
   padding-right: 20px;

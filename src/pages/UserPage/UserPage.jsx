@@ -11,13 +11,15 @@ import Cross from '../../images/cross-small.svg'
 
 export default function UserPage() {
 const [readOnly, setReadOnly]=useState(true)
+// const [user, setUser]=useState('')
+
 // const user = useSelector(selectUser)
 
-// const user ={
-//     "name": "iii",
-//     "email": "iiii@mail.com"
-// }
-console.log(user)
+const user ={
+    "name": "iii",
+    "email": "iiii@mail.com"
+}
+
 
 
 const onToggleReadOnly = () => {
@@ -30,8 +32,12 @@ const onToggleReadOnly = () => {
 
     formData.append('userAvatar', userAvatar);
 
-    // dispatch(updateUser(formData));
+   
   };
+  const onSubmitForm=(newDataUser)=>{
+    // setUser(newDataUser)
+    console.log(newDataUser)
+  }
  
 
     return (
@@ -50,7 +56,7 @@ const onToggleReadOnly = () => {
     </svg> */}
               <img src={Cross} alt='cross icon' className={css.iconCross}/>
 </button>)}
-{readOnly ? (<UserForm readonly={true} user={user}/>):(<UserForm readonly={false} user={user} saveNewPhoto={saveNewPhoto} />)}
+{readOnly ? (<UserForm readonly={true} user={user}/>):(<UserForm readonly={false} user={user} saveNewPhoto={saveNewPhoto} onSubmit={onSubmitForm} />)}
 
 </div>
 <div className={css.petsListWrapper}>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef} from 'react';
+import { useState, useRef} from 'react';
 
 import css from './UserForm.module.css'
 import sprite from '../../images/sprite.svg'
@@ -15,17 +15,10 @@ const [email, setEmail]=useState(user.email||"")
 const [birthday, setBirthday]=useState(user.birthday||"")
 const [phone, setPhone]=useState(user.phone||"")
 const [city, setCity]=useState(user.city||"")
-// const [selectedFile, setSelectedFile] = useState(null);
-// const [isEditingPhoto, setIsEditingPhoto] = useState(true);
 
-useEffect(() => {
-  setAvatar(null);
-  setName(user.name);
-  setEmail(user.email);
-  setBirthday(user.birthDate);
-  setPhone(user.phone);
-  setCity(user.city);
-}, [user]);
+
+
+// console.log(user)
 
 const inputPhotoRef = useRef();
 
@@ -99,7 +92,7 @@ const onChangeName = event => {
             ].join(' ')} alt='avatar' />)}
             <input
               type="file"
-             
+             name='file'
               value=""
               ref={inputPhotoRef}
               onChange={onChangeFile}
@@ -153,6 +146,7 @@ const onChangeName = event => {
                 <p className={css.inputTitle}>Name:</p>
                 <input 
                 type="text" 
+                name='name'
                 value={name}
                 required 
                 className={css.input}
@@ -165,6 +159,7 @@ const onChangeName = event => {
                 <input 
                 type="email" 
                 value={email}
+                name='email'
                 required 
                 className={css.input}
                 onChange={onChangeEmail}
@@ -176,6 +171,7 @@ const onChangeName = event => {
                 <input 
                 type="text" 
                 value={birthday}
+                name='birthday'
                 required 
                 className={css.input} 
                 placeholder='00.00.0000' 
@@ -189,6 +185,7 @@ const onChangeName = event => {
                 <input 
                 type="tel" 
                 value={phone}
+                name='phone'
                 required 
                 className={css.input}
                  placeholder="+380000000000" 
@@ -202,6 +199,7 @@ const onChangeName = event => {
                 <input 
                 type="text"
                 value={city} 
+                name='city'
                 required 
                 className={css.input} 
                 placeholder="Kiev"

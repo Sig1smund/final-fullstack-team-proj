@@ -27,6 +27,8 @@ export default function PetsItem({pet}) {
     <p className={css.petInfo}><b>Comments: </b>{pet.comments}</p>
 </div>
 </li>
+{showModal && (<p>Тут буде модалка</p>)}
 </div>
+
     )
 }
