@@ -7,9 +7,70 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+   background-color:var(--white-bckg-color);
+   background-image: url('./images/bgMain_L@1x.png');
+   background-size: cover; 
+   background-repeat: repeat-y;
+   
 }
+
+/*  mobile screen */
+@media screen and (max-width: 767.8px) {
+  body {
+    background-image: url('./images/bgMain_S@1x.png');
+  }
+ }
+
+/*  mobile screen retina */
+@media screen and (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx){
+  body {
+  background-image: url('./images/bgMain_S@2x.png'); 
+}
+}
+
+/* tablet screen */
+@media screen and (min-width: 768px) {
+  body {
+  background-image: url('./images/bgMain_M@1x.png');
+  }
+}
+
+  /* tablet screen retina */
+  @media screen and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx){
+   body {
+    background-image: url('./images/bgMain_M@2x.png');   
+  }
+}
+
+/* desktop screen */
+@media screen and (min-width: 1280px) {
+  body {       
+  background-image: url('./images/bgMain_L@1x.png');
+  /* background-size: contain;  */
+}
+}
+
+/* desktop screen retina */
+@media screen and (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx){
+  body {
+  background-image: url('./images/bgMain_L@2x.png');   
+}
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }

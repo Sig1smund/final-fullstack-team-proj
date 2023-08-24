@@ -1,11 +1,14 @@
 
 .container {
+  width:auto;
   position: relative;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-repeat: no-repeat; 
-  background-size: cover; 
+ 
+  @media screen and (width: 768px) {
+    width: 768px;
+  }
 
 }
 
@@ -31,19 +34,17 @@
 }
 
   /* image positioning for mobile and tablet screens */
-  @media screen and (max-width: 1199px) {
+  @media screen and (min-width: 1280px) {
     .petsImg {
       position: absolute;
       top: 120px;
-      left: 0;
+      top: 0%;
+      left: 41%;
   }
   }
 
   /*  mobile screen */
   @media screen and (max-width: 767.8px) {
-    .container {
-      background-image: url('../../images/bgMain_S@1x.png');
-    }
     .petsImg {
       background-image: url('../../images/pets_S@1x.png');
     }
@@ -54,9 +55,6 @@
     @media screen and (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx){
-          .container {
-          background-image: url('../../images/bgMain_S@2x.png'); 
-        }
         .petsImg {
           background-image: url('../../images/pets_S@2x.png');
         }
@@ -64,13 +62,10 @@
     
   /* tablet screen */
     @media screen and (min-width: 768px) {
-      .container {
-      background-image: url('../../images/bgMain_M@1x.png');
-      }
       .petsImg {
         background-image: url('../../images/pets_M@1x.png');
         position: absolute;
-        top: 200px;
+        /* top: 200px; */
         /* left: 0; */
       }
       .title {
@@ -90,9 +85,6 @@
       @media screen and (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx){
-        .container {
-        background-image: url('../../images/bgMain_M@2x.png');   
-      }
       .petsImg {
         background-image: url('../../images/pets_M@2x.png');
       }
@@ -107,10 +99,10 @@
     }
     .petsImg {
       background-image: url('../../images/pets_L@1x.png');
-      top: -80px;
-      right: -100px;
-      width: 80%;
-      height: 80%;
+      /* top: -80px; */
+      /* right: -100px; */
+      /* width: 80%;
+      height: 80%; */
     }
     .title {
       width: 500px;
@@ -125,9 +117,6 @@
         @media screen and (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx){
-          .container {
-          background-image: url('../../images/bgMain_L@2x.png');   
-        }
         .petsImg {
           background-image: url('../../images/pets_L@2x.png');
         }
