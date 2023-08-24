@@ -8,6 +8,7 @@ import './index.css';
 import './variables.css';
 import { BrowserRouter } from 'react-router-dom';
 import Spinner from './utils/Spinner';
+import 'modern-normalize/modern-normalize.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
