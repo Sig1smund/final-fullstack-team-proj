@@ -17,7 +17,6 @@ const [phone, setPhone]=useState(user.phone||"")
 const [city, setCity]=useState(user.city||"")
 
 
-
 // console.log(user)
 
 const inputPhotoRef = useRef();
