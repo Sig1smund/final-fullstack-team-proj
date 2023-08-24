@@ -7,12 +7,12 @@ import { App } from 'components/App';
 import './index.css';
 import './variables.css';
 import { BrowserRouter } from 'react-router-dom';
-
+import Spinner from './utils/Spinner';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
+      <PersistGate loading={<Spinner />} persistor={persistor}>
         <BrowserRouter basename="/final-fullstack-team-proj">
           <App />
         </BrowserRouter>
