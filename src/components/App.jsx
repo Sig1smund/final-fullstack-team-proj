@@ -1,5 +1,8 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+import { current } from 'redux/auth/operations';
+import useAuth from '../hooks';
 
 // import s from './app.module.css';
 
@@ -17,7 +20,14 @@ const OurFriendPage = lazy(() => import('../pages/OurFriendsPage'));
 const AddPetPage = lazy(() => import('../pages/AddPetPage'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(current());
+  }, [dispatch]);
+
   return (
+    !useAuth.isRefreshing && (
     <Routes>
 
       <Route path='/' element={<SharedLayout />}>
@@ -42,6 +52,6 @@ export const App = () => {
       </Route>
 
 
-    </Routes>
+    </Routes>)
   )
 }

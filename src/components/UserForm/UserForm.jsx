@@ -188,7 +188,7 @@ const onChangeName = event => {
                 required 
                 className={css.input}
                  placeholder="+380000000000" 
-                 pattern='/^\+\d{12}$/'
+                 pattern='/^\+\d{12}$/\'
                  onChange={onChangePhone}
                  readOnly={readonly}
                  />

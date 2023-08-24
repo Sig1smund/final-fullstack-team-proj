@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import css from './BurgerMenu.module.css';
 import logo from '../../images/logo.svg';
 import svg from '../../images/sprite.svg';
-import { useAuth } from 'hooks';
+import  useAuth  from 'hooks';
 import logout from '../../images/sprite.svg';
 import { NavLink } from 'react-router-dom';
 import pawprint from '../../images/sprite.svg';
