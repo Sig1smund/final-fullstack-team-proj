@@ -4,21 +4,21 @@
     min-width: 1280px;
     margin: 0 auto;
     padding: 16px 20px 16px 20px;
-    background-color: var(--white-bckg-color);
+    /* background-color: var(--white-bckg-color); */
 }
 
 .tabletContainer {
     width: 768px;
     margin: 0 auto;
     padding: 32px 24px 32px 24px;
-    background-color: var(--white-bckg-color);
+    /* background-color: var(--white-bckg-color); */
 }
 
 .mobileContainer {
     max-width: 767px;
     margin: 0 auto;
     padding: 20px;
-    background-color: var(--white-bckg-color);
+    /* background-color: var(--white-bckg-color); */
 }
 
 /*<---------------- MEDIA RULES -------------------->*/
