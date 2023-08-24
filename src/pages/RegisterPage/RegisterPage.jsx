@@ -6,11 +6,11 @@ import styles from './RegisterPage.module.css';
 
 const RegisterPage = () => {
     return (
-        <Router> {}
+        // <Router> {}
             <div className={styles.formContainer}>
                 <RegisterForm />
             </div>
-        </Router>
+        // </Router>
     );
 };
 
