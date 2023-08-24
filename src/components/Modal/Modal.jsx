@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { RxCross1 } from 'react-icons/rx';
+import { useSpring, animated, useTransition} from '@react-spring/web';
 
 import css from './Modal.module.css';
 
@@ -33,20 +34,37 @@ const Modal = ({ children, isOpen, onClose }) => {
     };
   }, [onClose]);
 
+  const modalTransition = useTransition(isOpen, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 1 },
+    config: {
+    duration: 500,
+    },
+  });
 
-  return (
-    <>
-      {isOpen && createPortal(
-        <div className={css.overlay} onClick={onClose}>
-          <div className={css.modalWrapper} onClick={e => e.stopPropagation()}>
+  const springs = useSpring({
+   opacity: isOpen ? 1 : 0,
+    transform: 'translate(-100%,-100%)',
+    config: {
+   duration: 500,
+    },
+  });
+
+
+
+  return modalTransition( (styles, isOpen) =>
+      isOpen && createPortal(
+        <div className={css.overlay} as={animated.div} styler={styles}  onClick={onClose}>
+          <div className={css.modalWrapper} as={animated.div} style={springs} onClick={e => e.stopPropagation()}>
             <button type="button" className={css.cross} onClick={onClose}>
               <RxCross1 />
             </button>
              {children}
           </div>
         </div>,
-      modalRoot)}
-    </>
+      modalRoot)
+
   );
 };
 export default Modal;

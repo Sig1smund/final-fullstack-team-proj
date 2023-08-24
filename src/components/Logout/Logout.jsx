@@ -10,7 +10,7 @@ import ModalApproveAction from 'components/ModalApproveAction/ModalApproveAction
 
 export default function Logout() {
 
-  const [modalActive, setModalActive] = useState(true);
+  const [modalActive, setModalActive] = useState(false);
 
   const dispatch = useDispatch();
 
