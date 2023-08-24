@@ -12,7 +12,7 @@ export default function ModalApproveAction({ children, logo, close, action }) {
         <button type="button" className={css.cancel} onClick={close}>
           Cancel
         </button>
-        <button type="button" className={css.yes} onClick={action}>
+        <button type="submit" className={css.yes} onClick={action}>
           Yes
           <svg className={css.logout} width="24" height="24">
             <use href={logout + logo}></use>
