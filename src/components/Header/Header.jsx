@@ -15,9 +15,9 @@ export default function Header() {
     <header className={css.header}>
       <Logo />
       <Nav />
-      {isLoggedIn ? <UserNav /> : <AuthNav />}
+      {/* {isLoggedIn ? <UserNav /> : <AuthNav />} */}
       {/* <AuthNav /> */}
-      {/* <UserNav />*/}
+      <UserNav />
       <BurgerMenu />
     </header>
   );
