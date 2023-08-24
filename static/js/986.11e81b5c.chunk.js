@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfinal_fullstack_team_proj=self.webpackChunkfinal_fullstack_team_proj||[]).push([[986],{986:function(e,a,t){t.r(a),t.d(a,{default:function(){return i}});t(2791);var n={container:"mainPage_container__zqE06",petsImg:"mainPage_petsImg__3BC-h",title:"mainPage_title__FDopH"},s=t(3329);function i(){return(0,s.jsxs)("div",{className:n.container,children:[(0,s.jsx)("h1",{className:n.title,children:"Take good care of your small pets"}),(0,s.jsx)("div",{className:n.petsImg})]})}}}]);
+//# sourceMappingURL=986.11e81b5c.chunk.js.map
