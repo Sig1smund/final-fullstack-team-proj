@@ -9,16 +9,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
    background-color:var(--white-bckg-color);
-   background-image: url('./images/bgMain_L@1x.png');
+   background-image: url('./images/bgMain_L@1x.png'); 
    background-size: cover; 
-   background-repeat: repeat-y;
+   background-repeat: no-repeat;
    
 }
 
 /*  mobile screen */
 @media screen and (max-width: 767.8px) {
   body {
-    background-image: url('./images/bgMain_S@1x.png');
+   background-image: url('./images/bgMain_S@1x.png'); 
   }
  }
 
@@ -34,7 +34,7 @@ body {
 /* tablet screen */
 @media screen and (min-width: 768px) {
   body {
-  background-image: url('./images/bgMain_M@1x.png');
+   background-image: url('./images/bgMain_M@1x.png'); 
   }
 }
 
@@ -43,15 +43,15 @@ body {
   (min-resolution: 192dpi),
   (min-resolution: 2dppx){
    body {
-    background-image: url('./images/bgMain_M@2x.png');   
+   background-image: url('./images/bgMain_M@2x.png');   
   }
 }
 
 /* desktop screen */
 @media screen and (min-width: 1280px) {
   body {       
-  background-image: url('./images/bgMain_L@1x.png');
-  /* background-size: contain;  */
+  background-image: url('./images/bgMain_L@1x.png'); 
+  background-size: contain;  
 }
 }
 
