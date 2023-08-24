@@ -9,8 +9,9 @@ import styles from './RegisterForm.module.css';
 const RegisterForm = () => {
     const [showPassword1, setShowPassword1] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [password1, setPassword1] = useState('');
+    const [password, setPassword] = useState('');
     const [password2, setPassword2] = useState('');
     const [errors, setErrors] = useState({});
 
@@ -18,21 +19,22 @@ const RegisterForm = () => {
 
     const registerSchema = yup.object().shape({
         email: yup.string().email('Invalid email').required('Email is required'),
-        password1: yup.string().required('Password is required'),
-        password2: yup.string().oneOf([yup.ref('password1'), null], "Passwords don't match"),
+        password: yup.string().required('Password is required'),
+        password2: yup.string().oneOf([yup.ref('password'), null], "Passwords don't match"),
     });
 
    
 
-    const onSubmit = () => {
-        const data = { email, password1 };
-        
+    const onSubmit = (e) => {
+        e.preventDefault();
+        const data = { name: name, email: email, password: password };
         registerSchema.validate(data, { abortEarly: false })
             .then(() => {
+                console.log(data)
                 dispatch(register(data))
                     .then(response => {
                         setEmail('');
-                        setPassword1('');
+                        setPassword('');
                         setPassword2('');
                     })
                     .catch(error => {
@@ -55,6 +57,16 @@ const RegisterForm = () => {
                 <div className={styles.formLabelConteiner}>
                     <label className={styles.formLabel}>
                         <input
+                            className={`${styles.formInput}`}
+                            placeholder="Name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            type="text"
+                        />
+                        {/* {errors.email && <p className={styles.errorsMassage}>{errors.email}</p>} */}
+                    </label>
+                    <label className={styles.formLabel}>
+                        <input
                             className={`${styles.formInput} ${errors.email ? styles.error : ''}`}
                             placeholder="Email"
                             value={email}
@@ -66,10 +78,10 @@ const RegisterForm = () => {
                     <label className={styles.formLabel}>
                         <div className={styles.formLabelPasswordConteiner}>
                             <input
-                                className={`${styles.formInput} ${errors.password1 ? styles.error : ''}`}
+                                className={`${styles.formInput} ${errors.password ? styles.error : ''}`}
                                 placeholder="Password"
-                                value={password1}
-                                onChange={(e) => setPassword1(e.target.value)}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 type={showPassword1 ? 'text' : 'password'}
                             />
                             <button
