@@ -34,7 +34,7 @@ margin-right: auto;
   margin-right: auto;
 
   margin-top: 0px;
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 767px) {
     & {
 
       font-size: 24px;
@@ -69,7 +69,7 @@ composes: desktopButtonWhite from "../../global.css";
 font-family: Manrope;
 font-size: 16px;
 
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 767px) {
     & {
       width: 256px;
       margin-bottom: 8px;

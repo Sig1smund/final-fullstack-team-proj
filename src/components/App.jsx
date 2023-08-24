@@ -3,12 +3,10 @@ import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { current } from 'redux/auth/operations';
 import useAuth from '../hooks';
-
-// import s from './app.module.css';
-
 import SharedLayout from '../components/SharedLayout';
 import { RestrictedRoute } from './RedirectedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import Spinner from 'utils/Spinner';
 
 const HomePage = lazy(() => import('../pages/MainPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -27,31 +25,28 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    !useAuth.isRefreshing && (
-    <Routes>
-
-      <Route path='/' element={<SharedLayout />}>
-        <Route index element={<HomePage />} />
-        <Route path="/register" element={
-          <RestrictedRoute redirectTo='/user' component={<RegisterPage />} />
-        } />
-        <Route path="/login" element={
-          <RestrictedRoute redirectTo='/user' component={<LoginPage />} />
-        } />
-        <Route path="/user" element={
-          <PrivateRoute redirectTo='/login' component={<UserPage />} />
-        } />
-        {/* <Route path='/user' element={<UserPage />} /> */}
-        <Route path='/notices' element={<NoticesPage />} />
-        <Route path='/news' element={<NewsPage />} />
-        <Route path='/friends' element={<OurFriendPage />} />
-        <Route path="/add-pet" element={
-          <PrivateRoute redirectTo='/user' component={<AddPetPage />} />
-        } />
-
-      </Route>
-
-
-    </Routes>)
-  )
+    useAuth.isRefreshing
+      ? <Spinner />
+      : <Routes>
+        <Route path='/' element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/register" element={
+            <RestrictedRoute redirectTo='/user' component={<RegisterPage />} />
+          } />
+          <Route path="/login" element={
+            <RestrictedRoute redirectTo='/user' component={<LoginPage />} />
+          } />
+          <Route path="/user" element={
+            <PrivateRoute redirectTo='/login' component={<UserPage />} />
+          } />
+          {/* <Route path='/user' element={<UserPage />} /> */}
+          <Route path='/notices' element={<NoticesPage />} />
+          <Route path='/news' element={<NewsPage />} />
+          <Route path='/friends' element={<OurFriendPage />} />
+          <Route path="/add-pet" element={
+            <PrivateRoute redirectTo='/user' component={<AddPetPage />} />
+          } />
+        </Route>
+      </Routes >
+  );
 }
