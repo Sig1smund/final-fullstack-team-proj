@@ -44,9 +44,9 @@
   .input {
     display: inline-block;
     width: 100%;
-    font: inherit;
     font-size: 20px;
     font-weight: 500;
+    font-family: 'Manrope';
     border: none;
     outline: none;
     padding-left: 20px;
@@ -56,7 +56,7 @@
   }
   
   .input::placeholder {
-    font: inherit;
+    font-family: 'Manrope';
     font-size: 14px;
     font-weight: 400;
     color: #888888;
