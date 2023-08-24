@@ -22,11 +22,17 @@
     cursor: pointer;
     z-index: 10;
     color: var(--yellow-color);
-    @media screen and (max-width: 767px) {
+  }
+  @media screen and (max-width: 767px) {
+    .mobile_btn {
       margin-left: 24px;
+      display: flex;
+      cursor: pointer;
+      z-index: 10;
+      color: var(--yellow-color);
     }
   }
-
+  
   .menu {
     display: flex;
     flex-direction: column;
