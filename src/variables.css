@@ -1,6 +1,7 @@
 :root {
     --yellow-color: rgba(255, 193, 7, 1);
     --grey-color: rgba(140, 200, 253, 0.44);
+    --grey-text-color: rgba(136, 136, 136, 1);
     --milk-bckg-color: rgba(255, 255, 255, 1);
     --white-color: rgba(253, 247, 242, 1);
     --white-bckg-color: rgba(254, 249, 249, 1);
