@@ -1,15 +1,11 @@
 
 .container {
-  width:auto;
-  position: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100vh;
- 
-  @media screen and (width: 768px) {
-    width: 768px;
-  }
-
+  height: 100vh; 
+  background-repeat: no-repeat; 
+  background-size: cover;  
 }
 
 .petsImg {
@@ -33,16 +29,6 @@
   margin-bottom: 0;
 }
 
-  /* image positioning for mobile and tablet screens */
-  @media screen and (min-width: 1280px) {
-    .petsImg {
-      position: absolute;
-      top: 120px;
-      top: 0%;
-      left: 41%;
-  }
-  }
-
   /*  mobile screen */
   @media screen and (max-width: 767.8px) {
     .petsImg {
@@ -64,9 +50,6 @@
     @media screen and (min-width: 768px) {
       .petsImg {
         background-image: url('../../images/pets_M@1x.png');
-        position: absolute;
-        /* top: 200px; */
-        /* left: 0; */
       }
       .title {
         font-size: 68px;
@@ -95,14 +78,12 @@
       .container {       
       background-image: url('../../images/bgMain_L@1x.png');
       background-size: contain; 
+      flex-direction: row;
       /* width: 1280px; */
     }
     .petsImg {
       background-image: url('../../images/pets_L@1x.png');
-      /* top: -80px; */
-      /* right: -100px; */
-      /* width: 80%;
-      height: 80%; */
+
     }
     .title {
       width: 500px;
