@@ -16,10 +16,10 @@ const HomePage = lazy(()=> import('../pages/MainPage'));
 export const App = () => {
   return (
     <Routes>
-      <Route path='/' element={<SharedLayout/>}> 
-      <Route index element={<HomePage/>}/>          
+      <Route path='/' element={<SharedLayout/>}>
+      <Route index element={<HomePage/>}/>
       </Route>
-          
+
 
     </Routes>
     )
