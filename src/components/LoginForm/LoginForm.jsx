@@ -7,10 +7,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import loginSchema from './Yup';
 
 // Icons
-import { ReactComponent as EyeOpen } from 'images/icons/eye-open.svg';
-import { ReactComponent as EyeClosed } from 'images/icons/eye-closed.svg';
+// import { ReactComponent as EyeOpen } from 'images/icons/eye-open.svg';
+// import { ReactComponent as EyeClosed } from 'images/icons/eye-closed.svg';
 
-import styles from './LoginForm.module.scss';
+import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(false); // стан для показу / приховування пароля
@@ -61,11 +61,11 @@ const LoginForm = () => {
                                 type="button"
                                 onClick={() => setShowPassword(!showPassword)}
                             >
-                                {showPassword ? (
+                                {/* {showPassword ? (
                                     <EyeClosed className={styles.passwordIcon} />
                                 ) : (
                                     <EyeOpen className={styles.passwordIcon} />
-                                )}
+                                )} */}
                             </button>
                         </div>
                         {errors.password && <p className={styles.errorsMassage}>{errors.password.message}</p>}
