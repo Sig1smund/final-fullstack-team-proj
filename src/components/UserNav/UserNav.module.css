@@ -1,0 +1,42 @@
+.thumb_auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-left: auto;
+ 
+}
+
+.profile {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  padding: 8px 16px;
+
+  color: #ffc107;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.64px;
+  text-decoration: none;
+   @media screen and (max-width: 767px) {
+  
+     padding: 0 0;
+  } 
+}
+
+.icon__user {
+  fill: currentColor;
+}
+
+
+.username{
+   @media screen and (max-width: 767px) {
+  
+      display: none;
+  } 
+}

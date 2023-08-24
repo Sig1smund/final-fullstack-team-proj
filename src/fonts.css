@@ -1,0 +1,150 @@
+/* Inter fonts 14, 20 for input seach mobile, tablet, web */
+
+.interFontMobilePattern {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #888888;
+
+}
+.interFontTabletWebPattern {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #888888;
+}
+.interFontTabletWebInputText {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #888888;
+}
+
+/* Manrope fonts  12, 14, 16, 18, 20, 24, 32, 36, 48, 68 */
+
+.ManropeFontExtraSmallRegularGrey {
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+.ManropeFontExtraSmallSemiBoldWhite {
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+.ManropeFontExtraSmallSemiBoldBlack {
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #111111;
+}
+
+
+.ManropeFontSmallMedBlue {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #54ADFF;
+}
+.ManropeFontSmallMedPink {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FEF9F9;
+}
+.ManropeFontSmallMedBlack {
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111111;
+}
+
+.ManropeFontMiddleRegularBlack {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #111111;
+}
+
+.ManropeFontMiddleSemiBoldBlack {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111111;
+}
+.ManropeFontMiddleSemiBoldBlue {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #54ADFF;
+}
+.ManropeFontMiddleBold {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FEF9F9;
+}
+.ManropeFontMiddleBoldBlue {
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #54ADFF;
+}
+
+.ManropeFontMiddleBigSemiBoldBlack {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111111;
+}
+
+.ManropeFontBigSmallBoldWhite {
+    font-family: 'Manrope', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #111111;
+}
+
+.ManropeFontBigBoldBlack {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #111111;
+}
+.ManropeFontBigMediumBlack {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #111111;
+}
+
+.ManropeFontBigerSemiBoldBlack {
+    font-family: 'Manrope', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #111111;
+}
+
+.ManropeFontBigerMediumBlack {
+    font-family: 'Manrope', sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: #111111;
+}
+
+.ManropeFontVeryBigBoldBlack {
+    font-family: 'Manrope', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #111111;
+}
+
+.ManropeFontHugeExtraBoldBlack {
+    font-family: 'Manrope', sans-serif;
+    font-size: 68px;
+    font-weight: 800;
+    color: #111111;
+}
+
