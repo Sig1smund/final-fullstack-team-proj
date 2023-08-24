@@ -4,15 +4,23 @@ height: 100%;
 margin-left: auto;
 margin-right: auto;
 
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 767px) {
     & {
-      padding-top: 65px;
+      padding-left: 12px;
+      padding-right: 12px;
+      padding-top: 77px;
+      padding-bottom: 60px;
+      width: 280px;
+      min-height: 302px;
     }
   }
 
   @media screen and (min-width: 768px) {
     & {
-      padding-top: 48px;
+      padding: 108px;
+      width: 608px;
+      min-height: 354px;
+
     }
   }
 }
@@ -47,7 +55,7 @@ margin-right: auto;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  
+
   @media screen and (min-width: 768px) {
       & {
         display: flex;

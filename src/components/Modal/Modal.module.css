@@ -21,19 +21,13 @@
 
   @media screen and (min-width: 320px) {
       & {
-        width: 280px;
         top: 100px;
-        min-height: 302px;
-        padding: 12px;
       }
     }
 
     @media screen and (min-width: 768px) {
       & {
-        width: 488px;
-        padding: 60px;
         top: 300px;
-        min-height: 234px;
       }
     }
 
