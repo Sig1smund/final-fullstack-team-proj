@@ -1,0 +1,119 @@
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.title {
+    margin-top: 40px;
+    margin-bottom: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: 'Manrope', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #111111;
+}
+
+@media screen and (min-width: 768px) {
+    .title {
+        margin-top: 60px;
+        margin-bottom: 0;
+        font-family: 'Manrope', sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #111111;
+    }
+}
+.link_log_container {
+        display: flex;
+        justify-content: center;
+        margin-top: 18px;
+}
+.link__log {
+    display: flex;
+    width: 248px;
+    height: 40px;
+    /* padding: 8px 20px; */
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.64px;
+
+    border-radius: 40px;
+    border: 2px solid var(--yellow, #54ADFF);
+    background: var(--yellow, #54ADFF);
+    color: #fef9f9;
+}
+
+.link__log:hover {
+    border-radius: 40px;
+    background: var(--gr-blue, linear-gradient(315deg, #3324FF 0%, #54ADFF 70%));
+    color: #fef9f9;
+}
+
+.paw {
+    fill: currentColor;
+}
+
+.cat {
+    display: flex;
+    align-items: center;
+    /* width: 822px; */
+    height: 360px;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+.img {
+    /* display: flex; */
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        /* justify-content: center;
+        align-items: center; */
+        /* padding: 30px; */
+        overflow: hidden;
+        background-color: #FFC107;
+}
+
+.text {
+        font-family: 'Manrope', sans-serif;
+            font-size: 381px;
+            font-weight: 700;
+            color: #54ADFF;
+            transform: rotate(-20deg);
+            margin-right:10px;
+}
+
+.text04 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 381px;
+    font-weight: 700;
+    color: #54ADFF;
+    transform: rotate(24deg);
+    margin-left: 10px;
+}
+
+
+
+
+/* .container{
+    width: 100%;
+    background-color: #FEF9F9;
+    margin-left: auto;
+    margin-right: auto;
+} */
