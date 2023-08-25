@@ -1,0 +1,12 @@
+.container {
+    composes: mobileContainer from "../../global.css";
+
+    @media screen and (min-width: 768px) {
+        composes: tabletContainer from "../../global.css";
+    }
+
+    @media screen and (min-width: 1280px) {
+        composes: desktopContainer from "../../global.css";
+       
+    }
+}

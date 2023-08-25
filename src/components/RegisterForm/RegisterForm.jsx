@@ -144,7 +144,7 @@ const RegisterForm = () => {
                 </button>
                 <p className={styles.authScreenNavigation}>
                     Already have an account?&nbsp;
-                    <NavLink to="/api/users/login" className={styles.authScreenNavigationLink}>
+                    <NavLink to="/login" className={styles.authScreenNavigationLink}>
                         Login
                     </NavLink>
                 </p>
