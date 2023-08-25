@@ -141,7 +141,7 @@
 
     &:focus,
     &:hover {
-        color: var(--blue-color);
+        color:var(--yellow-color)
     }
 }
 
