@@ -10,14 +10,24 @@ import Cross from '../../images/cross-small.svg'
 // import { current } from 'redux/auth/operations';
 
 import { useSelector } from 'react-redux';
-import {selectUser} from '../../redux/auth/selectors'
+import { selectUser } from '../../redux/auth/selectors';
+
+import Modal from 'components/Modal/Modal';
+import ModalCongrats from 'components/ModalCongrats/ModalCongrats';
 
 
 export default function UserPage() {
-const [readOnly, setReadOnly]=useState(true)
+  const [readOnly, setReadOnly] = useState(true);
 // const [user, setUser]=useState('')
 
-const user = useSelector(selectUser)
+  const user = useSelector(selectUser);
+
+  const [modalActive, setModalActive] = useState(false);
+
+
+  const close = () => {
+    setModalActive(!modalActive);
+  };
 
 // const user ={
 //     "name": "iii",
@@ -40,16 +50,17 @@ const onToggleReadOnly = () => {
 
     formData.append('userAvatar', userAvatar);
 
-   
+
   };
   const onSubmitForm=(newDataUser)=>{
     // setUser(newDataUser)
     console.log(newDataUser)
   }
- 
 
-    return (
-<div className={css.bg} >
+
+  return (
+    <>
+      <div className={css.bg} >
     <div className={css.container}>
         <div className={css.userContainer}>
     <h2 className={css.title}>My information:</h2>
@@ -57,7 +68,7 @@ const onToggleReadOnly = () => {
     <svg  width="24" height="24" className={css.iconEdit}  >
         <use href={sprite + "#edit-2"}></use>
     </svg>
-              
+
 </button>):(<button className={css.iconEditButton} onClick={onToggleReadOnly}>
     {/* <svg  width="24" height="24" className={css.iconCancel}  >
         <use  width="24" height="24" href={sprite + "#cross-small"}></use>
@@ -75,7 +86,13 @@ const onToggleReadOnly = () => {
 
     </div>
 
-</div>
-        ) 
+      </div>
+
+      <Modal isOpen={modalActive} onClose={close}>
+        <ModalCongrats close={close} />
+      </Modal>
+
+    </>
+  )
 }
-    
+
