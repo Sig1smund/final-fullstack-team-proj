@@ -1,20 +1,21 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import css from './UserPage.module.css'
 import sprite from '../../images/sprite.svg'
 import UserForm from 'components/UserForm/UserForm'
 import Cross from '../../images/cross-small.svg'
 import { useSelector } from 'react-redux';
 import {selectUser} from '../../redux/auth/selectors'
+import { updateUser } from 'redux/auth/operations';
 import PetsData from 'components/PetsData/PetsData';
 
 
 export default function UserPage() {
 const [readOnly, setReadOnly]=useState(true)
 
-
 const user = useSelector(selectUser)
 
-
+const dispatch = useDispatch();
 
 
 const onToggleReadOnly = () => {
@@ -31,7 +32,9 @@ const onToggleReadOnly = () => {
   };
   const onSubmitForm=(newDataUser)=>{
     // setUser(newDataUser)
-    console.log(newDataUser)
+    
+    console.log(newDataUser);
+    dispatch(updateUser(newDataUser));
   }
  
 
