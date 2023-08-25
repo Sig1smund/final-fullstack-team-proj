@@ -10,7 +10,7 @@
     padding: 0;
     font-weight: 500;
     font-size: 18px;
-    color: orange;
+    color: var(--yellow-color);
 }
 
 span {
