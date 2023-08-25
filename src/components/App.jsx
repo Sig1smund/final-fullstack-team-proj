@@ -28,24 +28,26 @@ export const App = () => {
     useAuth.isRefreshing
       ? <Spinner />
       : <Routes>
-        <Route path='/' element={<SharedLayout />}>
+        <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/register" element={
-            <RestrictedRoute redirectTo='/user' component={<RegisterPage />} />
+            <RestrictedRoute redirectTo="/user" component={<RegisterPage />} />
           } />
           <Route path="/login" element={
-            <RestrictedRoute redirectTo='/user' component={<LoginPage />} />
+            <RestrictedRoute redirectTo="/user" component={<LoginPage />} />
           } />
           <Route path="/user" element={
-            <PrivateRoute redirectTo='/login' component={<UserPage />} />
+            <PrivateRoute redirectTo="/login" component={<UserPage />} />
           } />
           {/* <Route path='/user' element={<UserPage />} /> */}
-          <Route path='/notices' element={<NoticesPage />} />
-          <Route path='/news' element={<NewsPage />} />
-          <Route path='/friends' element={<OurFriendPage />} />
+          <Route path="notices" element={<NoticesPage />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/friends" element={<OurFriendPage />} />
           <Route path="/add-pet" element={
             <PrivateRoute redirectTo='/user' component={<AddPetPage />} />
           } />
+          <Route path="/notices/favorite" element={<NoticesPage />} />
+          <Route path="/notices/own" element={<NoticesPage />} />
         </Route>
       </Routes >
   );
