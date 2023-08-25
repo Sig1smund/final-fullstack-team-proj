@@ -10,7 +10,7 @@ import {
 
 const initialState = {
   user: { name: null, email: null },
-  userPets: null,
+  userPets: [],
   token: null,
   isLoggedIn: false,
   isRefreshing: false,

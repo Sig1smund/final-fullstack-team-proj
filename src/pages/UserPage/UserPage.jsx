@@ -39,30 +39,30 @@ const onToggleReadOnly = () => {
  
 
     return (
-<div className={css.bg} >
-    <div className={css.container}>
-        <div className={css.userContainer}>
-    <h2 className={css.title}>My information:</h2>
-    {readOnly? (<button className={css.iconEditButton} onClick={onToggleReadOnly}>
-    <svg  width="24" height="24" className={css.iconEdit}  >
-        <use href={sprite + "#edit-2"}></use>
-    </svg>
+        <div className={css.bg} >
+            <div className={css.container}>
+                <div className={css.userContainer}>
+                    <h2 className={css.title}>My information:</h2>
+                    {readOnly ? (<button className={css.iconEditButton} onClick={onToggleReadOnly}>
+                        <svg width="24" height="24" className={css.iconEdit}  >
+                            <use href={sprite + "#edit-2"}></use>
+                        </svg>
               
-</button>):(<button className={css.iconEditButton} onClick={onToggleReadOnly}>
-    {/* <svg  width="24" height="24" className={css.iconCancel}  >
+                    </button>) : (<button className={css.iconEditButton} onClick={onToggleReadOnly}>
+                        {/* <svg  width="24" height="24" className={css.iconCancel}  >
         <use  width="24" height="24" href={sprite + "#cross-small"}></use>
     </svg> */}
-              <img src={Cross} alt='cross icon' className={css.iconCross}/>
-</button>)}
-{readOnly ? (<UserForm readonly={true} user={user}/>):(<UserForm readonly={false} user={user} saveNewPhoto={saveNewPhoto} onSubmit={onSubmitForm} />)}
+                        <img src={Cross} alt='cross icon' className={css.iconCross} />
+                    </button>)}
+                    {readOnly ? (<UserForm readonly={true} user={user} />) : (<UserForm readonly={false} user={user} saveNewPhoto={saveNewPhoto} onSubmit={onSubmitForm} />)}
 
-</div>
+                </div>
 
-<PetsData/>
+                <PetsData />
 
-    </div>
+            </div>
 
-</div>
-        ) 
+        </div>
+    ); 
 }
     
