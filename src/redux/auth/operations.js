@@ -86,3 +86,7 @@ export const updateUser = createAsyncThunk(
     }
   }
 );
+
+export const createPet = createAsyncThunk()
+
+export const deletePet = createAsyncThunk()
