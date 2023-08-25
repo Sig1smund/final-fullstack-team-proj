@@ -124,19 +124,20 @@
         bottom: 0;
         width: 100%;
         height: 2px;
-        background-color: var(--milk-bckg-color);
+        background-color: var(--yellow-color);
         transform: scaleX(0);
         transform-origin: right;
         transition: transform 0.5s;
     }
 
     &:hover::after {
+        height: 3px;
         transform: scaleX(1);
         transform-origin: left;
     }
 
     &:focus,
     &:hover {
-        color: var(--header-acc);
+        color: var(--yellow-color);
     }
 }
