@@ -21,7 +21,7 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(current());
+      dispatch(current());  
   }, [dispatch]);
 
   return (
@@ -39,7 +39,6 @@ export const App = () => {
           <Route path="/user" element={
             <PrivateRoute redirectTo="/login" component={<UserPage />} />
           } />
-          {/* <Route path='/user' element={<UserPage />} /> */}
           <Route path="notices" element={<NoticesPage />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/friends" element={<OurFriendPage />} />
