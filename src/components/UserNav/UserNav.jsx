@@ -2,12 +2,12 @@ import { NavLink } from "react-router-dom"
 import css from "./UserNav.module.css"
 import Logout from "components/Logout/Logout"
 import user_svg from "../../images/sprite.svg" 
-import { selectUser } from "redux/auth/selectors"
-import { useSelector } from "react-redux"
 
+import  useAuth  from 'hooks';
 
 export default function UserNav() {
-  const user = useSelector(selectUser);
+
+   const { user } = useAuth();
     return (
       <div className={css.thumb_auth}>
         <Logout />
