@@ -1,12 +1,10 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import css from './UserPage.module.css'
 import sprite from '../../images/sprite.svg'
 import UserForm from 'components/UserForm/UserForm'
-import PetsList from 'components/PetsList/PetsList'
-// import UserForm from 'components/UserForm/UserForm';
 import Cross from '../../images/cross-small.svg'
 
-import { useDispatch } from 'react-redux';
 // import { current } from 'redux/auth/operations';
 
 import { useSelector } from 'react-redux';
@@ -18,9 +16,16 @@ import ModalCongrats from 'components/ModalCongrats/ModalCongrats';
 import { firstEntire } from 'redux/auth/operations';
 
 
+import { updateUser } from 'redux/auth/operations';
+import PetsData from 'components/PetsData/PetsData';
+
+
+
+
+
 export default function UserPage() {
   const [readOnly, setReadOnly] = useState(true);
-// const [user, setUser]=useState('')
+  // const [user, setUser]=useState('')
 
   const user = useSelector(selectUser);
 
@@ -34,6 +39,7 @@ export default function UserPage() {
 // console.log(user)
 
 const dispatch = useDispatch();
+
 
 const onToggleReadOnly = () => {
     setReadOnly(prevState => !prevState);
@@ -49,6 +55,7 @@ const onToggleReadOnly = () => {
   };
   const onSubmitForm = (newDataUser) => {
     // setUser(newDataUser)
+
     console.log(newDataUser)
   };
 
@@ -77,20 +84,38 @@ const onToggleReadOnly = () => {
 
 </button>):(<button className={css.iconEditButton} onClick={onToggleReadOnly}>
     {/* <svg  width="24" height="24" className={css.iconCancel}  >
+
+
+    console.log(newDataUser);
+    dispatch(updateUser(newDataUser));
+  }
+
+
+    return (
+        <div className={css.bg} >
+            <div className={css.container}>
+                <div className={css.userContainer}>
+                    <h2 className={css.title}>My information:</h2>
+                    {readOnly ? (<button className={css.iconEditButton} onClick={onToggleReadOnly}>
+                        <svg width="24" height="24" className={css.iconEdit}  >
+                            <use href={sprite + "#edit-2"}></use>
+                        </svg>
+
+                    </button>) : (<button className={css.iconEditButton} onClick={onToggleReadOnly}>
+                        {/* <svg  width="24" height="24" className={css.iconCancel}  >
+
         <use  width="24" height="24" href={sprite + "#cross-small"}></use>
     </svg> */}
-              <img src={Cross} alt='cross icon' className={css.iconCross}/>
-</button>)}
-{readOnly ? (<UserForm readonly={true} user={user}/>):(<UserForm readonly={false} user={user} saveNewPhoto={saveNewPhoto} onSubmit={onSubmitForm} />)}
+                        <img src={Cross} alt='cross icon' className={css.iconCross} />
+                    </button>)}
+                    {readOnly ? (<UserForm readonly={true} user={user} />) : (<UserForm readonly={false} user={user} saveNewPhoto={saveNewPhoto} onSubmit={onSubmitForm} />)}
 
-</div>
-<div className={css.petsListWrapper}>
-    <h2 className={css.title}>My pets:</h2>
-    <PetsList/>
-</div>
+                </div>
 
+                <PetsData />
 
-    </div>
+            </div>
+
 
       </div>
 
@@ -101,5 +126,8 @@ const onToggleReadOnly = () => {
       )}
     </>
   )
-}
+
+
+
+  };
 

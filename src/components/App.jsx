@@ -16,12 +16,13 @@ const NewsPage = lazy(() => import('../pages/NewsPage'));
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
 const OurFriendPage = lazy(() => import('../pages/OurFriendsPage'));
 const AddPetPage = lazy(() => import('../pages/AddPetPage'));
+const  NotFound = lazy(() => import('../pages/NotFound'));
 
 export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(current());
+      dispatch(current());  
   }, [dispatch]);
 
   return (
@@ -39,7 +40,6 @@ export const App = () => {
           <Route path="/user" element={
             <PrivateRoute redirectTo="/login" component={<UserPage />} />
           } />
-          {/* <Route path='/user' element={<UserPage />} /> */}
           <Route path="notices" element={<NoticesPage />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/friends" element={<OurFriendPage />} />
@@ -48,6 +48,10 @@ export const App = () => {
           } />
           <Route path="/notices/favorite" element={<NoticesPage />} />
           <Route path="/notices/own" element={<NoticesPage />} />
+          <Route path="/notices/:categoryName" element={<NoticesPage />} />
+          <Route path="*" element={<NotFound />}
+          />
+
         </Route>
       </Routes >
   );

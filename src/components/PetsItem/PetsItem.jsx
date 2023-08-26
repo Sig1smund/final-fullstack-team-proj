@@ -3,11 +3,11 @@ import css from './PetsItem.module.css'
 import sprite from '../../images/sprite.svg'
 export default function PetsItem({pet}) {
     const [showModal, setShowModal] = useState(false);
-  
+   console.log("pet", pet);
     return (
         <div className={css.petsListWrapper}>
         <li className={css.petsItemWrapper}>
-<img src={pet.avatar} alt={pet.name} className={css.petsImg} />
+<img src={pet.imageURL} alt={pet.name} className={css.petsImg} />
 <div className={css.petInfoWrapper}>
     <p className={css.petInfoBtn}>Name: {pet.name}
     <button
