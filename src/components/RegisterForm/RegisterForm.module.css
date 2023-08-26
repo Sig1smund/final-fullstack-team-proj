@@ -68,7 +68,7 @@
 
 .authBtn {
     composes: desktopLoginButton from '../../global.css';
-    /* width: 100%; */
+    width: 100%;
     /* align-items: center; */
     background-color: var(--blue-color);
     color: var(--white-color);
