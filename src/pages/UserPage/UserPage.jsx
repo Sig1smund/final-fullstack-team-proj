@@ -29,15 +29,9 @@ export default function UserPage() {
   // const [user, setUser]=useState('')
 
   const user = useSelector(selectUser);
+  console.log(user)
 
-// const user ={
-//     "name": "iii",
-//     "email": "iiii@mail.com"
-// }
-// const dispatch = useDispatch();
-// const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ZTcxYmJlNmZiNzViZDcyYWU4MTJlNyIsImlhdCI6MTY5Mjg2NzU5NCwiZXhwIjoxNjkyODc0Nzk0fQ.hZRsX9xr_ZVU1M3GHVVqhdKx3GNI-57dDWxTeVeKVj0'
-// const user = current(token)
-// console.log(user)
+
 
 const dispatch = useDispatch();
 
@@ -56,6 +50,7 @@ const onToggleReadOnly = () => {
   };
   const onSubmitForm = (newDataUser) => {
     dispatch(updateUser(newDataUser));
+    onToggleReadOnly();
     // setUser(newDataUser)
 
     console.log(newDataUser)
