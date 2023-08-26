@@ -6,6 +6,7 @@ import {selectUserPets} from '../../redux/auth/selectors';
 
 export default function PetsList() {
     const pets = useSelector(selectUserPets) || [];
+    console.log(pets)
     // const pets =[
         // {
         //     id: 1,
@@ -49,7 +50,7 @@ export default function PetsList() {
         <ul className={css.petsList}>
             {pets.map(pet => (
                         <PetsItem
-                          key={pet.id}
+                          key={pet._id}
                           pet={pet}
                           
                         />
