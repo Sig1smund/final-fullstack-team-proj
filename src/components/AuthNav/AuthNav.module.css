@@ -13,10 +13,10 @@
 
 .link__log {
   display: flex;
-  /* width: 125px; */
-   height: 40px;
+  width: 165px;
+   /* height: 40px; */
   padding: 8px 20px;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   gap: 8px;
   text-decoration: none;
@@ -30,15 +30,15 @@
   letter-spacing: 0.64px;
 
   border-radius: 40px;
-  border: 2px solid var(--yellow, #ffc107);
+  /* border: 2px solid var(--yellow, #ffc107); */
   background: var(--yellow, #ffc107);
   color: #fef9f9;
 }
 
 .link__reg {
   display: inline-flex;
-  /* min-width: 102px; */
-  height: 40px;
+  width: 148px;
+  /* height: 36px; */
   padding: 8px 20px;
   justify-content: center;
   align-items: center;
@@ -58,6 +58,7 @@
 }
 
 .link__reg:hover{
+  border: none;
   border-radius: 40px;
 background: var(--gr-blue, linear-gradient(315deg, #FFC107 0%, #e9d393 100%));
 color: #FEF9F9;
