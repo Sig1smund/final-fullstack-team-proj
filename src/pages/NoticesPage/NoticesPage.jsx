@@ -1,6 +1,7 @@
 import NoticesCategoriesList from 'components/NoticesCategoriesList'
-import NoticesCategoriesNav from 'components/NoticesCategoriesNav'
-import NoticesFilters from 'components/NoticesFilters'
+// поки не викоритовуются, якщо треба можна буде розкоментува
+// import NoticesCategoriesNav from 'components/NoticesCategoriesNav'
+// import NoticesFilters from 'components/NoticesFilters'
 import NoticesSearch from '../../components/NoticesSearch'
 import styles from './NoticesPage.module.css'
 
