@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { register } from '../../redux/auth/operations';
-import * as yup from 'yup'; 
+import * as yup from 'yup';
 import sprite from '../../images/sprite.svg';
 import styles from './RegisterForm.module.css';
+
+
 
 const RegisterForm = () => {
     const [showPassword1, setShowPassword1] = useState(false);
@@ -23,7 +25,7 @@ const RegisterForm = () => {
         password2: yup.string().oneOf([yup.ref('password'), null], "Passwords don't match"),
     });
 
-   
+
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -36,6 +38,7 @@ const RegisterForm = () => {
                         setEmail('');
                         setPassword('');
                         setPassword2('');
+
                     })
                     .catch(error => {
                         console.error(error.message);
@@ -50,7 +53,13 @@ const RegisterForm = () => {
             });
     };
 
-    return (
+
+
+
+
+
+  return (
+
         <div>
             <h2 className={styles.formTitle}>Registration</h2>
             <form onSubmit={onSubmit}>
