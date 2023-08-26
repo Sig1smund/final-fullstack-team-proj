@@ -40,15 +40,16 @@ export const App = () => {
           <Route path="/user" element={
             <PrivateRoute redirectTo="/login" component={<UserPage />} />
           } />
-          <Route path="notices" element={<NoticesPage />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/friends" element={<OurFriendPage />} />
           <Route path="/add-pet" element={
             <PrivateRoute redirectTo='/user' component={<AddPetPage />} />
           } />
+
           <Route path="/notices/favorite" element={<NoticesPage />} />
           <Route path="/notices/own" element={<NoticesPage />} />
-          <Route path="/notices/:categoryName" element={<NoticesPage />} />
+          <Route path="/notices" element={<NoticesPage />} />
+          <Route path="/notices/:categoryName"  element={<NoticesPage />} /> 
           <Route path="*" element={<NotFound />}
           />
 

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 // import { useDispatch } from "react-redux";
 import useNotices from "hooks/useNotices";
@@ -27,3 +28,4 @@ export default function NoticesCategoriesList() {
         </ul>
     );
 }
+

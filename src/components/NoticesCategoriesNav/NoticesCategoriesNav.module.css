@@ -1,0 +1,40 @@
+.button {
+    composes: lostAndFoundButton from '../../global.css'; 
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+.button.active {
+  background-color: var(--hoover-color);
+  color: var(--white-color);
+}
+
+.container {
+  padding-left: 16px;
+  margin-bottom: 14px;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    margin-bottom: 8px;
+    min-height: 80px;
+    max-width: 250px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+  }
+
+@media screen and (max-width: 1279px) {
+  .container {
+    margin-bottom: 14px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+}
