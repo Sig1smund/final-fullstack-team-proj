@@ -11,14 +11,13 @@ const initialState = {
 const servicesSlice = createSlice({
   name: 'services',
   initialState,
-  reducers: {},
   extraReducers: builder =>
     builder
       .addCase(getServices.pending, state => {
         state.isLoading = true;
       })
       .addCase(getServices.fulfilled, (state, action) => {
-        state.services = [...action.payload];
+        state.services = action.payload;
         state.isLoading = false;
       })
       .addCase(getServices.rejected, (state, action) => {

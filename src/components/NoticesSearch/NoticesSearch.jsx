@@ -3,13 +3,16 @@ import styles from './noticesSearch.module.css';
 import sprite from '../../images/sprite.svg'
 
 export default function NoticesSearch() {
-    const [name, setName] = useState('');
+  const [name, setName] = useState('');
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         setName('');
-  }
+    }
+  
 
     return <>
     <form className={styles.form} onSubmit={handleSubmit}>      
@@ -30,7 +33,7 @@ export default function NoticesSearch() {
           {name !== '' && 
           (<button type="button" className={styles.button} onClick={() => {setName('')}}>
         <svg className={styles.iconClose} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M19 5L5 19M5.00004 5L19 19" stroke="#FFC107" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M19 5L5 19M5.00004 5L19 19" stroke="#FFC107" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
         </button>)}
     </form>
