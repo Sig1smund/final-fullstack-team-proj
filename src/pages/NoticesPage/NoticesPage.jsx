@@ -1,5 +1,4 @@
-
-import NoticesCategoriesList from 'components/NoticesCategoriesList'
+import { useParams, useNavigate, Outlet } from "react-router-dom";
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { getNotices } from 'redux/notices/operations'
@@ -17,6 +16,7 @@ export default function NoticesPage() {
     const { isLoggedIn } = useAuth();
     const { categoryName } = useParams();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (!categoryName) {
