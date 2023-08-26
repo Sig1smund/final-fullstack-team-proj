@@ -3,7 +3,6 @@ import css from './Nav.module.css';
 
 export default function Nav() {
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <nav className={css.nav}>
       <NavLink
