@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import useNotices from "hooks/useNotices";
 
 export default function NoticesCategoriesList() {
-    const [category, setCategory] = useState('');
+    // const [category, setCategory] = useState('');
     const [items, setItems] = useState([]);
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const { notices } = useNotices();
   
     useEffect(() => {
