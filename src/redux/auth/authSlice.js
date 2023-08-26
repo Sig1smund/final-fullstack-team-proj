@@ -6,16 +6,20 @@ import {
   current,
   refresh,
   updateUser,
+  firstEntire,
+  createPet,
+  deletePet,
 } from './operations';
 
 const initialState = {
   user: { name: null, email: null },
-  userPets: null,
+  userPets: [],
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
   isLoading: false,
   isRegistered: false,
+  isDeleting: false,
   error: null,
 };
 
@@ -113,6 +117,34 @@ const authSlice = createSlice({
       })
       .addCase(updateUser.rejected, (state, action) => {
         state.isRefreshing = false;
+        state.error = action.payload;
+      })
+      .addCase(firstEntire, (state, action) => {
+        state.isRegistered = false;
+      })
+      .addCase(createPet.pending, state => {
+        state.isLoading = true;
+        state.isRefreshing = true;
+        state.error = null;
+      })
+      .addCase(createPet.fulfilled, (state, action) => {
+        state.userPets = [...state.userPets, action.payload.pets];
+        state.isRefreshing = false;
+        state.isLoading = false;
+      })
+      .addCase(createPet.rejected, (state, action) => {
+        state.isRefreshing = false;
+        state.error = action.payload;
+      })
+      .addCase(deletePet.pending, state => {
+        state.isDeleting = true;
+      })
+      .addCase(deletePet.fulfilled, (state, action) => {
+        state.userPets = state.userPets.filter(p => p.id !== action.payload);
+        state.isDeleting = false;
+      })
+      .addCase(deletePet.rejected, (state, action) => {
+        state.isDeleting = false;
         state.error = action.payload;
       });
   },

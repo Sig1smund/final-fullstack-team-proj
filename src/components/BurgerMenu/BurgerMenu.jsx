@@ -8,13 +8,19 @@ import { NavLink } from 'react-router-dom';
 import pawprint from '../../images/sprite.svg';
 import user_svg from '../../images/sprite.svg'; 
 
-const BurgerManu = () => {
+const BurgerMenu = () => {
   const [nav, setNav] = useState(false);
-   const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
+   const handleMenuClick = () => {
+     setNav(!nav);
+   };
   return (
     <>
-      <div className={nav ? [css.menu, css.active].join(' ') : [css.menu]}>
-        <NavLink to="/main">
+      <div
+        className={nav ? [css.menu, css.active].join(' ') : [css.menu]}
+        onClick={handleMenuClick}
+      >
+        <NavLink to="/">
           <img className={css.logo} src={logo} alt="Logo" />
         </NavLink>
 
@@ -49,37 +55,6 @@ const BurgerManu = () => {
           </div>
         )}
 
-        {/* For UserNav    */}
-        {/* <button className={css.btn} type="button">
-          Log out
-          <svg className={css.logout} width="24" height="24">
-            <use href={logout + '#logout'}></use>
-          </svg>
-        </button>
-
-        <div className={css.thumb_auth}>
-          <NavLink to="/user" className={css.profile}>
-            <svg className={css.icon__user} width="28" height="28">
-              <use href={user_svg + '#user-1'}></use>
-            </svg>
-            <span className={css.username}>Anna</span>
-          </NavLink>
-        </div> */}
-        {/* For UserNav    */}
-        {/* For AuthNav */}
-        {/* <div className={css.auth__container}>
-          <NavLink className={css.link__log} to="/login">
-            Log In
-            <svg className={css.paw} width={24} height={24}>
-              <use href={pawprint + '#pawprint-1'}></use>
-            </svg>
-          </NavLink>
-          <NavLink className={css.link__reg} to="/register">
-            Registration
-          </NavLink>
-        </div> */}
-        {/* For AuthNav */}
-
         <nav className={css.nav}>
           <NavLink className={css.find} to="/news">
             News
@@ -92,7 +67,7 @@ const BurgerManu = () => {
           </NavLink>
         </nav>
       </div>
-      <div onClick={() => setNav(!nav)} className={css.mobile_btn}>
+      <div onClick={handleMenuClick} className={css.mobile_btn}>
         {nav ? (
           <svg className={css.icon} width="24" height="24">
             <use href={svg + '#cross-small'}></use>
@@ -107,4 +82,4 @@ const BurgerManu = () => {
   );
 };
 
-export default BurgerManu;
+export default BurgerMenu;

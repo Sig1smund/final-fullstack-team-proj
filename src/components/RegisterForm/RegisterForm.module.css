@@ -68,7 +68,7 @@
 
 .authBtn {
     composes: desktopLoginButton from '../../global.css';
-    /* width: 100%; */
+    width: 100%;
     /* align-items: center; */
     background-color: var(--blue-color);
     color: var(--white-color);
@@ -127,20 +127,21 @@
         bottom: 0;
         width: 100%;
         height: 2px;
-        background-color: var(--blue-color);
+        background-color: var(--yellow-color);
         transform: scaleX(0);
         transform-origin: right;
         transition: transform 0.5s;
     }
 
     &:hover::after {
+        height: 3px;
         transform: scaleX(1);
         transform-origin: left;
     }
 
     &:focus,
     &:hover {
-        color: var(--blue-color);
+        color:var(--yellow-color)
     }
 }
 

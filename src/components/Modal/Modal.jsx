@@ -20,11 +20,10 @@ const Modal = ({ children, isOpen, onClose }) => {
 
   useEffect(() => {
     const closeESC = (e) => {
-      if (e.code !== "Escape") {
-        return;
+      if (e.code === "Escape") {
+        onClose();
       };
-
-      onClose();
+      console.log("click");
     };
 
     window.addEventListener('keydown', closeESC);

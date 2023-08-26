@@ -1,21 +1,31 @@
-export default function NoticesCategoriesList({ category }) {
-    // Fetch or define data based on the category
-    // let data;
-    if (category === 'sell') {
-    //   data = /* Data for 'sell' category */;
-    } else if (category === 'lost-found') {
-    //   data = /* Data for 'lost-found' category */;
-    } else if (category === 'in-good-hands') {
-    //   data = /* Data for 'in-good-hands' category */;
-    }
+
+import { useState, useEffect } from "react";
+// import { useDispatch } from "react-redux";
+import useNotices from "hooks/useNotices";
+
+export default function NoticesCategoriesList() {
+    // const [category, setCategory] = useState('');
+    const [items, setItems] = useState([]);
+    // const dispatch = useDispatch();
+    const { notices } = useNotices();
   
-    // Render the data
+    useEffect(() => {
+        if (!items.length) {
+            setItems([...notices])
+        }
+    }, [items.length, notices]);
+  
     return (
-      <div>
-        <p>NoticesCategoriesList</p>
-        {/* {data.map((item) => (
-          <div key={item.id}>{item.title}</div>
-        ))} */}
-      </div>
+        <ul>
+            {items.length && items.map(item => {
+                return (<li key={item._id}>
+                    <p>{item.name}</p>
+                    <p>{item.category}</p>
+                    <img src={item.imageURL} alt={item.name} width='300'/>
+                </li>
+                )
+            })}
+        </ul>
     );
-  }
+}
+

@@ -10,6 +10,9 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { authReducer } from './auth/authSlice';
+import { noticesReducer } from './notices/noticesSlice';
+import { newsReducer } from './news/newsSlice';
+import { servicesReducer } from './services/servicesSlice';
 
 // const persistConfig = {
 //   key: 'root',
@@ -22,9 +25,27 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const noticePersistConfig = {
+  key: 'notice',
+  storage,
+};
+
+const newsPersistConfig = {
+  key: 'news',
+  storage,
+};
+
+const servicesPersistConfig = {
+  key: 'services',
+  storage,
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    notices: persistReducer(noticePersistConfig, noticesReducer),
+    news: persistReducer(newsPersistConfig, newsReducer),
+    services: persistReducer(servicesPersistConfig, servicesReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

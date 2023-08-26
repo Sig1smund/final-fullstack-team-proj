@@ -11,9 +11,10 @@
     width: 704px;
 }
 @media screen and (min-width: 1280px) {
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: flex-start;
     flex-direction: row;
+    gap: 32px;
     width: 1248px;
 } 
 }
@@ -23,13 +24,15 @@
 }
 .title{
     font-size: 20px;
+    font-weight: 500;
+    line-height: 1.1;
     margin: 0;
     margin-bottom: 18px;
     font-weight: 500;
     @media screen and (min-width: 768px) {
         margin-bottom: 24px;
         font-size: 28px;
-        font-weight: 700;
+        
     }
 }
 .iconEditButton{
@@ -45,7 +48,7 @@
     &:hover {
         cursor: grab;
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 768px) {
         top: 76px;
         right: 18px;
     }
@@ -61,21 +64,8 @@
     height: 24px;
 }
 .bg{
+    /* width: 100vw;
+    height: 100vh; */
     background: rgba(254, 249, 249, 1);
 
 }
-.petsListWrapper{
-    margin-top: 46px;
-    @media screen and (min-width: 768px) {
-        margin-top: 40px;
-        display: flex;
-        width: 100%;
-        /* align-items: flex-start; */
-        flex-direction: column;
-    }
-    @media screen and (min-width: 1280px) {
-        width: 821px;
-        align-items: flex-start;
-        margin-top: 0;
-    }
-  }

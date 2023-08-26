@@ -67,7 +67,7 @@ export const current = createAsyncThunk('auth/current', async (_, thunkAPI) => {
 export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
   try {
     const res = await axios.get('api/users/refresh');
-    setAuthHeader(res.data.token);
+    // setAuthHeader(res.data.token);
     return res.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -79,10 +79,39 @@ export const updateUser = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.patch('api/users/update', credentials);
-      setAuthHeader(res.data.token);
+      // setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
+export const createPet = createAsyncThunk(
+  'pets/createPet',
+  async (petData, thunkAPI) => {
+    try {
+      const res = await axios.post('api/pets', petData);
+      // setAuthHeader(res.data.token);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deletePet = createAsyncThunk(
+  'pets/removePet',
+  async (petId, thunkAPI) => {
+    try {
+      const res = await axios.delete(`api/pets/${petId}`);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const firstEntire = (isModalActive) => {
+  return isModalActive;
+};

@@ -16,11 +16,11 @@ export default function Logout() {
 
   const openModal = () => {
     setModalActive(true);
-    console.log(modalActive);
   };
 
   const close = () => {
-    setModalActive(!modalActive);
+    setModalActive(false);
+
   };
 
   const userLogout = () => {

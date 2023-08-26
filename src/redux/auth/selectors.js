@@ -7,3 +7,5 @@ export const selectIsRefreshing = state => state.auth.isRefreshing;
 export const selectUserPets = state => state.auth.userPets;
 
 export const selectIsRegistered = state => state.auth.isRegistered;
+
+export const selectIsDeleting = state => state.auth.isDeleting;

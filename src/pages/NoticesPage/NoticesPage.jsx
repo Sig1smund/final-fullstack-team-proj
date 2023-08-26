@@ -1,5 +1,9 @@
-import { Outlet, useParams, useNavigate } from "react-router-dom";
-import { useEffect } from 'react';
+
+import NoticesCategoriesList from 'components/NoticesCategoriesList'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { getNotices } from 'redux/notices/operations'
+
 import NoticesSearch from '../../components/NoticesSearch'
 import NoticesCategoriesNav from '../../components/NoticesCategoriesNav'
 import NoticesFilters from '../../components/NoticesFilters'
@@ -9,6 +13,7 @@ import useAuth from 'hooks';
 import styles from './NoticesPage.module.css'
 
 export default function NoticesPage() {
+
     const { isLoggedIn } = useAuth();
     const { categoryName } = useParams();
     const navigate = useNavigate();
@@ -16,8 +21,9 @@ export default function NoticesPage() {
     useEffect(() => {
         if (!categoryName) {
           navigate('/notices/sell');
+          dispatch(getNotices())
         }
-      }, [categoryName, navigate]);
+      }, [categoryName, navigate, dispatch]);
 
     return <div className={styles.container}>
     <h1 className={styles.title}>Find your favorite pet</h1>

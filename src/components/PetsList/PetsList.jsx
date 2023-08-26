@@ -1,8 +1,13 @@
-import css from './PetList.module.css'
-import PetsItem from 'components/PetsItem/PetsItem'
-import NoPet from "../../images/WBC_sad_1.jpg"
+import css from './PetList.module.css';
+import PetsItem from 'components/PetsItem/PetsItem';
+import NoPet from "../../images/WBC_sad_1.jpg";
+import { useSelector } from 'react-redux';
+import {selectUserPets} from '../../redux/auth/selectors';
+
 export default function PetsList() {
-    const pets =[
+    const pets = useSelector(selectUserPets) || [];
+    console.log(pets)
+    // const pets =[
         // {
         //     id: 1,
         //     avatar: "https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_640.jpg",
@@ -30,7 +35,7 @@ export default function PetsList() {
         //     comments: "comm"
 
         // }
-    ]
+    // ]
     return(
         <>
         {pets.length <=0 ? 
@@ -45,7 +50,7 @@ export default function PetsList() {
         <ul className={css.petsList}>
             {pets.map(pet => (
                         <PetsItem
-                          key={pet.id}
+                          key={pet._id}
                           pet={pet}
                           
                         />
