@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import {selectUserPets} from '../../redux/auth/selectors';
 
 export default function PetsItem() {
-  const [pets, setPets]=useState(useSelector(selectUserPets))
+  // const [pets, setPets]=useState(useSelector(selectUserPets))
   // const pets = useSelector(selectUserPets);
 
     const [showModal, setShowModal] = useState(false);
