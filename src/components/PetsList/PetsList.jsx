@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import {selectUserPets} from '../../redux/auth/selectors';
 
 export default function PetsList() {
-    const pets = useSelector(selectUserPets);
+    const pets = useSelector(selectUserPets)|| [];
 
     console.log(pets)
 
