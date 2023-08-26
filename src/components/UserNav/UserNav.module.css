@@ -35,6 +35,7 @@
 
 
 .username{
+  color: var(--yellow-color);
    @media screen and (max-width: 767px) {
   
       display: none;
