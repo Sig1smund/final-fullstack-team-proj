@@ -9,6 +9,7 @@ import Cross from '../../images/cross-small.svg'
 
 import { useSelector } from 'react-redux';
 import { selectUser, selectIsRegistered } from '../../redux/auth/selectors';
+import { updateUser } from "../../redux/auth/operations";
 
 
 import Modal from 'components/Modal/Modal';
@@ -54,6 +55,7 @@ const onToggleReadOnly = () => {
 
   };
   const onSubmitForm = (newDataUser) => {
+    dispatch(updateUser(newDataUser));
     // setUser(newDataUser)
 
     console.log(newDataUser)
