@@ -140,7 +140,10 @@ const authSlice = createSlice({
         state.isDeleting = true;
       })
       .addCase(deletePet.fulfilled, (state, action) => {
-        state.userPets = state.userPets.filter(p => p.id !== action.payload);
+        const index = state.userPets.findIndex(
+          state.userPets.id === action.payload.id
+        );
+        state.userPets = state.userPets.splice(index, 1);
         state.isDeleting = false;
       })
       .addCase(deletePet.rejected, (state, action) => {
