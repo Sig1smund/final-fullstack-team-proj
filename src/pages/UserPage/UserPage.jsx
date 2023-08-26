@@ -16,7 +16,7 @@ import ModalCongrats from 'components/ModalCongrats/ModalCongrats';
 import { firstEntire } from 'redux/auth/operations';
 
 
-import { updateUser } from 'redux/auth/operations';
+//import { updateUser } from 'redux/auth/operations';
 import PetsData from 'components/PetsData/PetsData';
 
 
