@@ -10,7 +10,7 @@ export default function PetsItem({pet}) {
 
     const [showModal, setShowModal] = useState(false);
 
-   console.log(showModal);
+   console.log(pet);
 const dispatch = useDispatch();
 
 const openModal = () => {
@@ -33,7 +33,7 @@ const closeModal = () => {
         <li className={css.petsItemWrapper}>
 <img src={pet.imageURL} alt={pet.name} className={css.petsImg} />
 <div className={css.petInfoWrapper}>
-    <p className={css.petInfoBtn}>Name: {pet.name}
+    <p className={css.petInfoBtn}> <div>Name: {pet.name}</div>
     
     <button
     type='button'
@@ -47,9 +47,9 @@ const closeModal = () => {
     </button>
     
     </p>
-    <p className={css.petInfo}><b>Date of birth:</b> {pet.date}</p>
-    <p className={css.petInfo}><b>Type:</b> {pet.type}</p>
-    <p className={css.petInfo}><b>Comments: </b>{pet.comments}</p>
+    <p className={css.petInfo}>Date of birth: {pet.date}</p>
+    <p className={css.petInfo}>Type: {pet.type}</p>
+    <p className={css.petInfo}>Comments: {pet.comments}</p>
 </div>
 </li>
 {showModal && (

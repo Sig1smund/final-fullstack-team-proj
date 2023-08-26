@@ -55,15 +55,33 @@
 .petInfo{
   margin: 0;
   font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  @media screen and (min-width: 768px) {
+  line-height: 1;
+  }
+  @media screen and (min-width: 1280px) {
+    line-height: 1.4;
+    font-size: 16px;
+  } 
  
 }
 .petInfoBtn{
   margin: 0;
   font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  @media screen and (min-width: 768px) {
+    line-height: 1;
+    }
+    @media screen and (min-width: 1280px) {
+      line-height: 1.4;
+      font-size: 16px;
+    } 
 }
 .btnTrash{
   width: 24px;
@@ -72,4 +90,7 @@
   background-color: transparent;
   stroke: var(--blue-color);
   fill: none;
+}
+.info{
+  font-weight: 600;
 }
