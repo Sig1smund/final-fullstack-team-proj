@@ -66,6 +66,7 @@
 }
 
 .authBtn {
+    width: 100%;
     composes: desktopLoginButton from '../../global.css';
     align-items: center;
     background-color: var(--blue-color);

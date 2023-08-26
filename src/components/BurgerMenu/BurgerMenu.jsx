@@ -10,10 +10,16 @@ import user_svg from '../../images/sprite.svg';
 
 const BurgerMenu = () => {
   const [nav, setNav] = useState(false);
-   const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
+   const handleMenuClick = () => {
+     setNav(!nav);
+   };
   return (
     <>
-      <div className={nav ? [css.menu, css.active].join(' ') : [css.menu]} onClick={css.menu}>
+      <div
+        className={nav ? [css.menu, css.active].join(' ') : [css.menu]}
+        onClick={handleMenuClick}
+      >
         <NavLink to="/">
           <img className={css.logo} src={logo} alt="Logo" />
         </NavLink>
@@ -49,7 +55,6 @@ const BurgerMenu = () => {
           </div>
         )}
 
-     
         <nav className={css.nav}>
           <NavLink className={css.find} to="/news">
             News
@@ -62,7 +67,7 @@ const BurgerMenu = () => {
           </NavLink>
         </nav>
       </div>
-      <div onClick={() => setNav(!nav)} className={css.mobile_btn}>
+      <div onClick={handleMenuClick} className={css.mobile_btn}>
         {nav ? (
           <svg className={css.icon} width="24" height="24">
             <use href={svg + '#cross-small'}></use>
