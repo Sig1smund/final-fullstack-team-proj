@@ -52,8 +52,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    })
-    // .concat(authReducer, noticesReducer, servicesReducer, newsReducer),
+    }),
 });
 
 export const persistor = persistStore(store);

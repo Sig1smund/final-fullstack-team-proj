@@ -19,7 +19,6 @@ const initialState = {
 const noticesSlice = createSlice({
   name: 'notices',
   initialState,
-  reducers: {},
   extraReducers: builder =>
     builder
       .addCase(getNotices.pending, state => {
@@ -37,7 +36,7 @@ const noticesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(addNotice.fulfilled, (state, action) => {
-        state.notices = [...state.notices, ...action.payload];
+        state.notices = [...state.notices, action.payload];
         state.isLoading = false;
       })
       .addCase(addNotice.rejected, (state, action) => {
@@ -48,7 +47,7 @@ const noticesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getOwnNotices.fulfilled, (state, action) => {
-        state.notices = [...action.payload.notices];
+        state.notices = action.payload.notices;
         state.isLoading = false;
       })
       .addCase(getOwnNotices.rejected, (state, action) => {
@@ -59,7 +58,7 @@ const noticesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getFavNotices.fulfilled, (state, action) => {
-        state.notices = [...action.payload.notices];
+        state.notices = action.payload.notices;
         state.isLoading = false;
       })
       .addCase(getFavNotices.rejected, (state, action) => {

@@ -11,14 +11,13 @@ const initialState = {
 const newsSlice = createSlice({
   name: 'news',
   initialState,
-  reducers: {},
   extraReducers: builder =>
     builder
       .addCase(getNews.pending, state => {
         state.isLoading = true;
       })
       .addCase(getNews.fulfilled, (state, action) => {
-        state.news = [...action.payload];
+        state.news = action.payload;
         state.isLoading = false;
       })
       .addCase(getNews.rejected, (state, action) => {
