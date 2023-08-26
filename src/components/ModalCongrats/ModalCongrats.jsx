@@ -1,15 +1,15 @@
 import css from './ModalCongrats.module.css';
-import logout from '../../images/sprite.svg';
+import icon from '../../images/sprite.svg';
 
 import { useNavigate} from 'react-router-dom';
 
 
-export default function ModalCongrats(close) {
+export default function ModalCongrats({ onClose }) {
 
   const navigate = useNavigate();
 
-  const action = () => {
-    close();
+  const CloseAndNavigate = () => {
+    onClose();
     navigate("/user");
   };
 
@@ -22,10 +22,10 @@ export default function ModalCongrats(close) {
         Youre registration is success
       </p>
 
-        <button type="button" className={css.goToProfileBtn} onClick={action}>
+        <button type="button" className={css.goToProfileBtn} onClick={CloseAndNavigate}>
           Go to profile
           <svg className={css.logo} width="24" height="24">
-            <use href={logout + '#pawprint-1'}></use>
+            <use href={icon + '#pawprint-1'}></use>
           </svg>
         </button>
 

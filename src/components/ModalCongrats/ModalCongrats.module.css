@@ -5,7 +5,7 @@
   margin-right: auto;
 text-align: center;
 
-  @media screen and (min-width: 767px) {
+  @media screen and (max-width: 767px) {
     & {
       width: 280px;
       min-height: 287px;
@@ -58,7 +58,7 @@ text-align: center;
   margin-right: auto;
   margin-top: 0px;
 
-  @media screen and (min-width: 320px) {
+  @media screen and (max-width: 767px) {
     & {
 
       font-size: 16px;
@@ -83,4 +83,6 @@ text-align: center;
   display: inline-flex;
   padding: 8px 20px;
   width: 248px;
+  justify-content: center;
+  align-items: center;
 }

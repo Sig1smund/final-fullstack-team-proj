@@ -86,3 +86,7 @@ export const updateUser = createAsyncThunk(
     }
   }
 );
+
+export const firstEntire = (isModalActive) => {
+  return isModalActive;
+};

@@ -6,6 +6,7 @@ import {
   current,
   refresh,
   updateUser,
+  firstEntire,
 } from './operations';
 
 const initialState = {
@@ -114,6 +115,9 @@ const authSlice = createSlice({
       .addCase(updateUser.rejected, (state, action) => {
         state.isRefreshing = false;
         state.error = action.payload;
+      })
+      .addCase(firstEntire, (state, action) => {
+        state.isRegistered = false;
       });
   },
 });

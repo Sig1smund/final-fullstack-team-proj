@@ -6,14 +6,16 @@ import PetsList from 'components/PetsList/PetsList'
 // import UserForm from 'components/UserForm/UserForm';
 import Cross from '../../images/cross-small.svg'
 
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { current } from 'redux/auth/operations';
 
 import { useSelector } from 'react-redux';
-import { selectUser } from '../../redux/auth/selectors';
+import { selectUser, selectIsRegistered } from '../../redux/auth/selectors';
+
 
 import Modal from 'components/Modal/Modal';
 import ModalCongrats from 'components/ModalCongrats/ModalCongrats';
+import { firstEntire } from 'redux/auth/operations';
 
 
 export default function UserPage() {
@@ -21,13 +23,6 @@ export default function UserPage() {
 // const [user, setUser]=useState('')
 
   const user = useSelector(selectUser);
-
-  const [modalActive, setModalActive] = useState(false);
-
-
-  const close = () => {
-    setModalActive(!modalActive);
-  };
 
 // const user ={
 //     "name": "iii",
@@ -38,7 +33,7 @@ export default function UserPage() {
 // const user = current(token)
 // console.log(user)
 
-
+const dispatch = useDispatch();
 
 const onToggleReadOnly = () => {
     setReadOnly(prevState => !prevState);
@@ -52,10 +47,21 @@ const onToggleReadOnly = () => {
 
 
   };
-  const onSubmitForm=(newDataUser)=>{
+  const onSubmitForm = (newDataUser) => {
     // setUser(newDataUser)
     console.log(newDataUser)
-  }
+  };
+
+
+  const isModalActive = useSelector(selectIsRegistered);
+
+  const [modalActive, setModalActive] = useState(isModalActive);
+
+
+  const close = () => {
+    setModalActive(!modalActive);
+    dispatch(firstEntire(false));
+  };
 
 
   return (
@@ -88,10 +94,11 @@ const onToggleReadOnly = () => {
 
       </div>
 
-      <Modal isOpen={modalActive} onClose={close}>
-        <ModalCongrats close={close} />
-      </Modal>
-
+      { modalActive && (
+        <Modal isOpen={modalActive} onClose={close}>
+          <ModalCongrats onClose={close} />
+        </Modal>
+      )}
     </>
   )
 }
