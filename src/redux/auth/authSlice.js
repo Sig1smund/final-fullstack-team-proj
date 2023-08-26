@@ -6,6 +6,7 @@ import {
   current,
   refresh,
   updateUser,
+  firstEntire,
   createPet,
   deletePet,
 } from './operations';
@@ -117,6 +118,9 @@ const authSlice = createSlice({
       .addCase(updateUser.rejected, (state, action) => {
         state.isRefreshing = false;
         state.error = action.payload;
+      })
+      .addCase(firstEntire, (state, action) => {
+        state.isRegistered = false;
       })
       .addCase(createPet.pending, state => {
         state.isLoading = true;
