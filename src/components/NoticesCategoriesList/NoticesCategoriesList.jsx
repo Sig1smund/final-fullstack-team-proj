@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 // import { useDispatch } from "react-redux";
 import useNotices from "hooks/useNotices";
 
-export default function NoticesCategoriesList() {
+export default function NoticesCategoriesList({category}) {
     // const [category, setCategory] = useState('');
     const [items, setItems] = useState([]);
     // const dispatch = useDispatch();

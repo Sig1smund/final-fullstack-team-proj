@@ -18,30 +18,15 @@
   background-color: var(--white-bckg-color);
   border-radius: 40px;
   overflow-y: auto;
-
-
-  @media screen and (max-width: 767px) {
-      & {
-        top: 100px;
-      }
-    }
-
-    @media screen and (min-width: 768px) {
-      & {
-        top: 300px;
-      }
-    }
-
-    @media screen and (min-width: 1280px) {
-      & {
-        top: 112px;
-      }
-    }
-
-
+  top: 112px;
 }
 
-.cross {
+.crossBtn{
+  border: none;
+  outline: none;
+}
+
+.exit {
   position: absolute;
   top: 0;
   right: 0;
@@ -51,10 +36,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  padding: 9px;
+  width: 24px;
+  height: 24px;
   border: none;
   background-color: var(--white-bckg-color);
-  color: var(--blue-color);
+}
+
+.cross {
+  fill: var(--blue-color);
+  stroke: var(--blue-color);
 }
