@@ -1,3 +1,4 @@
+
 import useNotices from "hooks/useNotices";
 
 export default function NoticesCategoriesList() {
