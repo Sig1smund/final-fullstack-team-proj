@@ -12,7 +12,7 @@ export default function NoticesCategoriesList() {
     const { notices } = useNotices();
     const dispatch = useDispatch();
 
-    console.log('notices', notices);
+    // console.log('notices', notices);
 
     useEffect(() => {
        if (categoryName === 'favorite') {
@@ -24,7 +24,7 @@ export default function NoticesCategoriesList() {
 
     return (
         <ul className={styles.list}>
-            {notices.length && notices.map(item => {
+            {notices.length > 0 && notices.map(item => {
                 return (<NoticeCategoryItem key={item._id} item={item}/>)
             })}
         </ul>

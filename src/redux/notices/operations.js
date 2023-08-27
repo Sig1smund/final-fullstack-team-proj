@@ -15,7 +15,8 @@ export const getNotices = createAsyncThunk(
   'notices/getNotices',
   async (category, page = 1, query = '', thunkAPI) => {
     try {
-      console.log(category);
+      console.log('category :', category);
+      console.log('query in getNotices :', query);
       let path;
       if (query) {
         path = `api/notices?category=${category}&page=${page}&searchQuery=${query}`;
