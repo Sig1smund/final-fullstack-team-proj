@@ -86,3 +86,14 @@ text-align: center;
   justify-content: center;
   align-items: center;
 }
+
+.goToProfileBtn:hover {
+      border: none;
+      border-radius: 40px;
+      background: var(--gr-blue, linear-gradient(315deg, #419ef1 0%, #9bd0ff 100%));
+      cursor: pointer;
+}
+
+.logo{
+  fill: var(--white-color);
+}

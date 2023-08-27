@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { RxCross1 } from 'react-icons/rx';
 import { useSpring, animated, useTransition} from '@react-spring/web';
 
+import exit from '../../images/sprite.svg';
 import css from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
+
 
 const Modal = ({ children, isOpen, onClose }) => {
 // no scroling content
@@ -17,13 +18,11 @@ const Modal = ({ children, isOpen, onClose }) => {
     }
   }, [isOpen]);
 
-
   useEffect(() => {
     const closeESC = (e) => {
       if (e.code === "Escape") {
         onClose();
       };
-      console.log("click");
     };
 
     window.addEventListener('keydown', closeESC);
@@ -33,6 +32,7 @@ const Modal = ({ children, isOpen, onClose }) => {
     };
   }, [onClose]);
 
+  // animation
   const modalTransition = useTransition(isOpen, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
@@ -56,14 +56,21 @@ const Modal = ({ children, isOpen, onClose }) => {
       isOpen && createPortal(
         <div className={css.overlay} as={animated.div} styler={styles}  onClick={onClose}>
           <div className={css.modalWrapper} as={animated.div} style={springs} onClick={e => e.stopPropagation()}>
-            <button type="button" className={css.cross} onClick={onClose}>
-              <RxCross1 />
+
+            <button type="button" className={css.crossBtn} onClick={onClose}>
+              <svg className={css.exit} width="24" height="24">
+                <use className={css.cross} href={exit + '#cross'}></use>
+              </svg>
             </button>
-             {children}
+
+              {children}
+
           </div>
         </div>,
       modalRoot)
-
   );
+
 };
+
+
 export default Modal;

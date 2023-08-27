@@ -84,6 +84,14 @@ font-size: 16px;
   }
 }
 
+.cancel:hover {
+  border: none;
+  border-radius: 40px;
+  background: var(--gr-blue, linear-gradient(315deg, #419ef1 0%, #9bd0ff 100%));
+  cursor: pointer;
+  color: var(--white-color);
+}
+
 .yes {
 composes: desktopButtonBlue from "../../global.css";
 font-family: Manrope;
@@ -93,6 +101,7 @@ padding: 8px 20px;
 justify-content: center;
 align-items: center;
 gap: 8px;
+
 
 
 
@@ -107,4 +116,11 @@ gap: 8px;
       width: 129px;
     }
   }
+}
+
+.yes:hover {
+  border: none;
+  border-radius: 40px;
+  background: var(--gr-blue, linear-gradient(315deg, #419ef1 0%, #9bd0ff 100%));
+  cursor: pointer;
 }

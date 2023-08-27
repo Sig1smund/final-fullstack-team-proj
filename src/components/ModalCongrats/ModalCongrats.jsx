@@ -1,26 +1,26 @@
 import css from './ModalCongrats.module.css';
 import icon from '../../images/sprite.svg';
 
-import { useNavigate} from 'react-router-dom';
+//import { useNavigate} from 'react-router-dom';
 
 
 export default function ModalCongrats({ onClose }) {
 
-  const navigate = useNavigate();
+ // const navigate = useNavigate();
 
   const CloseAndNavigate = () => {
     onClose();
-    navigate("/user");
   };
 
-  return <>
-    <div className={css.container}>
-      <p className={css.title}>
-         Congrats!
-      </p>
-      <p className={css.subtitle}>
-        Youre registration is success
-      </p>
+  return (
+    <>
+      <div className={css.container}>
+        <p className={css.title}>
+          Congrats!
+        </p>
+        <p className={css.subtitle}>
+          Youre registration is success
+        </p>
 
         <button type="button" className={css.goToProfileBtn} onClick={CloseAndNavigate}>
           Go to profile
@@ -29,6 +29,8 @@ export default function ModalCongrats({ onClose }) {
           </svg>
         </button>
 
-    </div>
+      </div>
     </>
-}
+  )
+
+};
