@@ -11,8 +11,9 @@ export default function OurFriendsList() {
                     return (
                         <li key={service._id} className={s.item}>
                             <h2>{service.title}</h2>
-                            <img src={service.imageUrl} alt={service.title} />
-                            <a href={service.url}>web page</a>
+                            <a href={service.url}>
+                                <img src={service.imageUrl} alt={service.title} width='390' />
+                            </a>
                             <p>{service.adress}</p>
                         </li>
                     )
