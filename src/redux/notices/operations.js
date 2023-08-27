@@ -13,9 +13,17 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getNotices = createAsyncThunk(
   'notices/getNotices',
-  async (category, thunkAPI) => {
+  async (category, page = 1, query = '', thunkAPI) => {
     try {
-      const res = await axios.get('api/notices', category);
+      console.log(category);
+      let path;
+      if (query) {
+        path = `api/notices?category=${category}&page=${page}&searchQuery=${query}`;
+      } else {
+        path = `api/notices?category=${category}&page=${page}`;
+      }
+      const res = await axios.get(path);
+      console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

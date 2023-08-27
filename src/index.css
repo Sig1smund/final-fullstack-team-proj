@@ -15,7 +15,7 @@ body {
    background-image: url('./images/bgMain_L@1x.png'); 
    background-size: cover; 
    background-repeat: no-repeat;
-   
+    min-height: 100vh
 }
 
 /*  mobile screen */
