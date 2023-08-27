@@ -31,7 +31,7 @@
   font-family: Manrope;
   font-size: 14px;
   font-weight: 500;
-  transition: 400ms ease-in-out;
+  transition: 200ms ease-in-out;
   margin-right: auto;
   margin-left: auto;
   
@@ -99,6 +99,7 @@
   align-items: center;
 
   &:hover {
+    cursor: pointer;
     scale: 1.1;
   }
 }
@@ -163,6 +164,12 @@
   font-weight: 600;
 }
 
+
+.svg_info{
+    fill:var(--blue-color);
+}
+
+
 .bottom_container{
   height: 168px;
   padding: 20px 16px 28px 16px;
@@ -198,17 +205,18 @@
   outline: 0;
   background-color: var(--milk-bckg-color);
 
-  svg {
+  .learn_svg{
     fill: var(--blue-color);
   }
 
   &:hover,
   &:focus {
+    cursor: pointer;
     background: linear-gradient(90deg,#9bd0ff,#419ef1);
     color: var(--white-bckg-color);
     border: 0;
 
-    svg {
+    .learn_svg {
       fill: var(--white-bckg-color);
     }
   }
