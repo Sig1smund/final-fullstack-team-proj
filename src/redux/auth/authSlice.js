@@ -6,7 +6,6 @@ import {
   current,
   refresh,
   updateUser,
-  firstEntire,
   createPet,
   deletePet,
 } from './operations';
@@ -27,6 +26,11 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    changeIsRegistered(state, action) {
+      state.isRegistered = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(register.pending, state => {
@@ -38,12 +42,10 @@ const authSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
         state.isLoading = false;
-        state.isRegistered = true;
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-        state.isRegistered = false;
       })
       .addCase(logIn.pending, state => {
         state.isLoading = true;
@@ -120,9 +122,6 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = action.payload;
       })
-      .addCase(firstEntire, (state, action) => {
-        state.isRegistered = false;
-      })
       .addCase(createPet.pending, state => {
         state.isLoading = true;
         state.isRefreshing = true;
@@ -152,3 +151,5 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
+
+export const { changeIsRegistered } = authSlice.actions;

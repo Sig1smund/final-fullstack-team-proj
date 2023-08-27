@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+//import { useNavigate} from 'react-router-dom';
 
 import { logOut } from 'redux/auth/operations';
 import css from './Logout.module.css';
@@ -9,6 +10,8 @@ import ModalApproveAction from 'components/ModalApproveAction/ModalApproveAction
 
 
 export default function Logout() {
+
+  //const navigate = useNavigate();
 
   const [modalActive, setModalActive] = useState(false);
 
@@ -20,11 +23,10 @@ export default function Logout() {
 
   const close = () => {
     setModalActive(false);
-
   };
 
-  const userLogout = () => {
-    dispatch(logOut());
+  const userLogout = async() => {
+    await dispatch(logOut());
     setModalActive(false);
   };
 
@@ -32,17 +34,18 @@ export default function Logout() {
   return (
     <>
       <button className={css.btn} type="button" onClick={openModal}>
-      Log out
-      <svg className={css.logout} width="24" height="24">
-        <use href={logout + '#logout'}></use>
-      </svg>
-    </button>
-    <Modal isOpen={modalActive} onClose={close}>
-        <ModalApproveAction logo={'#logout'} close={close} action={userLogout}>
-            Already leaving?
-        </ModalApproveAction>
-    </Modal>
-    </>
+        Log out
+        <svg className={css.logout} width="24" height="24">
+          <use href={logout + '#logout'}></use>
+        </svg>
+      </button>
 
-  );
-}
+      <Modal isOpen={modalActive} onClose={close}>
+          <ModalApproveAction logo={'#logout'} close={close} action={userLogout}>
+              Already leaving?
+          </ModalApproveAction>
+      </Modal>
+    </>
+  )
+
+};

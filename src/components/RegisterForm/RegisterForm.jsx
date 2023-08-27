@@ -5,6 +5,7 @@ import { register } from '../../redux/auth/operations';
 import * as yup from 'yup';
 import sprite from '../../images/sprite.svg';
 import styles from './RegisterForm.module.css';
+import { changeIsRegistered } from '../../redux/auth/authSlice';
 
 
 
@@ -38,7 +39,7 @@ const RegisterForm = () => {
                         setEmail('');
                         setPassword('');
                         setPassword2('');
-
+                        dispatch(changeIsRegistered(true));
                     })
                     .catch(error => {
                         console.error(error.message);
