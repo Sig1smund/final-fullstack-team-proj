@@ -1,7 +1,6 @@
 import { useState, useRef} from 'react';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
-
 import css from './UserForm.module.css'
 import sprite from '../../images/sprite.svg'
 import DefaultAvatar from '../../images/Photo default.svg'
@@ -11,24 +10,23 @@ import Check from '../../images/check.svg'
 
 
 const initialState = {
-  
   name: '',
   email: '',
   birthday: '',
   phone: '',
   city:''
-
 }
 
 export default function UserForm({onSubmit, readonly, user, saveNewPhoto}) {
 
 const [state, setState]=useState(user || initialState);
-const [avatarURL, setAvatarURL]=useState(user.avatarURL || '')
+const [avatarURL, setAvatarURL]=useState(user.avatarURL || '');
+
 const dispatch = useDispatch();
 
-const onChange = (e)=>{
-const {name, value} = e.target;
-setState(state=>({...state, [name]: value}))
+const onChange = (e) => {
+    const {name, value} = e.target;
+    setState(state=>({...state, [name]: value}))
 }
 
 const onChangeFile = event => {
@@ -45,12 +43,8 @@ const onChangeFile = event => {
     };
 
 
-
-
-
 const inputPhotoRef = useRef();
 
-  
   // const onChangeFile = event => {
   //   const file = event.target.files[0];
   //   if (file.size > 1024 * 1024 * 3) {
@@ -59,6 +53,7 @@ const inputPhotoRef = useRef();
   //   }
   //   setAvatar(file);
   // };
+
   const onLoadNewPhoto = () => {
     inputPhotoRef.current.click();
   };
@@ -69,20 +64,12 @@ const inputPhotoRef = useRef();
     setAvatarURL(null);
   };
 
-
-
-
-
- 
-
   const handleSubmit =event=>{
     event.preventDefault();
     const {name, email, phone, birthday, city} = state;
-    
     // if (phone.length < 13) {
     //   inputPhoneRef.current.focus();
     // }
-    console.log("state", state)
 
     // const formData = {name, email, phone, birthday, city};
     // test
@@ -138,7 +125,7 @@ const inputPhotoRef = useRef();
                 ></img>
                 
               </button>
-              <span>Confirm</span>
+              <p>Confirm</p>
               <button
                 type="button"
                 onClick={onCancelNewAvatar}
@@ -237,10 +224,7 @@ const inputPhotoRef = useRef();
                 className={css.LogOutBtn}
                 onClick={()=> dispatch(logOut())}               
               >
-                {/* <svg width='24px' height='24px' className={css.iconLogOut}>
-                <use xlinkHref='../../images/sprite.svg#logout'></use>
-                </svg>
-                 */}
+              
                 <img src={LogOut} className={css.iconLogOut} alt="logout" />
                 Log Out
               </button>) : (<div className={css.saveBtnWrapper}><button className={css.saveBtn}>Save</button></div>)}
