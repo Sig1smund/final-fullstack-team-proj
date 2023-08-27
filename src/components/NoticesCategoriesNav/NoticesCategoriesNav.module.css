@@ -1,7 +1,12 @@
 .button {
-    composes: lostAndFoundButton from '../../global.css'; 
-    text-decoration: none;
-    margin-right: 8px;
+  composes: lostAndFoundButton from '../../global.css';
+  text-decoration: none;
+  margin-right: 8px;
+}
+
+.button:hover {
+      background:  linear-gradient(315deg, #419EF1 0%, #9BD0FF 100%);
+      color: var(--white-color);
 }
 
 .active {
@@ -22,9 +27,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
   }
+}
 
 @media screen and (max-width: 1279px) {
   .container {
@@ -36,5 +40,5 @@
   .container {
     padding-left: 0px;
     margin-bottom: 0px;
-}
+  }
 }
