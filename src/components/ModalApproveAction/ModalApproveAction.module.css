@@ -124,3 +124,7 @@ gap: 8px;
   background: var(--gr-blue, linear-gradient(315deg, #419ef1 0%, #9bd0ff 100%));
   cursor: pointer;
 }
+.trashBtn{
+  stroke: var(--white-bckg-color);
+    fill: none;
+}

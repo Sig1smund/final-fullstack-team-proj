@@ -3,15 +3,11 @@
     background:  var(--milk-bckg-color);
     composes: shadow from '../../global.css';
     width: 280px;
-    /* padding: 20px 8px 20px 8px; */
     border-radius: 20px;
-    /* margin-bottom: 46px; */
     height: 517px;
     @media screen and (min-width: 768px) {
-        /* padding: 0; */
         width: 704px;
         height: 268px;
-
     }
     @media screen and (min-width: 1280px) {
         width: 395px;
@@ -19,17 +15,13 @@
     } 
 }
 .form {
-    /* display: flex;
-    flex-direction: column; */
     width:  100%;
-    padding: 20px 8px 24px 8px;
+    padding: 20px 8px 20px 8px;
     @media screen and (min-width: 768px) {
-        padding: 20px 76px 20px 20px;
-        
+        padding: 20px 76px 16px 20px;
     }
     @media screen and (min-width: 1280px) {
         padding: 20px 24px 19px 16px;
-        
     } 
     
   }
@@ -38,11 +30,9 @@
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
-        
     }
     @media screen and (min-width: 1280px) {
         flex-direction: column;
-        /* gap: 63px; */
     } 
   }
   
@@ -58,13 +48,11 @@
     margin: 0;
     @media screen and (min-width: 768px) {
        font-size: 18px;
-        
     }
-    
 }
 .input{
    
-  
+  height: 24px;
     width: 190px;
     padding: 4px 12px 4px 12px;
     border-radius: 20px;
@@ -75,7 +63,7 @@
     @media screen and (min-width: 768px) {
         width: 255px;
         font-size: 16px;
-         
+        height: 30px;
      }
 }
 .LogOutBtn{
@@ -96,10 +84,6 @@
     }
     @media screen and (min-width: 768px) {
         margin-top: 14px;
-        
-    }
-    &:hover{
-        transform: scale(1.03);
     }
 }
 .iconLogOut{
@@ -107,22 +91,12 @@
     width: 24px;
     height: 24px;
 }
-/* .userInfo{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    @media screen and (min-width: 768px) {
-        width: 355px;
-       
-    }
-} */
+
 .avatarWrapper{
     display: flex;
     justify-content: center;
-    /* margin-bottom: 59px; */
     flex-direction: column;
     align-items: center;
-   
 }
 .avatar{
     display: block;
@@ -138,12 +112,9 @@
 }
 .editPhotoContainer{
     display: flex;
-
-    justify-content: center;
-  
+    justify-content: center; 
     margin-bottom: 25px;
 }
-
 
 .iconWrapperCheck{
     display: flex;
@@ -177,17 +148,13 @@
     gap: 8px;
     padding: 0;
     @media screen and (min-width: 768px) {
-        margin: 0 auto 0;
-        
+        margin: 0 auto 0;   
     }
 }
-.avatarWrapperRead{
-    
-    margin-bottom: 59px;
-    
+.avatarWrapperRead{   
+    margin-bottom: 59px;  
     display: flex;
     justify-content: center;
- 
     flex-direction: column;
     align-items: center;
 
@@ -196,9 +163,7 @@
     margin: 0 auto 59px auto;
     @media screen and (min-width: 768px) {
         margin: 0;
-    }
-    
-  
+    } 
 }
 
 
@@ -209,9 +174,9 @@
     margin: 14px auto 21px;
     gap: 8px;
     font-size: 12px;
+    height: 24px;
     @media screen and (min-width: 768px) {
-        margin: 0 auto 0;
-        
+        margin: 0 auto 0;    
     }
   }
   .btnConfirm {
@@ -223,43 +188,34 @@
     font-weight: 400;
     line-height: 1.83;
     border: 0;
-    background: transparent;
-   
+    background: transparent;  
   }
-  .iconCheck {
-    
+  .iconCheck {  
     width: 24px;
     height: 24px;
     
   }
   .iconCross {
     width: 24px;
-    height: 24px;
-    
+    height: 24px; 
   }
   .btnEdit {
     margin-bottom: 21px;
-    @media screen and (min-width: 768px) {
-       
-        margin: 0;
-        
+    @media screen and (min-width: 768px) {      
+        margin: 0;     
     }
   }
   .iconCamera {
-
     width: 24px;
     height: 24px;
     stroke: var(--blue-color);
- 
     fill: none;
-
   }
   .saveBtn{
     display: block;
     width: 248px;
     height: 31px;
     padding: 0;
-    /* padding:  auto 6px auto 6px; */
     font-size: 14px;
     border: none;
     background-color: var(--blue-color);
@@ -273,15 +229,14 @@
         height: 32px;
         font-size: 14px;
         margin: 0;
-        margin-top: 10px;
-        
+        margin-top: 10px; 
     }
     @media screen and (min-width: 1280px) {
       height: 34px;
     }
     &:hover{
-        background: linear-gradient(290.46deg, #419EF1 0%, #9BD0FF 107.89%);
-cursor: grab;
+        background: var(--hoover-color);
+        cursor: grab;
     }
     
   }
@@ -294,19 +249,14 @@ cursor: grab;
         gap: 14px;
         justify-content: flex-start;
         height: 220px;
-       
-        
     }
-    @media screen and (min-width: 1280px) {
-      
+    @media screen and (min-width: 1280px) {    
         height: 245px;
     } 
   }
   .saveBtnWrapper{
     display: flex;
-    justify-content: flex-end;
-    
-   
+    justify-content: flex-end;   
   }
   .infoWrapper{
     display: flex;

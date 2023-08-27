@@ -6,12 +6,10 @@
   width: 280px;
   margin: auto;
   position: relative;
-  
 @media screen and (min-width: 768px) {
     width: 704px;
 }
 @media screen and (min-width: 1280px) {
-    /* justify-content: space-between; */
     align-items: flex-start;
     flex-direction: row;
     gap: 32px;
@@ -56,16 +54,12 @@
 .iconEdit{
     fill: var(--blue-color);
 }
-/* .iconCancel{
-    fill: blue;
-} */
+
 .iconCross{
     width: 24px;
     height: 24px;
 }
 .bg{
-    /* width: 100vw;
-    height: 100vh; */
     background: rgba(254, 249, 249, 1);
 
 }

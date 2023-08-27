@@ -52,7 +52,9 @@ const closeModal = () => {
                   <ModalApproveAction 
                     close={closeModal} 
                     id={pet._id}
-                    action={approveAction}>
+                    action={approveAction}
+                    logo={'#trash-2'}
+                    >
                       <div className={css.modalText}>
                       <div className={css.modalTitle}><div>Delete</div> <div>adverstiment?</div> </div>
                     Are you sure you want to delete <b>“{pet.name}”</b>?<br/>

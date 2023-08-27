@@ -7,6 +7,8 @@ import DefaultAvatar from '../../images/Photo default.svg'
 import LogOut from '../../images/logout.svg'
 import DeleteIcon from '../../images/x.svg'
 import Check from '../../images/check.svg'
+import Modal from 'components/Modal/Modal';
+import ModalApproveAction from 'components/ModalApproveAction/ModalApproveAction';
 
 
 const initialState = {
@@ -21,8 +23,24 @@ export default function UserForm({onSubmit, readonly, user, saveNewPhoto}) {
 
 const [state, setState]=useState(user || initialState);
 const [avatarURL, setAvatarURL]=useState(user.avatarURL || '');
+const [modalActive, setModalActive] = useState(false);
 
 const dispatch = useDispatch();
+
+  const openModal = () => {
+    setModalActive(true);
+  };
+
+  const close = () => {
+    setModalActive(false);
+  };
+
+  const userLogout = async() => {
+    await dispatch(logOut());
+    setModalActive(false);
+  };
+
+
 
 const onChange = (e) => {
     const {name, value} = e.target;
@@ -219,21 +237,30 @@ const inputPhotoRef = useRef();
                 />
                 </div>
                 </div>
-                {readonly ? (<button
+
+                {readonly ? 
+                (<button
                 type="button"
                 className={css.LogOutBtn}
-                onClick={()=> dispatch(logOut())}               
-              >
+                onClick={openModal}>
               
                 <img src={LogOut} className={css.iconLogOut} alt="logout" />
                 Log Out
-              </button>) : (<div className={css.saveBtnWrapper}><button className={css.saveBtn}>Save</button></div>)}
+              </button>) 
+              : (
+              <div className={css.saveBtnWrapper}>
+                <button className={css.saveBtn}>Save
+                </button>
+                </div>)}
+
+                {modalActive && <Modal isOpen={modalActive} onClose={close}>
+          <ModalApproveAction logo={'#logout'} close={close} action={userLogout}>
+              Already leaving?
+          </ModalApproveAction>
+      </Modal>}
+
+              </div>           
             </div>
-            
-            </div>
-            
-           
-            
             </form>
 
         </div>
