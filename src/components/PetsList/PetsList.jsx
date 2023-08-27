@@ -5,9 +5,8 @@ import { useSelector } from 'react-redux';
 import {selectUserPets} from '../../redux/auth/selectors';
 
 export default function PetsList() {
-    const pets = useSelector(selectUserPets)|| [];
+    const pets = useSelector(selectUserPets);
 
-    // console.log(pets)
 
     return(
         <>
@@ -20,15 +19,11 @@ export default function PetsList() {
         )
         
         : (<div >
+          
         <ul className={css.petsList}>
-            <PetsItem  />
-            {/* {pets.map(pet => (
-                        <PetsItem
-                          key={pet._id}
-                          pet={pet}
-                          
-                        />
-                      ))} */}
+          {pets.map(pet=>{
+            return(<PetsItem  pet={pet} key={pet._id}/>)
+          })}
             </ul>
             </div>)}
             </>
