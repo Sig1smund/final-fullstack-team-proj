@@ -1,28 +1,41 @@
-import { NavLink } from "react-router-dom";
-import styles from './NoticesCategoriesNav.module.css'
+import { NavLink, useLocation } from 'react-router-dom';
+import styles from './NoticesCategoriesNav.module.css';
 
 export default function NoticesCategoriesNav() {
-    return (
-        <nav className={styles.container}>
-        <NavLink className={styles.button} to="/notices/sell">
-        sell
-        </NavLink>
-        <NavLink className={styles.button} to="/notices/lost-found">
-        lost/found
-        </NavLink>
-        <NavLink className={styles.button} to="/notices/in-good-hands">
-        in-good-hands
-        </NavLink>
+  const location = useLocation();
 
-        {/* <NavLink activeClassName={styles.active} className={styles.button} to="/notices/sell">
+  return (
+    <nav className={styles.container}>
+      <NavLink
+        className={
+          location.pathname === '/notices/sell'
+            ? [styles.button, styles.active].join(' ')
+            : styles.button
+        }
+        to="/notices/sell"
+      >
         sell
-        </NavLink>
-        <NavLink activeClassName={styles.active} className={styles.button} to="/notices/lost-found">
+      </NavLink>
+      <NavLink
+        className={
+          location.pathname === '/notices/lost-found'
+            ? [styles.button, styles.active].join(' ')
+            : styles.button
+        }
+        to="/notices/lost-found"
+      >
         lost/found
-        </NavLink>
-        <NavLink activeClassName={styles.active} className={styles.button} to="/notices/in-good-hands">
+      </NavLink>
+      <NavLink
+        className={
+          location.pathname === '/notices/in-good-hands'
+            ? [styles.button, styles.active].join(' ')
+            : styles.button
+        }
+        to="/notices/in-good-hands"
+      >
         in-good-hands
-        </NavLink> */}
-      </nav>
-    )
+      </NavLink>
+    </nav>
+  );
 }
