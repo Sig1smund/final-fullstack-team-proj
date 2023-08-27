@@ -4,8 +4,8 @@
     margin-right: 8px;
 }
 
-.button.active {
-  background-color: var(--hoover-color);
+.active {
+  background-color: var(--blue-color);
   color: var(--white-color);
 }
 
