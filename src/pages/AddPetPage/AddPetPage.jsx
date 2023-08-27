@@ -1,3 +1,5 @@
 export default function AddPetPage() {
-    return <></>
+    return <>
+    <p>AddPetPage</p>
+    </>
 }

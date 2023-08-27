@@ -113,7 +113,8 @@
 
 .addPetButton {
     composes: shadow;
-    position: relative;
+    /* position: absolute; */
+    text-align: center;
     width: 80px; 
     height: 80px;
     border-radius: 50%;
@@ -161,6 +162,7 @@
     color: var(--blue-color);
     background-color: var(--grey-color);
     /* text-align: center; */
+    text-decoration: none;
 }
 
 .desktopLoginButton {

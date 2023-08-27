@@ -46,8 +46,8 @@ export const App = () => {
             <PrivateRoute redirectTo='/user' component={<AddPetPage />} />
           } />
 
-          <Route path="/notices/favorite" element={<NoticesPage />} />
-          <Route path="/notices/own" element={<NoticesPage />} />
+          {/* <Route path="/notices/favorite" element={<NoticesPage />} />
+          <Route path="/notices/own" element={<NoticesPage />} /> */}
           <Route path="/notices" element={<NoticesPage />} />
           <Route path="/notices/:categoryName"  element={<NoticesPage />} /> 
           <Route path="*" element={<NotFound />}

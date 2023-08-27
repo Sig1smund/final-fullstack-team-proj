@@ -1,18 +1,31 @@
-
+import { useParams } from "react-router-dom";
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux'
+import {getFavNotices, getOwnNotices} from '../../redux/notices/operations'
+import NoticeCategoryItem from "../NoticeCategoryItem";
 import useNotices from "hooks/useNotices";
+import styles from './NoticesCategoriesList.module.css'
 
 export default function NoticesCategoriesList() {
+
+    const { categoryName } = useParams();
     const { notices } = useNotices();
+    const dispatch = useDispatch();
+
+    console.log('notices', notices);
+
+    useEffect(() => {
+       if (categoryName === 'favorite') {
+        dispatch(getFavNotices())
+       } else if (categoryName === 'own') {
+        dispatch(getOwnNotices())
+       } 
+          }, [categoryName, dispatch]);
 
     return (
-        <ul>
+        <ul className={styles.list}>
             {notices.length && notices.map(item => {
-                return (<li key={item._id}>
-                    <p>{item.name}</p>
-                    <p>{item.category}</p>
-                    <img src={item.imageURL} alt={item.name} width='300'/>
-                </li>
-                )
+                return (<NoticeCategoryItem key={item._id} item={item}/>)
             })}
         </ul>
     );

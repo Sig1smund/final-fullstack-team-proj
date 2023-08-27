@@ -1,6 +1,5 @@
 .button {
   composes: lostAndFoundButton from '../../global.css';
-  text-decoration: none;
   margin-right: 8px;
 }
 

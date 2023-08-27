@@ -4,19 +4,22 @@ import { useDispatch } from 'react-redux'
 import { getNotices } from 'redux/notices/operations'
 
 import NoticesSearch from '../../components/NoticesSearch'
-import NoticesCategoriesNav from '../../components/NoticesCategoriesNav'
+import NoticesCategoriesNav from '../../components/NoticesCategoriesNav/NoticesCategoriesNav'
 import NoticesFilters from '../../components/NoticesFilters'
 import NoticesCategoriesList from '../../components/NoticesCategoriesList'
-import AddPetPage from '../../components/AddPetForm'
-import useAuth from 'hooks';
+import AddPetButton from '../../components/AddPetButton'
 import styles from './NoticesPage.module.css'
 
 export default function NoticesPage() {
 
-    const { isLoggedIn } = useAuth();
-    const { categoryName } = useParams();
-    const navigate = useNavigate();
+  const { categoryName } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    navigate('/notices/sell')
+      }, [navigate]);
+  
 
   useEffect(() => {
     if (categoryName) {
@@ -30,8 +33,10 @@ export default function NoticesPage() {
     <NoticesSearch/>
     <div className={styles.navDesktopContainer}>
     <NoticesCategoriesNav/>
+    <div className={styles.navRightContainer}>
     <NoticesFilters/>
-    {isLoggedIn && <AddPetPage/>}
+    <AddPetButton/>
+    </div>
     </div>
     <Outlet/>
     {categoryName && <NoticesCategoriesList/>}

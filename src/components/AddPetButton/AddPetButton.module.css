@@ -1,0 +1,16 @@
+@media screen and (min-width: 768px) {
+    .button {
+        composes: lostAndFoundButton from '../../global.css';
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    .button {
+        composes: addPetButton from '../../global.css';
+        text-decoration: none;
+        position: fixed;
+        top: 460px;
+        right: 0;
+      }
+  }
+
