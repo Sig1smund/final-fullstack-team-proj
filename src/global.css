@@ -153,13 +153,14 @@
     background-color: var(--grey-color);}
 
 .lostAndFoundButton {
-    width: 107px; 
+    /* width: 107px;  */
     height: 35px; 
     padding: 8px 16px 8px 16px;
     border-radius: 40px;
     border: none;
     color: var(--blue-color);
     background-color: var(--grey-color);
+    /* text-align: center; */
 }
 
 .desktopLoginButton {

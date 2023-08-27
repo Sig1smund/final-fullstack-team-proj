@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+
 import css from './UserPage.module.css';
 import sprite from '../../images/sprite.svg';
 import Cross from '../../images/cross-small.svg';
@@ -10,10 +11,9 @@ import Modal from 'components/Modal/Modal';
 import ModalCongrats from 'components/ModalCongrats/ModalCongrats';
 
 // import { current } from 'redux/auth/operations';
-//import { updateUser } from 'redux/auth/operations';
+import { updateUser } from 'redux/auth/operations';
 
 import { selectUser, selectIsRegistered } from '../../redux/auth/selectors';
-//import { firstEntire } from 'redux/auth/operations';
 import { changeIsRegistered } from '../../redux/auth/authSlice';
 
 
@@ -24,6 +24,7 @@ export default function UserPage() {
 
 
   const user = useSelector(selectUser);
+
 
   const dispatch = useDispatch();
 
@@ -51,6 +52,8 @@ export default function UserPage() {
   };
 
   const onSubmitForm = (newDataUser) => {
+    dispatch(updateUser(newDataUser));
+    onToggleReadOnly();
     // setUser(newDataUser)
     console.log(newDataUser)
   };

@@ -1,4 +1,6 @@
 import { useState, useRef} from 'react';
+import { useDispatch } from 'react-redux';
+import { logOut } from 'redux/auth/operations';
 
 import css from './UserForm.module.css'
 import sprite from '../../images/sprite.svg'
@@ -8,78 +10,100 @@ import DeleteIcon from '../../images/x.svg'
 import Check from '../../images/check.svg'
 
 
+const initialState = {
+  
+  name: '',
+  email: '',
+  birthday: '',
+  phone: '',
+  city:''
+
+}
+
 export default function UserForm({onSubmit, readonly, user, saveNewPhoto}) {
-    const [avatar, setAvatar]=useState()
-const [name, setName]=useState(user.name || "")
-const [email, setEmail]=useState(user.email||"")
-const [birthday, setBirthday]=useState(user.birthday||"")
-const [phone, setPhone]=useState(user.phone||"")
-const [city, setCity]=useState(user.city||"")
+
+const [state, setState]=useState(user || initialState);
+const [avatarURL, setAvatarURL]=useState(user.avatarURL || '')
+const dispatch = useDispatch();
+
+const onChange = (e)=>{
+const {name, value} = e.target;
+setState(state=>({...state, [name]: value}))
+}
+
+const onChangeFile = event => {
+      const file = event.target.files[0];
+      if (file.size > 1024 * 1024 * 3) {
+        alert("Wrong size")
+        return;
+      }
+
+      const newAvatar = URL.createObjectURL(file);
+      console.log('newAvatar', );
+      // setAvatarURL(file);
+      setAvatarURL(newAvatar);
+    };
 
 
-// console.log(user)
+
+
 
 const inputPhotoRef = useRef();
 
-  // const inputPhoneRef = useRef();
-
-const onChangeName = event => {
-    setName(event.target.value);
-  };
-  const onChangeEmail = event => {
-    setEmail(event.target.value);
-  };
-  const onChangePhone = event => {
-    setPhone(event.target.value);
-  };
-  const onChangeBirthday = event => {
-    setBirthday(event.target.value);
-  };
-  const onChangeCity = event => {
-    setCity(event.target.value);
-  };
-  const onChangeFile = event => {
-    const file = event.target.files[0];
-    if (file.size > 1024 * 1024 * 3) {
-      alert("Wrong size")
-      return;
-    }
-    setAvatar(file);
-  };
+  
+  // const onChangeFile = event => {
+  //   const file = event.target.files[0];
+  //   if (file.size > 1024 * 1024 * 3) {
+  //     alert("Wrong size")
+  //     return;
+  //   }
+  //   setAvatar(file);
+  // };
   const onLoadNewPhoto = () => {
     inputPhotoRef.current.click();
   };
   const onConfirmNewAvatar = () => {
-    saveNewPhoto(avatar);
+    saveNewPhoto(avatarURL);
   };
   const onCancelNewAvatar = () => {
-    setAvatar(null);
+    setAvatarURL(null);
   };
+
+
+
+
+
  
 
   const handleSubmit =event=>{
     event.preventDefault();
+    const {name, email, phone, birthday, city} = state;
+    
     // if (phone.length < 13) {
     //   inputPhoneRef.current.focus();
     // }
-    const formData = {
-        name,
-        email,
-        birthday,
-        phone,
-        city,
-        avatar
-      };
-      console.log(formData)
-      onSubmit(formData);
+    console.log("state", state)
+
+    // const formData = {name, email, phone, birthday, city};
+    // test
+      const formWithData = new FormData();
+      formWithData.append("avatarURL", avatarURL);
+      formWithData.append("name", name);
+      formWithData.append("email", email);
+      formWithData.append("phone", phone);
+      formWithData.append("birthday", birthday);
+      formWithData.append("city", city);
+      console.log("FormData",formWithData);
+      // 
+      onSubmit(formWithData);
   }
     return (
         <div className={css.userCard}>
-            <form className={css.form} onSubmit={handleSubmit}>
+      <form className={css.form} onSubmit={handleSubmit}>
                 <div className={css.userInfoWrapper}>
                   <div className={css.avatarWrapper}>
-                {avatar? (<img
-              src={avatar}
+                {avatarURL? (<img
+              src={avatarURL}
               className={[
                 css.avatar,
                 readonly ? css.avatarReadonlyON : '',
@@ -91,15 +115,17 @@ const onChangeName = event => {
             ].join(' ')} alt='avatar' />)}
             <input
               type="file"
-             name='file'
-              value=""
+              accept='image/*, .png, .jpg, .gif, .web'
+            //  name='file'
+              // value=""
               ref={inputPhotoRef}
+
               onChange={onChangeFile}
              
-              style={{ display: 'none' }}
+             style={{ display: 'none' }}
             />
             {!readonly && 
-            (avatar ? (<div className={css.btnDual}>
+            (avatarURL ? (<div className={css.btnDual}>
               <button
                 type="button"
                 className={css.btnConfirm}
@@ -146,10 +172,10 @@ const onChangeName = event => {
                 <input 
                 type="text" 
                 name='name'
-                value={name}
+                value={state.name}
                 required 
                 className={css.input}
-                onChange={onChangeName}
+                onChange={onChange}
                 readOnly={readonly}
                 />
                 </div>
@@ -157,11 +183,11 @@ const onChangeName = event => {
                 <p className={css.inputTitle}>Email:</p>
                 <input 
                 type="email" 
-                value={email}
+                value={state.email}
                 name='email'
                 required 
                 className={css.input}
-                onChange={onChangeEmail}
+                onChange={onChange}
                 readOnly={readonly}
                 />
                 </div>
@@ -169,13 +195,13 @@ const onChangeName = event => {
                 <p className={css.inputTitle}>Birthday:</p>
                 <input 
                 type="text" 
-                value={birthday}
+                value={state.birthday}
                 name='birthday'
                 required 
                 className={css.input} 
                 placeholder='00.00.0000' 
                 pattern='/^\d{1,2}\-\d{1,2}\-\d{4}$/'
-                onChange={onChangeBirthday}
+                onChange={onChange}
                 readOnly={readonly}
                 />
                 </div>
@@ -183,12 +209,12 @@ const onChangeName = event => {
                 <p className={css.inputTitle}>Phone:</p>
                 <input 
                 type="tel" 
-                value={phone}
+                value={state.phone}
                 name='phone'
                 className={css.input}
                  placeholder="+380000000000" 
                  pattern='/^\+\d{12}$/\'
-                 onChange={onChangePhone}
+                 onChange={onChange}
                  readOnly={readonly}
                  />
                 </div>
@@ -196,12 +222,12 @@ const onChangeName = event => {
                 <p className={css.inputTitle}>City:</p>
                 <input 
                 type="text"
-                value={city} 
+                value={state.city} 
                 name='city'
                 required 
                 className={css.input} 
                 placeholder="Kiev"
-                onChange={onChangeCity}
+                onChange={onChange}
                 readOnly={readonly}
                 />
                 </div>
@@ -209,7 +235,7 @@ const onChangeName = event => {
                 {readonly ? (<button
                 type="button"
                 className={css.LogOutBtn}
-               
+                onClick={()=> dispatch(logOut())}               
               >
                 {/* <svg width='24px' height='24px' className={css.iconLogOut}>
                 <use xlinkHref='../../images/sprite.svg#logout'></use>

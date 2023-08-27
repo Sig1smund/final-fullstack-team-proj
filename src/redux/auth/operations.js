@@ -112,6 +112,4 @@ export const deletePet = createAsyncThunk(
   }
 );
 
-export const firstEntire = async (isModalActive) => {
-  return isModalActive;
-};
+
