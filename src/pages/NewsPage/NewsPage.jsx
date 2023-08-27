@@ -14,11 +14,11 @@ export default function NewsPage() {
     }, [dispatch])
 
     return (
-        <section>
+        <>
             {!news
                 ? <Spinner />
                 : <NewsList/>
             }
-        </section>
+        </>
     );
 }
