@@ -14,8 +14,7 @@ export default function NoticesCategoriesNav() {
             ? [styles.button, styles.active].join(' ')
             : styles.button
         }
-        to="/notices/sell"
-      >
+        to="/notices/sell">
         sell
       </NavLink>
       <NavLink
@@ -24,8 +23,7 @@ export default function NoticesCategoriesNav() {
             ? [styles.button, styles.active].join(' ')
             : styles.button
         }
-        to="/notices/lost-found"
-      >
+        to="/notices/lost-found">
         lost/found
       </NavLink>
       <NavLink
@@ -34,10 +32,10 @@ export default function NoticesCategoriesNav() {
             ? [styles.button, styles.active].join(' ')
             : styles.button
         }
-        to="/notices/in-good-hands"
-      >
+        to="/notices/in-good-hands">
         in-good-hands
       </NavLink>
+
       {isLoggedIn && 
       <>
            <NavLink
@@ -46,8 +44,7 @@ export default function NoticesCategoriesNav() {
                ? [styles.button, styles.active].join(' ')
                : styles.button
            }
-           to="/notices/favorite"
-         >
+           to="/notices/favorite">
            favorite ads
          </NavLink>
               <NavLink
@@ -56,8 +53,7 @@ export default function NoticesCategoriesNav() {
                   ? [styles.button, styles.active].join(' ')
                   : styles.button
               }
-              to="/notices/own"
-            >
+              to="/notices/own">
               my ads
             </NavLink>
             </>
