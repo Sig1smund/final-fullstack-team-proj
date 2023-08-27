@@ -6,7 +6,7 @@ export const getServices = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await axios.get('api/services');
-      return res.data;
+      return res.data.services;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

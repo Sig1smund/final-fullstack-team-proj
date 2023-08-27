@@ -14,9 +14,9 @@ const LoginPage = lazy(() => import('../pages/LoginPage'));
 const UserPage = lazy(() => import('../pages/UserPage'));
 const NewsPage = lazy(() => import('../pages/NewsPage'));
 const NoticesPage = lazy(() => import('../pages/NoticesPage'));
-const OurFriendPage = lazy(() => import('../pages/OurFriendsPage'));
+const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage'));
 const AddPetPage = lazy(() => import('../pages/AddPetPage'));
-const  NotFound = lazy(() => import('../pages/NotFound'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ export const App = () => {
             <PrivateRoute redirectTo="/login" component={<UserPage />} />
           } />
           <Route path="/news" element={<NewsPage />} />
-          <Route path="/friends" element={<OurFriendPage />} />
+          <Route path="/friends" element={<OurFriendsPage />} />
           <Route path="/add-pet" element={
             <PrivateRoute redirectTo='/user' component={<AddPetPage />} />
           } />
