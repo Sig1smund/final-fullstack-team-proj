@@ -7,6 +7,7 @@ import ModalApproveAction from 'components/ModalApproveAction/ModalApproveAction
 import Modal from 'components/Modal/Modal';
 
 export default function PetsItem({pet}) {
+  
 
 const [showModal, setShowModal] = useState(false);
 const dispatch = useDispatch();
@@ -51,9 +52,12 @@ const closeModal = () => {
                   <ModalApproveAction 
                     close={closeModal} 
                     id={pet._id}
-                    action={approveAction}> 
-                    Are you sure you want to delete  “Cute dog looking for a home”? 
+                    action={approveAction}>
+                      <div className={css.modalText}>
+                      <div className={css.modalTitle}><div>Delete</div> <div>adverstiment?</div> </div>
+                    Are you sure you want to delete <b>“{pet.name}”</b>?<br/>
                     You can`t undo this action.
+                    </div>
                   </ModalApproveAction>
               </Modal>)}
           </li>
