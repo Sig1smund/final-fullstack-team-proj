@@ -59,98 +59,109 @@ const RegisterForm = () => {
 
 
   return (
-
-        <div>
-            <h2 className={styles.formTitle}>Registration</h2>
-            <form onSubmit={onSubmit}>
-                <div className={styles.formLabelConteiner}>
-                    <label className={styles.formLabel}>
-                        <input
-                            className={`${styles.formInput}`}
-                            placeholder="Name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            type="text"
-                        />
-                        {/* {errors.email && <p className={styles.errorsMassage}>{errors.email}</p>} */}
-                    </label>
-                    <label className={styles.formLabel}>
-                        <input
-                            className={`${styles.formInput} ${errors.email ? styles.error : ''}`}
-                            placeholder="Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            type="email"
-                        />
-                        {errors.email && <p className={styles.errorsMassage}>{errors.email}</p>}
-                    </label>
-                    <label className={styles.formLabel}>
-                        <div className={styles.formLabelPasswordConteiner}>
-                            <input
-                                className={`${styles.formInput} ${errors.password ? styles.error : ''}`}
-                                placeholder="Password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                type={showPassword1 ? 'text' : 'password'}
-                            />
-                            <button
-                                className={styles.showPasswordButton}
-                                type="button"
-                                onClick={() => setShowPassword1(!showPassword1)}
-                            >
-                                {showPassword1 ? (
-                                    <svg className={styles.passwordIcon}>
-                                        <use href={`${sprite}#eye-closed`} />
-                                    </svg>
-                                ) : (
-                                    <svg className={styles.passwordIcon}>
-                                        <use href={`${sprite}#eye-open`} />
-                                    </svg>
-                                )}
-                            </button>
-                        </div>
-                        {errors.password1 && <p className={styles.errorsMassage}>{errors.password1}</p>}
-                    </label>
-                    <label className={styles.formLabel}>
-                        <div className={styles.formLabelPasswordConteiner}>
-                            <input
-                                className={`${styles.formInput} ${errors.password2 ? styles.error : ''}`}
-                                placeholder="Confirm password"
-                                value={password2}
-                                onChange={(e) => setPassword2(e.target.value)}
-                                type={showPassword2 ? 'text' : 'password'}
-                            />
-                            <button
-                                className={styles.showPasswordButton}
-                                type="button"
-                                onClick={() => setShowPassword2(!showPassword2)}
-                            >
-                                {showPassword2 ? (
-                                    <svg className={styles.passwordIcon}>
-                                        <use href={`${sprite}#eye-closed`} />
-                                    </svg>
-                                ) : (
-                                    <svg className={styles.passwordIcon}>
-                                        <use href={`${sprite}#eye-open`} />
-                                    </svg>
-                                )}
-                            </button>
-                        </div>
-                        {errors.password2 && <p className={styles.errorsMassage}>{errors.password2}</p>}
-                    </label>
-                </div>
-                <button className={styles.authBtn} type="submit">
-                    Registration
-                </button>
-                <p className={styles.authScreenNavigation}>
-                    Already have an account?&nbsp;
-                    <NavLink to="/login" className={styles.authScreenNavigationLink}>
-                        Login
-                    </NavLink>
-                </p>
-            </form>
+    <div>
+      <h2 className={styles.formTitle}>Registration</h2>
+      <form onSubmit={onSubmit}>
+        <div className={styles.formLabelConteiner}>
+          <label className={styles.formLabel}>
+            <input
+              className={`${styles.formInput}`}
+              placeholder="Name"
+              value={name}
+              onChange={e => setName(e.target.value)}
+              type="text"
+            />
+            {/* {errors.email && <p className={styles.errorsMassage}>{errors.email}</p>} */}
+          </label>
+          <label className={styles.formLabel}>
+            <input
+              className={`${styles.formInput} ${
+                errors.email ? styles.error : ''
+              }`}
+              placeholder="Email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              type="email"
+            />
+            {errors.email && (
+              <p className={styles.errorsMassage}>{errors.email}</p>
+            )}
+          </label>
+          <label className={styles.formLabel}>
+            <div className={styles.formLabelPasswordConteiner}>
+              <input
+                className={`${styles.formInput} ${
+                  errors.password ? styles.error : ''
+                }`}
+                placeholder="Password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                type={showPassword1 ? 'text' : 'password'}
+              />
+              <button
+                className={styles.showPasswordButton}
+                type="button"
+                onClick={() => setShowPassword1(!showPassword1)}
+              >
+                {showPassword1 ? (
+                  <svg className={styles.passwordIcon}>
+                    <use href={`${sprite}#eye-open`} />
+                  </svg>
+                ) : (
+                  <svg className={styles.passwordIcon}>
+                    <use href={`${sprite}#eye-closed`} />
+                  </svg>
+                )}
+              </button>
+            </div>
+            {errors.password1 && (
+              <p className={styles.errorsMassage}>{errors.password1}</p>
+            )}
+          </label>
+          <label className={styles.formLabel}>
+            <div className={styles.formLabelPasswordConteiner}>
+              <input
+                className={`${styles.formInput} ${
+                  errors.password2 ? styles.error : ''
+                }`}
+                placeholder="Confirm password"
+                value={password2}
+                onChange={e => setPassword2(e.target.value)}
+                type={showPassword2 ? 'text' : 'password'}
+              />
+              <button
+                className={styles.showPasswordButton}
+                type="button"
+                onClick={() => setShowPassword2(!showPassword2)}
+              >
+                {showPassword2 ? (
+                  <svg className={styles.passwordIcon}>
+                    <use href={`${sprite}#eye-open`} />
+                  </svg>
+                ) : (
+                  <svg className={styles.passwordIcon}>
+                    <use href={`${sprite}#eye-closed`} />
+                  </svg>
+                )}
+              </button>
+            </div>
+            {errors.password2 && (
+              <p className={styles.errorsMassage}>{errors.password2}</p>
+            )}
+          </label>
         </div>
-    );
+        <button className={styles.authBtn} type="submit">
+          Registration
+        </button>
+        <p className={styles.authScreenNavigation}>
+          Already have an account?&nbsp;
+          <NavLink to="/login" className={styles.authScreenNavigationLink}>
+            Login
+          </NavLink>
+        </p>
+      </form>
+    </div>
+  );
 };
 
 export default RegisterForm;
