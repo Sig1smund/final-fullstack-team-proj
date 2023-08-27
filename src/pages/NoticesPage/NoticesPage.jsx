@@ -16,12 +16,12 @@ export default function NoticesPage() {
     const { isLoggedIn } = useAuth();
     const { categoryName } = useParams();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        if (!categoryName) {
-          navigate('/notices/sell');
-          dispatch(getNotices())
+  useEffect(() => {
+    if (categoryName) {
+          dispatch(getNotices(categoryName))
+          navigate(`/notices/${categoryName}`);
         }
       }, [categoryName, navigate, dispatch]);
 
@@ -34,6 +34,6 @@ export default function NoticesPage() {
     {isLoggedIn && <AddPetPage/>}
     </div>
     <Outlet/>
-    {categoryName && <NoticesCategoriesList category={categoryName} />}
+    {categoryName && <NoticesCategoriesList/>}
     </div>
 }

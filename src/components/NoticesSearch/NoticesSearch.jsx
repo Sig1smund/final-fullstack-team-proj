@@ -9,7 +9,7 @@ export default function NoticesSearch() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+      
         setName('');
     }
   
