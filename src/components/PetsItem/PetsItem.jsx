@@ -11,7 +11,7 @@ import {selectUserPets} from '../../redux/auth/selectors';
 
 export default function PetsItem() {
   // const [pets, setPets]=useState(useSelector(selectUserPets))
-  // const pets = useSelector(selectUserPets);
+  const pets = useSelector(selectUserPets);
 
     const [showModal, setShowModal] = useState(false);
     const dispatch = useDispatch();
@@ -38,7 +38,7 @@ const closeModal = () => {
     console.log(id)
     setShowModal(false);
   };
-console.log("pets", pets)
+// console.log("pets", pets)
 
     return (<>
       {pets.map(pet => {

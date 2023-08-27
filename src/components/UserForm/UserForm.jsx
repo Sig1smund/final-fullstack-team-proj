@@ -37,7 +37,11 @@ const onChangeFile = event => {
         alert("Wrong size")
         return;
       }
-      setAvatarURL(file);
+
+      const newAvatar = URL.createObjectURL(file);
+      console.log('newAvatar', );
+      // setAvatarURL(file);
+      setAvatarURL(newAvatar);
     };
 
 
@@ -47,23 +51,23 @@ const onChangeFile = event => {
 const inputPhotoRef = useRef();
 
   
-//   const onChangeFile = event => {
-//     const file = event.target.files[0];
-//     if (file.size > 1024 * 1024 * 3) {
-//       alert("Wrong size")
-//       return;
-//     }
-//     setAvatar(file);
-//   };
-//   const onLoadNewPhoto = () => {
-//     inputPhotoRef.current.click();
-//   };
-//   const onConfirmNewAvatar = () => {
-//     saveNewPhoto(avatar);
-//   };
-//   const onCancelNewAvatar = () => {
-//     setAvatar(null);
-//   };
+  // const onChangeFile = event => {
+  //   const file = event.target.files[0];
+  //   if (file.size > 1024 * 1024 * 3) {
+  //     alert("Wrong size")
+  //     return;
+  //   }
+  //   setAvatar(file);
+  // };
+  const onLoadNewPhoto = () => {
+    inputPhotoRef.current.click();
+  };
+  const onConfirmNewAvatar = () => {
+    saveNewPhoto(avatarURL);
+  };
+  const onCancelNewAvatar = () => {
+    setAvatarURL(null);
+  };
 
 
 
@@ -73,23 +77,31 @@ const inputPhotoRef = useRef();
 
   const handleSubmit =event=>{
     event.preventDefault();
-    const {name,email, phone, birthday,city} = state;
+    const {name, email, phone, birthday, city} = state;
     
     // if (phone.length < 13) {
     //   inputPhoneRef.current.focus();
     // }
     console.log("state", state)
 
-    const formData = {name,email, phone, birthday,city};
-      console.log(formData)
-      onSubmit(formData);
+    // const formData = {name, email, phone, birthday, city};
+    // test
+      const formWithData = new FormData();
+      formWithData.append("avatarURL", avatarURL);
+      formWithData.append("name", name);
+      formWithData.append("email", email);
+      formWithData.append("phone", phone);
+      formWithData.append("birthday", birthday);
+      formWithData.append("city", city);
+      console.log("FormData",formWithData);
+      // 
+      onSubmit(formWithData);
   }
     return (
         <div className={css.userCard}>
-            <form className={css.form} onSubmit={handleSubmit}>
+      <form className={css.form} onSubmit={handleSubmit}>
                 <div className={css.userInfoWrapper}>
                   <div className={css.avatarWrapper}>
-
                 {avatarURL? (<img
               src={avatarURL}
               className={[
@@ -103,19 +115,21 @@ const inputPhotoRef = useRef();
             ].join(' ')} alt='avatar' />)}
             <input
               type="file"
-             name='file'
-              value=""
+              accept='image/*, .png, .jpg, .gif, .web'
+            //  name='file'
+              // value=""
               ref={inputPhotoRef}
+
               onChange={onChangeFile}
              
-              style={{ display: 'none' }}
+             style={{ display: 'none' }}
             />
             {!readonly && 
             (avatarURL ? (<div className={css.btnDual}>
               <button
                 type="button"
                 className={css.btnConfirm}
-                // onClick={onConfirmNewAvatar}
+                onClick={onConfirmNewAvatar}
               >
                 <img
                   src={Check}
@@ -127,7 +141,7 @@ const inputPhotoRef = useRef();
               <span>Confirm</span>
               <button
                 type="button"
-                // onClick={onCancelNewAvatar}
+                onClick={onCancelNewAvatar}
                 className={css.btnConfirm}
               >
                 <img
@@ -139,7 +153,7 @@ const inputPhotoRef = useRef();
             </div>):(<button
                   type="button"
                   className={css.btnEdit}
-                  // onClick={onLoadNewPhoto}
+                  onClick={onLoadNewPhoto}
                  
                 >
                    <svg width='24px' height='24px' className={css.iconCamera}>
@@ -218,18 +232,18 @@ const inputPhotoRef = useRef();
                 />
                 </div>
                 </div>
-                {readonly ?
-                 (<button
+                {readonly ? (<button
                 type="button"
                 className={css.LogOutBtn}
-               onClick={()=> dispatch(logOut())}
+                onClick={()=> dispatch(logOut())}               
               >
-               
+                {/* <svg width='24px' height='24px' className={css.iconLogOut}>
+                <use xlinkHref='../../images/sprite.svg#logout'></use>
+                </svg>
+                 */}
                 <img src={LogOut} className={css.iconLogOut} alt="logout" />
                 Log Out
-              </button>) 
-              
-              : (<div className={css.saveBtnWrapper}><button className={css.saveBtn} onClick={handleSubmit}>Save</button></div>)}
+              </button>) : (<div className={css.saveBtnWrapper}><button className={css.saveBtn}>Save</button></div>)}
             </div>
             
             </div>
