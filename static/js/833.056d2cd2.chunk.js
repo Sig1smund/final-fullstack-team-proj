@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkfinal_fullstack_team_proj=self.webpackChunkfinal_fullstack_team_proj||[]).push([[833],{4833:function(e,n,s){s.r(n),s.d(n,{default:function(){return t}});var a=s(799),r=s(3329);function t(){return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(a.Z,{}),(0,r.jsx)("div",{className:"",children:(0,r.jsx)("h2",{className:"",children:"Find your favorite pet"})}),(0,r.jsx)("div",{})]})}}}]);
-//# sourceMappingURL=833.056d2cd2.chunk.js.map
