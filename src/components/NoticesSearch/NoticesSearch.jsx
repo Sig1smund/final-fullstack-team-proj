@@ -15,7 +15,6 @@ export default function NoticesSearch() {
 
   const handleSubmit = (e) => {
       e.preventDefault();
-      console.log('query in notices search :', query);
       dispatch(getNotices(params))
       setQuery('');
   }
