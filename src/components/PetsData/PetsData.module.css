@@ -2,8 +2,8 @@
     margin-top: 46px;
     @media screen and (min-width: 1280px) {
         margin-top: 0px;
-    } 
-    
+    }
+
   }
   .title{
     font-size: 20px;
@@ -11,9 +11,153 @@
     margin-bottom: 18px;
     font-weight: 500;
     line-height: 1.1;
+
     @media screen and (min-width: 768px) {
         margin-bottom: 24px;
         font-size: 28px;
-       
+
     }
 }
+
+.addPetsButton_container {
+  display: flex;
+  justify-content: center;
+  /* margin-top: 160px; */
+}
+
+.addPetsButton {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 80px;
+  height: 80px;
+  /* padding: 8px 20px; */
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.64px;
+
+  border-radius: 40px;
+  border: 2px solid var(--yellow, #54ADFF);
+  background: var(--yellow, #54ADFF);
+  color: #fef9f9;
+}
+
+.addPetsButton:hover {
+  border-radius: 40px;
+  background: var(--gr-blue, linear-gradient(315deg, #3324FF 0%, #54ADFF 70%));
+  color: #fef9f9;
+}
+
+.plusIcon {
+  fill: white;
+
+}
+
+
+@media screen and (min-width: 768px) {
+  /*width: 704px;*/
+
+  .container {
+    width: 704px;
+  }
+
+  .addPetsButton_container {
+    display: flex;
+    justify-content: center;
+    /* margin-top: 160px; */
+  }
+
+  .addPetsButton {
+    display: flex;
+    flex-direction: row;
+    width: 129px;
+    height: 40px;
+    /* padding: 8px 20px; */
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.64px;
+
+    border-radius: 40px;
+    border: 2px solid var(--yellow, #54ADFF);
+    background: var(--yellow, #54ADFF);
+    color: #fef9f9;
+  }
+
+  .addPetsButton:hover {
+    border-radius: 40px;
+    background: var(--gr-blue, linear-gradient(315deg, #3324FF 0%, #54ADFF 70%));
+    color: #fef9f9;
+  }
+
+  .plusIcon {
+    fill: white;
+
+  }
+
+}
+
+@media screen and (min-width: 1280px) {
+  /*justify-content: space-between;*/
+
+  container {
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 1248px;
+  }
+}
+
+.addPetsButton_container {
+  display: flex;
+  justify-content: center;
+  /* margin-top: 160px; */
+}
+
+.addPetsButton {
+  display: flex;
+  flex-direction: row;
+  width: 129px;
+  height: 40px;
+  /* padding: 8px 20px; */
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.64px;
+
+  border-radius: 40px;
+  border: 2px solid var(--yellow, #54ADFF);
+  background: var(--yellow, #54ADFF);
+  color: #fef9f9;
+}
+
+.addPetsButton:hover {
+  border-radius: 40px;
+  background: var(--gr-blue, linear-gradient(315deg, #3324FF 0%, #54ADFF 70%));
+  color: #fef9f9;
+}
+
+.plusIcon {
+  fill: white;
+
+}
+
+
