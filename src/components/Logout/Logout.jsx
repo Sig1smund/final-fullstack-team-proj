@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 //import { useNavigate} from 'react-router-dom';
 
-import { logOut } from 'redux/auth/operations';
+// import { logOut } from 'redux/auth/operations';
 import css from './Logout.module.css';
-import logout from '../../images/sprite.svg';
+// import logout from '../../images/sprite.svg';
 import Modal from 'components/Modal/Modal';
-import ModalApproveAction from 'components/ModalApproveAction/ModalApproveAction';
+// import ModalApproveAction from 'components/ModalApproveAction/ModalApproveAction';
+import NoticeModal from 'components/NoticeModal/NoticeModal';
 
 
 export default function Logout() {
@@ -15,7 +16,7 @@ export default function Logout() {
 
   const [modalActive, setModalActive] = useState(false);
 
-  const dispatch = useDispatch();
+ // const dispatch = useDispatch();
 
   const openModal = () => {
     setModalActive(true);
@@ -25,25 +26,29 @@ export default function Logout() {
     setModalActive(false);
   };
 
-  const userLogout = async() => {
-    await dispatch(logOut());
-    setModalActive(false);
-  };
+  //const userLogout = async() => {
+  //  await dispatch(logOut());
+  //  setModalActive(false);
+  //};
 
 
   return (
     <>
       <button className={css.btn} type="button" onClick={openModal}>
         Log out
-        <svg className={css.logout} width="24" height="24">
+       {/* <svg className={css.logout} width="24" height="24">
           <use href={logout + '#logout'}></use>
-        </svg>
+        </svg>*/}
       </button>
 
-      <Modal isOpen={modalActive} onClose={close}>
+      {/*<Modal isOpen={modalActive} onClose={close}>
           <ModalApproveAction logo={'#logout'} close={close} action={userLogout}>
               Already leaving?
           </ModalApproveAction>
+      </Modal>*/}
+
+      <Modal isOpen={modalActive} onClose={close}>
+          <NoticeModal />
       </Modal>
     </>
   )

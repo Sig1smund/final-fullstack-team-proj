@@ -11,17 +11,19 @@ import icon from '../../images/sprite.svg';
 //import AttentionModal from "components/AttentionModal";
 
 
-export default function NoticeModal({ id, isFavorite }) {
-  //const { isLoggedIn } = useAuth();
+export default function NoticeModal() {
+  // { id, isFavorite }
+  // const { isLoggedIn } = useAuth();
   const isLoggedIn = true;
+  const isFavorite = true;
 
-  //const { data } = getNotice(id);
+  // const { data } = getNotice(id);
 
  // if (!data) {
   //  return;
-  //};
+  // };
 
-  //const { notice } = data;
+  // const { notice } = data;
 
   const title = "Sell Cat Felis chaus";
   const imageURL = "https://upload.wikimedia.org/wikipedia/commons/8/82/Jungle_Cat_on_tree_at_Sundarban%2C_West_Bengal%2C_India.jpg";
@@ -78,75 +80,84 @@ export default function NoticeModal({ id, isFavorite }) {
 
   return (
     <>
-      <div className="container">
-      <div className="noticeCard">
-        <label className="category">{category}</label>
-        <img alt="notice pet avatar" className="photo" src={imageURL} />
+      <div className={css.container}>
+        <div className={css.noticeCard}>
+          <label className={css.category}>{category}</label>
+          <img alt="notice pet avatar" className={css.photo} src={imageURL} />
 
-        <div className="information">
-          <h2 className="title">{title}</h2>
-          <div className="informationItem">
-            <span className="key">Name:</span>
-            <p className="value">{ name }</p>
-          </div>
-          <div className="informationItem">
-            <span className="key">Birthday:</span>
-            <p className="value">{ birthday}</p>
-          </div>
-          <div className="informationItem">
-            <span className="key">Type:</span>
-            <p className="value">{ type }</p>
-          </div>
-          <div className="informationItem">
-            <span className="key">Place:</span>
-            <p className="value">{ location }</p>
-          </div>
-          <div className="informationItem">
-            <span className="key">The sex:</span>
-            <p className="value">{sex}</p>
-          </div>
-          <div className="informationItem">
-            <span className="key">Email:</span>
-            <Link className="value" href={emailAddress}>{ email }</Link>
-          </div>
-          {phone !== '' && (
-            <div className="informationItem">
-              <span className="key">Phone:</span>
-              <Link className="valueLink" href={phoneNumber}>{ phone }</Link>
+          <div className={css.information}>
+            <h2 className={css.title}>{title}</h2>
+            <div className={css.informationItem}>
+              <p className={css.informationKey}>Name:</p>
+              <p className={css.value}>{ name }</p>
             </div>
-          )}
-          {showPrice && (
-            <div className="informationItem">
-              <span className="key">Price:</span>
-              <p className="value">{price}</p>
+            <div className={css.informationItem}>
+              <p className={css.informationKey}>Birthday:</p>
+              <p className={css.value}>{ birthday}</p>
             </div>
-          )}
+            <div className={css.informationItem}>
+              <p className={css.informationKey}>Type:</p>
+              <p className={css.value}>{ type }</p>
+            </div>
+            <div className={css.informationItem}>
+              <p className={css.informationKey}>Place:</p>
+              <p className={css.value}>{ location }</p>
+            </div>
+            <div className={css.informationItem}>
+              <p className={css.informationKey}>The sex:</p>
+              <p className={css.value}>{sex}</p>
+            </div>
+            <div className={css.informationItem}>
+              <p className={css.informationKey}>Email:</p>
+              <div className={css.contactWrap}>
+                <Link className={css.valueLink} href={emailAddress}>{email}</Link>
+              </div>
+            </div>
+            {phone !== '' && (
+              <div className={css.informationItem}>
+                <p className={css.informationKey}>Phone:</p>
+                <div className={css.contactWrap}>
+                  <Link className={css.valueLink} href={phoneNumber}>{phone}</Link>
+                </div>
+              </div>
+            )}
+            {showPrice && (
+              <div className={css.informationItem}>
+                <p className={css.informationKey}>Price:</p>
+                <p className={css.value}>{price}</p>
+              </div>
+            )}
+          </div>
         </div>
-
+        <div className={css.wrap}>
           <div className={css.commentContainer}>
-          <span className="key">Comments:</span>
-          <p className="value">{comments}</p>
+            <p className={css.commentKey}>Comments:</p>
+            {comments}
+          </div>
+
+          <div className={css.buttons}>
+
+
+
+            {phone === '' ? (
+              <Link className={css.contactLink} to={emailAddress}>
+                Contact
+              </Link>
+            ) : (
+              <Link className={css.contactLink} to={phoneNumber}>
+                Contact
+              </Link>
+            )}
+
+            <button className={css.favoriteBtn} onClick={() => onFavoriteBtnClick()} isFavorite={isFavorite}>
+              {isFavorite ? 'Added to' : 'Add to'}
+              <svg className={css.heart} width="24" height="24">
+                  <use className={css.iconHeart} href={icon + '#heart'}></use>
+              </svg>
+            </button>
+
+            </div>
         </div>
-      </div>
-
-        <button className={css.favoriteBtn} onClick={() => onFavoriteBtnClick(id)} isFavorite={isFavorite}>
-        {isFavorite ? 'Remove from' : 'Add to'}
-        <svg className={css.heart} width="24" height="24">
-            <use className={css.iconHeart} href={icon + '#heart'}></use>
-        </svg>
-      </button>
-
-        <div className={css.contactBtnContainer}>
-        {phone === '' ? (
-            <Link className={css.contactLinkMail} to={emailAddress}>
-            Contact
-          </Link>
-        ) : (
-              <Link className={css.contactLinkPhone} to={phoneNumber}>
-            Contact
-          </Link>
-        )}
-      </div>
       </div>
 
     { /* isAdditionModalOpen && (
