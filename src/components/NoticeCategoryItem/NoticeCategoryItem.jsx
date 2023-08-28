@@ -1,6 +1,7 @@
 import css from './NoticeCategoryItem.module.css';
 import svg from '../../images/sprite.svg';
 import { calculateAge, cutSity } from './NoticeItemUtils';
+import useAuth from 'hooks/useAuth';
 
 export default function NoticeCategoryItem({ item, handler }) {
   const {
@@ -20,6 +21,16 @@ export default function NoticeCategoryItem({ item, handler }) {
 
   const age = calculateAge(date);
   const city = cutSity(location);
+  const { user, isLoggedIn } = useAuth();
+  
+  const isLogged = () => {
+    if (!isLoggedIn) {
+      return
+    }
+    const isFavorite = user.favorite.includes(_id);
+    console.log(isFavorite);
+    return isFavorite;
+  }
 
 
   return (
@@ -31,8 +42,8 @@ export default function NoticeCategoryItem({ item, handler }) {
           <p>{category}</p>
         </div>
         <div>
-          <button className={css.fav_btn} type="button" onClick={() => handler(_id)}>
-            <svg className={css.heart} width="" height="">
+          <button className={[css.fav_btn, isLogged() && [css.fav_btn]].join(' ')} type="button" onClick={() => handler(_id)}>
+            <svg className={css.heart} width="24" height="24">
               <use href={svg + '#heart'}></use>
             </svg>
           </button>
