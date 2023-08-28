@@ -7,14 +7,15 @@ import sprite from '../../images/sprite.svg'
 
 export default function NoticesSearch() {
   const [query, setQuery] = useState('');
+  // const [page, setPage] = useState(1);
 
   const { categoryName } = useParams();
   const dispatch = useDispatch();
+  const params = {categoryName, query }
 
   const handleSubmit = (e) => {
       e.preventDefault();
-      console.log('query in notices search :', query);
-      dispatch(getNotices(categoryName, 1, query))
+      dispatch(getNotices(params))
       setQuery('');
   }
 

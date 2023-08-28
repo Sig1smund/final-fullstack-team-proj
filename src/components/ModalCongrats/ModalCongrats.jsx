@@ -19,7 +19,7 @@ export default function ModalCongrats({ onClose }) {
           Congrats!
         </p>
         <p className={css.subtitle}>
-          Youre registration is success
+          Your registration is success
         </p>
 
         <button type="button" className={css.goToProfileBtn} onClick={CloseAndNavigate}>

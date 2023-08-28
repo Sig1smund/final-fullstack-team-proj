@@ -58,7 +58,7 @@
 }
 
 .link__reg:hover{
-  border: none;
+  /* border: none; */
   border-radius: 40px;
 background: var(--gr-blue, linear-gradient(315deg, #FFC107 0%, #e9d393 100%));
 color: #FEF9F9;

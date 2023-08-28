@@ -23,22 +23,24 @@ export default function NoticesPage() {
 
   useEffect(() => {
     if (categoryName) {
-          dispatch(getNotices(categoryName))
+          dispatch(getNotices({categoryName}))
           navigate(`/notices/${categoryName}`);
         }
       }, [categoryName, navigate, dispatch]);
 
-    return <div className={styles.container}>
-    <h1 className={styles.title}>Find your favorite pet</h1>
-    <NoticesSearch/>
-    <div className={styles.navDesktopContainer}>
-    <NoticesCategoriesNav/>
-    <div className={styles.navRightContainer}>
-    <NoticesFilters/>
-    <AddPetButton/>
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.title}>Find your favorite pet</h1>
+      <NoticesSearch />
+      <div className={styles.navDesktopContainer}>
+        <NoticesCategoriesNav />
+        <div className={styles.navRightContainer}>
+          <NoticesFilters />
+          <AddPetButton />
+        </div>
+      </div>
+      <Outlet />
+      {categoryName && <NoticesCategoriesList />}
     </div>
-    </div>
-    <Outlet/>
-    {categoryName && <NoticesCategoriesList/>}
-    </div>
+  );
 }
