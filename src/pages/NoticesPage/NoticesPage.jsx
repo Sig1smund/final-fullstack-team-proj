@@ -42,6 +42,7 @@ export default function NoticesPage() {
 
   const onFavClick = (id) => {
     isLoggedIn ? dispatch(setFavNotice(id)) : setIsModalOpen(true); 
+    console.log(isModalOpen);
     return console.log(id);        
   }
 
