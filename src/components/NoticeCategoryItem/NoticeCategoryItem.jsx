@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import css from './NoticeCategoryItem.module.css';
 import svg from '../../images/sprite.svg';
-import { calculateAge, cutCity } from './NoticeItemUtils';
+import { calculateAge, cutSity } from './NoticeItemUtils';
 import useAuth from 'hooks/useAuth';
 import {removeOwnNotice} from '../../redux/notices/operations'
 import { useState } from 'react';
@@ -30,7 +30,7 @@ export default function NoticeCategoryItem({ item, favHandler }) {
   } = item;
 
   const age = calculateAge(date);
-  const city = cutCity(location);
+  const city = cutSity(location);
   const dispatch = useDispatch();
   const { user, isLoggedIn } = useAuth();
 
