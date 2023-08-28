@@ -1,9 +1,8 @@
 import { useParams, useNavigate, Outlet } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { getNotices } from 'redux/notices/operations'
+import { getNotices, getFavNotices, getOwnNotices } from 'redux/notices/operations'
 import useAuth from "hooks/useAuth";
-import useNotices from "hooks/useNotices";
 import { setFavNotice } from "redux/notices/operations";
 
 import NoticesSearch from '../../components/NoticesSearch'
@@ -15,11 +14,10 @@ import styles from './NoticesPage.module.css'
 
 export default function NoticesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { user, isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
   const { categoryName } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { notices } = useNotices();
 
   useEffect(() => {
     navigate('/notices/sell')
@@ -27,10 +25,18 @@ export default function NoticesPage() {
   
 
   useEffect(() => {
-    if (categoryName) {
+    if (categoryName === 'sell' || categoryName === 'lost-found' || categoryName === 'in-good-hands') {
       dispatch(getNotices({ categoryName }));
       navigate(`/notices/${categoryName}`);
-        }
+        } 
+          if (categoryName === 'favorite') {
+        dispatch(getFavNotices());
+        navigate('/notices/favorite');
+      } 
+      if (categoryName === 'own') {
+        dispatch(getOwnNotices());
+        navigate('/notices/own');
+      }
   }, [categoryName, navigate, dispatch]);
   
 

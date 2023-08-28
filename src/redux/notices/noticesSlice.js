@@ -90,7 +90,8 @@ const noticesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(removeOwnNotice.fulfilled, (state, action) => {
-        state.notices = state.notices.filter(n => n._id !== action.payload.id);
+        console.log('action.payload', action.payload)
+        state.notices = state.notices.filter(n => n._id !== action.payload._id);
         state.isLoading = false;
       })
       .addCase(removeOwnNotice.rejected, (state, action) => {
