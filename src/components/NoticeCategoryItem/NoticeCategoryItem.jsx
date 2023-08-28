@@ -1,12 +1,16 @@
+import { useParams } from "react-router-dom";
+import { useDispatch } from 'react-redux'
 import css from './NoticeCategoryItem.module.css';
 import svg from '../../images/sprite.svg';
 import { calculateAge, cutSity } from './NoticeItemUtils';
 import useAuth from 'hooks/useAuth';
+import {removeOwnNotice} from '../../redux/notices/operations'
 import { useState } from 'react';
 import Modal from '../Modal/Modal';
 import ModalNotice from '../NoticeModal/NoticeModal';
 
-export default function NoticeCategoryItem({ item, handler }) {
+export default function NoticeCategoryItem({ item, favHandler }) {
+
   const [openModal, setOpenModal] = useState(false);
 
   const close = () => setOpenModal(false);
@@ -23,12 +27,15 @@ export default function NoticeCategoryItem({ item, handler }) {
     sex,
     location,
     // price,
-    // owner,
+    owner,
   } = item;
 
   const age = calculateAge(date);
   const city = cutSity(location);
+  const dispatch = useDispatch();
   const { user, isLoggedIn } = useAuth();
+
+  const { categoryName } = useParams();
 
   const isLogged = () => {
     if (!isLoggedIn) {
@@ -37,7 +44,20 @@ export default function NoticeCategoryItem({ item, handler }) {
     const isFavorite = user.favorite.includes(_id);
     // console.log(isFavorite);
     return isFavorite;
+
+  const isOwnNotice = owner._id === user.id? true : false;
+  console.log('item :', item)
+  console.log('isOwnNotice :', isOwnNotice)
+
+  const removeOwnNot = (id) => {
+    if (!isLoggedIn) {
+      return
+    }
+    console.log('deleted id :', id);
+    dispatch(removeOwnNotice(id))
+  }
   };
+
 
   return (
     <li className={css.container}>
@@ -48,16 +68,22 @@ export default function NoticeCategoryItem({ item, handler }) {
           <p>{category}</p>
         </div>
         <div>
-          <button
-            className={[css.fav_btn, isLogged() && [css.infav_btn]].join(' ')}
-            type="button"
-            onClick={() => handler(_id)}
-          >
+
+          <button className={[css.fav_btn, isLogged() && [css.fav_btn]].join(' ')} type="button" onClick={() => favHandler(_id)}>
             <svg className={css.heart} width="24" height="24">
               <use href={svg + '#heart'}></use>
             </svg>
           </button>
         </div>
+
+        {isLoggedIn && categoryName === "own" && isOwnNotice && 
+        (<div>
+          <button className={css.trash_btn} type="button" onClick={() => removeOwnNot(_id)}>
+            <svg className={css.trash} width="24" height="24">
+              <use href={svg + '#trash-2'}></use>
+            </svg>
+          </button>
+        </div>)}
 
         <div className={css.info_container}>
           <div className={css.info_item}>
