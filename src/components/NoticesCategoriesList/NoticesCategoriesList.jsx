@@ -17,11 +17,11 @@ export default function NoticesCategoriesList({handler}) {
     // console.log('notices', notices);
 
     useEffect(() => {
-       if (categoryName === 'favorite') {
-        dispatch(getFavNotices())
-       } else if (categoryName === 'own') {
-        dispatch(getOwnNotices())
-       } 
+      if (categoryName === 'favorite') {
+        dispatch(getFavNotices());
+      } else if (categoryName === 'own') {
+        dispatch(getOwnNotices());
+      }
     }, [categoryName, dispatch]);
     
 
