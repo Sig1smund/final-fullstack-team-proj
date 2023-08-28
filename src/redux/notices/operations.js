@@ -80,6 +80,7 @@ export const getNotice = createAsyncThunk(
 export const setFavNotice = createAsyncThunk(
   'notices/setFavNotice',
   async (noticeId, thunkAPI) => {
+    console.log(noticeId);
     try {
       const res = await axios.patch(`api/notices/${noticeId}`);
       return res.data;
@@ -89,8 +90,8 @@ export const setFavNotice = createAsyncThunk(
   }
 );
 
-export const removeFavNotice = createAsyncThunk(
-  'notices/removeFavNotice',
+export const removeOwnNotice = createAsyncThunk(
+  'notices/removeOwnNotice',
   async (noticeId, thunkAPI) => {
     try {
       const res = await axios.delete(`api/notices/${noticeId}`);

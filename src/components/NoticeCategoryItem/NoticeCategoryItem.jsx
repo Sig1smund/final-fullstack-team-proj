@@ -2,9 +2,9 @@ import css from './NoticeCategoryItem.module.css';
 import svg from '../../images/sprite.svg';
 import { calculateAge, cutSity } from './NoticeItemUtils';
 
-export default function NoticeCategoryItem({ item }) {
+export default function NoticeCategoryItem({ item, handler }) {
   const {
-    // _id,
+    _id,
     category,
     title,
     name,
@@ -21,6 +21,7 @@ export default function NoticeCategoryItem({ item }) {
   const age = calculateAge(date);
   const city = cutSity(location);
 
+
   return (
     <li className={css.container}>
       <div className={css.wrapper}>
@@ -30,7 +31,7 @@ export default function NoticeCategoryItem({ item }) {
           <p>{category}</p>
         </div>
         <div>
-          <button className={css.fav_btn} type="button">
+          <button className={css.fav_btn} type="button" onClick={() => handler(_id)}>
             <svg className={css.heart} width="" height="">
               <use href={svg + '#heart'}></use>
             </svg>
