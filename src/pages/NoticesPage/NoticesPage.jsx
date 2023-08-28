@@ -14,8 +14,8 @@ import AddPetButton from '../../components/AddPetButton'
 import styles from './NoticesPage.module.css'
 
 export default function NoticesPage() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const { user, isLoggedIn } = useAuth();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { user, isLoggedIn } = useAuth();
   const { categoryName } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -33,10 +33,12 @@ export default function NoticesPage() {
         }
   }, [categoryName, navigate, dispatch]);
   
-      const onFavClick = (id) => {
-        isLoggedIn ? dispatch(setFavNotice(id)) : setIsModalOpen(true); 
-        // return console.log(id);        
-      }
+
+  const onFavClick = (id) => {
+    isLoggedIn ? dispatch(setFavNotice(id)) : setIsModalOpen(true); 
+    return console.log(id);        
+  }
+
 
   return (
     <div className={styles.container}>
@@ -50,7 +52,7 @@ export default function NoticesPage() {
         </div>
       </div>
       <Outlet />
-      {categoryName && <NoticesCategoriesList handler={onFavClick}/>}
+      {categoryName && <NoticesCategoriesList favHandler={onFavClick}/>}
     </div>
   );
 }
