@@ -234,6 +234,15 @@
     background-color: var(--milk-bckg-color);
 }
 
+.desktopNewsCard {
+    composes: shadow;
+    width: 395px;
+    height: 534px; 
+    padding: 0px 0px 12px 0px; 
+    border-radius: 20px; 
+    gap: 16px;
+}
+
 /*----------------------- Tablet Cards --------------------*/
 
 .defaultTabletPetCard {

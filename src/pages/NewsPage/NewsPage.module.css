@@ -1,0 +1,17 @@
+.container {
+    width: 1280px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.sectionTitle {
+    font-family: Monrope;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 144px;
+}

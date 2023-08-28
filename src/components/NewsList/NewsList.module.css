@@ -1,8 +1,4 @@
-.container {
-    width: 1280px;
-    margin: 0 auto;
-    padding: 0;
-}
+
 
 .list {
     padding: 0;
@@ -10,14 +6,76 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     list-style: none;
 }
 
 .item {
-    display: flex;
-    flex-direction: column;
+    composes: desktopNewsCard from '../../global.css';
+    height: 534px;
     margin: 0;
     padding: 0;
-    width: calc(400px - 30px/ 3);
+    margin-right: 31px;
+    margin-bottom: 46px;
+    scale: 1;
+    transition-property: scale, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: var(--transition);
+}
+
+.item:nth-child(3n) {
+        margin-right: 0;
+}
+
+.item:hover {
+    scale: 1.1;
+    box-shadow: 7px 13px 14px 0px rgba(116, 177, 232, 0.24);
+    transform: transition;
+}
+
+.thumb {
+    width: 395px;
+    height: 252px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.image {
+    display: block;
+    width: 395px;
+}
+
+.main {
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-bottom: auto;
+}
+
+.info {
+    display: flex;
+    margin-top: auto;
+    justify-content: space-between;
+    padding-right: 16px;
+    padding-left: 16px;
+    bottom: 0;
+}
+
+.title {
+    font-family: inherit
+    color var(--black-color);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.24px;
+}
+
+.text {
+    font-family: inherit;
+    color: var(--black-color);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
