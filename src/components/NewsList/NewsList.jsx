@@ -3,9 +3,7 @@ import s from './NewsList.module.css';
 
 export default function NewsList({search}) {
     const { news } = useNews();
-    console.log(news);
-
-
+    
     const prepeareSearch = () => {
         search.toLowerCase().trim();
            return news.filter(
