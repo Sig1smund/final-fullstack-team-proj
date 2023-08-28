@@ -44,8 +44,11 @@ export default function NoticeCategoryItem({ item, favHandler }) {
     const isFavorite = user.favorite.includes(_id);
     // console.log(isFavorite);
     return isFavorite;
+  }
 
-  const isOwnNotice = owner._id === user.id? true : false;
+
+  
+  const isOwnNotice = (owner._id === user.id)? true : false;
   console.log('item :', item)
   console.log('isOwnNotice :', isOwnNotice)
 
@@ -56,8 +59,6 @@ export default function NoticeCategoryItem({ item, favHandler }) {
     console.log('deleted id :', id);
     dispatch(removeOwnNotice(id))
   }
-  };
-
 
   return (
     <li className={css.container}>
@@ -120,7 +121,7 @@ export default function NoticeCategoryItem({ item, favHandler }) {
             <ModalNotice
               id={_id}
               isFavorite={() => isLogged()}
-              handler={handler}
+              handler={favHandler}
             />
           </Modal>
         )}
