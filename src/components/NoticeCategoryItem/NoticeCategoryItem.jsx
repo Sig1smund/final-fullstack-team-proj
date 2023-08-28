@@ -63,7 +63,7 @@ export default function NoticeCategoryItem({ item, favHandler }) {
         </div>
         <div>
 
-          <button className={[css.fav_btn, isLogged() && [css.fav_btn]].join(' ')} type="button" onClick={() => favHandler(_id)}>
+          <button className={[css.fav_btn, isLogged() && [css.infav_btn]].join(' ')} type="button" onClick={() => favHandler(_id)}>
             <svg className={css.heart} width="24" height="24">
               <use href={svg + '#heart'}></use>
             </svg>
