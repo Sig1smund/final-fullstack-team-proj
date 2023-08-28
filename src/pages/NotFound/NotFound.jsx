@@ -9,7 +9,10 @@ import catPageNotFound from '../../images/cat40.png';
 export default function NotFound() {
     return <div className={styles.container}>
 
-        <h1 className={styles.title}>Ooops! This page not found :(</h1>
+        <h1 className={styles.title}>Ooops! <br className={styles.break}/> This page not found :(</h1>   
+      
+   
+
 
         <div className={styles.cat}>
         <h1 className={styles.text}>4</h1>
