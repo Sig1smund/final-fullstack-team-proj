@@ -1,27 +1,5 @@
-/* .container {
-  width: 280px;
-  height: 456px;
-  border-radius: 0px 0px 40px 40px;
-  background: #fff;
-
-
-  box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
-  @media screen and (max-width: 767px) {
-    width: 336px;
-    height: 456px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    width: 288px;
-    height: 456px;
-    flex-shrink: 0;
-  }
-} */
-
-
-
-
 .container{
+  
   width: 280px;
   height: 456px;
   box-shadow:  3px 8px 14px 0px rgba(136, 198, 253, 0.19);
@@ -35,11 +13,11 @@
   margin-right: auto;
   margin-left: auto;
   
-  @media screen and (min-width: 768px) {
+  /* @media screen and (min-width: 768px) {
     margin-right: 0;
     margin-left: 0;
     width: 336px;
-  }
+  } */
 
   @media screen and (min-width: 1280px) {
     width: 288px;
@@ -85,6 +63,7 @@
 }
 
 .fav_btn{
+  fill:transparent;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -103,6 +82,37 @@
     scale: 1.1;
   }
 }
+
+
+.trash_btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0;
+  outline: 0;
+  position: absolute;
+  top: 68px;
+  right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-blue-color);
+  stroke: var(--blue-color);
+  fill: none;
+
+  &:hover {
+    background-color: var(--blue-color);
+    stroke: var(--light-blue-color);
+    cursor: pointer;
+    scale: 1.1;
+  }
+}
+
+.infav_btn{
+ fill:var(--blue-color)
+
+}
+
 
 /* .del_btn{
   width: 40px;

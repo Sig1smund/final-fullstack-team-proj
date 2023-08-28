@@ -15,7 +15,7 @@
 
   padding: 8px 16px;
 
-  color: #ffc107;
+  color: var(--yellow-color);
   font-family: Manrope;
   font-size: 16px;
   font-style: normal;
