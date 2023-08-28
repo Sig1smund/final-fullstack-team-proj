@@ -4,7 +4,7 @@ import { getNews } from "redux/news/operations";
 import useNews from "hooks/useNews";
 import NewsList from "components/NewsList";
 import Spinner from "utils/Spinner";
-import s from './NewsPage.module.css'
+import s from './NewsPage.module.css';
 
 export default function NewsPage() {
     const dispatch = useDispatch();
