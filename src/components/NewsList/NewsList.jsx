@@ -1,12 +1,23 @@
 import useNews from "hooks/useNews";
 import s from './NewsList.module.css';
 
-export default function NewsList() {
+export default function NewsList({search}) {
     const { news } = useNews();
     console.log(news);
+
+
+    const prepeareSearch = () => {
+        search.toLowerCase().trim();
+           return news.filter(
+               item => item.title.toLowerCase().includes(search)
+           );
+    }
+
+    const readyToRenderNews = prepeareSearch();
+        
     return (
             <ul className={s.list}>
-                {news.map(item => {
+                {readyToRenderNews.map(item => {
                     return (
                         <li key={item._id} className={s.item}>
                             <div className={s.thumb}>

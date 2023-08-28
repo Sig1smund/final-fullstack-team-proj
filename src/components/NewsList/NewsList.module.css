@@ -23,6 +23,16 @@
     transition-timing-function: var(--transition);
 }
 
+.item::before {
+    display: inline-block;
+    border-radius: 40px;
+    content: '';
+    width: 395px;
+    height: 8px;
+    background: var(--hoover-color);
+    margin-bottom: 14px;
+}
+
 .item:nth-child(3n) {
         margin-right: 0;
 }
