@@ -33,10 +33,12 @@ export default function NoticesPage() {
         }
   }, [categoryName, navigate, dispatch]);
   
+
   const onFavClick = (id) => {
     isLoggedIn ? dispatch(setFavNotice(id)) : setIsModalOpen(true); 
     return console.log(id);        
   }
+
 
   return (
     <div className={styles.container}>
