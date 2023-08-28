@@ -1,5 +1,6 @@
 .list {
     display: grid;
+    grid-template-columns:none;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-gap: 32px;
     margin-top: 0;
@@ -8,7 +9,14 @@
     list-style: none;
     margin-left: auto;
     margin-right: auto;
+
+    @media screen and (min-width: 768px) {
+     grid-template-columns:repeat(auto-fill, minmax(336px, 1fr));
   }
+     @media screen and (min-width:1280px) {
+     grid-template-columns:repeat(auto-fill, minmax(288px, 1fr));
+  }
+}
 
 .imgNoPet{
     border-radius: 50%;
