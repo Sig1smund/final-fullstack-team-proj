@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import css from './NoticeCategoryItem.module.css';
 import svg from '../../images/sprite.svg';
-import { calculateAge, cutSity } from './NoticeItemUtils';
+import { calculateAge, cutCity } from './NoticeItemUtils';
 import useAuth from 'hooks/useAuth';
 import {removeOwnNotice} from '../../redux/notices/operations'
 import { useState } from 'react';
@@ -12,7 +12,6 @@ import ModalNotice from '../NoticeModal/NoticeModal';
 export default function NoticeCategoryItem({ item, favHandler }) {
 
   const [openModal, setOpenModal] = useState(false);
-
   const close = () => setOpenModal(false);
 
   const {
@@ -31,7 +30,7 @@ export default function NoticeCategoryItem({ item, favHandler }) {
   } = item;
 
   const age = calculateAge(date);
-  const city = cutSity(location);
+  const city = cutCity(location);
   const dispatch = useDispatch();
   const { user, isLoggedIn } = useAuth();
 
@@ -42,21 +41,15 @@ export default function NoticeCategoryItem({ item, favHandler }) {
       return;
     }
     const isFavorite = user.favorite.includes(_id);
-    // console.log(isFavorite);
     return isFavorite;
   }
 
-
-  
-  const isOwnNotice = (owner._id === user.id)? true : false;
-  console.log('item :', item)
-  console.log('isOwnNotice :', isOwnNotice)
+  const isOwnNotice = owner._id === user.id;
 
   const removeOwnNot = (id) => {
     if (!isLoggedIn) {
       return
     }
-    console.log('deleted id :', id);
     dispatch(removeOwnNotice(id))
   }
 

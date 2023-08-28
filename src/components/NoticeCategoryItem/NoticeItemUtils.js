@@ -10,7 +10,7 @@ export const calculateAge = birthdateString => {
   return age;
 };
 
-export const cutSity = location => {
+export const cutCity = location => {
   if (location.length > 5) {
     const city = location.slice(0, 4) + '...';
     return city;
