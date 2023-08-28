@@ -12,6 +12,7 @@
 
 .item {
     composes: desktopNewsCard from '../../global.css';
+    position: relative;
     height: 534px;
     margin: 0;
     padding: 0;
@@ -55,6 +56,13 @@
     display: block;
     width: 395px;
 }
+.infoContainer{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .main {
     padding-right: 16px;
@@ -63,12 +71,16 @@
 }
 
 .info {
+    position: absolute;
+    width: 395px;
+    bottom: 0;
     display: flex;
     margin-top: auto;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     padding-right: 16px;
     padding-left: 16px;
-    bottom: 0;
 }
 
 .title {
@@ -88,4 +100,9 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.itemLink {
+    text-decoration: none;
+    color: var(--blue-color);
 }
