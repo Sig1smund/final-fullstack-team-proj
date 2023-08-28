@@ -104,6 +104,31 @@
   }
 }
 
+.trash_btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0;
+  outline: 0;
+  position: absolute;
+  top: 68px;
+  right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-blue-color);
+  stroke: var(--blue-color);
+  fill: none;
+
+  &:hover {
+    background-color: var(--blue-color);
+    stroke: var(--light-blue-color);
+    cursor: pointer;
+    scale: 1.1;
+  }
+}
+
+
 /* .del_btn{
   width: 40px;
   height: 40px;
