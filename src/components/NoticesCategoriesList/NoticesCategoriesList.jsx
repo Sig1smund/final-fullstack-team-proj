@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import {getFavNotices, getOwnNotices} from '../../redux/notices/operations'
 import NoticeCategoryItem from "../NoticeCategoryItem";
 import useNotices from "hooks/useNotices";
+import { setFavNotice } from "../../redux/notices/operations";
 import styles from './NoticesCategoriesList.module.css'
 
 export default function NoticesCategoriesList() {
@@ -20,12 +21,18 @@ export default function NoticesCategoriesList() {
        } else if (categoryName === 'own') {
         dispatch(getOwnNotices())
        } 
-          }, [categoryName, dispatch]);
+    }, [categoryName, dispatch]);
+    
 
+    const onFavCLick = (id) => {
+        return dispatch(setFavNotice(id))
+    };
+
+    
     return (
         <ul className={styles.list}>
             {notices.length > 0 && notices.map(item => {
-                return (<NoticeCategoryItem key={item._id} item={item}/>)
+                return (<NoticeCategoryItem key={item._id} item={item} handler={onFavCLick}/>)
             })}
         </ul>
     );
