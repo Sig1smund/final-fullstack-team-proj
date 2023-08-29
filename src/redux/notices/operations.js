@@ -77,25 +77,25 @@ export const getNotice = createAsyncThunk(
   }
 );
 
-export const setFavNotice = createAsyncThunk(
-  'notices/setFavNotice',
-  async (noticeId, thunkAPI) => {
-    console.log(noticeId);
-    try {
-      const res = await axios.patch(`api/notices/${noticeId}`);
-      return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+// export const setFavNotice = createAsyncThunk(
+//   'notices/setFavNotice',
+//   async (noticeId, thunkAPI) => {
+//     console.log(noticeId);
+//     try {
+//       const res = await axios.patch(`api/notices/${noticeId}`);
+//       return res.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const removeOwnNotice = createAsyncThunk(
   'notices/removeOwnNotice',
   async (noticeId, thunkAPI) => {
     try {
       const res = await axios.delete(`api/notices/${noticeId}`);
-      console.log('res.data', res.data)
+      console.log('res.data', res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -2,21 +2,15 @@ import { useParams, useNavigate, Outlet } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getNotices, getFavNotices, getOwnNotices } from 'redux/notices/operations'
-import useAuth from "hooks/useAuth";
-import { setFavNotice } from "redux/notices/operations";
-
 import NoticesSearch from '../../components/NoticesSearch'
 import NoticesCategoriesNav from '../../components/NoticesCategoriesNav/NoticesCategoriesNav'
 import NoticesFilters from '../../components/NoticesFilters'
 import NoticesCategoriesList from '../../components/NoticesCategoriesList'
 import AddPetButton from '../../components/AddPetButton'
-import Modal from "../../components/Modal";
-import AttentionModal from "../../components/AttentionModal";
+
 import styles from './NoticesPage.module.css'
 
 export default function NoticesPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const { isLoggedIn } = useAuth();
   const { categoryName } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -39,19 +33,8 @@ export default function NoticesPage() {
         dispatch(getOwnNotices());
         navigate('/notices/own');
       }
+    
   }, [categoryName, navigate, dispatch]);
-
-
-  const onFavClick = (id) => {
-    isLoggedIn ? dispatch(setFavNotice(id)) : setIsModalOpen(true);
-    console.log(isModalOpen);
-    return console.log(id);
-  }
-
-  const close = () => {
-    setIsModalOpen(false);
-  };
-
 
   return (
     <div className={styles.container}>
@@ -65,13 +48,15 @@ export default function NoticesPage() {
         </div>
       </div>
       <Outlet />
-      {categoryName && <NoticesCategoriesList favHandler={onFavClick}/>}
-      {isModalOpen && (
+      {categoryName && <NoticesCategoriesList
+        // favHandler={onFavClick}
+      />}
+      {/* {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={close}>
           <AttentionModal />
         </Modal>
       )
-      }
+      } */}
     </div>
   );
 }

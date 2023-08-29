@@ -5,7 +5,6 @@ import {
   getOwnNotices,
   getFavNotices,
   getNotice,
-  setFavNotice,
   removeOwnNotice,
 } from './operations';
 
@@ -58,7 +57,6 @@ const noticesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getFavNotices.fulfilled, (state, action) => {
-        state.notices = action.payload.notices;
         state.isLoading = false;
       })
       .addCase(getFavNotices.rejected, (state, action) => {
@@ -73,16 +71,6 @@ const noticesSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(getNotice.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(setFavNotice.pending, state => {
-        state.isLoading = true;
-      })
-      .addCase(setFavNotice.fulfilled, (state, action) => {
-        state.isLoading = false;
-      })
-      .addCase(setFavNotice.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })

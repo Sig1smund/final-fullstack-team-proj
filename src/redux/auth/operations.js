@@ -112,4 +112,15 @@ export const deletePet = createAsyncThunk(
   }
 );
 
-
+export const setFavNotice = createAsyncThunk(
+  'auth/setFavNotice',
+  async (noticeId, thunkAPI) => {
+    console.log(noticeId);
+    try {
+      const res = await axios.patch(`api/notices/${noticeId}`);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

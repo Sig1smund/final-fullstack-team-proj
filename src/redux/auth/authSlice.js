@@ -8,11 +8,13 @@ import {
   updateUser,
   createPet,
   deletePet,
+  setFavNotice,
 } from './operations';
 
 const initialState = {
   user: { name: null, email: null },
   userPets: [],
+  favorite: [],
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -21,7 +23,6 @@ const initialState = {
   isDeleting: false,
   error: null,
 };
-
 
 const authSlice = createSlice({
   name: 'auth',
@@ -84,6 +85,7 @@ const authSlice = createSlice({
       .addCase(current.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.userPets = action.payload.pets;
+        state.favorite = action.payload.user.favorite;
         state.isLoggedIn = true;
         state.isLoading = false;
         state.isRefreshing = false;
@@ -113,7 +115,6 @@ const authSlice = createSlice({
       })
       .addCase(updateUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        // state.userPets = action.payload.pets;
         state.isLoggedIn = true;
         state.isLoading = false;
         state.isRefreshing = false;
@@ -140,11 +141,24 @@ const authSlice = createSlice({
         state.isDeleting = true;
       })
       .addCase(deletePet.fulfilled, (state, action) => {
-        state.userPets = state.userPets.filter(p => p._id !== action.payload.id);
-        state.isDeleting = false;        
+        state.userPets = state.userPets.filter(
+          p => p._id !== action.payload.id
+        );
+        state.isDeleting = false;
       })
       .addCase(deletePet.rejected, (state, action) => {
         state.isDeleting = false;
+        state.error = action.payload;
+      })
+      .addCase(setFavNotice.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(setFavNotice.fulfilled, (state, action) => {
+        state.favorite = action.payload.user.favorite;
+        state.isLoading = false;
+      })
+      .addCase(setFavNotice.rejected, (state, action) => {
+        state.isLoading = false;
         state.error = action.payload;
       });
   },
