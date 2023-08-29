@@ -45,12 +45,12 @@ export default function UserPage() {
     setReadOnly(prevState => !prevState);
   };
   //save new avatar photo
-  const saveNewPhoto = userAvatar => {
-    console.log(userAvatar)
-    const formData = new FormData();
+  // const saveNewPhoto = userAvatar => {
+  //   console.log(userAvatar)
+  //   const formData = new FormData();
 
-    formData.append('userAvatar', userAvatar);
-  };
+  //   formData.append('userAvatar', userAvatar);
+  // };
 
   const onSubmitForm = (newDataUser) => {
     dispatch(updateUser(newDataUser));
@@ -111,7 +111,9 @@ export default function UserPage() {
           </svg> */}
                 <img src={Cross} alt='cross icon' className={css.iconCross} />
               </button>)}
-              {readOnly ? (<UserForm readonly={true} user={user} />) : (<UserForm readonly={false} user={user} saveNewPhoto={saveNewPhoto} onSubmit={onSubmitForm} />)}
+            {readOnly ? (
+              // <UserForm readonly={true} user={user} />) : (<UserForm readonly={false} user={user} saveNewPhoto={saveNewPhoto} onSubmit={onSubmitForm} />)}
+                 <UserForm readonly={true} user={user} />) : (<UserForm readonly={false} user={user} onSubmit={onSubmitForm} />)}
 
           </div>
 
