@@ -1,81 +1,40 @@
 import { Link } from "react-router-dom";
-//import { useState } from "react";
-//import { toast } from 'react-toastify';
-
-//import useAuth from "hooks/useAuth";
-//import { getNotice, setFavNotice } from "redux/notices/operations";
 
 import css from "./NoticeModal.module.css";
 import icon from '../../images/sprite.svg';
-//import Modal from "components/Modal";
-//import AttentionModal from "components/AttentionModal";
 
 
-export default function NoticeModal() {
-  // { id, isFavorite }
-  // const { isLoggedIn } = useAuth();
-  const isLoggedIn = true;
-  const isFavorite = true;
 
-  // const { data } = getNotice(id);
+export default function NoticeModal({ item, isFavorite, handler }) {
 
- // if (!data) {
-  //  return;
-  // };
 
-  // const { notice } = data;
-
-  const title = "Sell Cat Felis chaus";
-  const imageURL = "https://upload.wikimedia.org/wikipedia/commons/8/82/Jungle_Cat_on_tree_at_Sundarban%2C_West_Bengal%2C_India.jpg";
-  const category = "sell";
-  const name = "Nick";
-  const type = "cat";
-  const birthday = "26.09.2018";
-  const sex = "male";
-  const location = "Kyiv";
-  const price = 10;
-  const comments = "gggggggggggg";
-  const phone = "+380665214154";
-  const email = "lili262808@gmail.com";
-
-  //const {
-  //  title,
-   // imageURL,
-  //  category,
-  //  name,
-   // type,
-   // birthday,
-  //  sex,
-  //  location,
-   // price,
-  //  comments,
-   // owner,
- // } = notice;
-
- // const { email, phone } = owner;
-
- const phoneNumber = `tel:${phone}`;
- const emailAddress = `mailto:${email}`;
-
- // const showPrice = category === 'sell' ? true : false;
-  const showPrice = true;
-
- //const [isAdditionModalOpen, setIsAdditionModalOpen] = useState(false);
-
-  const onFavoriteBtnClick = (id) => {
-    if (isLoggedIn) {
-      try {
-       // setFavNotice(id);
-      } catch (error) {
-        console.log(error);
-      };
-    };
-  //  setIsAdditionModalOpen(true);
+  if (!item) {
+    return;
   };
 
- // const close = () => {
- //   setIsAdditionModalOpen(false);
- // };
+  const {
+    _id,
+    category,
+    title,
+    name,
+    birthday,
+    type,
+    imageURL,
+    comments,
+    sex,
+    location,
+    price,
+    owner,
+  } = item;
+
+  const { email, phone } = owner;
+
+
+  const phoneNumber = `tel:${phone}`;
+  const emailAddress = `mailto:${email}`;
+
+  const showPrice = category === 'sell' ? true : false;
+
 
 
   return (
@@ -149,7 +108,7 @@ export default function NoticeModal() {
               </Link>
             )}
 
-            <button className={css.favoriteBtn} onClick={() => onFavoriteBtnClick()} isFavorite={isFavorite}>
+            <button className={css.favoriteBtn} onClick={()=>handler(_id)} isFavorite={isFavorite}>
               {isFavorite ? 'Added to' : 'Add to'}
               <svg className={css.heart} width="24" height="24">
                   <use className={css.iconHeart} href={icon + '#heart'}></use>
@@ -160,11 +119,7 @@ export default function NoticeModal() {
         </div>
       </div>
 
-    { /* isAdditionModalOpen && (
-       <Modal isOpen={isAdditionModalOpen} onClose={close}>
-         <AttentionModal />
-        </Modal>
-      )*/}
+
     </>
 
   );

@@ -290,7 +290,7 @@
 
 .iconHeart{
   stroke: var(--white-bckg-color);
-  fill: var(--white-bckg-color);
+  fill: none;
   stroke-width: 1px;
 }
 

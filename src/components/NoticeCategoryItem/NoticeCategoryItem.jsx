@@ -70,7 +70,7 @@ export default function NoticeCategoryItem({ item, favHandler }) {
           </button>
         </div>
 
-        {isLoggedIn && categoryName === "own" && isOwnNotice && 
+        {isLoggedIn && categoryName === "own" && isOwnNotice &&
         (<div>
           <button className={css.trash_btn} type="button" onClick={() => removeOwnNot(_id)}>
             <svg className={css.trash} width="24" height="24">
@@ -112,7 +112,7 @@ export default function NoticeCategoryItem({ item, favHandler }) {
         {openModal && (
           <Modal isOpen={openModal} onClose={close}>
             <ModalNotice
-              id={_id}
+              item={item}
               isFavorite={() => isLogged()}
               handler={favHandler}
             />

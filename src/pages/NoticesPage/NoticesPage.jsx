@@ -10,6 +10,8 @@ import NoticesCategoriesNav from '../../components/NoticesCategoriesNav/NoticesC
 import NoticesFilters from '../../components/NoticesFilters'
 import NoticesCategoriesList from '../../components/NoticesCategoriesList'
 import AddPetButton from '../../components/AddPetButton'
+import Modal from "../../components/Modal";
+import AttentionModal from "../../components/AttentionModal";
 import styles from './NoticesPage.module.css'
 
 export default function NoticesPage() {
@@ -22,29 +24,33 @@ export default function NoticesPage() {
   useEffect(() => {
     navigate('/notices/sell')
       }, [navigate]);
-  
+
 
   useEffect(() => {
     if (categoryName === 'sell' || categoryName === 'lost-found' || categoryName === 'in-good-hands') {
       dispatch(getNotices({ categoryName }));
       navigate(`/notices/${categoryName}`);
-        } 
+        }
           if (categoryName === 'favorite') {
         dispatch(getFavNotices());
         navigate('/notices/favorite');
-      } 
+      }
       if (categoryName === 'own') {
         dispatch(getOwnNotices());
         navigate('/notices/own');
       }
   }, [categoryName, navigate, dispatch]);
-  
+
 
   const onFavClick = (id) => {
-    isLoggedIn ? dispatch(setFavNotice(id)) : setIsModalOpen(true); 
+    isLoggedIn ? dispatch(setFavNotice(id)) : setIsModalOpen(true);
     console.log(isModalOpen);
-    return console.log(id);        
+    return console.log(id);
   }
+
+  const close = () => {
+    setIsModalOpen(false);
+  };
 
 
   return (
@@ -60,6 +66,12 @@ export default function NoticesPage() {
       </div>
       <Outlet />
       {categoryName && <NoticesCategoriesList favHandler={onFavClick}/>}
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen} onClose={close}>
+          <AttentionModal />
+        </Modal>
+      )
+      }
     </div>
   );
 }
