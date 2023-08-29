@@ -57,7 +57,7 @@ const onChangeFile = event => {
       }
 
       const newAvatar = URL.createObjectURL(file);
-      console.log('fileonLoad',file)
+      console.log('fileonLoad',avatarFile)
       
       // setAvatarURL(file);
       setAvatarURL(newAvatar);
