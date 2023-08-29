@@ -13,6 +13,7 @@ import { useDispatch } from 'react-redux';
 // import { useLocation } from 'react-router-dom';
  
   // import "formik-stepper/dist/style.css";
+
 // import { IoArrowBackCircleSharp } from 'react-icons/io5';
 import "./AddPetForm.css";
 import { RadioButton, BackLink } from "./AddPetForm.styled";
@@ -62,7 +63,7 @@ export default function AddPetForm() {
       onSubmit={onSubmit} /// onSubmit Function
       initialValues={{
         // Choose option
-        category: "sell",
+        category: "",
         //Personal details
         name: "",
         date: "",
@@ -87,20 +88,41 @@ export default function AddPetForm() {
           labelColor="#00C3AD" /// css-colors => #fff
           circleColor="#00C3AD" /// css-colors => #fff
       >
-        
 
-            <RadioButton 
+        <div class="form_radio_btn">
+        <input id="your-pet" type="radio" name="category" value="your-pet" defaultChecked></input>
+	      <label for="your-pet">your pet</label>
+        </div>
+          <div class="form_radio_btn">
+        <input id="sell" type="radio" name="category" value="sell" ></input>
+	      <label for="sell">sell</label>
+        </div>
+        <div class="form_radio_btn">
+        <input id="lost-found" type="radio" name="category" value="lost-found"></input>
+	      <label for="lost-found">lost/found</label>
+        </div>
+        <div class="form_radio_btn">
+        <input id="in-good-hands" type="radio" name="category" value="in-good-hands" ></input>
+	      <label for="in-good-hands">in good hands</label>
+        </div>
+        
+            {/* <RadioField 
             name="category"
-            labelColor="#000"
-            options={[
+          labelColor="#000"
+
+          options={[
               { label: "your pet", value: "your-pet" },
               { label: "sell", value: "sell" },
               { label: "lost/found", value: "lost-found" },
               { label: "in good hands", value: "in-good-hands" }
               
             ]}
+
+          />  */}
+       
+
           />
-          
+
         </FormikStep>
         {/* Second Step */}
         <FormikStep label="Personal details" circleColor="#54ADFF">
