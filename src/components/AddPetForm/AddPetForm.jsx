@@ -16,7 +16,7 @@ import { useDispatch } from 'react-redux';
 
 // import { IoArrowBackCircleSharp } from 'react-icons/io5';
 import "./AddPetForm.css";
-import { RadioButton, BackLink } from "./AddPetForm.styled";
+// import { RadioButton, BackLink } from "./AddPetForm.styled";
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(2, 'Too Short!').max(16, 'Too Long!').required('Enter a name'),
@@ -121,7 +121,7 @@ export default function AddPetForm() {
           />  */}
        
 
-          />
+          {/* /> */}
 
         </FormikStep>
         {/* Second Step */}
