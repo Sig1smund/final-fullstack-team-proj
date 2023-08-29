@@ -1,16 +1,67 @@
 @media screen and (min-width: 768px) {
     .button {
-        composes: lostAndFoundButton from '../../global.css';
+        /* composes: lostAndFoundButton from '../../global.css'; */
+      display: flex;
+        flex-direction: row;
+        width: 129px;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        font-family: Manrope;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.64px;
+        border-radius: 40px;
+        border: 2px solid var(--yellow, #54ADFF);
+        background: var(--yelllow, #54ADFF);
+            color: #fef9f9;
     }
+        .addPetsButton:hover {
+          border-radius: 40px;
+          background: var(--gr-blue, linear-gradient(315deg, #3324FF 0%, #54ADFF 70%));
+          color: #fef9f9;
+        }
+         .plusIcon {
+           fill: white;
+    
+         }
   }
   
   @media screen and (max-width: 767px) {
     .button {
-        composes: addPetButton from '../../global.css';
-        text-decoration: none;
-        position: fixed;
-        top: 460px;
-        right: 0;
+  display: flex;
+    flex-direction: column-reverse;
+    width: 80px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: Manrope;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.64px;
+  
+    border-radius: 40px;
+    border: 2px solid var(--yellow, #54ADFF);
+    background: var(--yellow, #54ADFF);
+    color: #fef9f9;
       }
+    
+        .addPetsButton:hover {
+          border-radius: 40px;
+          background: var(--gr-blue, linear-gradient(315deg, #3324FF 0%, #54ADFF 70%));
+          color: #fef9f9;
+        }
+    .plusIcon {
+              fill: white;
+
+            }
   }
 
