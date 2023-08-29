@@ -123,6 +123,7 @@ export default function NoticeCategoryItem({ item, favHandler }) {
               item={item}
               isFavorite={() => isLogged()}
               handler={favHandler}
+              isLoggedIn={isLoggedIn}
             />
           </Modal>
         )}
