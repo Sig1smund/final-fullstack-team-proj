@@ -8,10 +8,14 @@ import {
   
    import * as Yup from "yup";
    import { addNotice } from "redux/notices/operations";
-  import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+// import { useRef} from 'react';
+// import { useLocation } from 'react-router-dom';
+ 
   // import "formik-stepper/dist/style.css";
-
-  import stl from "./AddPetForm.css";
+// import { IoArrowBackCircleSharp } from 'react-icons/io5';
+import "./AddPetForm.css";
+import { RadioButton, BackLink } from "./AddPetForm.styled";
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(2, 'Too Short!').max(16, 'Too Long!').required('Enter a name'),
@@ -29,9 +33,12 @@ import {
 
 export default function AddPetForm() {
     
-    const dispatch = useDispatch(); 
-
-    const onSubmit = (values) => {
+  const dispatch = useDispatch(); 
+  // const location = useLocation();
+  // const backLink = useRef(location.state?.from ?? '/');
+    
+  
+     const onSubmit = (values) => {
       console.log("values", values);
       
       const { name, category, date, type, title, location, sex, price, comments = "" } = values;
@@ -81,38 +88,19 @@ export default function AddPetForm() {
           circleColor="#00C3AD" /// css-colors => #fff
       >
         
-        <div class="form_radio_btn">
-        <input id="your-pet" type="radio" name="radio" value="your-pet" checked></input>
-	      <label for="your-pet">your pet</label>
-        </div>
-          <div class="form_radio_btn">
-        <input id="sell" type="radio" name="radio" value="sell" checked></input>
-	      <label for="sell">sell</label>
-        </div>
-        <div class="form_radio_btn">
-        <input id="lost/found" type="radio" name="radio" value="lost/found" checked></input>
-	      <label for="lost/found">lost/found</label>
-        </div>
-        <div class="form_radio_btn">
-        <input id="in good hands" type="radio" name="radio" value="sin good handsl" checked></input>
-	      <label for="in good hands">sell</label>
-        </div>
-        
 
-
-            <RadioField 
+            <RadioButton 
             name="category"
             labelColor="#000"
-          options={[
-            
-              // { label: "your pet", value: "your-pet" },
-              // { label: "sell", value: "sell" },
-              // { label: "lost/found", value: "lost-found" },
-              // { label: "in good hands", value: "in-good-hands" }
+            options={[
+              { label: "your pet", value: "your-pet" },
+              { label: "sell", value: "sell" },
+              { label: "lost/found", value: "lost-found" },
+              { label: "in good hands", value: "in-good-hands" }
               
             ]}
           />
-       
+          
         </FormikStep>
         {/* Second Step */}
         <FormikStep label="Personal details" circleColor="#54ADFF">
