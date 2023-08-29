@@ -17,7 +17,7 @@ export default function NoticeModal({ item, isFavorite, handler }) {
     category,
     title,
     name,
-    birthday,
+    date,
     type,
     imageURL,
     comments,
@@ -52,7 +52,7 @@ export default function NoticeModal({ item, isFavorite, handler }) {
             </div>
             <div className={css.informationItem}>
               <p className={css.informationKey}>Birthday:</p>
-              <p className={css.value}>{ birthday}</p>
+              <p className={css.value}>{ date}</p>
             </div>
             <div className={css.informationItem}>
               <p className={css.informationKey}>Type:</p>
@@ -69,14 +69,14 @@ export default function NoticeModal({ item, isFavorite, handler }) {
             <div className={css.informationItem}>
               <p className={css.informationKey}>Email:</p>
               <div className={css.contactWrap}>
-                <Link className={css.valueLink} href={emailAddress}>{email}</Link>
+                <Link className={css.valueLink} to={emailAddress}>{email}</Link>
               </div>
             </div>
             {phone !== '' && (
               <div className={css.informationItem}>
                 <p className={css.informationKey}>Phone:</p>
                 <div className={css.contactWrap}>
-                  <Link className={css.valueLink} href={phoneNumber}>{phone}</Link>
+                  <Link className={css.valueLink} to={phoneNumber}>{phone}</Link>
                 </div>
               </div>
             )}

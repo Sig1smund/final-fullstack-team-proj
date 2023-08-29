@@ -21,7 +21,7 @@ export default function AttentionModalModal() {
         <NavLink className={css.loginBtn} to="/login">
           Login
           <svg  className={css.icon}   width={24} height={24}>
-            <use href={logo + '#pawprint1'}></use>
+            <use href={logo + '#pawprint-1'}></use>
           </svg>
         </NavLink>
         <NavLink className={css.registerBtn} to="/register">

@@ -9,7 +9,7 @@ const modalRoot = document.querySelector('#modal-root');
 
 
 const Modal = ({ children, isOpen, onClose }) => {
-// no scroling content
+// no scroll content
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';

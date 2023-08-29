@@ -122,7 +122,7 @@ export default function NoticeCategoryItem({ item, favHandler }) {
         <button
           className={css.learn_btn}
           type="button"
-          onClick={() => setOpenModal(openModal)}
+          onClick={() => setOpenModal(true)}
         >
           Learn More
           <svg className={css.learn_svg} width="24" height="24">

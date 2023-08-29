@@ -1,6 +1,6 @@
 import { useState } from 'react';
  import { useDispatch } from 'react-redux';
-//import { useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
  import { logOut } from 'redux/auth/operations';
 import css from './Logout.module.css';
@@ -12,7 +12,7 @@ import Modal from 'components/Modal/Modal';
 
 export default function Logout() {
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [modalActive, setModalActive] = useState(false);
 
@@ -29,6 +29,7 @@ export default function Logout() {
   const userLogout = async() => {
     dispatch(logOut());
     setModalActive(false);
+    navigate('/user');
   };
 
 
