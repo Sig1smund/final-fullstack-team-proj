@@ -1,16 +1,16 @@
-import { useParams } from "react-router-dom";
-import { useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import css from './NoticeCategoryItem.module.css';
 import svg from '../../images/sprite.svg';
 import { calculateAge, cutSity } from './NoticeItemUtils';
 import useAuth from 'hooks/useAuth';
-import {removeOwnNotice} from '../../redux/notices/operations'
+import { removeOwnNotice } from '../../redux/notices/operations';
 import { useState } from 'react';
 import Modal from '../Modal/Modal';
 import ModalNotice from '../NoticeModal/NoticeModal';
+import { useEffect } from 'react';
 
 export default function NoticeCategoryItem({ item, favHandler }) {
-
   const [openModal, setOpenModal] = useState(false);
   const close = () => setOpenModal(false);
 
@@ -42,16 +42,16 @@ export default function NoticeCategoryItem({ item, favHandler }) {
     }
     const isFavorite = user.favorite.includes(_id);
     return isFavorite;
-  }
+  };
 
   const isOwnNotice = owner._id === user.id;
 
-  const removeOwnNot = (id) => {
+  const removeOwnNot = id => {
     if (!isLoggedIn) {
-      return
+      return;
     }
-    dispatch(removeOwnNotice(id))
-  }
+    dispatch(removeOwnNotice(id));
+  };
 
   return (
     <li className={css.container}>
@@ -62,22 +62,30 @@ export default function NoticeCategoryItem({ item, favHandler }) {
           <p>{category}</p>
         </div>
         <div>
-
-          <button className={[css.fav_btn, isLogged() && [css.fav_btn]].join(' ')} type="button" onClick={() => favHandler(_id)}>
+          <button
+            className={[css.fav_btn, isLogged() && [css.infav_btn]].join(' ')}
+            type="button"
+            onClick={() => favHandler(_id)}
+          >
             <svg className={css.heart} width="24" height="24">
               <use href={svg + '#heart'}></use>
             </svg>
           </button>
         </div>
 
-        {isLoggedIn && categoryName === "own" && isOwnNotice && 
-        (<div>
-          <button className={css.trash_btn} type="button" onClick={() => removeOwnNot(_id)}>
-            <svg className={css.trash} width="24" height="24">
-              <use href={svg + '#trash-2'}></use>
-            </svg>
-          </button>
-        </div>)}
+        {isLoggedIn && categoryName === 'own' && isOwnNotice && (
+          <div>
+            <button
+              className={css.trash_btn}
+              type="button"
+              onClick={() => removeOwnNot(_id)}
+            >
+              <svg className={css.trash} width="24" height="24">
+                <use href={svg + '#trash-2'}></use>
+              </svg>
+            </button>
+          </div>
+        )}
 
         <div className={css.info_container}>
           <div className={css.info_item}>
