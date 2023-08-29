@@ -110,7 +110,7 @@
             }
 
 
-@media (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
     .item {
         composes: desktopNewsCard from '../../global.css';
         position: relative;
@@ -147,7 +147,7 @@
 
 }
 
-@media screen (width: 768) {
+@media screen and (width: 768px) {
     .item {
         margin-bottom: 46px;
         margin-right: 32px;
