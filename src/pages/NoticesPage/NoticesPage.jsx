@@ -1,5 +1,5 @@
 import { useParams, useNavigate, Outlet } from "react-router-dom";
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { getNotices, getFavNotices, getOwnNotices } from 'redux/notices/operations'
 import NoticesSearch from '../../components/NoticesSearch'
