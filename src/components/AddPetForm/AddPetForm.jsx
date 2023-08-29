@@ -11,7 +11,7 @@ import {
   import { useDispatch } from 'react-redux';
   // import "formik-stepper/dist/style.css";
 
-  import stl from "./AddPetForm.css";
+  import "./AddPetForm.css";
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(2, 'Too Short!').max(16, 'Too Long!').required('Enter a name'),
@@ -55,7 +55,7 @@ export default function AddPetForm() {
       onSubmit={onSubmit} /// onSubmit Function
       initialValues={{
         // Choose option
-        category: "sell",
+        category: "",
         //Personal details
         name: "",
         date: "",
@@ -82,36 +82,34 @@ export default function AddPetForm() {
       >
         
         <div class="form_radio_btn">
-        <input id="your-pet" type="radio" name="radio" value="your-pet" checked></input>
+        <input id="your-pet" type="radio" name="category" value="your-pet" defaultChecked></input>
 	      <label for="your-pet">your pet</label>
         </div>
           <div class="form_radio_btn">
-        <input id="sell" type="radio" name="radio" value="sell" checked></input>
+        <input id="sell" type="radio" name="category" value="sell" ></input>
 	      <label for="sell">sell</label>
         </div>
         <div class="form_radio_btn">
-        <input id="lost/found" type="radio" name="radio" value="lost/found" checked></input>
-	      <label for="lost/found">lost/found</label>
+        <input id="lost-found" type="radio" name="category" value="lost-found"></input>
+	      <label for="lost-found">lost/found</label>
         </div>
         <div class="form_radio_btn">
-        <input id="in good hands" type="radio" name="radio" value="sin good handsl" checked></input>
-	      <label for="in good hands">sell</label>
+        <input id="in-good-hands" type="radio" name="category" value="in-good-hands" ></input>
+	      <label for="in-good-hands">in good hands</label>
         </div>
         
-
-
-            <RadioField 
+            {/* <RadioField 
             name="category"
-            labelColor="#000"
+          labelColor="#000"
+
           options={[
-            
-              // { label: "your pet", value: "your-pet" },
-              // { label: "sell", value: "sell" },
-              // { label: "lost/found", value: "lost-found" },
-              // { label: "in good hands", value: "in-good-hands" }
+              { label: "your pet", value: "your-pet" },
+              { label: "sell", value: "sell" },
+              { label: "lost/found", value: "lost-found" },
+              { label: "in good hands", value: "in-good-hands" }
               
             ]}
-          />
+          />  */}
        
         </FormikStep>
         {/* Second Step */}
