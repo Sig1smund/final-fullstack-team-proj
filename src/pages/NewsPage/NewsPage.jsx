@@ -22,7 +22,7 @@ export default function NewsPage() {
 
     return (
         <section className={s.container}>
-            <h1 className={s.sectionTitle}>News</h1>
+            <h2 className={s.sectionTitle}>News</h2>
             <NewsSearch search={handleSearch}/>
             {!news
                 ? <Spinner />
