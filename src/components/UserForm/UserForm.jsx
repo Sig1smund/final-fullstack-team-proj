@@ -16,13 +16,16 @@ const initialState = {
   email: '',
   birthday: '',
   phone: '',
-  city:''
+  city:'',
+  avatarFile: null,
+  avatarURL: ''
 }
 
 export default function UserForm({onSubmit, readonly, user, saveNewPhoto}) {
 
 const [state, setState]=useState(user || initialState);
 const [avatarURL, setAvatarURL]=useState(user.avatarURL || '');
+const [avatarFile, setAvatarFile] = useState(null);
 const [modalActive, setModalActive] = useState(false);
 
 const dispatch = useDispatch();
@@ -41,7 +44,6 @@ const dispatch = useDispatch();
   };
 
 
-
 const onChange = (e) => {
     const {name, value} = e.target;
     setState(state=>({...state, [name]: value}))
@@ -55,9 +57,12 @@ const onChangeFile = event => {
       }
 
       const newAvatar = URL.createObjectURL(file);
-      console.log('newAvatar', );
+      console.log('fileonLoad',file)
+      
       // setAvatarURL(file);
       setAvatarURL(newAvatar);
+      setAvatarFile(file);
+      console.log('stateonLoad',state)
     };
 
 
@@ -77,14 +82,18 @@ const inputPhotoRef = useRef();
   };
   const onConfirmNewAvatar = () => {
     saveNewPhoto(avatarURL);
+    
   };
   const onCancelNewAvatar = () => {
-    setAvatarURL(null);
+    setAvatarURL('');
+    setAvatarFile(null);
   };
+ 
+
 
   const handleSubmit =event=>{
     event.preventDefault();
-    const {name, email, phone, birthday, city} = state;
+    const {name, email, phone, birthday, city, avatarFile} = state;
     // if (phone.length < 13) {
     //   inputPhoneRef.current.focus();
     // }
@@ -92,13 +101,14 @@ const inputPhotoRef = useRef();
     // const formData = {name, email, phone, birthday, city};
     // test
       const formWithData = new FormData();
-      formWithData.append("avatarURL", avatarURL);
+      formWithData.append("avatarURL", avatarFile);
       formWithData.append("name", name);
       formWithData.append("email", email);
       formWithData.append("phone", phone);
       formWithData.append("birthday", birthday);
       formWithData.append("city", city);
       console.log("FormData",formWithData);
+      console.log("FD", avatarFile);
       // 
       onSubmit(formWithData);
   }

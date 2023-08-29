@@ -48,7 +48,7 @@ export default function NoticeCategoryItem({
   return (
     <>
       {
-         <li className={css.container}>
+        <li className={css.container}>
           <div className={css.wrapper}>
             <img className={css.pet_img} src={imageURL} alt={name} width="300" />
 
