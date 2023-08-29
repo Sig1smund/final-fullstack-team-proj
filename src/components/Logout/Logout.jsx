@@ -1,17 +1,18 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-//import { useNavigate} from 'react-router-dom';
+ import { useDispatch } from 'react-redux';
+import { useNavigate} from 'react-router-dom';
 
-import { logOut } from 'redux/auth/operations';
+ import { logOut } from 'redux/auth/operations';
 import css from './Logout.module.css';
-import logout from '../../images/sprite.svg';
+ import logout from '../../images/sprite.svg';
 import Modal from 'components/Modal/Modal';
-import ModalApproveAction from 'components/ModalApproveAction/ModalApproveAction';
+ import ModalApproveAction from 'components/ModalApproveAction/ModalApproveAction';
+
 
 
 export default function Logout() {
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [modalActive, setModalActive] = useState(false);
 
@@ -26,8 +27,9 @@ export default function Logout() {
   };
 
   const userLogout = async() => {
-    await dispatch(logOut());
+    dispatch(logOut());
     setModalActive(false);
+    navigate('/user');
   };
 
 
@@ -45,6 +47,8 @@ export default function Logout() {
               Already leaving?
           </ModalApproveAction>
       </Modal>
+
+
     </>
   )
 

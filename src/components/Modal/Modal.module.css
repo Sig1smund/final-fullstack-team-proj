@@ -24,6 +24,7 @@
 .crossBtn{
   border: none;
   outline: none;
+  z-index: 3;
 }
 
 .exit {
