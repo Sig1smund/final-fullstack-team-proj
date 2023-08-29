@@ -8,7 +8,7 @@ import { removeOwnNotice } from '../../redux/notices/operations';
 import { useState } from 'react';
 import Modal from '../Modal/Modal';
 import ModalNotice from '../NoticeModal/NoticeModal';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 export default function NoticeCategoryItem({ item, favHandler }) {
   const [openModal, setOpenModal] = useState(false);
