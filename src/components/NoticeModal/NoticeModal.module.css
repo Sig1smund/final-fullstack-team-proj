@@ -283,15 +283,29 @@
   cursor: pointer;
 }
 
+.favBtn{
+fill: transparent;
+stroke: black;
+  stroke-width: 5px;
+outline: 1;
+}
+
+.infavBtn{
+  fill: var(--white-color);
+stroke: black;
+  stroke-width: 5px;
+}
+
 .heart{
   width: 24px;
   height: 24px;
+  stroke: black;
+    stroke-width: 5px;
 }
 
 .iconHeart{
-  stroke: var(--white-bckg-color);
-  fill: none;
-  stroke-width: 1px;
+  stroke:black; 
+  stroke-width: 5px;
 }
 
 
