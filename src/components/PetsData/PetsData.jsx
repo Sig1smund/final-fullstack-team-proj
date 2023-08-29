@@ -4,8 +4,10 @@ import plussmall from '../../images/sprite.svg';
 import { NavLink } from "react-router-dom";
 
 export default function PetsData() {
-    return (
-<div className={css.petsListWrapper}>
+  return (
+  
+    <div className={css.petsListWrapper}>
+      <div className={css.petsContainer}>
   <h2 className={css.title}>My pets:</h2>
   <div className={css.addPetsButton_container}>
     <NavLink className={css.addPetsButton} to="/add-pet">
@@ -14,8 +16,11 @@ export default function PetsData() {
         <use href={plussmall + '#logo'}></use>
       </svg>
     </NavLink>
-  </div>
+        </div>
+      </div>
   <PetsList/>
 </div>
+
+
     )
 }
