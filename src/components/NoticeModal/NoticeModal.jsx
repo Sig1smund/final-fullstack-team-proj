@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { setFavNotice } from "redux/notices/operations";
+import { setFavNotice } from "redux/auth/operations";
 import Modal from '../Modal'
 import AttentionModal from '../AttentionModal'
 import css from "./NoticeModal.module.css";
