@@ -9,11 +9,11 @@ import {
    import * as Yup from "yup";
    import { addNotice } from "redux/notices/operations";
 import { useDispatch } from 'react-redux';
-import { useRef} from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useRef} from 'react';
+// import { useLocation } from 'react-router-dom';
  
   // import "formik-stepper/dist/style.css";
-import { IoArrowBackCircleSharp } from 'react-icons/io5';
+// import { IoArrowBackCircleSharp } from 'react-icons/io5';
 import "./AddPetForm.css";
 import { RadioButton, BackLink } from "./AddPetForm.styled";
 
@@ -34,8 +34,8 @@ import { RadioButton, BackLink } from "./AddPetForm.styled";
 export default function AddPetForm() {
     
   const dispatch = useDispatch(); 
-  const location = useLocation();
-  const backLink = useRef(location.state?.from ?? '/');
+  // const location = useLocation();
+  // const backLink = useRef(location.state?.from ?? '/');
     
   
      const onSubmit = (values) => {
@@ -86,8 +86,10 @@ export default function AddPetForm() {
           label="Choose option" /// The text label of Step
           labelColor="#00C3AD" /// css-colors => #fff
           circleColor="#00C3AD" /// css-colors => #fff
-        >
-            <RadioField 
+      >
+        
+
+            <RadioButton 
             name="category"
             labelColor="#000"
             options={[
