@@ -11,7 +11,7 @@ import {
   import { useDispatch } from 'react-redux';
   // import "formik-stepper/dist/style.css";
 
-  import "./AddPetForm.css";
+  import stl from "./AddPetForm.css";
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(2, 'Too Short!').max(16, 'Too Long!').required('Enter a name'),
@@ -79,15 +79,36 @@ export default function AddPetForm() {
           label="Choose option" /// The text label of Step
           labelColor="#00C3AD" /// css-colors => #fff
           circleColor="#00C3AD" /// css-colors => #fff
-        >
+      >
+        
+        <div class="form_radio_btn">
+        <input id="your-pet" type="radio" name="radio" value="your-pet" checked></input>
+	      <label for="your-pet">your pet</label>
+        </div>
+          <div class="form_radio_btn">
+        <input id="sell" type="radio" name="radio" value="sell" checked></input>
+	      <label for="sell">sell</label>
+        </div>
+        <div class="form_radio_btn">
+        <input id="lost/found" type="radio" name="radio" value="lost/found" checked></input>
+	      <label for="lost/found">lost/found</label>
+        </div>
+        <div class="form_radio_btn">
+        <input id="in good hands" type="radio" name="radio" value="sin good handsl" checked></input>
+	      <label for="in good hands">sell</label>
+        </div>
+        
+
+
             <RadioField 
             name="category"
             labelColor="#000"
-            options={[
-              { label: "your pet", value: "your-pet" },
-              { label: "sell", value: "sell" },
-              { label: "lost/found", value: "lost-found" },
-              { label: "in good hands", value: "in-good-hands" }
+          options={[
+            
+              // { label: "your pet", value: "your-pet" },
+              // { label: "sell", value: "sell" },
+              // { label: "lost/found", value: "lost-found" },
+              // { label: "in good hands", value: "in-good-hands" }
               
             ]}
           />
