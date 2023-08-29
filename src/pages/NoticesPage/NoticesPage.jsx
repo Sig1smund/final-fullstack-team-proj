@@ -44,10 +44,10 @@ export default function NoticesPage() {
         <NoticesCategoriesNav />
         <div className={styles.navRightContainer}>
           <NoticesFilters />
-          <AddPetButton />
+          <div className={styles.addPetsButton_container}> <AddPetButton /></div>
         </div>
       </div>
-      <Outlet />
+      <Outlet/>
       {categoryName && <NoticesCategoriesList
         // favHandler={onFavClick}
       />}
@@ -60,3 +60,5 @@ export default function NoticesPage() {
     </div>
   );
 }
+
+
