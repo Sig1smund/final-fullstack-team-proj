@@ -15,12 +15,18 @@
     border: 1px solid #999;
     border-radius: 6px;
     user-select: none;
+
+    
 }
 
 /* Checked */
 .form_radio_btn input[type=radio]:checked+label {
     background: #ffe0a6;
 }
+.form_radio_btn input[type=radio]:active+label {
+    background: #ffe0a6;
+}
+
 
 /* Hover */
 .form_radio_btn label:hover {
@@ -261,4 +267,8 @@
     width: 120px;
     height: 8px;
     border-radius: 8px;
+}
+
+.stepper-bar-right, .stepper-bar-left{
+    display: none;
 }
