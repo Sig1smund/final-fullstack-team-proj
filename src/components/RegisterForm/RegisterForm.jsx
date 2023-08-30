@@ -1,110 +1,82 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { register } from '../../redux/auth/operations';
-import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
+import  { registerUser }  from '../../redux/auth/operations';
 import sprite from '../../images/sprite.svg';
 import styles from './RegisterForm.module.css';
 import { changeIsRegistered } from '../../redux/auth/authSlice';
-
-
+import registerSchema from './Yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 const RegisterForm = () => {
-    const [showPassword1, setShowPassword1] = useState(false);
-    const [showPassword2, setShowPassword2] = useState(false);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [password2, setPassword2] = useState('');
-    const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword2, setShowPassword2] = useState(false);
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(registerSchema),
+  });
 
-    const registerSchema = yup.object().shape({
-        email: yup.string().email('Invalid email').required('Email is required'),
-        password: yup.string().required('Password is required'),
-        password2: yup.string().oneOf([yup.ref('password'), null], "Passwords don't match"),
-    });
-
-
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-        const data = { name: name, email: email, password: password };
-        registerSchema.validate(data, { abortEarly: false })
-            .then(() => {
-                console.log(data)
-                dispatch(register(data))
-                    .then(response => {
-                        setEmail('');
-                        setPassword('');
-                        setPassword2('');
-                        dispatch(changeIsRegistered(true));
-                    })
-                    .catch(error => {
-                        console.error(error.message);
-                    });
-            })
-            .catch(validationErrors => {
-                const newErrors = {};
-                validationErrors.inner.forEach(err => {
-                    newErrors[err.path] = err.message;
-                });
-                setErrors(newErrors);
-            });
-    };
-
-
-
-
-
+  const onSubmit = data => {
+    
+    const  { name,  email, password}=data;
+    dispatch(registerUser({ name, email, password }));
+    dispatch(changeIsRegistered(true))
+    reset();
+  };
 
   return (
     <div>
       <h2 className={styles.formTitle}>Registration</h2>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.formLabelConteiner}>
           <label className={styles.formLabel}>
             <input
-              className={`${styles.formInput}`}
+              className={`${styles.formInput} ${errors.email ? styles.error : ''
+                } ${watch('name') && !errors.name ? styles.success : ''}`}
               placeholder="Name"
-              value={name}
-              onChange={e => setName(e.target.value)}
+              {...register('name')}
               type="text"
             />
-            {/* {errors.email && <p className={styles.errorsMassage}>{errors.email}</p>} */}
+            {errors.name && (
+              <p className={styles.errorsMassage}>{errors.name.message}</p>
+            )}
           </label>
           <label className={styles.formLabel}>
             <input
-              className={`${styles.formInput} ${
-                errors.email ? styles.error : ''
-              }`}
+              className={`${styles.formInput} ${errors.email ? styles.error : ''
+                } ${watch('email') && !errors.email ? styles.success : ''}`}
               placeholder="Email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
+              {...register('email')}
               type="email"
             />
             {errors.email && (
-              <p className={styles.errorsMassage}>{errors.email}</p>
+              <p className={styles.errorsMassage}>{errors.email.message}</p>
             )}
           </label>
           <label className={styles.formLabel}>
             <div className={styles.formLabelPasswordConteiner}>
               <input
-                className={`${styles.formInput} ${
-                  errors.password ? styles.error : ''
-                }`}
+                className={`${styles.formInput} ${errors.password ? styles.error : ''
+                  } ${watch('password') && !errors.password ? styles.success : ''
+                  }`}
                 placeholder="Password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                type={showPassword1 ? 'text' : 'password'}
+                {...register('password')}
+                type={showPassword ? 'text' : 'password'} // Встановлюємо тип як "password" або "text", залежно від стану
               />
               <button
                 className={styles.showPasswordButton}
                 type="button"
-                onClick={() => setShowPassword1(!showPassword1)}
+                onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword1 ? (
+                {showPassword ? (
                   <svg className={styles.passwordIcon}>
                     <use href={`${sprite}#eye-open`} />
                   </svg>
@@ -115,19 +87,19 @@ const RegisterForm = () => {
                 )}
               </button>
             </div>
-            {errors.password1 && (
-              <p className={styles.errorsMassage}>{errors.password1}</p>
+            {errors.password && (
+              <p className={styles.errorsMassage}>{errors.password.message}</p>
             )}
           </label>
+
           <label className={styles.formLabel}>
             <div className={styles.formLabelPasswordConteiner}>
               <input
-                className={`${styles.formInput} ${
-                  errors.password2 ? styles.error : ''
-                }`}
+                className={`${styles.formInput} ${errors.password2 ? styles.error : ''
+                  } ${watch('password2') && !errors.password2 ? styles.success : ''
+                  }`}
                 placeholder="Confirm password"
-                value={password2}
-                onChange={e => setPassword2(e.target.value)}
+                {...register('password2')}
                 type={showPassword2 ? 'text' : 'password'}
               />
               <button
@@ -147,7 +119,7 @@ const RegisterForm = () => {
               </button>
             </div>
             {errors.password2 && (
-              <p className={styles.errorsMassage}>{errors.password2}</p>
+              <p className={styles.errorsMassage}>{errors.password2.message}</p>
             )}
           </label>
         </div>

@@ -10,7 +10,7 @@ import Modal from '../Modal/Modal';
 import ModalNotice from '../NoticeModal/NoticeModal';
 
 export default function NoticeCategoryItem({
-    item, favHandler, isFavorite, favorites }) {
+    item, favHandler, favorites }) {
   const { user, isLoggedIn, isRefreshing } = useAuth();
   const [openModal, setOpenModal] = useState(false);
   const close = () => setOpenModal(false);
@@ -60,7 +60,7 @@ export default function NoticeCategoryItem({
     default:
       updetedCategory = 'sell';
   }
-  
+
   return (
     <>
       {
@@ -96,7 +96,7 @@ export default function NoticeCategoryItem({
                 </button>
               </div>
             )}
-      
+
             <div className={css.info_container}>
               <div className={css.info_item}>
                 <svg className={css.svg_info} width="24" height="24">
@@ -131,8 +131,8 @@ export default function NoticeCategoryItem({
               <Modal isOpen={openModal} onClose={close}>
                 <ModalNotice
                   item={item}
-                  isFavorite={isFavorite}
                   handler={favHandler}
+                  favorites={favorites}
                 />
               </Modal>
             )}
