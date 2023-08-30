@@ -25,6 +25,7 @@ const noticesSlice = createSlice({
       })
       .addCase(getNotices.fulfilled, (state, action) => {
         state.notices = action.payload.notices;
+        console.log('new notices', state.notices);
         state.isLoading = false;
       })
       .addCase(getNotices.rejected, (state, action) => {
@@ -35,7 +36,7 @@ const noticesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(addNotice.fulfilled, (state, action) => {
-        state.notices = [...state.notices, action.payload];
+        state.notices = [...state.notices, action.payload.notice];
         state.isLoading = false;
       })
       .addCase(addNotice.rejected, (state, action) => {
