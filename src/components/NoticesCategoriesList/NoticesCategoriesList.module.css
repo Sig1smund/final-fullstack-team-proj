@@ -1,7 +1,7 @@
 .list {
     display: grid;
     grid-template-columns:none;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat( minmax(280px, 1fr));
     grid-gap: 32px;
     margin-top: 0;
     margin-bottom: 0;
@@ -15,6 +15,7 @@
   }
      @media screen and (min-width:1280px) {
      grid-template-columns:repeat(auto-fill, minmax(288px, 1fr));
+     
   }
 }
 
@@ -31,16 +32,17 @@
     margin-top: 46px;
     margin-left: auto;
     margin-right: auto;
-    @media screen and (width: 768px) {
-        width: 704px;
-        margin-top: 0;
-    }
 
     @media screen and (max-width: 767px) {
       max-width: 767px;
       min-width: 320px;
   }
+    @media screen and (min-width: 768px) {
+        width: 704px;
+        margin-top: 0;
+    }
   @media screen and (min-width: 1280px) {
       width: 1280px;
+      
 }
 }

@@ -27,6 +27,12 @@
   &:focus {
     box-shadow: 3px 8px 14px 0px rgba(116,177,232,.24);
   }
+        @media screen and (min-width: 768px) {
+          width: 336px;
+        }
+          @media screen and (min-width: 1280px) {
+    width: 288px;
+  }
   }
 
 
@@ -38,10 +44,10 @@
   @media screen and (min-width: 768px) {
     width: 336px;
   }
+                    @media screen and (min-width: 1280px) {
+                      width: 288px;
+                    }
 
-  @media screen and (min-width: 1280px) {
-    width: 288px;
-  }
 }
 
 .pet_img{
