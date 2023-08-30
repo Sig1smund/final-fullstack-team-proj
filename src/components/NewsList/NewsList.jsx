@@ -19,7 +19,7 @@ export default function NewsList({search}) {
                     return (
                         <li key={item._id} className={s.item}>
                             <div className={s.thumb}>
-                                <a href={item.url}>
+                                <a href={item.url} target="_blank" rel="noreferrer">
                                     <img src={item.imgUrl} alt={item.title} className={s.image} />
                                 </a>
                             </div>
@@ -31,7 +31,7 @@ export default function NewsList({search}) {
                             
                                 <div className={s.info}>
                                     <p>{item.date.split('T')[0]}</p>
-                                    <a href={item.url} className={s.itemLink}>
+                                    <a href={item.url} className={s.itemLink} target="_blank" rel="noreferrer">
                                         <p>Read more</p>
                                     </a>
                                 </div>
