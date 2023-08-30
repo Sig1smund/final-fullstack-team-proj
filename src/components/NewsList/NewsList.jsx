@@ -1,20 +1,31 @@
+import { useMemo } from "react";
+import { useSelector } from "react-redux";
+import { selectFilter } from "redux/news/selectors";
 import useNews from "hooks/useNews";
 import s from './NewsList.module.css';
 
-export default function NewsList({search}) {
+export default function NewsList() {
     const { news } = useNews();
+    const filtered = useSelector(selectFilter);
 
-    const prepeareSearch = () => {
-        search.toLowerCase().trim();
-           return news.filter(
-               item => item.title.toLowerCase().includes(search)
-           );
-    }
+    const prepeareSearch = useMemo(
+        () => () => {
+            if (!news) { return }
+            const normalizedSearch = filtered.toLowerCase().trim();
+            return news
+                .filter(
+                    item => item.title.toLowerCase().includes(normalizedSearch)
+                );
+    
+        }, [filtered, news]);
 
     const readyToRenderNews = prepeareSearch();
         
     return (
+        <>
+            {!readyToRenderNews.length && <h3 className={s.noNews}>There're no news for now</h3>}
             <ul className={s.list}>
+           
                 {readyToRenderNews.map(item => {
                     return (
                         <li key={item._id} className={s.item}>
@@ -40,6 +51,7 @@ export default function NewsList({search}) {
                     );
                 })}
             </ul>
+        </>
     );
-}
+};
     
