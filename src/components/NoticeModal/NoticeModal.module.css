@@ -300,10 +300,11 @@ stroke: black;
 .heart{
   width: 24px;
   height: 24px;
-  stroke: var(--white-bckg-color);
-  fill: var(--white-bckg-color);
+  stroke: inherit;
+  fill: inherit;
   /* fill: none; */
   stroke-width: 1px;
+  
 }
 
 /* .iconHeart{
