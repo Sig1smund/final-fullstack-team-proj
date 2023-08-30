@@ -1,7 +1,7 @@
 .title {
     margin-top: 40px;
     margin-bottom: 24px;
-    margin-left: auto;
+    margin-left: 100;
     margin-right: auto;
     text-align: center;
     font-family: 'Manrope';
@@ -10,13 +10,38 @@
 }
 
 .container{
+
+    padding-left: 22px;
+    padding-right: 20px;
+    margin-left: auto;
+        margin-right: auto;
+
+    @media screen and (min-width: 768px) {
+    
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+        }
+    
+        /* @media screen and (max-width: 767px) {
+    width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+ 
+        } */
+
 }
 
+
+
+@media screen and (max-width: 768px) {
+    .navContainer {
+        display: flex;
+        width:280px;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
 .addPetsButton_container {
     display: flex;
     justify-content: center;
@@ -24,10 +49,12 @@
     position: absolute;
     z-index: 100;
     margin-top: 101px;
-    margin-left: 60%;
-    margin-right: 60%;
+    margin-left: 200px;
+
 
 }
+
+    }
 
 
 @media screen and (min-width: 768px) {
@@ -42,6 +69,8 @@
         justify-content: space-between;
         /* align-items: center; */
     }
+
+    
     .container{
         width: 100%;
         margin-left: auto;
@@ -54,6 +83,7 @@
             position: static;
             margin:0;    
         }
+        
     
 }
 

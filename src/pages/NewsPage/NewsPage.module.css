@@ -1,5 +1,5 @@
 .container {
-    
+    font-family: Manrope;
     margin-left: auto;
     margin-right: auto;
     padding: 0;
@@ -17,7 +17,7 @@
 }
 
 .sectionTitle {
-    font-family: Monrope;
+
     font-size: 48px;
     font-style: normal;
     font-weight: 700;

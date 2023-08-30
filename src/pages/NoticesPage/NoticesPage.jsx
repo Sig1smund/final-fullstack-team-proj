@@ -40,12 +40,12 @@ export default function NoticesPage() {
     <div className={styles.container}>
       <h1 className={styles.title}>Find your favorite pet</h1>
       <NoticesSearch />
-      <div className={styles.navDesktopContainer}>
-        <NoticesCategoriesNav />
+      <div className={styles.navContainer}>
+        <div className={styles.navDesktopContainer}> <NoticesCategoriesNav />
         <div className={styles.navRightContainer}>
           <NoticesFilters />
           <div className={styles.addPetsButton_container}> <AddPetButton /></div>
-        </div>
+        </div></div>
       </div>
       <Outlet/>
       {categoryName && <NoticesCategoriesList
