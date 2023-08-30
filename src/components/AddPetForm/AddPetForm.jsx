@@ -15,6 +15,9 @@ import { useLocation } from 'react-router-dom';
 // import { IoArrowBackCircleSharp } from 'react-icons/io5';
 import "./AddPetForm.css";
 import { BackLink } from "./AddPetForm.styled";
+// import css from "./AddPetForm.module.css";
+
+
 
 
   const validationSchema = Yup.object().shape({
@@ -60,25 +63,44 @@ export default function AddPetForm() {
   const dispatch = useDispatch(); 
    const location = useLocation();
    const backLink = useRef(location.state?.from ?? '/');
-   const [state, setState]=useState(initialValues);
+  const [state, setState] = useState(initialValues);
+  const [category, setCategory] = useState("");
+  const [imageURL, setImageURL] = useState("");
+  const [imageFile, setFile] = useState("");
     
   const onChange = (e) => {
     const { name, value } = e.target;
     // const isYourPet = (value === "your-pet");
     console.log("e",e.target);
     setState(state => ({ ...state, [name]: value }));
+    setCategory(value);
     
       console.log(name, value);
-      console.log("category", state.category);
-     }
+    console.log("category", state.category);
+    console.log("dds", imageURL);
+  }
+  
+  const onChangeFile = event => {
+      const file = event.target.files[0];
+      if (file.size > 1024 * 1024 * 3) {
+        alert("Wrong size")
+        return;
+  }  
+      const newImage = URL.createObjectURL(file);
+      setImageURL(newImage);
+    setFile(file);
+    console.log("file", file);
+     console.log("newImage", newImage);
+   };  
   
   const onSubmit = (values) => {
     console.log("values", values);
     setState(state =>({...state, ...values}));
     console.log("state",state);
       
-      const { name, category, date, type, title, location, sex, price, comments = "" } = values;
-      const formData = new FormData();
+      const { name, date, type, title, location, sex, price, comments = "" } = values;
+      
+    const formData = new FormData();
       formData.append("name", name);
       formData.append("category", category);
       formData.append("date", date);
@@ -88,14 +110,14 @@ export default function AddPetForm() {
       formData.append("sex", sex);
       formData.append("price", price);
       formData.append("comments", comments);
-      //formData.append("image", file);
+      formData.append("image", imageFile);
       dispatch(addNotice(formData));
   };
   
-  const { category } = state;
+  // const { category } = state;
   // console.log("isYourPet", isYourPet);
   return (
-    <FormikStepper
+    <FormikStepper 
       /// Accept all Formik props
       onSubmit={onSubmit} /// onSubmit Function
       initialValues={initialValues}
@@ -121,11 +143,11 @@ export default function AddPetForm() {
 	      <label htmlFor="sell">sell</label>
         </div>
         <div className="form_radio_btn">
-        <input id="lost-found" type="radio" name="category" value="lost-found" ></input>
+        <input id="lost-found" type="radio" name="category" value="lost-found" onClick={onChange} ></input>
 	      <label htmlFor="lost-found">lost/found</label>
         </div>
         <div className="form_radio_btn">
-        <input id="in-good-hands" type="radio" name="category" value="in-good-hands" ></input>
+        <input id="in-good-hands" type="radio" name="category" value="in-good-hands" onClick={onChange} ></input>
 	      <label htmlFor="in-good-hands">in good hands</label>
         </div>
            
@@ -145,7 +167,8 @@ export default function AddPetForm() {
             label="Title of add"
             placeholder="Type name pet"
             type="text"
-          />}
+        />}
+        
             <InputField
             name="name"
             label="Pet’s name"
@@ -167,6 +190,17 @@ export default function AddPetForm() {
       </FormikStep>
            {/* Third Step */}
       <FormikStep label="More info" circleColor="#CCE4FB"> 
+        <input
+          type="file"
+          // name="file"
+          accept='image/*, .png, .jpg, .gif, .web'
+              // ref={inputPhotoRef}
+
+                onChange={onChangeFile}
+             
+            //  style={{ display: 'none' }}
+            />
+
           {/* for caterory = your pet */}
         {!(category === "your-pet") && (
           <>
@@ -202,6 +236,8 @@ export default function AddPetForm() {
             type="text"
             />
           
+        
+        
                 
         </FormikStep>
     
