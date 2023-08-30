@@ -10,8 +10,12 @@ export default function NewsSearch({search}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     search(query);
-    setQuery('');
   };
+
+  const onClose = () => {
+    setQuery('');
+    search('');
+  }
 
 
     return <>
@@ -31,7 +35,7 @@ export default function NewsSearch({search}) {
         </svg>
           </button>
           {query !== '' && 
-          (<button type="button" className={s.button} onClick={() => {setQuery('')}}>
+          (<button type="button" className={s.button} onClick={onClose}>
         <svg className={s.iconClose} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M19 5L5 19M5.00004 5L19 19" stroke="#FFC107" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>

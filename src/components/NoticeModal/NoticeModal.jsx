@@ -123,6 +123,7 @@ export default function NoticeModal({ item, isFavorite, handler, isLoggedIn }) {
               </svg>
             </button>
 
+
             {isAttentionModalOpen && (
         <Modal isOpen={isAttentionModalOpen} onClose={close}>
           <AttentionModal />
