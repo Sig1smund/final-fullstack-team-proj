@@ -7,7 +7,7 @@ import {
 import * as Yup from "yup";  
 import { addNotice } from "redux/notices/operations";
 import { useDispatch } from 'react-redux';
-import { useRef} from 'react';
+import { useRef, useState} from 'react';
 import { useLocation } from 'react-router-dom';
  
   // import "formik-stepper/dist/style.css";
@@ -45,10 +45,20 @@ const initialState = {
 }
 
 export default function AddPetForm() {
+  
     
   const dispatch = useDispatch(); 
    const location = useLocation();
    const backLink = useRef(location.state?.from ?? '/');
+   const [state, setState]=useState(initialState);
+    
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setState(state => ({ ...state, [name]: value }))
+    console.log("form state in formik", state);
+    console.log("state.category !== 'sell'", state.category !== "sell") 
+
+     }
   
      const onSubmit = (values) => {
       console.log("values", values);
@@ -86,21 +96,21 @@ export default function AddPetForm() {
           circleColor="#00C3AD" /// css-colors => #fff
       >
 
-        <div class="form_radio_btn">
-        <input id="your-pet" type="radio" name="category" value="your-pet" defaultChecked></input>
-	      <label for="your-pet">your pet</label>
+        <div className="form_radio_btn">
+        <input id="your-pet" type="radio" name="category" value="your-pet" defaultChecked onChange={onChange}></input>
+	      <label htmlFor="your-pet">your pet</label>
         </div>
-          <div class="form_radio_btn">
-        <input id="sell" type="radio" name="category" value="sell" ></input>
-	      <label for="sell">sell</label>
+          <div className="form_radio_btn">
+        <input id="sell" type="radio" name="category" value="sell"onChange={onChange}></input>
+	      <label htmlFor="sell">sell</label>
         </div>
-        <div class="form_radio_btn">
-        <input id="lost-found" type="radio" name="category" value="lost-found"></input>
-	      <label for="lost-found">lost/found</label>
+        <div className="form_radio_btn">
+        <input id="lost-found" type="radio" name="category" value="lost-found" onChange={onChange}></input>
+	      <label htmlFor="lost-found">lost/found</label>
         </div>
-        <div class="form_radio_btn">
-        <input id="in-good-hands" type="radio" name="category" value="in-good-hands" ></input>
-	      <label for="in-good-hands">in good hands</label>
+        <div className="form_radio_btn">
+        <input id="in-good-hands" type="radio" name="category" value="in-good-hands" onChange={onChange}></input>
+	      <label htmlFor="in-good-hands">in good hands</label>
         </div>
         
             {/* <RadioField 
@@ -131,12 +141,13 @@ export default function AddPetForm() {
         <FormikStep label="Personal details" circleColor="#54ADFF">
         {/* for category !== your pet */}
         {/* {false && */}
-          <InputField
+        {(state.category !== "sell") &&  <InputField
             name="title"
             label="Title of add"
             placeholder="Type name pet"
             type="text"
-          />
+          />}
+         
         {/* // } */}
         
           {/* for all category */}
