@@ -10,12 +10,18 @@ export default function OurFriendsList() {
                 {services.map(service => {
                     return (
                         <li key={service._id} className={s.item}>
-                            <h2>{service.title}</h2>
-                            <a href={service.url}>
-                                <img src={service.imageUrl} alt={service.title} width='390' />
-                            </a>
-                            <p>{service.adress}</p>
+                            <div className={s.thumb}>
+                                <a href={service.url}>
+                                    <img src={service.imageUrl} alt={service.title} className={s.image} />
+                                </a>
+                            </div>
+                            <div>
+                                <h2>{service.title}</h2>
+                            
+                                <p>{service.adress}</p>
+                            </div>
                         </li>
+                    
                     )
                 })}
             </ul>

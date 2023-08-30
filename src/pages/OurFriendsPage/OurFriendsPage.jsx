@@ -16,7 +16,7 @@ export default function OurFriendsPage() {
     return (
         <>
             <h1>Our friends</h1>
-            {!isLoading && <Spinner />}
+            {isLoading && <Spinner />}
             {services && <OurFriendsList />}
         </>
     );
