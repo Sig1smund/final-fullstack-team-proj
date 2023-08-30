@@ -10,13 +10,17 @@ const modalRoot = document.querySelector('#modal-root');
 
 const Modal = ({ children, isOpen, onClose }) => {
 // no scroll content
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [isOpen]);
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     document.body.style.overflow = 'hidden';
+  //   }
+  //   if (!isOpen) {
+  //     document.body.style.overflow = 'scroll';
+  //   }
+    
+  // }, [isOpen]);
+  
+  //THIS SHIT DOESNT WORK!!!
 
   useEffect(() => {
     const closeESC = (e) => {
@@ -54,7 +58,7 @@ const Modal = ({ children, isOpen, onClose }) => {
 
   return modalTransition( (styles, isOpen) =>
       isOpen && createPortal(
-        <div className={css.overlay} as={animated.div} styler={styles}  onClick={onClose}>
+        <div className={css.overlay} as={animated.div} styler={styles}  onClick={() => onClose()}>
           <div className={css.modalWrapper} as={animated.div} style={springs} onClick={e => e.stopPropagation()}>
 
             <button type="button" className={css.crossBtn} onClick={onClose}>
