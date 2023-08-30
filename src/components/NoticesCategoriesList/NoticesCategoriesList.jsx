@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { getNotices } from "redux/notices/operations";
 import useAuth from "hooks/useAuth";
 import NoticeCategoryItem from "../NoticeCategoryItem";
 import useNotices from "hooks/useNotices";
@@ -17,9 +15,7 @@ export default function NoticesCategoriesList() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { notices } = useNotices();
     const { isLoggedIn, favorites } = useAuth();
-    const { categoryName } = useParams();
     const dispatch = useDispatch();
-    const favsToRender = [];
     
 
     const onFavClick =  async (id) => {
