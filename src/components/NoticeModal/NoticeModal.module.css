@@ -299,14 +299,27 @@ stroke: black;
 .heart{
   width: 24px;
   height: 24px;
-  stroke: black;
+  stroke: var(--white-bckg-color);
+  fill: var(--white-bckg-color);
+  /* fill: none; */
+  stroke-width: 1px;
+}
+
+/* .iconHeart{
+  stroke: var(--white-bckg-color);
+  fill: none;
+  stroke-width: 1px;
+} */
+
+/*   stroke: black;
     stroke-width: 5px;
 }
 
 .iconHeart{
   stroke:black; 
   stroke-width: 5px;
-}
+} */
+
 
 
 

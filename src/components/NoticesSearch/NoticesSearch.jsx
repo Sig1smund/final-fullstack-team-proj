@@ -11,14 +11,20 @@ export default function NoticesSearch() {
 
   const { categoryName } = useParams();
   const dispatch = useDispatch();
-  const params = {categoryName, query }
+  let params = {categoryName, query}
+  let query1;
 
   const handleSubmit = (e) => {
       e.preventDefault();
       dispatch(getNotices(params))
-      setQuery('');
   }
 
+
+  const onClose = () => {
+    setQuery('')
+    let query1 = ''
+    dispatch(getNotices({categoryName, query1}))
+  }
 
     return <>
     <form className={styles.form} onSubmit={handleSubmit}>      
@@ -37,7 +43,7 @@ export default function NoticesSearch() {
         </svg>
           </button>
           {query !== '' && 
-          (<button type="button" className={styles.button} onClick={() => {setQuery('')}}>
+          (<button type="button" className={styles.button} onClick={() => onClose()}>
         <svg className={styles.iconClose} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M19 5L5 19M5.00004 5L19 19" stroke="#FFC107" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
