@@ -61,5 +61,13 @@
 }
 .bg{
     background: rgba(254, 249, 249, 1);
+    padding-top:30px;
 
+    background: rgba(254, 249, 249, 1);
+        padding-top: 28px;
+
+    @media screen and (min-width: 768px) {
+            padding-top: 28px;
+        }
+    
 }

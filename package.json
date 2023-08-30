@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://Sig1smund.github.io/final-fullstack-team-proj/",
   "dependencies": {
+    "@emotion/styled": "^11.11.0",
     "@fontsource/inter": "^5.0.8",
     "@fontsource/manrope": "^5.0.9",
     "@fontsource/poppins": "^5.0.8",

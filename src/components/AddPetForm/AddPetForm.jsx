@@ -2,16 +2,19 @@ import {
     FormikStepper,
     FormikStep,
     InputField,
-    // CheckBoxField,
     RadioField,  
   } from "formik-stepper";
-  
-   import * as Yup from "yup";
-   import { addNotice } from "redux/notices/operations";
-  import { useDispatch } from 'react-redux';
+import * as Yup from "yup";  
+import { addNotice } from "redux/notices/operations";
+import { useDispatch } from 'react-redux';
+import { useRef} from 'react';
+import { useLocation } from 'react-router-dom';
+ 
   // import "formik-stepper/dist/style.css";
 
-  import "./AddPetForm.css";
+// import { IoArrowBackCircleSharp } from 'react-icons/io5';
+import "./AddPetForm.css";
+import { BackLink } from "./AddPetForm.styled";
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(2, 'Too Short!').max(16, 'Too Long!').required('Enter a name'),
@@ -25,13 +28,29 @@ import {
     comments: Yup.string().max(120, 'Too Long!'),
    
   });
-    
+ 
+const initialState = {
+// Choose option
+        category: "",
+        //Personal details
+        name: "",
+        date: "",
+        type: "",
+        title: "",
+        //  More info
+        sex: "male",
+        location: "",
+        price: 0,
+        comments: "",
+}
 
 export default function AddPetForm() {
     
-    const dispatch = useDispatch(); 
-
-    const onSubmit = (values) => {
+  const dispatch = useDispatch(); 
+   const location = useLocation();
+   const backLink = useRef(location.state?.from ?? '/');
+  
+     const onSubmit = (values) => {
       console.log("values", values);
       
       const { name, category, date, type, title, location, sex, price, comments = "" } = values;
@@ -45,7 +64,7 @@ export default function AddPetForm() {
       formData.append("sex", sex);
       formData.append("price", price);
       formData.append("comments", comments);
-
+      //formData.append("image", file);
       dispatch(addNotice(formData));
     };
   
@@ -53,21 +72,7 @@ export default function AddPetForm() {
     <FormikStepper
       /// Accept all Formik props
       onSubmit={onSubmit} /// onSubmit Function
-      initialValues={{
-        // Choose option
-        category: "sell",
-        //Personal details
-        name: "",
-        date: "",
-        type: "",
-        title: "",
-        //  More info
-        sex: "male",
-        location: "",
-        price: 0,
-        comments: "",
-
-      }}
+      initialValues={initialState}
       validationSchema={validationSchema}
       withStepperLine /// false as default and If it is false, it hides stepper line
       nextButton={{ label: "Next" }}
@@ -79,19 +84,48 @@ export default function AddPetForm() {
           label="Choose option" /// The text label of Step
           labelColor="#00C3AD" /// css-colors => #fff
           circleColor="#00C3AD" /// css-colors => #fff
-        >
-            <RadioField 
+      >
+
+        <div class="form_radio_btn">
+        <input id="your-pet" type="radio" name="category" value="your-pet" defaultChecked></input>
+	      <label for="your-pet">your pet</label>
+        </div>
+          <div class="form_radio_btn">
+        <input id="sell" type="radio" name="category" value="sell" ></input>
+	      <label for="sell">sell</label>
+        </div>
+        <div class="form_radio_btn">
+        <input id="lost-found" type="radio" name="category" value="lost-found"></input>
+	      <label for="lost-found">lost/found</label>
+        </div>
+        <div class="form_radio_btn">
+        <input id="in-good-hands" type="radio" name="category" value="in-good-hands" ></input>
+	      <label for="in-good-hands">in good hands</label>
+        </div>
+        
+            {/* <RadioField 
             name="category"
-            labelColor="#000"
-            options={[
+          labelColor="#000"
+
+          options={[
               { label: "your pet", value: "your-pet" },
               { label: "sell", value: "sell" },
               { label: "lost/found", value: "lost-found" },
               { label: "in good hands", value: "in-good-hands" }
               
             ]}
-          />
+
+          />  */}
        
+
+        {/* /> */}
+        <BackLink to={backLink.current}>
+        {/* <IoArrowBackCircleSharp
+          style={{ marginRight: 8, width: '20', height: '20' }}
+        /> */}
+        Go back
+      </BackLink>
+
         </FormikStep>
         {/* Second Step */}
         <FormikStep label="Personal details" circleColor="#54ADFF">
@@ -145,7 +179,6 @@ export default function AddPetForm() {
             label="Location"
             placeholder="Type of location"
             type="text"
-            // style={{ width: "98%" }}
             /> 
              {/* for category !== selll */}
             <InputField
@@ -168,5 +201,3 @@ export default function AddPetForm() {
       </FormikStepper>
     );
   };
-  
-

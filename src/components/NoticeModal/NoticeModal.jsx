@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { setFavNotice } from "redux/auth/operations";
-import Modal from '../Modal'
-import AttentionModal from '../AttentionModal'
+
+import useAuth from 'hooks/useAuth';
 import css from "./NoticeModal.module.css";
 import icon from '../../images/sprite.svg';
 
-export default function NoticeModal({ item, isFavorite, handler, isLoggedIn }) {
-  const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false);
-  const dispatch = useDispatch();
+
+export default function NoticeModal({ item, handler, favorites }) {
+
+  const { isRefreshing } = useAuth();
 
   if (!item) {
     return;
@@ -37,15 +35,6 @@ export default function NoticeModal({ item, isFavorite, handler, isLoggedIn }) {
 
   const showPrice = category === 'sell' ? true : false;
 
-  const onFavClick = (id) => {
-    isLoggedIn ? dispatch(setFavNotice(id)) : setIsAttentionModalOpen(true);
-    console.log(isAttentionModalOpen);
-    return console.log(id);
-  }
-
-  const close = () => {
-    setIsAttentionModalOpen(false);
-  };
 
   return (
     <>
@@ -115,20 +104,26 @@ export default function NoticeModal({ item, isFavorite, handler, isLoggedIn }) {
                 Contact
               </Link>
             )}
+            {!isRefreshing &&
+              <button className={css.favoriteBtn} onClick={()=>handler(_id)}>
+                {favorites ? 'Remove from' : 'Add to'}
+                <div className={favorites ? [css.favBtn, css.infavBtn].join(' ') : [css.favBtn].join(' ')}>
+                  <svg className={css.heart} width="24" height="24" >
+                    <use className={css.iconHeart} href={icon + '#heart'}></use>
+                  </svg>
+                </div>
 
-            <button className={css.favoriteBtn} onClick={()=>onFavClick(_id)} isFavorite={isFavorite}>
-              {isFavorite ? 'Added to' : 'Add to'}
-              <svg className={css.heart} width="24" height="24">
-                  <use className={css.iconHeart} href={icon + '#heart'}></use>
-              </svg>
+
+
             </button>
-
+            }
 
             {isAttentionModalOpen && (
         <Modal isOpen={isAttentionModalOpen} onClose={close}>
           <AttentionModal />
         </Modal>
       )}
+
 
             </div>
         </div>
