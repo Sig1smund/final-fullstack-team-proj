@@ -57,6 +57,7 @@ const noticesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getFavNotices.fulfilled, (state, action) => {
+        state.notices = action.payload.notices;
         state.isLoading = false;
       })
       .addCase(getFavNotices.rejected, (state, action) => {
