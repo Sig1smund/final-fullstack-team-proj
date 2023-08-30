@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { setFavNotice } from "redux/auth/operations";
 import useAuth from 'hooks/useAuth';
 import Modal from '../Modal'
 import AttentionModal from '../AttentionModal'
@@ -9,7 +8,7 @@ import css from "./NoticeModal.module.css";
 import icon from '../../images/sprite.svg';
 
 
-export default function NoticeModal({ item, favorites }) {
+export default function NoticeModal({ item, handler, favorites }) {
   const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false);
   const { isRefreshing, isLoggedIn } = useAuth();
   const dispatch = useDispatch();
@@ -41,18 +40,18 @@ export default function NoticeModal({ item, favorites }) {
   const showPrice = category === 'sell' ? true : false;
 
   const onFavClick = (id) => {
-    isLoggedIn ? dispatch(setFavNotice(id)) : setIsAttentionModalOpen(true);
-    return console.log(id);
+    isLoggedIn ? dispatch(handler(id)) : setIsAttentionModalOpen(true);
+    
   }
 
-  // const close = () => {
-  //   setIsAttentionModalOpen(false);
-  // };
+  const close = () => {
+    setIsAttentionModalOpen(false);
+  };
 
-  // const toggleModal = () => {
-  //   setIsAttentionModalOpen(prev => !prev)
-  //   console.log('fire');
-  // }
+  const toggleModal = () => {
+    setIsAttentionModalOpen(prev => !prev)
+    console.log('fire');
+  }
 
 
 
@@ -126,10 +125,10 @@ export default function NoticeModal({ item, favorites }) {
             )}
             {!isRefreshing &&
               <button className={css.favoriteBtn} onClick={()=>onFavClick(_id)}>
-                {favorites ? 'Remove from' : 'Add to'}
+                {favorites ? 'Remove' : 'Add to'}
                 <div className={favorites ? [css.favBtn, css.infavBtn].join(' ') : [css.favBtn].join(' ')}>
                   <svg className={css.heart} width="24" height="24" >
-                    <use className={css.iconHeart} href={icon + '#heart'}></use>
+                    <use className={css.iconHeart} href={icon + '#heart-1'}></use>
                   </svg>
                 </div>
             </button>

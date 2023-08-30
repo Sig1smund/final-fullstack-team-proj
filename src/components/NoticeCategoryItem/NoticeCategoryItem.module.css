@@ -199,9 +199,15 @@
 }
 
 .title{
+  display: -webkit-box;
   font-family: Manrope;
   font-size: 24px;
   font-weight: 700;
+  /* overflow: hidden; */
+  /* width:231px; */
+   white-space: nowrap; /* Предотвращает перенос текста на новую строку */
+  overflow: hidden; /* Скрывает текст, который выходит за пределы контейнера */
+  text-overflow: ellipsis;
 }
 
 .learn_btn{

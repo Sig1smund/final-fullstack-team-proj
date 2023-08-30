@@ -284,26 +284,23 @@
 }
 
 .favBtn{
-fill: transparent;
-stroke: black;
-  stroke-width: 5px;
-outline: 1;
+
+    fill: transparent;
+    stroke: white;
+    color: green;
+   
 }
 
 .infavBtn{
-  fill: var(--white-color);
-stroke: black;
-  stroke-width: 5px;
+    fill: white;
+    stroke: currentColor;
 }
 
 .heart{
-  width: 24px;
-  height: 24px;
-  stroke: inherit;
+  display: block;
+
   fill: inherit;
-  /* fill: none; */
-  stroke-width: 1px;
-  
+
 }
 
 /* .iconHeart{
