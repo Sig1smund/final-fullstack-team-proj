@@ -12,7 +12,6 @@ export default function NoticesSearch() {
   const { categoryName } = useParams();
   const dispatch = useDispatch();
   let params = {categoryName, query}
-  let query1;
 
   const handleSubmit = (e) => {
       e.preventDefault();
