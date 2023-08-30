@@ -16,7 +16,6 @@ export default function NoticesPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getNotices());
     navigate('/notices/sell')
       }, [navigate, dispatch]);
 
@@ -36,8 +35,6 @@ export default function NoticesPage() {
       }
     
   }, [categoryName, navigate, dispatch]);
-
-  console.log(categoryName);
 
   return (
     <div className={styles.container}>
