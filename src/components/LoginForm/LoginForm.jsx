@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logIn } from 'redux/auth/operations';
 import { useForm } from 'react-hook-form';
+import styles from './LoginForm.module.css';
+import sprite from '../../images/sprite.svg';
 import { yupResolver } from '@hookform/resolvers/yup';
 import loginSchema from './Yup';
 
@@ -10,7 +12,7 @@ import loginSchema from './Yup';
 // import { ReactComponent as EyeOpen } from 'images/icons/eye-open.svg';
 // import { ReactComponent as EyeClosed } from 'images/icons/eye-closed.svg';
 
-import styles from './LoginForm.module.css';
+
 
 const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(false); // стан для показу / приховування пароля
@@ -61,11 +63,15 @@ const LoginForm = () => {
                                 type="button"
                                 onClick={() => setShowPassword(!showPassword)}
                             >
-                                {/* {showPassword ? (
-                                    <EyeClosed className={styles.passwordIcon} />
+                                {showPassword ? (
+                                    <svg className={styles.passwordIcon}>
+                    <use href={`${sprite}#eye-open`} />
+                  </svg>
                                 ) : (
-                                    <EyeOpen className={styles.passwordIcon} />
-                                )} */}
+                                    <svg className={styles.passwordIcon}>
+                    <use href={`${sprite}#eye-closed`} />
+                  </svg>
+                                )}
                             </button>
                         </div>
                         {errors.password && <p className={styles.errorsMassage}>{errors.password.message}</p>}
