@@ -30,7 +30,7 @@ export default function NoticesCategoriesList() {
     const close = () => {
         setIsModalOpen(false);
     };
-
+    
     return (
         <>
             <ul className={styles.list}>

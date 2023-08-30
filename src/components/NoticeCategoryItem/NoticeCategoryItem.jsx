@@ -5,13 +5,16 @@ import css from './NoticeCategoryItem.module.css';
 import svg from '../../images/sprite.svg';
 import { calculateAge, cutSity } from './NoticeItemUtils';
 import useAuth from 'hooks/useAuth';
+import useNotices from 'hooks/useNotices';
 import { removeOwnNotice } from '../../redux/notices/operations';
 import Modal from '../Modal/Modal';
 import ModalNotice from '../NoticeModal/NoticeModal';
+import Spinner from 'utils/Spinner';
 
 export default function NoticeCategoryItem({
     item, favHandler, favorites }) {
   const { user, isLoggedIn, isRefreshing } = useAuth();
+  const { isDeleting } = useNotices();
   const [openModal, setOpenModal] = useState(false);
   const close = () => setOpenModal(false);
 
@@ -42,6 +45,7 @@ export default function NoticeCategoryItem({
     if (!isLoggedIn) {
       return;
     }
+    console.log('id ',id);
     dispatch(removeOwnNotice(id));
   };
 
@@ -63,8 +67,8 @@ export default function NoticeCategoryItem({
 
   return (
     <>
-      {
-        <li className={css.container}>
+      {isDeleting && <Spinner />}
+        {!isDeleting && <li className={css.container}>
           <div className={css.wrapper}>
             <img className={css.pet_img} src={imageURL} alt={name} width="300" />
 

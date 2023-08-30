@@ -11,13 +11,13 @@ import Spinner from './utils/Spinner';
 import 'modern-normalize/modern-normalize.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={<Spinner />} persistor={persistor}>
-        <BrowserRouter basename="/final-fullstack-team-proj">
-          <App />
-        </BrowserRouter>
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
+    <PersistGate loading={<Spinner />} persistor={persistor}>
+      <BrowserRouter basename="/final-fullstack-team-proj">
+        <App />
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>
+  // </React.StrictMode>
 );

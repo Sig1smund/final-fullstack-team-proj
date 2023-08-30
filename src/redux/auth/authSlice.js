@@ -129,7 +129,7 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(createPet.fulfilled, (state, action) => {
-        state.userPets = [...state.userPets, action.payload.pets];
+        state.userPets = [...state.userPets, action.payload.pet];
         state.isRefreshing = false;
         state.isLoading = false;
       })

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { setFavNotice } from "redux/auth/operations";
 import useAuth from 'hooks/useAuth';
 import Modal from '../Modal'
 import AttentionModal from '../AttentionModal'
@@ -8,7 +9,7 @@ import css from "./NoticeModal.module.css";
 import icon from '../../images/sprite.svg';
 
 
-export default function NoticeModal({ item, handler, favorites }) {
+export default function NoticeModal({ item, favorites }) {
   const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false);
   const { isRefreshing, isLoggedIn } = useAuth();
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ export default function NoticeModal({ item, handler, favorites }) {
   const showPrice = category === 'sell' ? true : false;
 
   const onFavClick = (id) => {
-    isLoggedIn ? dispatch(handler(id)) : setIsAttentionModalOpen(true);
+    isLoggedIn ? dispatch(setFavNotice(id)) : setIsAttentionModalOpen(true);
     return console.log(id);
   }
 
