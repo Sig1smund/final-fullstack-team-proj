@@ -36,6 +36,8 @@ export default function NoticesPage() {
     
   }, [categoryName, navigate, dispatch]);
 
+  console.log(categoryName);
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Find your favorite pet</h1>

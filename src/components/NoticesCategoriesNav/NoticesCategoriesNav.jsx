@@ -33,7 +33,7 @@ export default function NoticesCategoriesNav() {
             : styles.button
         }
         to="/notices/in-good-hands">
-        in-good-hands
+        in good hands
       </NavLink>
 
       {isLoggedIn && 
