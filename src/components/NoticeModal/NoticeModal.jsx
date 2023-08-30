@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
-
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import useAuth from 'hooks/useAuth';
+import Modal from '../Modal'
+import AttentionModal from '../AttentionModal'
 import css from "./NoticeModal.module.css";
 import icon from '../../images/sprite.svg';
 
 
-export default function NoticeModal({ item, handler, favorites }) {
-
+export default function NoticeModal({ item, handler, favorites, isLoggedIn }) {
+  const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false);
   const { isRefreshing } = useAuth();
+  const dispatch = useDispatch();
 
   if (!item) {
     return;
@@ -34,6 +38,17 @@ export default function NoticeModal({ item, handler, favorites }) {
   const emailAddress = `mailto:${email}`;
 
   const showPrice = category === 'sell' ? true : false;
+
+  const onFavClick = (id) => {
+    isLoggedIn ? dispatch(handler(id)) : setIsAttentionModalOpen(true);
+    console.log(isAttentionModalOpen);
+    return console.log(id);
+  }
+
+  const close = () => {
+    setIsAttentionModalOpen(false);
+  };
+
 
 
   return (
@@ -105,16 +120,13 @@ export default function NoticeModal({ item, handler, favorites }) {
               </Link>
             )}
             {!isRefreshing &&
-              <button className={css.favoriteBtn} onClick={()=>handler(_id)}>
+              <button className={css.favoriteBtn} onClick={()=>onFavClick(_id)}>
                 {favorites ? 'Remove from' : 'Add to'}
                 <div className={favorites ? [css.favBtn, css.infavBtn].join(' ') : [css.favBtn].join(' ')}>
                   <svg className={css.heart} width="24" height="24" >
                     <use className={css.iconHeart} href={icon + '#heart'}></use>
                   </svg>
                 </div>
-
-
-
             </button>
             }
 
@@ -123,8 +135,6 @@ export default function NoticeModal({ item, handler, favorites }) {
           <AttentionModal />
         </Modal>
       )}
-
-
             </div>
         </div>
       </div>
