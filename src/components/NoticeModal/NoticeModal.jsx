@@ -118,7 +118,11 @@ export default function NoticeModal({ item, handler, favorites }) {
             </button>
             }
 
-
+            {isAttentionModalOpen && (
+        <Modal isOpen={isAttentionModalOpen} onClose={close}>
+          <AttentionModal />
+        </Modal>
+      )}
 
 
             </div>

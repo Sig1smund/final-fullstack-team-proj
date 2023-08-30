@@ -45,6 +45,22 @@ export default function NoticeCategoryItem({
     dispatch(removeOwnNotice(id));
   };
 
+  let updetedCategory;
+
+  switch (category) {
+    case 'sell':
+      updetedCategory = 'sell';
+      break;
+    case 'lost-found':
+      updetedCategory = 'lost/found';
+      break;
+    case 'in-good-hands':
+      updetedCategory = 'in good hands';
+      break;
+    default:
+      updetedCategory = 'sell';
+  }
+
   return (
     <>
       {
@@ -53,7 +69,7 @@ export default function NoticeCategoryItem({
             <img className={css.pet_img} src={imageURL} alt={name} width="300" />
 
             <div className={css.category}>
-              <p>{category}</p>
+              <p>{updetedCategory}</p>
             </div>
             {!isRefreshing && <div>
               <button
