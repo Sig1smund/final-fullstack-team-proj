@@ -5,18 +5,17 @@ import {
     // CheckBoxField,
     RadioField,  
   } from "formik-stepper";
-  
-   import * as Yup from "yup";
-   import { addNotice } from "redux/notices/operations";
+import * as Yup from "yup";  
+import { addNotice } from "redux/notices/operations";
 import { useDispatch } from 'react-redux';
-// import { useRef} from 'react';
-// import { useLocation } from 'react-router-dom';
+import { useRef} from 'react';
+import { useLocation } from 'react-router-dom';
  
   // import "formik-stepper/dist/style.css";
 
 // import { IoArrowBackCircleSharp } from 'react-icons/io5';
 import "./AddPetForm.css";
-// import { RadioButton, BackLink } from "./AddPetForm.styled";
+import { RadioButton, BackLink } from "./AddPetForm.styled";
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(2, 'Too Short!').max(16, 'Too Long!').required('Enter a name'),
@@ -35,9 +34,8 @@ import "./AddPetForm.css";
 export default function AddPetForm() {
     
   const dispatch = useDispatch(); 
-  // const location = useLocation();
-  // const backLink = useRef(location.state?.from ?? '/');
-    
+   const location = useLocation();
+   const backLink = useRef(location.state?.from ?? '/');
   
      const onSubmit = (values) => {
       console.log("values", values);
@@ -53,7 +51,7 @@ export default function AddPetForm() {
       formData.append("sex", sex);
       formData.append("price", price);
       formData.append("comments", comments);
-
+      //formData.append("image", file);
       dispatch(addNotice(formData));
     };
   
@@ -121,7 +119,13 @@ export default function AddPetForm() {
           />  */}
        
 
-          {/* /> */}
+        {/* /> */}
+        <BackLink to={backLink.current}>
+        {/* <IoArrowBackCircleSharp
+          style={{ marginRight: 8, width: '20', height: '20' }}
+        /> */}
+        Go back
+      </BackLink>
 
         </FormikStep>
         {/* Second Step */}
@@ -176,7 +180,6 @@ export default function AddPetForm() {
             label="Location"
             placeholder="Type of location"
             type="text"
-            // style={{ width: "98%" }}
             /> 
              {/* for category !== selll */}
             <InputField
