@@ -1,13 +1,15 @@
-import { NavLink} from 'react-router-dom';
+import { NavLink, useLocation} from 'react-router-dom';
 import styles from './AddPetButton.module.css'
 import plussmall from '../../images/sprite.svg';
 
 export default function AddPetButton() {
 
+   const location = useLocation();
     return (
         <NavLink
         className={styles.button}
         to="/add-pet"
+        state={{from:location}}
       >
           Add pet
       <svg  className={styles.plusIcon}  width={24} height={24}>
