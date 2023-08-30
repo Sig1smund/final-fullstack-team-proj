@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import  { registerUser }  from '../../redux/auth/operations';
 import sprite from '../../images/sprite.svg';
 import styles from './RegisterForm.module.css';
-// import { changeIsRegistered } from '../../redux/auth/authSlice';
+import { changeIsRegistered } from '../../redux/auth/authSlice';
 import registerSchema from './Yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -27,7 +27,8 @@ const RegisterForm = () => {
   const onSubmit = data => {
     
     const  { name,  email, password}=data;
-    dispatch(registerUser({name, email, password}));
+    dispatch(registerUser({ name, email, password }));
+    dispatch(changeIsRegistered(true))
     reset();
   };
 

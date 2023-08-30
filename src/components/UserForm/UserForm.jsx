@@ -54,34 +54,23 @@ const onChangeFile = event => {
       if (file.size > 1024 * 1024 * 3) {
         alert("Wrong size")
         return;
-      }
-
+  }
+  
       const newAvatar = URL.createObjectURL(file);
-      console.log('fileonLoad',avatarFile)
-      
-      // setAvatarURL(file);
       setAvatarURL(newAvatar);
       setAvatarFile(file);
-      console.log('stateonLoad',state)
-    };
+   };
 
 
 const inputPhotoRef = useRef();
 
-  // const onChangeFile = event => {
-  //   const file = event.target.files[0];
-  //   if (file.size > 1024 * 1024 * 3) {
-  //     alert("Wrong size")
-  //     return;
-  //   }
-  //   setAvatar(file);
-  // };
-
-  const onLoadNewPhoto = () => {
+   const onLoadNewPhoto = () => {
     inputPhotoRef.current.click();
   };
   const onConfirmNewAvatar = () => {
-    saveNewPhoto(avatarURL);
+    // saveNewPhoto(avatarURL);
+    setState(state => ({ ...state, avatarFile }));
+    console.log('stateonLoad',state)
     
   };
   const onCancelNewAvatar = () => {
@@ -90,16 +79,9 @@ const inputPhotoRef = useRef();
   };
  
 
-
   const handleSubmit =event=>{
     event.preventDefault();
     const {name, email, phone, birthday, city, avatarFile} = state;
-    // if (phone.length < 13) {
-    //   inputPhoneRef.current.focus();
-    // }
-
-    // const formData = {name, email, phone, birthday, city};
-    // test
       const formWithData = new FormData();
       formWithData.append("avatarURL", avatarFile);
       formWithData.append("name", name);
@@ -109,7 +91,7 @@ const inputPhotoRef = useRef();
       formWithData.append("city", city);
       console.log("FormData",formWithData);
       console.log("FD", avatarFile);
-      // 
+    
       onSubmit(formWithData);
   }
     return (
@@ -131,8 +113,6 @@ const inputPhotoRef = useRef();
             <input
               type="file"
               accept='image/*, .png, .jpg, .gif, .web'
-            //  name='file'
-              // value=""
               ref={inputPhotoRef}
 
               onChange={onChangeFile}
