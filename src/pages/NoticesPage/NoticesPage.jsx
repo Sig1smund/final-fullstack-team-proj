@@ -16,8 +16,9 @@ export default function NoticesPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(getNotices());
     navigate('/notices/sell')
-      }, [navigate]);
+      }, [navigate, dispatch]);
 
 
   useEffect(() => {
