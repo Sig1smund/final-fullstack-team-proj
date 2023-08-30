@@ -1,7 +1,7 @@
 import PetsList from "components/PetsList/PetsList";
 import css from './PetsData.module.css';
-import plussmall from '../../images/sprite.svg';
-import { NavLink } from "react-router-dom";
+// import plussmall from '../../images/sprite.svg';
+// import { NavLink } from "react-router-dom";
 import AddPetButton from "components/AddPetButton/AddPetButton";
 
 export default function PetsData() {

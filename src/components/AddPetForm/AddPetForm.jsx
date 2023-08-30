@@ -2,7 +2,6 @@ import {
     FormikStepper,
     FormikStep,
     InputField,
-    // CheckBoxField,
     RadioField,  
   } from "formik-stepper";
 import * as Yup from "yup";  
@@ -15,7 +14,7 @@ import { useLocation } from 'react-router-dom';
 
 // import { IoArrowBackCircleSharp } from 'react-icons/io5';
 import "./AddPetForm.css";
-import { RadioButton, BackLink } from "./AddPetForm.styled";
+import { BackLink } from "./AddPetForm.styled";
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(2, 'Too Short!').max(16, 'Too Long!').required('Enter a name'),
@@ -29,7 +28,21 @@ import { RadioButton, BackLink } from "./AddPetForm.styled";
     comments: Yup.string().max(120, 'Too Long!'),
    
   });
-    
+ 
+const initialState = {
+// Choose option
+        category: "",
+        //Personal details
+        name: "",
+        date: "",
+        type: "",
+        title: "",
+        //  More info
+        sex: "male",
+        location: "",
+        price: 0,
+        comments: "",
+}
 
 export default function AddPetForm() {
     
@@ -59,21 +72,7 @@ export default function AddPetForm() {
     <FormikStepper
       /// Accept all Formik props
       onSubmit={onSubmit} /// onSubmit Function
-      initialValues={{
-        // Choose option
-        category: "",
-        //Personal details
-        name: "",
-        date: "",
-        type: "",
-        title: "",
-        //  More info
-        sex: "male",
-        location: "",
-        price: 0,
-        comments: "",
-
-      }}
+      initialValues={initialState}
       validationSchema={validationSchema}
       withStepperLine /// false as default and If it is false, it hides stepper line
       nextButton={{ label: "Next" }}
@@ -202,5 +201,3 @@ export default function AddPetForm() {
       </FormikStepper>
     );
   };
-  
-
