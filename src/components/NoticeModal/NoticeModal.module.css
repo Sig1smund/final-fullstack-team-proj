@@ -1,6 +1,6 @@
 .container
 {
-  position: relative;
+  
   width: 100%;
   height: 100%;
   margin-left: auto;
@@ -41,6 +41,7 @@
 }
 
 .noticeCard{
+  position: relative;
   width: 100%;
   height: 100%;
   margin-left: auto;
@@ -61,16 +62,16 @@
   background-color: var(--light-blue-color);
   border-radius: 0px 16px 16px 0px;
   position: absolute;
-  top: 60px;
-  left: 20px;
+  top: 25px;
+  left: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   @media screen and (min-width: 768px) {
       & {
-        left: 32px;
-        top: 48px;
+        left: 0px;
+        top: 26px;
       }
     }
 }

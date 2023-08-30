@@ -53,8 +53,6 @@ export default function NoticeModal({ item, handler, favorites }) {
     console.log('fire');
   }
 
-
-
   return (
     <>
       <div className={css.container}>
