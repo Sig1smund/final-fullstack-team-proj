@@ -7,7 +7,7 @@ import {useDispatch } from "react-redux";
 
 export default function OurFriendsPage() {
     const dispatch = useDispatch();
-    const {services} = useServices();
+    const {services, isLoading} = useServices();
 
     useEffect(() => {
         dispatch(getServices())
@@ -15,9 +15,9 @@ export default function OurFriendsPage() {
     
     return (
         <>
-            {!services
-                ? <Spinner />
-                : <OurFriendsList />}
+            <h1>Our friends</h1>
+            {!isLoading && <Spinner />}
+            {services && <OurFriendsList />}
         </>
     );
 }
