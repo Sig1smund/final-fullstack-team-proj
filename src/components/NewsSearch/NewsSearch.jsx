@@ -14,10 +14,11 @@ export default function NewsSearch() {
     dispatch(input(query));
   };
 
-  const onClose =()=> {
+  const onClose = () => {
     setQuery('');
     dispatch(input(''))
   }
+
 
     return <>
     <form className={s.form} onSubmit={handleSubmit}>      
