@@ -43,11 +43,11 @@
 }
 
 .formInput.error {
-  border-color: red;
+  border-color: var(--red-color);
 }
 
 .formInput.success {
-  border-color: green;
+  border-color: var(--green-color);
 }
 
 .formTitle {
@@ -102,8 +102,9 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  color: var(--bad-validation);
+  color: var(--red-color);
   padding: 4px 0px 0px 20px;
+  margin: 0;
 }
 
 .authScreenNavigation {
