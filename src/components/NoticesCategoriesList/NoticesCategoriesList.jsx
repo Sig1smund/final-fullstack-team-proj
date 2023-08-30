@@ -16,7 +16,6 @@ export default function NoticesCategoriesList() {
     const { notices } = useNotices();
     const { isLoggedIn, favorites } = useAuth();
     const dispatch = useDispatch();
-    
 
     const onFavClick =  async (id) => {
         if (isLoggedIn) {
