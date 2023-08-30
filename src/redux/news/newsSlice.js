@@ -3,6 +3,7 @@ import { getNews } from './operations';
 
 const initialState = {
   news: [],
+  filter: '',
   isLoading: false,
   isDeleting: false,
   error: null,
@@ -11,6 +12,11 @@ const initialState = {
 const newsSlice = createSlice({
   name: 'news',
   initialState,
+  reducers: {
+    input(state, { payload }) {
+      state.filter = payload;
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(getNews.pending, state => {
@@ -25,5 +31,5 @@ const newsSlice = createSlice({
         state.error = action.payload;
       }),
 });
-
+export const { input } = newsSlice.actions;
 export const newsReducer = newsSlice.reducer;
