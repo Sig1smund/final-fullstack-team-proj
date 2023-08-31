@@ -17,7 +17,7 @@ const initialState = {
   birthday: '',
   phone: '',
   city:'',
-  avatarFile: null,
+  avatarFile: '',
   avatarURL: ''
 }
 
@@ -25,7 +25,7 @@ export default function UserForm({onSubmit, readonly, user, saveNewPhoto}) {
 
 const [state, setState]=useState(user || initialState);
 const [avatarURL, setAvatarURL]=useState(user.avatarURL || '');
-const [avatarFile, setAvatarFile] = useState(null);
+const [avatarFile, setAvatarFile] = useState('');
 const [modalActive, setModalActive] = useState(false);
 
 const dispatch = useDispatch();
@@ -75,7 +75,7 @@ const inputPhotoRef = useRef();
   };
   const onCancelNewAvatar = () => {
     setAvatarURL('');
-    setAvatarFile(null);
+    setAvatarFile('');
   };
  
 
