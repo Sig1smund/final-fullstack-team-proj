@@ -4,7 +4,6 @@ import { getServices } from './operations';
 const initialState = {
   services: [],
   isLoading: false,
-  isDeleting: false,
   error: null,
 };
 

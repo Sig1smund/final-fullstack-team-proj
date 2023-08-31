@@ -17,7 +17,7 @@ export default function NoticesPage() {
 
   useEffect(() => {
     navigate('/notices/sell')
-      }, [navigate]);
+      }, [navigate, dispatch]);
 
 
   useEffect(() => {
@@ -35,8 +35,6 @@ export default function NoticesPage() {
       }
     
   }, [categoryName, navigate, dispatch]);
-
-  console.log(categoryName);
 
   return (
     <div className={styles.container}>

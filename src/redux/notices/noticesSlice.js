@@ -44,7 +44,7 @@ const noticesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(addNotice.fulfilled, (state, action) => {
-        state.notices = [...state.notices, action.payload];
+        state.notices = [...state.notices, action.payload.notice];
         state.isLoading = false;
       })
       .addCase(addNotice.rejected, (state, action) => {
@@ -85,15 +85,18 @@ const noticesSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(removeOwnNotice.pending, state => {
+        state.isDeleting = true;
         state.isLoading = true;
       })
       .addCase(removeOwnNotice.fulfilled, (state, action) => {
-        console.log('action.payload', action.payload);
+        console.log(action.payload);
         state.notices = state.notices.filter(n => n._id !== action.payload.id);
+        state.isDeleting = false;
         state.isLoading = false;
       })
       .addCase(removeOwnNotice.rejected, (state, action) => {
         state.isLoading = false;
+        state.isDeleting = false;
         state.error = action.payload;
       }),
 });

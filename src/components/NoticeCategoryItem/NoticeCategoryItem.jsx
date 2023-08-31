@@ -5,13 +5,15 @@ import css from './NoticeCategoryItem.module.css';
 import svg from '../../images/sprite.svg';
 import { calculateAge, cutSity } from './NoticeItemUtils';
 import useAuth from 'hooks/useAuth';
+import useNotices from 'hooks/useNotices';
 import { removeOwnNotice } from '../../redux/notices/operations';
 import Modal from '../Modal/Modal';
 import ModalNotice from '../NoticeModal/NoticeModal';
+import Spinner from 'utils/Spinner';
 
-export default function NoticeCategoryItem({
-    item, favHandler, favorites }) {
+export default function NoticeCategoryItem({ item, favHandler, favorites }) {
   const { user, isLoggedIn, isRefreshing } = useAuth();
+  const { isDeleting } = useNotices();
   const [openModal, setOpenModal] = useState(false);
   const close = () => setOpenModal(false);
 
@@ -42,6 +44,7 @@ export default function NoticeCategoryItem({
     if (!isLoggedIn) {
       return;
     }
+    console.log('id ', id);
     dispatch(removeOwnNotice(id));
   };
 
@@ -63,25 +66,37 @@ export default function NoticeCategoryItem({
 
   return (
     <>
-      {
+      {isDeleting && <Spinner />}
+      {!isDeleting && (
         <li className={css.container}>
           <div className={css.wrapper}>
-            <img className={css.pet_img} src={imageURL} alt={name} width="300" />
+            <img
+              className={css.pet_img}
+              src={imageURL}
+              alt={name}
+              width="300"
+            />
 
             <div className={css.category}>
               <p>{updetedCategory}</p>
             </div>
-            {!isRefreshing && <div>
-              <button
-                className={favorites ? [css.fav_btn, css.infav_btn].join(' ') : [css.fav_btn].join(' ')}
-                type="button"
-                onClick={() => favHandler(_id)}
-              >
-                <svg className={css.heart} width="24" height="24">
-                  <use href={svg + '#heart'}></use>
-                </svg>
-              </button>
-            </div>}
+            {!isRefreshing && (
+              <div>
+                <button
+                  className={
+                    favorites
+                      ? [css.fav_btn, css.infav_btn].join(' ')
+                      : [css.fav_btn].join(' ')
+                  }
+                  type="button"
+                  onClick={() => favHandler(_id)}
+                >
+                  <svg className={css.heart} width="24" height="24">
+                    <use href={svg + '#heart'}></use>
+                  </svg>
+                </button>
+              </div>
+            )}
 
             {isLoggedIn && categoryName === 'own' && isOwnNotice && (
               <div>
@@ -109,7 +124,7 @@ export default function NoticeCategoryItem({
                   <use href={svg + '#clock'}></use>
                 </svg>
                 <p>
-                  {age < 1 && `<1 ${'min_year'} `}
+                  {age < 1 && `<1 ${'year'} `}
                   {age === 1 && `1 ${'year'}`}
                   {age > 1 && `${age} ${'years'}`}
                 </p>
@@ -125,7 +140,9 @@ export default function NoticeCategoryItem({
             </div>
           </div>
           <div className={css.bottom_container}>
-            <h2 className={css.title}>{title}</h2>
+            <h2 className={css.title}>
+              {title.length < 20 ? title : `${title.slice(0, 20)}...`}
+            </h2>
 
             {openModal && (
               <Modal isOpen={openModal} onClose={close}>
@@ -149,7 +166,7 @@ export default function NoticeCategoryItem({
             </button>
           </div>
         </li>
-      }
+      )}
     </>
   );
 }

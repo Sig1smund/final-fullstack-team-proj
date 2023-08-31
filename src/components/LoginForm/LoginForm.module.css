@@ -38,6 +38,10 @@
   &::placeholder {
     color: var(--grey-text-color);
   }
+
+  &:focus{
+    outline:none;
+  }
 }
 
 .formInput.error {

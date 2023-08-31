@@ -8,9 +8,9 @@ import css from "./NoticeModal.module.css";
 import icon from '../../images/sprite.svg';
 
 
-export default function NoticeModal({ item, handler, favorites, isLoggedIn }) {
+export default function NoticeModal({ item, handler, favorites }) {
   const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false);
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, isLoggedIn } = useAuth();
   const dispatch = useDispatch();
 
   if (!item) {
@@ -41,15 +41,17 @@ export default function NoticeModal({ item, handler, favorites, isLoggedIn }) {
 
   const onFavClick = (id) => {
     isLoggedIn ? dispatch(handler(id)) : setIsAttentionModalOpen(true);
-    console.log(isAttentionModalOpen);
-    return console.log(id);
+    
   }
 
-  const close = () => {
-    setIsAttentionModalOpen(false);
-  };
+  // const close = () => {
+  //   setIsAttentionModalOpen(false);
+  // };
 
-
+  // const toggleModal = () => {
+  //   setIsAttentionModalOpen(prev => !prev)
+  //   console.log('fire');
+  // }
 
   return (
     <>
@@ -121,17 +123,17 @@ export default function NoticeModal({ item, handler, favorites, isLoggedIn }) {
             )}
             {!isRefreshing &&
               <button className={css.favoriteBtn} onClick={()=>onFavClick(_id)}>
-                {favorites ? 'Remove from' : 'Add to'}
+                {favorites ? 'Remove' : 'Add to'}
                 <div className={favorites ? [css.favBtn, css.infavBtn].join(' ') : [css.favBtn].join(' ')}>
                   <svg className={css.heart} width="24" height="24" >
-                    <use className={css.iconHeart} href={icon + '#heart'}></use>
+                    <use className={css.iconHeart} href={icon + '#heart-1'}></use>
                   </svg>
                 </div>
             </button>
             }
 
             {isAttentionModalOpen && (
-        <Modal isOpen={isAttentionModalOpen} onClose={close}>
+        <Modal isOpen={isAttentionModalOpen} onClose={()=> setIsAttentionModalOpen(false)}>
           <AttentionModal />
         </Modal>
       )}

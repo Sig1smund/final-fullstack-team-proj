@@ -256,7 +256,13 @@
       margin-left: 0;
   } 
 }
-
+.username{
+  opacity:1;
+  position: static;
+  transform: none;
+  text-transform: none;
+  color: var(--yellow-color);
+}
 .profile {
   display: inline-flex;
   justify-content: center;

@@ -1,0 +1,120 @@
+/* .form_radio_btn {
+    display: inline-block;
+    margin-right: 10px;
+} */
+
+.form_radio {
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    gap: 28px; 
+    margin-top: 40px;
+    margin-bottom: 137px;
+}
+
+.form_radio_btn_input{
+    display: none;
+}
+/* 
+.form_radio_btn_label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0px 15px;
+    line-height: 34px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    user-select: none;
+
+} */
+
+/* Checked */
+/* .form_radio_btn input[type=radio]:checked+label {
+    
+    background: linear-gradient(315deg, #419EF1 0%, #9BD0FF 100%);
+        color: var(--white-color);
+    
+} */
+
+/* .form_radio_btn input[type=radio]:active+label {
+    background: #ffe0a6;
+} */
+
+
+/* Hover */
+/* .form_radio_btn label:hover {
+    color: #666;
+} */
+
+/* Disabled */
+/* .form_radio_btn input[type=radio]:disabled+label {
+    background: #efefef;
+    color: #666;
+} */
+
+.button {
+    composes: lostAndFoundButton from '../../global.css';
+    /* margin-right: 8px; */
+}
+
+.button:hover, .button:checked {
+    background: linear-gradient(315deg, #419EF1 0%, #9BD0FF 100%);
+    color: var(--white-color);
+}
+
+.active {
+    background-color: var(--blue-color);
+    color: var(--white-color);
+}
+
+.image{
+    display: block;
+        width: 182px;
+        height: 182px;
+        border-radius: 40px;
+        object-fit: cover;
+    }
+
+.image_title{
+    font-size: 20px;
+    font-weight: 500;
+
+}
+
+.backLink {
+    display: inline-flex;
+    padding: 8px 20px;
+    width: 248px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 40px;
+    color: var(--blue-color);
+    text-decoration: none;
+    font-size: 16px;
+    position: absolute;
+    left: 15px;
+    bottom: 12px;
+
+    &:hover,
+    focus {
+        color: rgba(204, 228, 251, 1);
+    }
+
+}
+
+.logo {
+    fill: var(--blue-color);
+}
+
+.image_button{
+    /* display: none; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: 0;
+        border-radius: 100px;
+        /* background-color:; */
+        box-sizing: border-box;
+}

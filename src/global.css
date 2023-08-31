@@ -232,6 +232,7 @@
     border-radius: 20px;
     color: var(--black-color);
     background-color: var(--milk-bckg-color);
+
 }
 
 .desktopNewsCard {
@@ -241,6 +242,8 @@
     padding: 0px 0px 12px 0px; 
     border-radius: 20px; 
     gap: 16px;
+        color: var(--black-color);
+        background-color: var(--milk-bckg-color);
 }
 
 /*----------------------- Tablet Cards --------------------*/
