@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux';
 import { useRef, useState } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 // import "formik-stepper/dist/style.css";
-
+// import React, { useCallback } from 'react';
 // import { IoArrowBackCircleSharp } from 'react-icons/io5';
 import './AddPetForm.css';
 import css from './AddPetForm.module.css';
@@ -74,6 +74,16 @@ export default function AddPetForm() {
   const location = useLocation();
   const backLink = useRef(location.state?.from ?? '/');
   const navigate = useNavigate();
+
+
+//  const onChangeCategory = useCallback(e => {
+//    setCategory(e.target.value);
+//  }, []);
+
+//  const onChangeSex = useCallback(e => {
+//    setSex(e.target.value);
+//  }, []);
+
 
   const onChangeCategory = e => {
     setCategory(e.target.value);
