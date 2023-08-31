@@ -10,37 +10,38 @@
 }
 
 .container{
-
     padding-left: 22px;
     padding-right: 20px;
     margin-left: auto;
-        margin-right: auto;
-
+    margin-right: auto;
     @media screen and (min-width: 768px) {
-    
     width: 100%;
     margin-left: auto;
     margin-right: auto;
         }
-    
         /* @media screen and (max-width: 767px) {
     width: 100%;
         margin-left: auto;
         margin-right: auto;
- 
         } */
+}
 
+.pagination {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 112px;
 }
 
 
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .navContainer {
-        display: flex;
+        /* display: flex; */
         width:280px;
         margin-left: auto;
         margin-right: auto;
-
+        margin-bottom: -21px;
     }
 .addPetsButton_container {
     display: flex;
@@ -50,12 +51,8 @@
     z-index: 100;
     margin-top: 101px;
     margin-left: 200px;
-
-
 }
-
     }
-
 
 @media screen and (min-width: 768px) {
     .title {
@@ -64,10 +61,13 @@
         font-size: 48px;
     }
     .navDesktopContainer {
-        margin-bottom: 42px;
+        /* margin-bottom: 87px; */
         display: flex;
         justify-content: space-between;
         /* align-items: center; */
+    }
+      .navContainer {
+        margin-bottom: 42px;
     }
 
     .navRightContainer {
@@ -75,7 +75,6 @@
         gap: 12px;
     }
 
-    
     .container{
         width: 100%;
         margin-left: auto;
@@ -88,8 +87,6 @@
             position: static;
             margin:0;    
         }
-        
-    
 }
 
 @media screen and (min-width: 1280px) { 
@@ -97,6 +94,17 @@
         padding-left: 16px;
         padding-right: 16px;
     }
+                .navDesktopContainer {
+                    /* margin-bottom: 42px; */
+                    display: flex;
+                    justify-content: space-between;
+                    /* align-items: center; */
+                }
+                                .navContainer {
+                                    margin-bottom: -3px;
+                                }
+       
+    
 }
 
 

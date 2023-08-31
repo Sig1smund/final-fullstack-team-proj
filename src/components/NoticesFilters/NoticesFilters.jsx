@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateGenderFilters, updateAgeFilters } from '../../redux/notices/noticesSlice';
 import useNotices from "hooks/useNotices";
@@ -13,6 +13,20 @@ export default function NoticesFilters() {
   const [showAgeOptions, setShowAgeOptions] = useState(false);
   const [selectedGenderFilters, setSelectedGenderFilters] = useState(filters.gender);
   const [selectedAgeFilters, setSelectedAgeFilters] = useState(filters.age);
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobileScreen(window.innerWidth <= 767);
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const toggleFilters = () => {
     setShowFilters(!showFilters);
@@ -66,14 +80,23 @@ export default function NoticesFilters() {
               </button>))}
             </div>)}
 
-      <button className={`${styles.mainButton} ${selectedGenderFilters.length > 0 || selectedAgeFilters.length > 0 ? styles.activeFilter : ''}`}
-      onClick={toggleFilters}>
-        Filter
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M4 4L9 12V18L15 21V12L20 4H4Z"
-          className={`${styles.icon} ${selectedGenderFilters.length > 0 || selectedAgeFilters.length > 0 ? styles.active : ''}`}
-          /> </svg>
-      </button>
+      {isMobileScreen ? (
+        <button className={`${styles.mobileBtnFilter} ${selectedGenderFilters.length > 0 || selectedAgeFilters.length > 0 ? styles.activeFilter : ''}`}
+        onClick={toggleFilters}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M4 4L9 12V18L15 21V12L20 4H4Z" className={`${styles.icon} ${selectedGenderFilters.length > 0 || selectedAgeFilters.length > 0 ? styles.active : ''}`} />
+          </svg>
+        </button>
+      ) : (
+        <button className={`${styles.mainButton} ${selectedGenderFilters.length > 0 || selectedAgeFilters.length > 0 ? styles.activeFilter : ''}`}
+        onClick={toggleFilters}>
+          Filter
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M4 4L9 12V18L15 21V12L20 4H4Z" 
+            className={`${styles.icon} ${selectedGenderFilters.length > 0 || selectedAgeFilters.length > 0 ? styles.active : ''}`} />
+          </svg>
+        </button>
+      )}
       </div>
 
       {showFilters && (
