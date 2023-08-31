@@ -32,6 +32,7 @@
     flex-wrap: wrap;
     min-height: 80px;
     max-width: 320px;
+    gap: 12px;
   }
 }
 
@@ -47,9 +48,9 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+/* @media screen and (min-width: 1280px) {
   .button {
     margin-right: 8px;
   }
-}
+} */
 
