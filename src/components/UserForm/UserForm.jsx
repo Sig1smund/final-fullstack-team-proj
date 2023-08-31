@@ -9,19 +9,49 @@ import DeleteIcon from '../../images/x.svg'
 import Check from '../../images/check.svg'
 import Modal from 'components/Modal/Modal';
 import ModalApproveAction from 'components/ModalApproveAction/ModalApproveAction';
+import { toast } from 'react-toastify';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+// import {
+//   FormikStepper,
+//   FormikStep,
+//   InputField,
+// } from 'formik-stepper';
+import * as Yup from 'yup';
+
+const userSchema = Yup.object().shape({
+  
+  name: Yup.string().min(2, 'Too Short!').max(16, 'Too Long!').required('*'),
+  // email: Yup.string().email('Invalid email').required('Required'),
+  email: Yup.string().matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "Incorrect name format").min(2, 'Too Short!').max(255).required(),
+  birthday: Yup.string().matches(/^(0[1-9]|[12][0-9]|3[01])\-(0[1-9]|1[0-2])\-\d{4}$/, "Incorrect date format").required(),
+  phone: Yup.string().matches(/^\+\d{12}$/, 'Incorrect phone format').required(),
+  city: Yup.string().matches(/^[a-zA-Z\u0080-\u024F]+(?:([\\ \\-\\']|(\\.\\ ))[a-zA-Z\u0080-\u024F]+)*$/, "Incorrect city format").required(),
+  
+  
+  // password: Yup.string()
+  //   .required("Please enter a password")
+  //   .min(8, "Password must have at least 8 characters")
+  //   .matches(/[a-z]+/, "One lowercase character")
+  //   .matches(/[A-Z]+/, "One uppercase character")
+  //   .matches(/\d+/, "One number"),
+})
 
 
+
+export default function UserForm({ onSubmit, readonly, user, saveNewPhoto }) {
+  
+// const user = useSelector(selectUser);
+const { name, email, birthday, phone, city } = user;
 const initialState = {
-  name: '',
-  email: '',
-  birthday: '',
-  phone: '',
-  city:'',
+  name,
+  email,
+  birthday,
+  phone,
+  city,
   avatarFile: '',
-  avatarURL: ''
+  // avatarURL
 }
 
-export default function UserForm({onSubmit, readonly, user, saveNewPhoto}) {
 
 const [state, setState]=useState(user || initialState);
 const [avatarURL, setAvatarURL]=useState(user.avatarURL || '');
@@ -44,15 +74,15 @@ const dispatch = useDispatch();
   };
 
 
-const onChange = (e) => {
-    const {name, value} = e.target;
-    setState(state=>({...state, [name]: value}))
-}
+// const onChange = (e) => {
+//     const {name, value} = e.target;
+//     setState(state=>({...state, [name]: value}))
+// }
 
 const onChangeFile = event => {
       const file = event.target.files[0];
       if (file.size > 1024 * 1024 * 3) {
-        alert("Wrong size")
+        toast("Wrong size")
         return;
   }
   
@@ -79,9 +109,12 @@ const inputPhotoRef = useRef();
   };
  
 
-  const handleSubmit =event=>{
-    event.preventDefault();
-    const {name, email, phone, birthday, city, avatarFile} = state;
+  const handleSubmit = (values) => {
+    console.log("values", values);
+    // event.preventDefault();
+
+    const { name, email, phone, birthday, city } = values;
+    
       const formWithData = new FormData();
       formWithData.append("avatarURL", avatarFile);
       formWithData.append("name", name);
@@ -94,9 +127,28 @@ const inputPhotoRef = useRef();
     
       onSubmit(formWithData);
   }
+
+
+  // <Form autoComplete="off" >
+  //     <label htmlFor="name"> Name </label>
+  //     <Field type="text" name="name" />
+  //   <ErrorMessage name="name" />
+    
+
+
     return (
-        <div className={css.userCard}>
-      <form className={css.form} onSubmit={handleSubmit}>
+      <div className={css.userCard}>
+        <Formik initialValues={initialState}
+          validationSchema={userSchema}
+          onSubmit={handleSubmit}
+          submitButton={{
+        label: 'Save',
+        style: { backgroundColor: 'var(--blue-color)' }
+      }}
+        >
+         <Form autoComplete="off"
+        
+          className={css.form} >
                 <div className={css.userInfoWrapper}>
                   <div className={css.avatarWrapper}>
                 {avatarURL? (<img
@@ -164,67 +216,73 @@ const inputPhotoRef = useRef();
               <div className={css.infoWrapper}>
                 <div className={css.inputWrapper}>
                 <p className={css.inputTitle}>Name:</p>
-                <input 
+                <Field 
                 type="text" 
                 name='name'
-                value={state.name}
-                required 
+                // value={state.name}
+                // required 
                 className={css.input}
-                onChange={onChange}
+                // onChange={onChange}
                 readOnly={readonly}
                 />
+                <ErrorMessage className={css.error} name="name" />    
+
                 </div>
                 <div className={css.inputWrapper}>
                 <p className={css.inputTitle}>Email:</p>
-                <input 
+                <Field 
                 type="email" 
-                value={state.email}
+                // value={state.email}
                 name='email'
-                required 
+                // required 
                 className={css.input}
-                onChange={onChange}
-                readOnly={readonly}
-                />
+                // onChange={onChange}
+                readOnly={readonly} 
+                    />
+                <ErrorMessage className={css.error}  name="email" />  
                 </div>
                 <div className={css.inputWrapper}>
                 <p className={css.inputTitle}>Birthday:</p>
-                <input 
+                <Field 
                 type="text" 
-                value={state.birthday}
+                // value={state.birthday}
                 name='birthday'
-                required 
+                // required 
                 className={css.input} 
                 placeholder='00.00.0000' 
-                pattern='/^\d{1,2}\-\d{1,2}\-\d{4}$/'
-                onChange={onChange}
+                // pattern='/^\d{1,2}\-\d{1,2}\-\d{4}$/'
+                // onChange={onChange}
                 readOnly={readonly}
                 />
+                    <ErrorMessage className={css.error}  name="birthday" />  
                 </div>
                 <div className={css.inputWrapper}>
                 <p className={css.inputTitle}>Phone:</p>
-                <input 
+                <Field 
                 type="tel" 
-                value={state.phone}
+                // value={state.phone}
                 name='phone'
                 className={css.input}
                  placeholder="+380000000000" 
-                 pattern='/^\+\d{12}$/\'
-                 onChange={onChange}
+                //  pattern='/^\+\d{12}$/\'
+                //  onChange={onChange}
                  readOnly={readonly}
-                 />
+                    />
+                     <ErrorMessage className={css.error}  name="phone" />  
                 </div>
                 <div className={css.inputWrapper}>
                 <p className={css.inputTitle}>City:</p>
-                <input 
+                <Field 
                 type="text"
-                value={state.city} 
+                // value={state.city} 
                 name='city'
-                required 
+                // required 
                 className={css.input} 
                 placeholder="Kiev"
-                onChange={onChange}
+                // onChange={onChange}
                 readOnly={readonly}
-                />
+                    />
+                    <ErrorMessage className={css.error}  name="city" />  
                 </div>
                 </div>
 
@@ -251,7 +309,10 @@ const inputPhotoRef = useRef();
 
               </div>           
             </div>
-            </form>
+            </Form>
+
+        </Formik>
+        
 
         </div>
     )
