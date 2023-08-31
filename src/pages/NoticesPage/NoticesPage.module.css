@@ -26,6 +26,14 @@
         } */
 }
 
+.pagination {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 112px;
+}
+
 
 @media screen and (max-width: 767px) {
     .navContainer {

@@ -6,3 +6,4 @@ export const selectFilters = state => state.notices.filters;
 
 export const selectIsDeleting = state => state.notices.isDeleting;
 
+export const selectTotal = state => state.notices.total;
