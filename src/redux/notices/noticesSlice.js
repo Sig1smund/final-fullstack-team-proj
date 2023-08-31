@@ -13,11 +13,20 @@ const initialState = {
   isLoading: false,
   isDeleting: false,
   error: null,
+  filters: { gender: [], age: [] },
 };
 
 const noticesSlice = createSlice({
   name: 'notices',
   initialState,
+  reducers: {
+    updateGenderFilters: (state, action) => {
+      state.filters.gender = action.payload;
+    },
+    updateAgeFilters: (state, action) => {
+      state.filters.age = action.payload;
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(getNotices.pending, state => {
@@ -93,3 +102,5 @@ const noticesSlice = createSlice({
 });
 
 export const noticesReducer = noticesSlice.reducer;
+export const { updateGenderFilters, updateAgeFilters } = noticesSlice.actions;
+

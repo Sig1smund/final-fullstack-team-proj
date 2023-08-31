@@ -45,7 +45,8 @@ export default function NoticesPage() {
         <div className={styles.navRightContainer}>
           <NoticesFilters />
           <div className={styles.addPetsButton_container}> <AddPetButton /></div>
-        </div></div>
+        </div>
+        </div>
       </div>
       <Outlet/>
       {categoryName && <NoticesCategoriesList
