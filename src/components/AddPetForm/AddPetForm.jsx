@@ -64,15 +64,15 @@ const initialValues = {
 
 export default function AddPetForm() {
   const dispatch = useDispatch();
-  const location = useLocation();
-  const backLink = useRef(location.state?.from ?? '/');
+ 
   // const [state, setState] = useState(initialValues);
   const [category, setCategory] = useState('');
   const [imageURL, setImageURL] = useState('');
   const [imageFile, setFile] = useState('');
-  // const [value, setValue] = useState("your-own");
 
-  // const inputPhotoRef = useRef();
+  const inputPhotoRef = useRef();
+  const location = useLocation();
+  const backLink = useRef(location.state?.from ?? '/');
 
   const onChange = e => {
     // const { name, value } = e.target;
@@ -100,9 +100,9 @@ export default function AddPetForm() {
     console.log('newImage', newImage);
   };
 
-  //   const onLoadNewPhoto = () => {
-  //   inputPhotoRef.current.click();
-  // };
+    const onLoadNewPhoto = () => {
+    inputPhotoRef.current.click();
+  };
 
   const onSubmit = values => {
     console.log('values', values);
@@ -162,7 +162,10 @@ export default function AddPetForm() {
       initialValues={initialValues}
       validationSchema={validationSchema}
       withStepperLine /// false as default and If it is false, it hides stepper line
-      nextButton={{ label: 'Next' }}
+      nextButton={{
+        label: 'Next',
+        style: {backgroundColor: 'var(--blue-color)'}
+      }}
       prevButton={{
         label: 'Back',
         style: { color: '#54ADFF', background: 'transparent' },
@@ -176,6 +179,7 @@ export default function AddPetForm() {
         circleColor="#00C3AD"
       >
         <div className={css.form_radio}>
+
           <div className={css.form_radio_btn}>
             <input
               className={css.form_radio_btn_input}
@@ -209,7 +213,7 @@ export default function AddPetForm() {
             ></input>
             <label
               className={
-                category==="sell"? true: false
+                category==="sell"
                   ? [css.button, css.active].join(' ')
                   : css.button
               }
@@ -217,8 +221,9 @@ export default function AddPetForm() {
             >
               sell
             </label>
+           
           </div>
-          <div className="form_radio_btn">
+          <div className={css.form_radio_btn}>
             <input
               className={css.form_radio_btn_input}
               id="lost-found"
@@ -230,7 +235,7 @@ export default function AddPetForm() {
             ></input>
             <label
               className={
-                category==="lost-found"? true: false
+                category==="lost-found"
                   ? [css.button, css.active].join(' ')
                   : css.button
               }
@@ -239,7 +244,7 @@ export default function AddPetForm() {
               lost/found
             </label>
           </div>
-          <div className="form_radio_btn">
+          <div className={css.form_radio_btn}>
             <input
               className={css.form_radio_btn_input}
               id="in-good-hands"
@@ -251,7 +256,7 @@ export default function AddPetForm() {
             ></input>
             <label
               className={
-                category==="in-good-hands"? true: false
+                category==="in-good-hands"
                   ? [css.button, css.active].join(' ')
                   : css.button
               }
@@ -262,29 +267,15 @@ export default function AddPetForm() {
           </div>
         </div>
 
-        {/* <RadioField
-          name="category"
-          label="category"
-          labelColor="#000"
-          options={[
-            { label: 'your pet', value: 'your-pet' },
-            { label: 'sell', value: 'sell' },
-            { label: 'lost-found', value: 'lost-found' },
-            { label: 'in good hands', value: 'in-good-hands' },
-          ]}
-        /> */}
-
-        {/* /> */}
-        <Link className={css.backLink} to={backLink.current}>
-          {/* <IoArrowBackCircleSharp
-          style={{ marginRight: 8, width: '20', height: '20' }}
-        /> */}
-          <svg className={css.logo} width="24" height="24">
-            {/* <use href={icon + '#arrow-left'}></use> */}
-            <use href={icon + '#pawprint-1'}></use>
+         <Link className={css.backLink} to={backLink.current}>
+            <svg className={css.logo} width="24" height="24">
+            <use href={icon + '#arrow-left'}></use> 
+            {/* <use href={icon + '#pawprint-1'}></use> */}
+          	{/* <path d="M5.333 16h21.333M5.333 16l8-8m-8 8 8 8" /> */}
           </svg>
-          Go back
+          Сancel
         </Link>
+        
       </FormikStep>
       {/* Second Step */}
       <FormikStep label="Personal details" circleColor="#54ADFF">
@@ -318,48 +309,51 @@ export default function AddPetForm() {
       </FormikStep>
       {/* Third Step */}
       <FormikStep label="More info" circleColor="#CCE4FB">
+        {!(category === 'your-pet') &&
+          <RadioField
+            name="sex"
+            labelColor="#000"
+            options={[
+              { label: 'Female', value: 'female' },
+              { label: 'Male', value: 'male' },
+            ]}
+          />}
         {/* Image */}
         <div>
           <p className={css.image_title}>Load the pet’s image:</p>
-
-          {imageURL ? (
+          <button type='button'
+            className={css.image_button}
+          onClick={onLoadNewPhoto}> 
+             {imageURL ? (           
             <img
               src={imageURL}
               className={css.image}
               alt="pet"
-              // onClick={onLoadNewPhoto}
             />
           ) : (
             <img
               src={DefaultImage}
               className={css.image}
               alt="pet"
-              // onClick={onLoadNewPhoto}
             />
-          )}
+          )} 
+          </button>
+          
 
           <input
             type="file"
             accept="image/*, .png, .jpg, .gif, .web"
-            // ref={inputPhotoRef}
-
+             ref={inputPhotoRef}
             onChange={onChangeFile}
-
-            // style={{ display: 'none' }}
+            style={{ display: 'none' }}
           />
         </div>
+
 
         {/* for caterory = your pet */}
         {!(category === 'your-pet') && (
           <>
-            <RadioField
-              name="sex"
-              labelColor="#000"
-              options={[
-                { label: 'Female', value: 'female' },
-                { label: 'Male', value: 'male' },
-              ]}
-            />
+           
             <InputField
               name="location"
               label="Location"
