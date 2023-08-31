@@ -44,14 +44,14 @@ export default function NoticeModal({ item, handler, favorites }) {
     
   }
 
-  const close = () => {
-    setIsAttentionModalOpen(false);
-  };
+  // const close = () => {
+  //   setIsAttentionModalOpen(false);
+  // };
 
-  const toggleModal = () => {
-    setIsAttentionModalOpen(prev => !prev)
-    console.log('fire');
-  }
+  // const toggleModal = () => {
+  //   setIsAttentionModalOpen(prev => !prev)
+  //   console.log('fire');
+  // }
 
   return (
     <>
