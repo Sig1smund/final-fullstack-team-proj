@@ -2,15 +2,14 @@ import {
   FormikStepper,
   FormikStep,
   InputField,
-  RadioField,
+  // RadioField,
 } from 'formik-stepper';
 import * as Yup from 'yup';
 import { addNotice } from 'redux/notices/operations';
 import { createPet } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import { useRef, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
-
+import { useLocation, Link, useNavigate} from 'react-router-dom';
 // import "formik-stepper/dist/style.css";
 
 // import { IoArrowBackCircleSharp } from 'react-icons/io5';
@@ -67,24 +66,20 @@ export default function AddPetForm() {
  
   // const [state, setState] = useState(initialValues);
   const [category, setCategory] = useState('');
+  const [sex, setSex] = useState('');
   const [imageURL, setImageURL] = useState('');
   const [imageFile, setFile] = useState('');
 
   const inputPhotoRef = useRef();
   const location = useLocation();
   const backLink = useRef(location.state?.from ?? '/');
+  const navigate = useNavigate();
 
-  const onChange = e => {
-    // const { name, value } = e.target;
-    // const isYourPet = (value === "your-pet");
-    // console.log('e', e.target);
-    // setState(state => ({ ...state, [name]: value }));
+  const onChangeCategory = e => {
     setCategory(e.target.value);
-    // setValue(e.target.value);
-
-    // console.log(name, value);
-    // console.log('category', state.category);
-    // console.log('dds', imageURL);
+  };
+  const onChangeSex = e => {
+    setSex(e.target.value);
   };
 
   const onChangeFile = event => {
@@ -106,16 +101,13 @@ export default function AddPetForm() {
 
   const onSubmit = values => {
     console.log('values', values);
-    // setState(state => ({ ...state, ...values }));
-    // console.log('state', state);
-
+   
     const {
       name,
       date,
       type,
       title,
       location,
-      sex,
       price,
       comments = '',
     } = values;
@@ -125,13 +117,8 @@ export default function AddPetForm() {
     if (category === 'your-pet') {
       // add pet
       formData.append('name', name);
-      // formData.append("category", category);
       formData.append('date', date);
       formData.append('type', type);
-      // formData.append("title", title);
-      // formData.append("location", location);
-      // formData.append("sex", sex);
-      // formData.append("price", price);
       formData.append('comments', comments);
       formData.append('image', imageFile);
 
@@ -151,10 +138,15 @@ export default function AddPetForm() {
 
       dispatch(addNotice(formData));
     }
+    if (category === "your-pet") {
+      navigate(`/user`);
+    }
+    else {
+      navigate(`/notises`);
+    }
+    
   };
 
-  // const { category } = state;
-  // console.log("isYourPet", isYourPet);
   return (
     <FormikStepper
       /// Accept all Formik props
@@ -170,7 +162,10 @@ export default function AddPetForm() {
         label: 'Back',
         style: { color: '#54ADFF', background: 'transparent' },
       }}
-      submitButton={{ label: 'Done' }}
+      submitButton={{
+        label: 'Done',
+        style: { backgroundColor: 'var(--blue-color)' }
+      }}
     >
       {/*  First Step */}
       <FormikStep
@@ -187,7 +182,7 @@ export default function AddPetForm() {
               type="radio"
               name="category"
               value="your-pet"
-              onChange={onChange}
+              onChange={onChangeCategory}
               checked={category==="your-pet"? true: false}
             ></input>
             <label
@@ -208,7 +203,7 @@ export default function AddPetForm() {
               type="radio"
               name="category"
               value="sell"
-              onChange={onChange}
+              onChange={onChangeCategory}
               checked={category==="sell"? true: false}
             ></input>
             <label
@@ -230,7 +225,7 @@ export default function AddPetForm() {
               type="radio"
               name="category"
               value="lost-found"
-              onChange={onChange}
+              onChange={onChangeCategory}
               checked={category==="lost-found"? true: false}
             ></input>
             <label
@@ -251,7 +246,7 @@ export default function AddPetForm() {
               type="radio"
               name="category"
               value="in-good-hands"
-              onChange={onChange}
+              onChange={onChangeCategory}
               checked={category==="in-good-hands"? true: false}
             ></input>
             <label
@@ -270,11 +265,15 @@ export default function AddPetForm() {
          <Link className={css.backLink} to={backLink.current}>
             <svg className={css.logo} width="24" height="24">
             <use href={icon + '#arrow-left'}></use> 
-            {/* <use href={icon + '#pawprint-1'}></use> */}
-          	{/* <path d="M5.333 16h21.333M5.333 16l8-8m-8 8 8 8" /> */}
           </svg>
           Сancel
         </Link>
+        {/* <button type='button' className={css.backLink} onClick={Return}>
+          <svg className={css.logo} width="24" height="24">
+            <use href={icon + '#arrow-left'}></use> 
+          </svg>
+          Сancel
+        </button> */}
         
       </FormikStep>
       {/* Second Step */}
@@ -310,14 +309,57 @@ export default function AddPetForm() {
       {/* Third Step */}
       <FormikStep label="More info" circleColor="#CCE4FB">
         {!(category === 'your-pet') &&
-          <RadioField
-            name="sex"
-            labelColor="#000"
-            options={[
-              { label: 'Female', value: 'female' },
-              { label: 'Male', value: 'male' },
-            ]}
-          />}
+  
+          <div className={css.form_radio}>
+
+            <div className={css.form_radio_btn}>
+              <input
+                className={css.form_radio_btn_input}
+                id="female"
+                type="radio"
+                name="sex"
+                value="female"
+                onChange={onChangeSex}
+                checked={sex === "female" ? true : false}
+              ></input>
+              <label
+                className={
+                  sex  === 'female'
+                    ? [css.button, css.active].join(' ')
+                    : css.button
+                }
+                htmlFor="female"
+              >
+                your pet
+              </label>
+            </div>
+            <div className={css.form_radio_btn}>
+              <input
+                className={css.form_radio_btn_input}
+                id="male"
+                type="radio"
+                name="sex"
+                value="male"
+                onChange={onChangeSex}
+                checked={sex === "male" ? true : false}
+              ></input>
+              <label
+                className={
+                  sex === "male"
+                    ? [css.button, css.active].join(' ')
+                    : css.button
+                }
+                htmlFor="male"
+              >
+                sell
+              </label>
+           
+            </div>
+          </div>}
+
+
+
+
         {/* Image */}
         <div>
           <p className={css.image_title}>Load the pet’s image:</p>
@@ -349,12 +391,11 @@ export default function AddPetForm() {
           />
         </div>
 
-
-        {/* for caterory = your pet */}
         {!(category === 'your-pet') && (
           <>
            
             <InputField
+             
               name="location"
               label="Location"
               placeholder="Type of location"

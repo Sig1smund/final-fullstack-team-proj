@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://team-project-pets-backend.onrender.com/';
 
@@ -20,6 +21,7 @@ export const registerUser = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      toast(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
