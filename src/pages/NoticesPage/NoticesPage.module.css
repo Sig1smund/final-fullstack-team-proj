@@ -41,7 +41,7 @@
         width:280px;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: -21px;
+        margin-bottom: 21px;
     }
 .addPetsButton_container {
     display: flex;
@@ -94,15 +94,15 @@
         padding-left: 16px;
         padding-right: 16px;
     }
-                .navDesktopContainer {
-                    /* margin-bottom: 42px; */
-                    display: flex;
-                    justify-content: space-between;
-                    /* align-items: center; */
-                }
-                                .navContainer {
-                                    margin-bottom: -3px;
-                                }
+    .navDesktopContainer {
+        margin-bottom: 42px;
+        display: flex;
+        justify-content: space-between;
+        /* align-items: center; */
+    }
+    .navContainer {
+        margin-bottom: -3px;
+    }
        
     
 }
