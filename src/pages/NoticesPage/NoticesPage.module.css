@@ -34,7 +34,7 @@
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     .navContainer {
         display: flex;
         width:280px;
