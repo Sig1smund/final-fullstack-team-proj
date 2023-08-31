@@ -40,7 +40,7 @@ const LoginForm = () => {
                     <label className={styles.formLabel}>
                         <input
                             className={`${styles.formInput} ${errors.email ? styles.error : ''} ${
-                                watch('email') && !errors.email ? styles.success : styles.error
+                                watch('email') && !errors.email ? styles.success : ''
                             }`}
                             placeholder="Email"
                             {...register('email')}
