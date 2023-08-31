@@ -19,13 +19,13 @@ export default function OurFriendsList() {
                                     </a>
                                 </div>
                                 <div className={s.details}>
-                                    <p className={s.infoTitle}>Time</p>
+                                    <p className={s.infoTitle}>Time:</p>
                                     <p className={s.infoDetails}>{service.workdays}{'-'}{service.workdays}</p>
-                                    <p className={s.infoTitle}>Adress</p>
+                                    <p className={s.infoTitle}>Adress:</p>
                                     <p className={s.infoDetails}>{service.adress || 'website only'}</p>
-                                    <p className={s.infoTitle}>Email</p>
-                                    <a href="mailto:">{service.email || 'phone only'}</a>
-                                    <p className={s.infoTitle}>Phone</p>
+                                    <p className={s.infoTitle}>Email:</p>
+                                    <p className={s.infoDetails} href="mailto:">{service.email || 'phone only'}</p>
+                                    <p className={s.infoTitle}>Phone:</p>
                                     <a href='tel:'>{service.phone || 'email only'}</a>
                                 </div>
                             </div>

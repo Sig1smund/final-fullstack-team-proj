@@ -63,10 +63,12 @@ export default function NoticesPage() {
       <NoticesSearch />
       <div className={styles.navContainer}>
         <div className={styles.navDesktopContainer}> <NoticesCategoriesNav />
-          <div className={styles.navRightContainer}>
-            <NoticesFilters />
-            <div className={styles.addPetsButton_container}> <AddPetButton /></div>
-          </div></div>
+
+        <div className={styles.navRightContainer}>
+          <NoticesFilters />
+          <div className={styles.addPetsButton_container}> <AddPetButton /></div>
+        </div>
+        </div>
       </div>
       <Outlet />
       {categoryName
