@@ -1,15 +1,21 @@
 import { useSelector } from 'react-redux';
-import { selectIsDeleting } from 'redux/auth/selectors';
-import { selectNotices, selectIsNoticesLoading } from 'redux/notices/selectors';
+import {
+  selectNotices,
+  selectIsNoticesLoading,
+  selectIsDeleting,
+  selectTotal,
+} from 'redux/notices/selectors';
 
 export default function useNotices() {
   const notices = useSelector(selectNotices);
   const isLoading = useSelector(selectIsNoticesLoading);
   const isDeleting = useSelector(selectIsDeleting);
+  const total = useSelector(selectTotal);
 
   return {
     notices,
     isLoading,
     isDeleting,
+    total,
   };
 }

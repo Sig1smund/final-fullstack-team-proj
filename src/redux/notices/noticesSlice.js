@@ -10,6 +10,7 @@ import {
 
 const initialState = {
   notices: [],
+  total: 0,
   isLoading: false,
   isDeleting: false,
   error: null,
@@ -25,6 +26,7 @@ const noticesSlice = createSlice({
       })
       .addCase(getNotices.fulfilled, (state, action) => {
         state.notices = action.payload.notices;
+        state.total = action.payload.total;
         state.isLoading = false;
       })
       .addCase(getNotices.rejected, (state, action) => {
