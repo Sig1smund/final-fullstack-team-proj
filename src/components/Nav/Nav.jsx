@@ -17,7 +17,12 @@ export default function Nav() {
       </NavLink>
       <NavLink
         className={
-          location.pathname === '/notices'
+          location.pathname === '/notices/sell' ||
+          location.pathname === '/notices' ||
+          location.pathname === '/notices/in-good-hands' ||
+          location.pathname === '/notices/favorite' ||
+          location.pathname === '/notices/lost-found' ||
+          location.pathname === '/notices/own'
             ? [css.find, css.active].join(' ')
             : css.find
         }
