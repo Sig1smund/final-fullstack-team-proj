@@ -1,0 +1,154 @@
+.mainButton {
+  composes: filterButton from '../../global.css';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+  .activeFilter{
+    background:  linear-gradient(315deg, #419EF1 0%, #9BD0FF 100%);
+    border: none;
+    color: var(--white-color)
+  }
+
+ .filtersContainer {
+  position: relative;
+ } 
+  
+  .dropdown {
+    composes: shadow from '../../global.css';
+    position: absolute;
+    right: 0;
+    top: 50px;
+    z-index: 10;
+    display: flex;
+    width: 152px;
+    padding: 14px 8px;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    border-radius: 20px;
+    background: var(--white-color)
+  }
+  
+  .open {
+    min-height: 334px; 
+  }
+
+  .close{
+    min-height: 118px;
+  }
+  
+  .filterGroup {
+    display: flex;
+    width: 136px;
+    padding: 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 20px;
+    background: var(--light-blue-color);
+  }
+  
+  .filterSubButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    font-family: 'Inter';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    color: var(--blue-color);
+  }
+  
+  .filterOptions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .selectedFilters {
+    display: flex;
+    gap: 10px;
+  }
+
+  .filterButtonSelected{
+    composes: shadow from '../../global.css';
+    display: inline-flex;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    border-radius: 20px;
+    background: var(--white-color);
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: var(--blue-color);
+
+  }
+
+  .filtersLeftContainer{
+    display: flex;
+    gap: 17px;
+    align-items: center;
+  }
+
+  .title {
+    color: var(--blue-color);
+    font-family: 'Manrope';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.64px;
+    margin: 0;
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Inter';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 130%;
+    color: var(--blue-color);
+  }
+  
+  .label input[type="checkbox"] {
+    display: none;
+  }
+
+  .label svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+  }
+
+  .label
+   input[type="checkbox"]:checked + svg {
+    fill: var(--blue-color);
+  }
+
+  .icon{
+    stroke: var(--blue-color);
+    stroke-width: 1.5px;
+    stroke-linecap: "round";
+    stroke-linejoin: "round";
+  }
+
+  .icon.active{
+    stroke: var(--white-color);
+  }

@@ -61,6 +61,11 @@
                       margin-bottom: 42px;
                 }
 
+    .navRightContainer {
+        display: flex;
+        gap: 12px;
+    }
+
     .container{
         width: 100%;
         margin-left: auto;

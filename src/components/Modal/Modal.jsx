@@ -10,15 +10,17 @@ const modalRoot = document.querySelector('#modal-root');
 
 const Modal = ({ children, isOpen, onClose }) => {
 // no scroll content
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     document.body.style.overflow = 'hidden';
-  //   }
-  //   if (!isOpen) {
-  //     document.body.style.overflow = 'scroll';
-  //   }
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+  
+    return () => {
+      document.body.style.overflow = 'unset';
+    }
     
-  // }, [isOpen]);
+}, [isOpen]);
+
   
   //THIS SHIT DOESNT WORK!!!
 
