@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import Modal from '../Modal'
 import AttentionModal from '../AttentionModal'
 import useAuth from "hooks/useAuth";
-// import { NavLink, useLocation} from 'react-router-dom';
 import styles from './AddPetButton.module.css'
 import plussmall from '../../images/sprite.svg';
 
@@ -15,29 +14,30 @@ export default function AddPetButton() {
 
   const handrer = () => {
     if (isLoggedIn) {
-      navigate('/add-pet');
+     navigate('/add-pet');
     } else {
       setIsAttentionModalOpen(true);
     }
   }
 
-//    const location = useLocation();
+    const location = useLocation();
     return (
       <>
-        <div
-        className={styles.button}
+        <NavLink  to={'/add-pet'} state={{ from: location }}
+        className={styles.button}      
         onClick={handrer}>
        Add Pet
        <svg  className={styles.plusIcon}  width={24} height={24}>
         <use href={plussmall + '#logo'}></use>
       </svg>
-       </div>
+       </NavLink>
       {isAttentionModalOpen && (
         <Modal isOpen={isAttentionModalOpen} onClose={()=> setIsAttentionModalOpen(false)}>
           <AttentionModal />
         </Modal>
       )}
-    </>
+      </>
+      // to={'/add-pet'}
 //         to="/add-pet"
 //         state={{from:location}}
 //       >

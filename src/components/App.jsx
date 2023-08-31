@@ -7,6 +7,8 @@ import SharedLayout from '../components/SharedLayout';
 import { RestrictedRoute } from './RedirectedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import Spinner from 'utils/Spinner';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HomePage = lazy(() => import('../pages/MainPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
@@ -22,35 +24,64 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(current());  
+    dispatch(current());
   }, [dispatch]);
 
   return (
-    useAuth.isRefreshing
-      ? <Spinner />
-      : <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/register" element={
-            <RestrictedRoute redirectTo="/user" component={<RegisterPage />} />
-          } />
-          <Route path="/login" element={
-            <RestrictedRoute redirectTo="/user" component={<LoginPage />} />
-          } />
-          <Route path="/user" element={
-            <PrivateRoute redirectTo="/login" component={<UserPage />} />
-          } />
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/friends" element={<OurFriendsPage />} />
-          <Route path="/add-pet" element={
-            <PrivateRoute redirectTo='/user' component={<AddPetPage />} />
-          } />
-          <Route path="/notices" element={<NoticesPage />} />
-          <Route path="/notices/:categoryName"  element={<NoticesPage />} /> 
-          <Route path="*" element={<NotFound />}
-          />
-
-        </Route>
-      </Routes >
+    <>
+      {useAuth.isRefreshing ? (
+        <Spinner />
+      ) : (
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<HomePage />} />
+            <Route
+              path="/register"
+              element={
+                <RestrictedRoute
+                  redirectTo="/user"
+                  component={<RegisterPage />}
+                />
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <RestrictedRoute redirectTo="/user" component={<LoginPage />} />
+              }
+            />
+            <Route
+              path="/user"
+              element={
+                <PrivateRoute redirectTo="/login" component={<UserPage />} />
+              }
+            />
+            <Route path="/news" element={<NewsPage />} />
+            <Route path="/friends" element={<OurFriendsPage />} />
+            <Route
+              path="/add-pet"
+              element={
+                <PrivateRoute redirectTo="/user" component={<AddPetPage />} />
+              }
+            />
+            <Route path="/notices" element={<NoticesPage />} />
+            <Route path="/notices/:categoryName" element={<NoticesPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      )}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+    </>
   );
-}
+};
