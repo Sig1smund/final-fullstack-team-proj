@@ -55,6 +55,7 @@
     font-weight: 700;
     line-height: normal;
     color: var(--blue-color);
+    margin-bottom: 16px;
 }
 
 .thumb {
@@ -80,4 +81,24 @@
 
 .image {
     display: block;
+}
+
+.infoTitle {
+    margin: 0;
+    padding: 0;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.infoDetails {
+    margin: 0;
+    padding: 0;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight:unset;
+    line-height: normal;
 }
