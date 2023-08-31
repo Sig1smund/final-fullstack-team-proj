@@ -124,7 +124,7 @@ export default function NoticeCategoryItem({ item, favHandler, favorites }) {
                   <use href={svg + '#clock'}></use>
                 </svg>
                 <p>
-                  {age < 1 && `<1 ${'min_year'} `}
+                  {age < 1 && `<1 ${'year'} `}
                   {age === 1 && `1 ${'year'}`}
                   {age > 1 && `${age} ${'years'}`}
                 </p>
