@@ -1,6 +1,5 @@
 .button {
   composes: lostAndFoundButton from '../../global.css';
-  /* margin-right: 8px; */
 }
 
 .button:hover {
@@ -15,7 +14,7 @@
 
 @media screen and (max-width: 767px) {
   .container {
-    margin-bottom: 8px;
+    margin-bottom: 24px;
     min-height: 80px;
     max-width: 220px;
     display: flex;
@@ -25,20 +24,33 @@
   }
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (min-width: 768px) {
   .container {
-    margin-bottom: 14px;
+    /* margin-bottom: -120px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     min-height: 80px;
     max-width: 320px;
+    gap: 12px;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280px) {
+  .container {
+    /* margin-bottom: px; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-height: 90px;
+    width: 320px;
+    gap: 12px;
+  }
+}
+
+/* @media screen and (min-width: 1280px) {
   .button {
     margin-right: 8px;
   }
-}
+} */
 

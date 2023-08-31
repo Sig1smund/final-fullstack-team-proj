@@ -258,6 +258,7 @@
   .saveBtnWrapper{
     display: flex;
     justify-content: flex-end;   
+    gap: 5px;
   }
   .infoWrapper{
     display: flex;
@@ -267,4 +268,8 @@
         width: 355px;
        gap: 10px;
     }
+
+    /* .error {
+        color: red;
+    } */
   }

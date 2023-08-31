@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
-
 // axios.defaults.baseURL = 'https://team-project-pets-backend.onrender.com/';
 
 // const setAuthHeader = token => {
@@ -25,6 +24,7 @@ export const getNotices = createAsyncThunk(
       const res = await axios.get(path);
       return res.data;
     } catch (error) {
+      toast(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -37,17 +37,7 @@ export const addNotice = createAsyncThunk(
       const res = await axios.post('api/notices', notice);
       return res.data;
     } catch (error) {
-      console.log('error.message', error.message);
-      toast(error.message, {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'colored',
-      });
+      toast(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -60,6 +50,7 @@ export const getOwnNotices = createAsyncThunk(
       const res = await axios.get('api/notices/own');
       return res.data;
     } catch (error) {
+      toast(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -72,6 +63,7 @@ export const getFavNotices = createAsyncThunk(
       const res = await axios.get('api/notices/favorites');
       return res.data;
     } catch (error) {
+      toast(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -84,6 +76,7 @@ export const getNotice = createAsyncThunk(
       const res = await axios.get(`api/notices/${noticeId}`);
       return res.data;
     } catch (error) {
+      toast(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -110,6 +103,7 @@ export const removeOwnNotice = createAsyncThunk(
       console.log('res ', res);
       return res.data;
     } catch (error) {
+      toast(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
