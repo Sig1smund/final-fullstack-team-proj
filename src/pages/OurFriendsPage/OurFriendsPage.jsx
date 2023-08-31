@@ -3,7 +3,8 @@ import { getServices } from "redux/services/operations";
 import Spinner from "utils/Spinner"
 import OurFriendsList from "components/OurFriendsList";
 import useServices from 'hooks/useServices';
-import {useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import s from './OurFriendsPage.module.css'
 
 export default function OurFriendsPage() {
     const dispatch = useDispatch();
@@ -15,7 +16,7 @@ export default function OurFriendsPage() {
     
     return (
         <>
-            <h1>Our friends</h1>
+            <h1 className={s.title}>Our friends</h1>
             {isLoading && <Spinner />}
             {services && <OurFriendsList />}
         </>

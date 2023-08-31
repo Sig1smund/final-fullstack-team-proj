@@ -1,0 +1,11 @@
+.title {
+    text-align: center;
+    font-family: Manrope;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--black-color);
+    margin-bottom: 60px;
+    margin-top: 80px;
+}
