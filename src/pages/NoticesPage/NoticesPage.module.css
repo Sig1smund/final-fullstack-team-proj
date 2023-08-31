@@ -26,7 +26,8 @@
         } */
 }
 
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 767px) {
     .navContainer {
         /* display: flex; */
         width:280px;
@@ -57,9 +58,9 @@
         justify-content: space-between;
         /* align-items: center; */
     }
-                .navContainer {
-                      margin-bottom: 42px;
-                }
+      .navContainer {
+        margin-bottom: 42px;
+    }
 
     .navRightContainer {
         display: flex;
