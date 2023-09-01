@@ -1,5 +1,5 @@
 import { useParams, useNavigate, Outlet } from "react-router-dom";
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getNotices, getFavNotices, getOwnNotices } from 'redux/notices/operations';
 import useNotices from "hooks/useNotices";
@@ -15,18 +15,28 @@ import Stack from '@mui/material/Stack';
 import styles from './NoticesPage.module.css'
 
 export default function NoticesPage() {
-  // const { notices, total } = useNotices();
-  const { notices } = useNotices();
+  const [prevCategoryName, setPrevCategoryName] = useState('sell');
+  const { notices, total } = useNotices();
   const [page, setPage] = useState(1);
   const { categoryName } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const catRef = useRef(categoryName);
 
   useEffect(() => {
     navigate('/notices/sell')
-      }, [navigate, dispatch]);
-
+  }, [navigate, dispatch]);
+  
+  useEffect(() => {
+    if (categoryName !== prevCategoryName) {
+      console.log(categoryName)
+      console.log(prevCategoryName);
+      // console.log(page);
+      setPrevCategoryName(categoryName);
+      setPage(1);
+    }
+    
+  }, [categoryName, prevCategoryName]);
+  console.log(page);
 
   useEffect(() => {
     if (categoryName === 'sell' || categoryName === 'lost-found' || categoryName === 'in-good-hands') {
@@ -41,23 +51,29 @@ export default function NoticesPage() {
       dispatch(getOwnNotices());
       navigate('/notices/own');
     }
-
-    if (categoryName !== catRef.current) {
-      setPage(1);
-      console.log('its diff');
-    }
     
   }, [categoryName, navigate, dispatch, page]);
+
+
+
 
   // const handlePagination = (pageNumber) => {
   //   setPage(pageNumber);
   //   return console.log(page);
 
   // }
-    const handleChange = (event, value) => {
+  const handleChange = (event, value) => {
     setPage(value);
-  };
-
+    };
+  
+  const countPages = () => {
+    const totalElements = Math.ceil((total) / 12)
+    if (totalElements === 'Infinty' || totalElements === 0) {
+      return page
+    }
+    return totalElements
+  }
+   
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Find your favorite pet</h1>
@@ -75,17 +91,18 @@ export default function NoticesPage() {
       {categoryName
         && <NoticesCategoriesList />
       }
-      {notices && <div className={styles.pagination}>
+      {notices.length && <div className={styles.pagination}>
         <Stack spacing={2}>
           <Pagination
-            count={5}
+            count={countPages()}
             page={page}
             onChange={handleChange}
             color='primary'
             variant="outlined"
             renderItem={(item) => (
               <PaginationItem sx={{
-                border: '1px solid #54ADFF', textAlign: 'center',
+                border: '1px solid #54ADFF',
+                textAlign: 'center',
                 fontFamily: 'Inter',
                 fontSize: '16px',
                 fontStyle: 'normal',
