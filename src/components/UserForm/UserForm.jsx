@@ -11,11 +11,7 @@ import Modal from 'components/Modal/Modal';
 import ModalApproveAction from 'components/ModalApproveAction/ModalApproveAction';
 import { toast } from 'react-toastify';
 import { Formik, Form, Field, ErrorMessage } from "formik";
-// import {
-//   FormikStepper,
-//   FormikStep,
-//   InputField,
-// } from 'formik-stepper';
+
 import * as Yup from 'yup';
 
 const userSchema = Yup.object().shape({
@@ -27,16 +23,7 @@ const userSchema = Yup.object().shape({
   phone: Yup.string().matches(/^\+\d{12}$/, 'Incorrect phone format').required(),
   city: Yup.string().matches(/^[a-zA-Z\u0080-\u024F]+(?:([\\ \\-\\']|(\\.\\ ))[a-zA-Z\u0080-\u024F]+)*$/, "Incorrect city format").required(),
   
-  
-  // password: Yup.string()
-  //   .required("Please enter a password")
-  //   .min(8, "Password must have at least 8 characters")
-  //   .matches(/[a-z]+/, "One lowercase character")
-  //   .matches(/[A-Z]+/, "One uppercase character")
-  //   .matches(/\d+/, "One number"),
 })
-
-
 
 export default function UserForm({ onSubmit, readonly, user, saveNewPhoto }) {
   
@@ -53,7 +40,7 @@ const initialState = {
 }
 
 
-const [state, setState]=useState(user || initialState);
+// const [state, setState]=useState(user || initialState);
 const [avatarURL, setAvatarURL]=useState(user.avatarURL || '');
 const [avatarFile, setAvatarFile] = useState('');
 const [modalActive, setModalActive] = useState(false);
@@ -72,12 +59,6 @@ const dispatch = useDispatch();
     await dispatch(logOut());
     setModalActive(false);
   };
-
-
-// const onChange = (e) => {
-//     const {name, value} = e.target;
-//     setState(state=>({...state, [name]: value}))
-// }
 
 const onChangeFile = event => {
       const file = event.target.files[0];
@@ -99,8 +80,8 @@ const inputPhotoRef = useRef();
   };
   const onConfirmNewAvatar = () => {
     // saveNewPhoto(avatarURL);
-    setState(state => ({ ...state, avatarFile }));
-    console.log('stateonLoad',state)
+    // setState(state => ({ ...state, avatarFile }));
+    // console.log('stateonLoad',state)
     
   };
   const onCancelNewAvatar = () => {
@@ -110,7 +91,7 @@ const inputPhotoRef = useRef();
  
 
   const handleSubmit = (values) => {
-    console.log("values", values);
+    // console.log("values", values);
     // event.preventDefault();
 
     const { name, email, phone, birthday, city } = values;
@@ -122,18 +103,11 @@ const inputPhotoRef = useRef();
       formWithData.append("phone", phone);
       formWithData.append("birthday", birthday);
       formWithData.append("city", city);
-      console.log("FormData",formWithData);
-      console.log("FD", avatarFile);
+      // console.log("FormData",formWithData);
+      // console.log("FD", avatarFile);
     
       onSubmit(formWithData);
   }
-
-
-  // <Form autoComplete="off" >
-  //     <label htmlFor="name"> Name </label>
-  //     <Field type="text" name="name" />
-  //   <ErrorMessage name="name" />
-    
 
 
     return (
@@ -249,7 +223,7 @@ const inputPhotoRef = useRef();
                 name='birthday'
                 // required 
                 className={css.input} 
-                placeholder='00.00.0000' 
+                placeholder='DD-MM-YYYY' 
                 // pattern='/^\d{1,2}\-\d{1,2}\-\d{4}$/'
                 // onChange={onChange}
                 readOnly={readonly}

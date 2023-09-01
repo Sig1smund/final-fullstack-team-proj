@@ -40,12 +40,6 @@ const validationSchema = Yup.object().shape({
   comments: Yup.string().max(120, 'Too Long!'),
 });
 
-// const initialState = {
-//   category: "",
-//   file: null,
-
-// };
-
 const initialValues = {
   //Personal details
   category: '',
@@ -74,16 +68,6 @@ export default function AddPetForm() {
   const location = useLocation();
   const backLink = useRef(location.state?.from ?? '/');
   const navigate = useNavigate();
-
-
-//  const onChangeCategory = useCallback(e => {
-//    setCategory(e.target.value);
-//  }, []);
-
-//  const onChangeSex = useCallback(e => {
-//    setSex(e.target.value);
-//  }, []);
-
 
   const onChangeCategory = e => {
     setCategory(e.target.value);
@@ -143,7 +127,7 @@ export default function AddPetForm() {
     if (category === 'your-pet') {
       navigate(`/user`);
     } else {
-      navigate(`/notises`);
+      navigate(`/notices`);
     }
   };
 
@@ -267,12 +251,7 @@ export default function AddPetForm() {
           </svg>
           Сancel
         </Link>
-        {/* <button type='button' className={css.backLink} onClick={Return}>
-          <svg className={css.logo} width="24" height="24">
-            <use href={icon + '#arrow-left'}></use> 
-          </svg>
-          Сancel
-        </button> */}
+     
       </FormikStep>
       {/* Second Step */}
       <FormikStep label="Personal details" circleColor="#54ADFF">
