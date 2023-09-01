@@ -21,7 +21,9 @@ export const registerUser = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      toast(error.message);
+      toast(error.response.data.message);
+      console.log('error', error);
+      // HttpError(error.status, error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -35,7 +37,7 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      toast(error.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -46,7 +48,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     await axios.post('api/users/logout');
     clearAuthHeader();
   } catch (error) {
-    toast(error.message);
+    toast(error.response.data.message);
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -75,7 +77,7 @@ export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
     // setAuthHeader(res.data.token);
     return res.data;
   } catch (error) {
-    toast(error.message);
+    toast(error.response.data.message);
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -88,7 +90,7 @@ export const updateUser = createAsyncThunk(
       // setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      toast(error.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -102,7 +104,7 @@ export const createPet = createAsyncThunk(
       // setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      toast(error.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -115,7 +117,7 @@ export const deletePet = createAsyncThunk(
       const res = await axios.delete(`api/pets/${petId}`);
       return res.data;
     } catch (error) {
-      toast(error.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -129,7 +131,7 @@ export const setFavNotice = createAsyncThunk(
       const res = await axios.patch(`api/notices/${noticeId}`);
       return res.data;
     } catch (error) {
-      toast(error.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
