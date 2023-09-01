@@ -28,15 +28,11 @@ export default function NoticesPage() {
   
   useEffect(() => {
     if (categoryName !== prevCategoryName) {
-      console.log(categoryName)
-      console.log(prevCategoryName);
-      // console.log(page);
       setPrevCategoryName(categoryName);
       setPage(1);
     }
     
   }, [categoryName, prevCategoryName]);
-  console.log(page);
 
   useEffect(() => {
     if (categoryName === 'sell' || categoryName === 'lost-found' || categoryName === 'in-good-hands') {
@@ -54,21 +50,13 @@ export default function NoticesPage() {
     
   }, [categoryName, navigate, dispatch, page]);
 
-
-
-
-  // const handlePagination = (pageNumber) => {
-  //   setPage(pageNumber);
-  //   return console.log(page);
-
-  // }
   const handleChange = (event, value) => {
     setPage(value);
     };
   
   const countPages = () => {
     const totalElements = Math.ceil((total) / 12)
-    if (totalElements === 'Infinty' || totalElements === 0) {
+    if (totalElements === 'Infinity' || totalElements === 0) {
       return page
     }
     return totalElements
