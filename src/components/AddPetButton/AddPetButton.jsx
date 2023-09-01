@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Modal from '../Modal'
 import AttentionModal from '../AttentionModal'
 import useAuth from "hooks/useAuth";
@@ -20,17 +20,17 @@ export default function AddPetButton() {
     }
   }
 
-    const location = useLocation();
+    // const location = useLocation();
     return (
       <>
-        <NavLink  to={'/add-pet'} state={{ from: location }}
-        className={styles.button}      
+        <button type="button"
+        className={styles.button}
         onClick={handrer}>
        Add Pet
        <svg  className={styles.plusIcon}  width={24} height={24}>
         <use href={plussmall + '#logo'}></use>
       </svg>
-       </NavLink>
+       </button>
       {isAttentionModalOpen && (
         <Modal isOpen={isAttentionModalOpen} onClose={()=> setIsAttentionModalOpen(false)}>
           <AttentionModal />

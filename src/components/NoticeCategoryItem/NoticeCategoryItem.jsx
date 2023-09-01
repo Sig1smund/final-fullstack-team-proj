@@ -10,11 +10,15 @@ import { removeOwnNotice } from '../../redux/notices/operations';
 import Modal from '../Modal/Modal';
 import ModalNotice from '../NoticeModal/NoticeModal';
 import Spinner from 'utils/Spinner';
+import ModalApproveAction from 'components/ModalApproveAction/ModalApproveAction';
+
 
 export default function NoticeCategoryItem({ item, favHandler, favorites }) {
   const { user, isLoggedIn, isRefreshing } = useAuth();
+
   const { isDeleting } = useNotices();
   const [openModal, setOpenModal] = useState(false);
+
   const close = () => setOpenModal(false);
 
   const {
@@ -33,6 +37,9 @@ export default function NoticeCategoryItem({ item, favHandler, favorites }) {
     // userIds,
   } = item;
 
+
+  const [isApproveModalOpen, setIsApproveModalOpen] = useState(false);
+
   const age = calculateAge(date);
   const city = cutSity(location);
   const dispatch = useDispatch();
@@ -40,13 +47,28 @@ export default function NoticeCategoryItem({ item, favHandler, favorites }) {
   const { categoryName } = useParams();
   const isOwnNotice = owner._id === user.id;
 
-  const removeOwnNot = id => {
-    if (!isLoggedIn) {
-      return;
-    }
-    console.log('id ', id);
-    dispatch(removeOwnNotice(id));
+ // const removeOwnNot = id => {
+ //     isLoggedIn ? dispatch(removeOwnNotice(id)) : setIsAttentionModalOpen(true);
+
+const openModalApp = () => {
+    setIsApproveModalOpen(true);
+    };
+
+const closeModal = () => {
+    setIsApproveModalOpen(false);
   };
+
+  const approveAction = (id) => {
+      dispatch(removeOwnNotice(id));
+      setIsApproveModalOpen(false);
+  };
+
+   // if (!isLoggedIn) {
+   //   return;
+    //}
+   // console.log('id ', id);
+  //  dispatch(removeOwnNotice(id));
+ // };
 
   let updetedCategory;
 
@@ -103,7 +125,7 @@ export default function NoticeCategoryItem({ item, favHandler, favorites }) {
                 <button
                   className={css.trash_btn}
                   type="button"
-                  onClick={() => removeOwnNot(_id)}
+                  onClick={() => setIsApproveModalOpen(true)}
                 >
                   <svg className={css.trash} width="24" height="24">
                     <use href={svg + '#trash-2'}></use>
@@ -166,6 +188,22 @@ export default function NoticeCategoryItem({ item, favHandler, favorites }) {
             </button>
           </div>
         </li>
+      )}
+
+           {isApproveModalOpen && (
+        <Modal isOpen={openModalApp} onClose={()=> setIsApproveModalOpen(false)}>
+          <ModalApproveAction
+          close={closeModal}
+          id={_id}
+          action={approveAction}
+          logo={'#trash-2'}>
+             <div className={css.modalText}>
+                      <div className={css.modalTitle}><div>Delete</div> <div>adverstiment?</div> </div>
+                    Are you sure you want to delete <b>“{name}”</b>?<br/>
+                    You can`t undo this action.
+                    </div>
+          </ModalApproveAction>
+        </Modal>
       )}
     </>
   );

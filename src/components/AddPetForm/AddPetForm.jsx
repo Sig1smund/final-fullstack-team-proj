@@ -4,12 +4,13 @@ import {
   InputField,
   // RadioField,
 } from 'formik-stepper';
+import { toast } from "react-toastify";
 import * as Yup from 'yup';
 import { addNotice } from 'redux/notices/operations';
 import { createPet } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import { useRef, useState } from 'react';
-import { useLocation, Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 // import "formik-stepper/dist/style.css";
 // import React, { useCallback } from 'react';
 // import { IoArrowBackCircleSharp } from 'react-icons/io5';
@@ -24,9 +25,8 @@ const validationSchema = Yup.object().shape({
     .max(16, 'Too Long!')
     .required('Enter a name'),
   // date: Yup.date().required('Required').format('DD-MM-YYYY', true),
-  date: Yup.date()
-    .typeError('The value must be a date (DD-MM-YYYY)')
-    .required('Enter a date of birth'),
+  // eslint-disable-next-line
+  date: Yup.string().matches(/^(0[1-9]|[12][0-9]|3[01])\-(0[1-9]|1[0-2])\-\d{4}$/, "Incorrect date format").required(),
   type: Yup.string()
     .min(2, 'Too Short!')
     .max(16, 'Too Long!')
@@ -59,15 +59,17 @@ export default function AddPetForm() {
   const dispatch = useDispatch();
 
   // const [state, setState] = useState(initialValues);
-  const [category, setCategory] = useState('');
-  const [sex, setSex] = useState('');
+  const [category, setCategory] = useState('sell');
+  const [sex, setSex] = useState('male');
   const [imageURL, setImageURL] = useState('');
   const [imageFile, setFile] = useState('');
 
   const inputPhotoRef = useRef();
-  const location = useLocation();
-  const backLink = useRef(location.state?.from ?? '/');
+  // const location = useLocation();
+  // const backLink = useRef(location.state?.from ?? '/');
   const navigate = useNavigate();
+
+ 
 
   const onChangeCategory = e => {
     setCategory(e.target.value);
@@ -97,6 +99,10 @@ export default function AddPetForm() {
     console.log('values', values);
 
     const { name, date, type, title, location, price, comments = '' } = values;
+
+    if (!sex) {
+      throw toast("Please, choose male or female ");
+    };
 
     const formData = new FormData();
 
@@ -142,7 +148,7 @@ export default function AddPetForm() {
         label: 'Next',
         style: { backgroundColor: 'var(--blue-color)' },
       }}
-      
+
       prevButton={{
         label: 'Back',
         style: { color: '#54ADFF', background: 'transparent' },
@@ -245,13 +251,20 @@ export default function AddPetForm() {
           </div>
         </div>
 
-        <Link className={css.backLink} to={backLink.current}>
-          <svg className={css.logo} width="24" height="24">
-            <use href={icon + '#arrow-left-1'}></use>
-          </svg>
-          Сancel
-        </Link>
-     
+       {/*<Link className={css.backLink} to={backLink.current}>
+         <svg className={css.logo} width="24" height="24">
+           <use href={icon + '#arrow-left-1'}></use>
+         </svg>
+         Сancel
+        </Link>*/}
+
+         <button  type="button" className={css.backLink} onClick={()=>navigate(-1)}>
+       <svg className={css.logo} width="24" height="24">
+           <use href={icon + '#arrow-left-1'}></use>
+         </svg>
+         Сancel
+        </button>
+
       </FormikStep>
       {/* Second Step */}
       <FormikStep label="Personal details" circleColor="#54ADFF">

@@ -1,5 +1,5 @@
 .container{
-  
+
   width: 280px;
   height: 456px;
   box-shadow:  3px 8px 14px 0px rgba(136, 198, 253, 0.19);
@@ -12,7 +12,7 @@
   transition: 200ms ease-in-out;
   margin-right: auto;
   margin-left: auto;
-  
+
   /* @media screen and (min-width: 768px) {
     margin-right: 0;
     margin-left: 0;
@@ -241,5 +241,30 @@
     .learn_svg {
       fill: var(--white-bckg-color);
     }
+  }
+}.modalTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 40px;
+  }
+}
+
+.modalText {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
   }
 }
