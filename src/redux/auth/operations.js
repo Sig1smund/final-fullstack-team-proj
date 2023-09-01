@@ -64,7 +64,7 @@ export const current = createAsyncThunk('auth/current', async (_, thunkAPI) => {
     const res = await axios.get('api/users/current');
     return res.data;
   } catch (error) {
-    toast(error.message);
+    // toast(error.message);
     return thunkAPI.rejectWithValue(error.message);
   }
 });

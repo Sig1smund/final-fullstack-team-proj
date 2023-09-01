@@ -15,7 +15,8 @@ import Stack from '@mui/material/Stack';
 import styles from './NoticesPage.module.css'
 
 export default function NoticesPage() {
-  const { notices, total } = useNotices();
+  // const { notices, total } = useNotices();
+  const { notices } = useNotices();
   const [page, setPage] = useState(1);
   const { categoryName } = useParams();
   const navigate = useNavigate();
