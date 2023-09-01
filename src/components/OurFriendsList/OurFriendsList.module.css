@@ -1,5 +1,4 @@
 .container {
-    /* width:1280px; */
     margin: 0 auto;
     padding: 0;
 }
@@ -40,7 +39,7 @@
     margin: 0;
     padding: 0;
     width: 280px;
-    height: 239px;
+    height: 267px;
 
     margin-bottom: 32px;
     border-radius: 40px;
@@ -57,7 +56,7 @@
         
             @media screen and (min-width:1280px) {
             width: 395px;
-                height: 287px;
+            height: 287px;
                 }
             }
 
@@ -68,17 +67,13 @@
     transform: transition;
 }
 
-/* .item:nth-child(3n){
-    margin-right: 0;
-} */
-
 .item:last-child {
     margin-right: 0;
 }
 
 .title {
     text-align: center;
-    font-family: Manrope;
+    font-family: 'Manrope';
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -96,11 +91,8 @@
 
 .thumb {
     display: flex;
-    /* align-items: center; */
     width: 100px;
     height: 68px;
-    /* padding: 11px 8.484px 10px 8px; */
-    /* overflow: hidden !important; */
             @media screen and (min-width: 768px) {
                     width: 124px;
                     height: 88px;
@@ -116,11 +108,9 @@
 
 .info {
     display: flex;
-    /* align-items: center; */
     margin-top: 0px;
     margin-left: 12px;
     margin-right: 12px;
-    /* margin-bottom: 16px; */
 }
 
 .details {
@@ -137,10 +127,37 @@
     
 }
 
+.dropdownContent {
+    position: absolute;
+    top: 95px;
+    left: 90px;
+    min-width: 120px;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--blue-color);
+    background: var(--milk-bckg-color);
+
+    @media screen and (min-width: 768px) {
+        font-size: 14px;
+            top: 100px;
+            left: 130px;
+            }
+        
+            @media screen and (min-width:1280px) {
+            top: 107px;
+            left: 170px;
+            }
+
+}
+
 .infoTitle {
     margin: 0;
     padding: 0;
-    font-family: Manrope;
+    font-family: 'Manrope';
     font-size: 12px;
     font-style: normal;
     font-weight: 600;
@@ -161,26 +178,55 @@
 .infoDetails {
     margin: 0;
     margin-bottom: 12px;
+    font-family: 'Manrope';
     padding: 0;
-    font-family: manrope;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    line-height: normal;
+    text-align: start;
+    background-color: var(--milk-bckg-color);
+    border: none;
     
         @media screen and (min-width: 768px) {
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 400;
                 margin-bottom: 16px;
         }
     
         @media screen and (min-width:1280px) {
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
             margin-bottom: 12px;
         }
 
+}
+
+.timeText {
+    font-family: 'Manrope';
+    font-size: 12px;
+    font-style: normal;
+    margin: 0;
+    font-weight: 400;
+    line-height: normal;
+    width: 100%;
+    height: auto;
+    color: var(--black-color);
+
+    @media screen and (min-width: 768px) {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    @media screen and (min-width:1280px) {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+    }
+}
+
+.active {
+    color: var(--blue-color)
+}
+
+.scheduleText{
+    margin: 0;
+    font-family: 'Manrope';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
