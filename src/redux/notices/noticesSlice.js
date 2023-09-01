@@ -46,7 +46,7 @@ const noticesSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(addNotice.fulfilled, (state, action) => {
-        state.notices = [...state.notices, action.payload.notice];
+        state.notices = [action.payload.notice, ...state.notices];
         state.isLoading = false;
       })
       .addCase(addNotice.rejected, (state, action) => {
@@ -105,4 +105,3 @@ const noticesSlice = createSlice({
 
 export const noticesReducer = noticesSlice.reducer;
 export const { updateGenderFilters, updateAgeFilters } = noticesSlice.actions;
-
