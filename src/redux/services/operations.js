@@ -8,7 +8,7 @@ export const getServices = createAsyncThunk(
       const res = await axios.get('api/services');
       return res.data.services;
     } catch (error) {
-      toast(error.message);
+      toast(error.response.data.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
