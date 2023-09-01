@@ -17,13 +17,16 @@ import * as Yup from 'yup';
 const userSchema = Yup.object().shape({
   
   name: Yup.string().min(2, 'Too Short!').max(16, 'Too Long!').required('*'),
-  // email: Yup.string().email('Invalid email').required('Required'),
+//  eslint-disable-next-line
   email: Yup.string().matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "Incorrect name format").min(2, 'Too Short!').max(255).required(),
+// eslint-disable-next-line
   birthday: Yup.string().matches(/^(0[1-9]|[12][0-9]|3[01])\-(0[1-9]|1[0-2])\-\d{4}$/, "Incorrect date format").required(),
   phone: Yup.string().matches(/^\+\d{12}$/, 'Incorrect phone format').required(),
   city: Yup.string().matches(/^[a-zA-Z\u0080-\u024F]+(?:([\\ \\-\\']|(\\.\\ ))[a-zA-Z\u0080-\u024F]+)*$/, "Incorrect city format").required(),
   
 })
+
+
 
 export default function UserForm({ onSubmit, readonly, user, saveNewPhoto }) {
   
@@ -40,7 +43,7 @@ const initialState = {
 }
 
 
-// const [state, setState]=useState(user || initialState);
+const [state, setState]=useState(user || initialState);
 const [avatarURL, setAvatarURL]=useState(user.avatarURL || '');
 const [avatarFile, setAvatarFile] = useState('');
 const [modalActive, setModalActive] = useState(false);
@@ -59,6 +62,12 @@ const dispatch = useDispatch();
     await dispatch(logOut());
     setModalActive(false);
   };
+
+
+// const onChange = (e) => {
+//     const {name, value} = e.target;
+//     setState(state=>({...state, [name]: value}))
+// }
 
 const onChangeFile = event => {
       const file = event.target.files[0];
@@ -80,8 +89,8 @@ const inputPhotoRef = useRef();
   };
   const onConfirmNewAvatar = () => {
     // saveNewPhoto(avatarURL);
-    // setState(state => ({ ...state, avatarFile }));
-    // console.log('stateonLoad',state)
+    setState(state => ({ ...state, avatarFile }));
+    console.log('stateonLoad',state)
     
   };
   const onCancelNewAvatar = () => {
@@ -91,7 +100,7 @@ const inputPhotoRef = useRef();
  
 
   const handleSubmit = (values) => {
-    // console.log("values", values);
+    console.log("values", values);
     // event.preventDefault();
 
     const { name, email, phone, birthday, city } = values;
@@ -103,11 +112,18 @@ const inputPhotoRef = useRef();
       formWithData.append("phone", phone);
       formWithData.append("birthday", birthday);
       formWithData.append("city", city);
-      // console.log("FormData",formWithData);
-      // console.log("FD", avatarFile);
+      console.log("FormData",formWithData);
+      console.log("FD", avatarFile);
     
       onSubmit(formWithData);
   }
+
+
+  // <Form autoComplete="off" >
+  //     <label htmlFor="name"> Name </label>
+  //     <Field type="text" name="name" />
+  //   <ErrorMessage name="name" />
+    
 
 
     return (
@@ -223,7 +239,7 @@ const inputPhotoRef = useRef();
                 name='birthday'
                 // required 
                 className={css.input} 
-                placeholder='DD-MM-YYYY' 
+                placeholder='00.00.0000' 
                 // pattern='/^\d{1,2}\-\d{1,2}\-\d{4}$/'
                 // onChange={onChange}
                 readOnly={readonly}
